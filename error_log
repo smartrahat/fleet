@@ -1,0 +1,8 @@
+[17-Aug-2017 11:43:48 UTC] PHP Fatal error:  Class 'App\Owner' not found in /home/absc16/public_html/fleet/root/app/Repositories/vehicleRepository.php on line 26
+[17-Aug-2017 11:55:18 UTC] PHP Fatal error:  Call to a member function format() on null in /home/absc16/public_html/fleet/root/storage/framework/views/ef297324c7ac1f26fb4f3074e819eb897a41676c.php on line 37
+[17-Aug-2017 11:56:01 UTC] PHP Fatal error:  Call to a member function format() on null in /home/absc16/public_html/fleet/root/storage/framework/views/ef297324c7ac1f26fb4f3074e819eb897a41676c.php on line 37
+[17-Aug-2017 11:56:58 UTC] PHP Fatal error:  Call to a member function format() on null in /home/absc16/public_html/fleet/root/storage/framework/views/ef297324c7ac1f26fb4f3074e819eb897a41676c.php on line 37
+[17-Aug-2017 11:58:40 UTC] PHP Fatal error:  Call to a member function format() on null in /home/absc16/public_html/fleet/root/storage/framework/views/ef297324c7ac1f26fb4f3074e819eb897a41676c.php on line 37
+[17-Aug-2017 12:02:06 UTC] PHP Fatal error:  Call to a member function format() on null in /home/absc16/public_html/fleet/root/storage/framework/views/ef297324c7ac1f26fb4f3074e819eb897a41676c.php on line 35
+[17-Aug-2017 12:02:10 UTC] PHP Fatal error:  Call to a member function format() on null in /home/absc16/public_html/fleet/root/storage/framework/views/ef297324c7ac1f26fb4f3074e819eb897a41676c.php on line 35
+[17-Aug-2017 12:02:19 UTC] PHP Fatal error:  Call to a member function format() on null in /home/absc16/public_html/fleet/root/storage/framework/views/ef297324c7ac1f26fb4f3074e819eb897a41676c.php on line 35
