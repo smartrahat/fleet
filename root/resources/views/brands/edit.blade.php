@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 {{ Form::label('name','Brand Name:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
-                                    {{ Form::text('name',null,['class' => 'form-control']) }}
+                                    {{ Form::text('brand',null,['class' => 'form-control']) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -70,7 +70,11 @@
                             </div>
                             <h2 class="panel-title">Brands of Vehicle</h2>
                         </header>
-
+                        <div class="col-md-12">
+                            @if(Session::has('success'))
+                                <div class="alert alert-success">{{ Session::get('success') }}</div>
+                            @endif
+                        </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-condensed mb-none">
@@ -86,7 +90,7 @@
                                     @foreach($brands as $brand)
                                         <tr>
                                             <td>{{ $brand->id }}</td>
-                                            <td>{{ $brand->brand }}</td>
+                                            <td>{{ $brand->name }}</td>
                                             <td>{{ $brand->description }}</td>
                                             <td>
                                                 {{ Form::open(['action'=>['BrandController@destroy',$brand->id],'method'=>'delete']) }}

@@ -29,8 +29,8 @@
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::open(['action' => 'VehicleController@store','method'=>'post','class'=>'form-horizontal']) }}
-                            @include('vehicle.form',['submitButtonText'=>'Save'])
+                            {{ Form::open(['action' => 'ProgramController@store','method'=>'post','class'=>'form-horizontal']) }}
+                            @include('program.form',['submitButtonText'=>'Save'])
 
                             {{ Form::close() }}
                         </div>

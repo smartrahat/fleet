@@ -72,5 +72,30 @@ Route::get('driver/edit/{id}','DriverController@edit');
 Route::patch('driver/{id}/update','DriverController@update');
 Route::delete('driver/delete/{id}','DriverController@destroy');
 
+//Party routes
+Route::get('parties', 'PartyController@index');
+Route::get('party/create', 'PartyController@create');
+Route::post('party/store', 'PartyController@store');
+Route::get('party/edit/{id}','PartyController@edit');
+Route::patch('party/{id}/update','PartyController@update');
+Route::delete('party/delete/{id}','PartyController@destroy');
+
+//Program routes
+Route::get('programs', 'ProgramController@index');
+Route::get('program/create', 'ProgramController@create');
+Route::post('program/store', 'ProgramController@store');
+Route::get('program/edit/{id}','ProgramController@edit');
+Route::patch('program/{id}/update','ProgramController@update');
+Route::delete('program/delete/{id}','ProgramController@destroy');
+
+//Trip routes
+Route::get('trips', 'TripController@index');
+Route::get('trip/create', 'TripController@create');
+Route::post('trip/store', 'TripController@store');
+Route::get('trip/edit/{id}','TripController@edit');
+Route::patch('trip/{id}/update','TripController@update');
+Route::delete('trip/delete/{id}','TripController@destroy');
+
+
 /** Company Route */
 Route::get('company/show/{id}','CompanyController@show');

@@ -91,7 +91,7 @@
                                 @foreach($types as $type)
                                     <tr>
                                         <td>{{ $type->id }}</td>
-                                        <td>{{ $type->name }}</td>
+                                        <td>{{ $type->type }}</td>
                                         <td>{{ $type->description }}</td>
                                         <td>
                                             {{ Form::open(['action'=>['TypeController@destroy',$type->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}

@@ -110,6 +110,42 @@
                         </ul>
                     </li>
 
+                    <li class="nav-parent {{ isActive(['parties**','party/create*']) }}">
+                        <a>
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>Parties</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('parties') }}">
+                                <a href="{{action('PartyController@index')}}">Party list</a>
+                            </li>
+                            <li class="{{ isActive('party/create') }}">
+                                <a href="{{action('PartyController@create')}}">Add Party</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-parent {{ isActive(['programs*','program/create*','trips*','trip/create*']) }}">
+                        <a>
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>Programs</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('programs') }}">
+                                <a href="{{action('ProgramController@index')}}">Program list</a>
+                            </li>
+                            <li class="{{ isActive('program/create') }}">
+                                <a href="{{action('ProgramController@create')}}">Add Program</a>
+                            </li>
+                            <li class="{{ isActive('trips') }}">
+                                <a href="{{action('TripController@index')}}">Trip list</a>
+                            </li>
+                            <li class="{{ isActive('trip/create') }}">
+                                <a href="{{action('TripController@create')}}">Add Trip</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-parent">
                         <a>
                             <i class="fa fa-th-list" aria-hidden="true"></i>
