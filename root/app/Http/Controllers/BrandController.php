@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $brands = Brand::all();
