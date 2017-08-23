@@ -27,6 +27,12 @@ class BrandController extends Controller
         return view('brands.edit',compact('brand','brands'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     */
     public function update($id, Request $request)
     {
         $brand = Brand::query()->findOrFail($id);
@@ -35,11 +41,7 @@ class BrandController extends Controller
         return redirect('brands');
     }
 
-    /**
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     * @throws \Exception
-     */
+
     public function destroy($id)
     {
         $brand = Brand::query()->findOrFail($id);
