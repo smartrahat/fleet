@@ -35,6 +35,11 @@ class BrandController extends Controller
         return redirect('brands');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
+     */
     public function destroy($id)
     {
         $brand = Brand::query()->findOrFail($id);
