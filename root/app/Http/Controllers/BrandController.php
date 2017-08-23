@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -23,6 +28,10 @@ class BrandController extends Controller
         return redirect('brands');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $brands = Brand::all();
