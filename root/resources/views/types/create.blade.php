@@ -20,7 +20,7 @@
                                 {{ Form::label('name', 'Type', array('class'=>'col-md-3 control-label')) }}
                                 {{--<label class="col-md-3 control-label">Name</label>--}}
                                 <div class="col-md-6">
-                                    {{ Form::text('type', null, array('class' => 'form-control')) }}
+                                    {{ Form::text('name', null, array('class' => 'form-control')) }}
                                 </div>
                             </div>
                             <!-- Brand name ends-->

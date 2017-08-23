@@ -11,11 +11,11 @@ use App\Type;
 class VehicleRepository {
 
     public function brands(){
-        return Brand::all()->pluck('brand','id');
+        return Brand::all()->pluck('name','id');
     }
 
     public function types(){
-        return Type::all()->pluck('type','id');
+        return Type::all()->pluck('name','id');
     }
 
     public function status(){

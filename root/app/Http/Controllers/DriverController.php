@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 class DriverController extends Controller
 {
+
     public function create(){
         return view('driver.create');
     }

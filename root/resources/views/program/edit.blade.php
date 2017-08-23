@@ -29,8 +29,8 @@
                     </header>
 
                     <div class="panel-body">
-                        {{ Form::model($vehicle,['action' => ['VehicleController@update',$vehicle->id],'method'=>'patch','class'=>'form-horizontal']) }}
-                       @include('prgram.form',['submitButtonText'=>'Update'])
+                        {{ Form::model($program,['action' => ['ProgramController@update',$program->id],'method'=>'patch','class'=>'form-horizontal']) }}
+                       @include('program.form',['submitButtonText'=>'Update'])
                         {{ Form::close() }}
                     </div>
                 </section>

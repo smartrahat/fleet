@@ -37,6 +37,7 @@
                             <th>Driver Name</th>
                             <th>Party Name</th>
                             <th>SR Name</th>
+                            <th>Date</th>
                             <th>Serial Number</th>
                             <th>Action</th>
                         </tr>
@@ -44,12 +45,13 @@
                         <tbody>
                         @foreach($programs as $program)
                         <tr>
-                            <td>ID</td>
-                            <td>Vehicle Name</td>
-                            <td>Driver Name</td>
-                            <td>Party Name</td>
-                            <td>SR Name</td>
-                            <td>Serial Number</td>
+                            <td>{{ $program->id }}</td>
+                            <td>{{ $program->vehicle_id }}</td>
+                            <td>{{ $program->driver_id }}</td>
+                            <td>{{ $program->party_id }}</td>
+                            <td>{{ $program->employee_id }}</td>
+                            <td>{{ $program->date }}</td>
+                            <td>{{ $program->serial }}</td>
                             <td>
                                 {{ Form::open(['action'=>['ProgramController@destroy',$program->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                 <a href="{{ action('ProgramController@edit',$program->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

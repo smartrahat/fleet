@@ -15,6 +15,12 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('Programs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('vehicle_id');
+            $table->integer('driver_id');
+            $table->integer('party_id');
+            $table->integer('employee_id');
+            $table->date('date');
+            $table->integer('serial');
             $table->timestamps();
         });
     }

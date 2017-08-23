@@ -20,7 +20,7 @@ class ProgramController extends Controller
     public function create(){
         $repository = $this->repository;
         return view('program.create',compact('repository'));
-        //view te call korte hobe repository variable k
+        //je view te repository field gulo lagbe shei view te  repository pass korte hobe
     }
 
     public function index()

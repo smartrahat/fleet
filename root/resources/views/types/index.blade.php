@@ -36,7 +36,7 @@
                         <div class="form-group">
                             {{ Form::label('name', 'Type Name:', ['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
-                                {{ Form::text('type', null, ['class' => 'form-control','required']) }}
+                                {{ Form::text('name', null, ['class' => 'form-control','required']) }}
                             </div>
                         </div>
                         <div class="form-group">
@@ -91,7 +91,7 @@
                                 @foreach($types as $type)
                                     <tr>
                                         <td>{{ $type->id }}</td>
-                                        <td>{{ $type->type }}</td>
+                                        <td>{{ $type->name }}</td>
                                         <td>{{ $type->description }}</td>
                                         <td>
                                             {{ Form::open(['action'=>['TypeController@destroy',$type->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}

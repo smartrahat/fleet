@@ -2,26 +2,35 @@
 <div class="form-group">
     {{ Form::label('name', 'Vehicle Name', ['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
-        {{ Form::select('driver_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
+        {{ Form::select('vehicle_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
     </div>
 </div>
 <!-- Vehicle name ends-->
-<!-- brand Starts-->
+<!-- Driver Starts-->
 <div class="form-group">
     {{ Form::label('name', 'Driver', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('driver_id',$repository->drivers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Driver']) }}
     </div>
 </div>
-<!-- brand ends-->
-<!-- Type start-->
+<!-- driver ends-->
+<!-- party start-->
 <div class="form-group">
     {{ Form::label('name', 'Parties', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('party_id',$repository->parties(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Party']) }}
     </div>
 </div>
-<!-- Types ends-->
+<!-- party ends-->
+
+<!-- Employee start-->
+<div class="form-group">
+    {{ Form::label('name', 'SR Name', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::select('employee_id',$repository->employees(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select SR']) }}
+    </div>
+</div>
+<!-- Employee ends-->
 
 <!--Road permit starts-->
 <div class="form-group">
@@ -31,7 +40,7 @@
                 <span class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </span>
-                <input type="text" data-plugin-datepicker class="form-control">
+                {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
             </div>
         </div>
     </div>
@@ -43,7 +52,7 @@
 
     <label class="col-md-3 control-label">Serial Number</label>
     <div class="col-md-6">
-        {{ Form::text('serial_no',null, array('class' => 'form-control')) }}
+        {{ Form::text('serial',null, array('class' => 'form-control')) }}
     </div>
 </div>
 <!-- Engine Number ends-->

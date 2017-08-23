@@ -23,15 +23,15 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Status of Vehicle</h2>
+                            <h2 class="panel-title">Type of Vehicle</h2>
                         </header>
 
                         <div class="panel-body">
                             {{ Form::model($type,['action'=>['TypeController@update',$type->id],'method'=>'patch','class'=>'form-horizontal']) }}
                             <div class="form-group">
-                                {{ Form::label('name','Status Name:',['class'=>'col-md-3 control-label']) }}
+                                {{ Form::label('name','Type Name:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
-                                    {{ Form::text('type',null,['class' => 'form-control']) }}
+                                    {{ Form::text('name',null,['class' => 'form-control']) }}
                                 </div>
                             </div>
                             <div class="form-group">
