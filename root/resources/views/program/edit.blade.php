@@ -32,6 +32,7 @@
                         {{ Form::model($program,['action' => ['ProgramController@update',$program->id],'method'=>'patch','class'=>'form-horizontal']) }}
                        @include('program.form',['submitButtonText'=>'Update'])
                         {{ Form::close() }}
+
                     </div>
                 </section>
             </div>
