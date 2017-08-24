@@ -99,6 +99,11 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="no-print">
+                    <div class="col-md-12 text-center">
+                        {!! $vehicles->appends(Request::except('page'))->links() !!}
+                    </div>
+                </div>
             </div>
         </section>
     </section>

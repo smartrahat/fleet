@@ -89,7 +89,7 @@
                                             <td>{{ $status->name }}</td>
                                             <td>{{ $status->description }}</td>
                                             <td>
-                                                {{ Form::open(['action'=>['StatusController@destroy',$status->id],'method'=>'delete']) }}
+                                                {{ Form::open(['action'=>['StatusController@destroy',$status->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                                 <a href="{{ action('StatusController@edit',$status->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                 {{ Form::submit('X',['class'=>'btn btn-danger']) }}
                                                 {{ Form::close() }}
@@ -108,3 +108,12 @@
         </section>
     <!-- end: page -->
 @endsection
+
+@section('script')
+    <script>
+        function confirmDelete(){
+            var x = confirm('Are you sure you want to delete this status?');
+            return !!x;
+        }
+    </script>
+@stop

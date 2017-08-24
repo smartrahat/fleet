@@ -46,11 +46,11 @@
                                 <tr>
                                     <td>{{$party->id}}</td>
                                     <td>{{$party->name}}</td>
-                                    <td>{{$party->f_name}}</td>
+                                    <td>{{$party->contact_person}}</td>
                                     <td>{{$party->address}}</td>
-                                    <td>{{$party->nid_no}}</td>
+                                    <td>{{$party->nid}}</td>
                                     <td>{{$party->email}}</td>
-                                    <td>{{$party->mobile_no}}</td>
+                                    <td>{{$party->mobile}}</td>
                                     <td>
                                         {{ Form::open(['action'=>['PartyController@destroy',$party->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('PartyController@edit',$party->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

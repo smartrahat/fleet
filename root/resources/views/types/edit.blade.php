@@ -86,10 +86,10 @@
                                     @foreach($types as $type)
                                         <tr>
                                             <td>{{ $type->id }}</td>
-                                            <td>{{ $type->type }}</td>
+                                            <td>{{ $type->name }}</td>
                                             <td>{{ $type->description }}</td>
                                             <td>
-                                                {{ Form::open(['action'=>['TypeController@destroy',$type->id],'method'=>'delete']) }}
+                                                {{ Form::open(['action'=>['TypeController@destroy',$type->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                                 <a href="{{ action('TypeController@edit',$type->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                 {{ Form::submit('X',['class'=>'btn btn-danger']) }}
                                                 {{ Form::close() }}
@@ -108,3 +108,12 @@
         </section>
     <!-- end: page -->
 @endsection
+
+@section('script')
+    <script>
+        function confirmDelete(){
+            var x = confirm('Are you sure you want ot delete this type?');
+            return !!x;
+        }
+    </script>
+@stop

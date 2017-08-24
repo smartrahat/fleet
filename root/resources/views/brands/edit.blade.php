@@ -11,6 +11,8 @@
                             </a>
                         </li>
                         <li><span>Dashboard</span></li>
+                        <li><span>Brand</span></li>
+                        <li><span>Edit Brand</span></li>
                     </ol>
                     <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -31,7 +33,7 @@
                             <div class="form-group">
                                 {{ Form::label('name','Brand Name:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
-                                    {{ Form::text('brand',null,['class' => 'form-control']) }}
+                                    {{ Form::text('name',null,['class' => 'form-control']) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -46,11 +48,9 @@
                                     {{ Form::submit('Update',['class'=>'form-control btn btn-success']) }}
                                 </div>
                                 <div class="col-md-2">
-                                    {{--<input type="reset" value="Reset"  class="form-control btn btn-warning">--}}
                                     {{ Form::reset('Reset',['class'=>'form-control btn btn-warning']) }}
                                 </div>
                                 <div class="col-md-2">
-                                    {{--<input type="Button" value="Cancel"  class="form-control btn btn-danger">--}}
                                     <a href="{{ URL::previous() }}" role="button" class="form-control btn btn-danger">Back</a>
                                 </div>
                             </div>

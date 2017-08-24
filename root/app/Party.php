@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Party extends Model
 {
-    protected $fillable = ['name','f_name', 'address','nid_no', 'email', 'mobile_no'];
+    protected $fillable = ['name','contact_person', 'address','nid', 'email', 'mobile'];
 }

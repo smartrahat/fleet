@@ -13,21 +13,19 @@ class VehicleController extends Controller
 
     public function __construct(VehicleRepository $repository){
         $this->middleware('auth');
-        $this->repository=$repository;
-        //vehicleRepository is the class name & also the file name
+        $this->repository = $repository;
+    }
+
+    public function index()
+    {
+        //$repository = $this->repository;
+        $vehicles = Vehicle::query()->paginate(10);
+        return view('vehicle.index',compact('vehicles','repository'));
     }
 
     public function create(){
         $repository = $this->repository;
         return view('vehicle.create',compact('repository'));
-        //view te call korte hobe repository variable k
-    }
-
-    public function index()
-    {
-        $repository = $this->repository;
-        $vehicles = Vehicle::all();
-        return view('vehicle.index',compact('vehicles','repository'));
     }
 
     public function store(Request $request)

@@ -16,11 +16,11 @@ class CreatePartiesTable extends Migration
         Schema::create('parties', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string("f_name");
+            $table->string("contact_person");
             $table->text('address');
-            $table->string('nid_no');
+            $table->string('nid');
             $table->string('email');
-            $table->string('mobile_no');
+            $table->string('mobile');
             $table->timestamps();
         });
     }

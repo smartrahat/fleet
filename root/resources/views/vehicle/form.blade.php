@@ -1,6 +1,6 @@
 <!-- Vehicle Name Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Name', ['class'=>'col-md-3 control-label']) }}
+    {{ Form::label('name', 'Name:', ['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
         {{ Form::text('name', null, ['class' => 'form-control']) }}
     </div>
@@ -82,9 +82,9 @@
     <label class="col-md-3 control-label">Fitness</label>
     <div class="col-md-6">
         <div class="input-daterange input-group" data-plugin-datepicker data-date-format='yyyy-mm-dd'>
-														<span class="input-group-addon">
-															<i class="fa fa-calendar"></i>
-														</span>
+            <span class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </span>
             {{ Form::text('fitnessStart', null, array('class' => 'form-control')) }}
             <span class="input-group-addon">to</span>
             {{ Form::text('fitnessEnd', null, array('class' => 'form-control')) }}
@@ -98,9 +98,9 @@
     <label class="col-md-3 control-label">Registration Certification</label>
     <div class="col-md-6">
         <div class="input-daterange input-group" data-plugin-datepicker data-date-format='yyyy-mm-dd'>
-														<span class="input-group-addon">
-															<i class="fa fa-calendar"></i>
-														</span>
+            <span class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </span>
             {{ Form::text('regCertStart', null, array('class' => 'form-control')) }}
             <span class="input-group-addon">to</span>
             {{ Form::text('regCertEnd', null, array('class' => 'form-control')) }}
@@ -143,7 +143,7 @@
 <div class="form-group">
     <label class="col-md-3 control-label">Status</label>
     <div class="col-md-6">
-        {{ Form::select('status_id',$repository->status(),null,['class'=>'form-control populate','data-plugin-selectTwo']) }}
+        {{ Form::select('status_id',$repository->status(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select a status']) }}
     </div>
 </div>
 <!-- Status ends-->
@@ -156,7 +156,8 @@
         {{ Form::reset('Reset',['class'=>'form-control btn btn-warning']) }}
     </div>
     <div class="col-md-2">
-        <input type="Button" value="Cancel"  class="form-control btn btn-danger">
+        {{--<input type="Button" value="Cancel"  class="form-control btn btn-danger">--}}
+        <a href="{{ URL::previous() }}" role="button" class="form-control btn btn-danger">Cancel</a>
     </div>
 </div>
 <!-- ends-->
