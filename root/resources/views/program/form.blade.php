@@ -32,7 +32,7 @@
 </div>
 <!-- Employee ends-->
 
-<!--Road permit starts-->
+<!--Date starts-->
 <div class="form-group">
         <label class="col-md-3 control-label">Program Date</label>
         <div class="col-md-6">
@@ -45,9 +45,9 @@
         </div>
     </div>
 
-<!--Road permit ends-->
+<!--Date ends-->
 
-<!-- Engine Number Starts-->
+<!-- Serial Starts-->
 <div class="form-group">
 
     <label class="col-md-3 control-label">Serial Number</label>
@@ -55,7 +55,7 @@
         {{ Form::text('serial',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Engine Number ends-->
+<!-- Serial ends-->
 <!--Submit button -->
 <div class="form-group">
     <div class="col-md-2 col-md-offset-3">
@@ -65,7 +65,7 @@
         {{ Form::reset('Reset',['class'=>'form-control btn btn-warning']) }}
     </div>
     <div class="col-md-2">
-        <input type="Button" value="Cancel"  class="form-control btn btn-danger">
+        <a href="{{ URL::previous() }}" role="button" class="form-control btn btn-danger">Back</a>
     </div>
 </div>
 <!-- ends-->

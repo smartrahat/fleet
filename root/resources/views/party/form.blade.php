@@ -68,7 +68,7 @@
         {{ Form::reset('RESET',['class'=>'form-control btn btn-warning']) }}
     </div>
     <div class="col-md-2">
-        <input type="Button" value="Cancel"  class="form-control btn btn-danger">
+        <a href="{{ URL::previous() }}" role="button" class="form-control btn btn-danger">Back</a>
     </div>
 </div>
 <!-- ends-->
