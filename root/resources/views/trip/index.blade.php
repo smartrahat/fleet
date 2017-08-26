@@ -39,22 +39,8 @@
                                         <th>Empty Container</th>
                                         <th>Weight</th>
                                         <th>Fuel Quantity (Ltr)</th>
-                                        <th>Fuel Cost</th>
                                         <th>Rent</th>
                                         <th>Driver Advance</th>
-                                        <th>Driver Salary</th>
-                                        <th>Helper Salary</th>
-                                        <th>Driver Allowance</th>
-                                        <th>Helper Allowance</th>
-                                        <th>Labour Load Unload</th>
-                                        <th>Toll</th>
-                                        <th>Bridge</th>
-                                        <th>Scale</th>
-                                        <th>Wheel Maintenance</th>
-                                        <th>Guard/Bazar Donation</th>
-                                        <th>Container Charge</th>
-                                        <th>Post Gate Charge</th>
-                                        <th>Driver Cost</th>
                                         <th>Action</th>
                              </tr>
                         </thead>
@@ -70,22 +56,8 @@
                                     <td>{{$trip->emp_container}}</td>
                                     <td>{{$trip->weight}}</td>
                                     <td>{{$trip->fuel}}</td>
-                                    <td>{{$trip->fuel_cost}}</td>
                                     <td>{{$trip->rent}}</td>
                                     <td>{{$trip->driver_adv}}</td>
-                                    <td>{{$trip->driver_salary}}</td>
-                                    <td>{{$trip->helper_salary}}</td>
-                                    <td>{{$trip->driver_allow}}</td>
-                                    <td>{{$trip->helper_allow}}</td>
-                                    <td>{{$trip->labour}}</td>
-                                    <td>{{$trip->toll}}</td>
-                                    <td>{{$trip->bridge}}</td>
-                                    <td>{{$trip->scale}}</td>
-                                    <td>{{$trip->wheel}}</td>
-                                    <td>{{$trip->donation}}</td>
-                                    <td>{{$trip->container}}</td>
-                                    <td>{{$trip->port_gate}}</td>
-                                    <td>{{$trip->driver_cost}}</td>
                                     <td>
                                         {{ Form::open(['action'=>['TripController@destroy',$trip->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('TripController@edit',$trip->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

@@ -97,5 +97,13 @@ Route::patch('trip/{id}/update','TripController@update');
 Route::delete('trip/delete/{id}','TripController@destroy');
 
 
+//Trip Cost routes
+Route::get('tripCosts', 'TripCostController@index');
+Route::get('tripCost/create', 'TripCostController@create');
+Route::post('tripCost/store', 'TripCostController@store');
+Route::get('tripCost/edit/{id}','TripCostController@edit');
+Route::patch('tripCost/{id}/update','TripCostController@update');
+Route::delete('tripCost/delete/{id}','TripCostController@destroy');
+
 /** Company Route */
 Route::get('company/show/{id}','CompanyController@show');

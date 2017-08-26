@@ -125,7 +125,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['programs*','program/create*','trips*','trip/create*']) }}">
+                    <li class="nav-parent {{ isActive(['programs*','program/create*','trips*','trip/create*','tripCosts*','tripCost/create*']) }}">
                         <a>
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <span>Programs</span>
@@ -142,6 +142,12 @@
                             </li>
                             <li class="{{ isActive('trip/create') }}">
                                 <a href="{{action('TripController@create')}}">Add Trip</a>
+                            </li>
+                            <li class="{{ isActive('tripCosts') }}">
+                                <a href="{{action('TripCostController@index')}}">Trip Cost list</a>
+                            </li>
+                            <li class="{{ isActive('tripCost/create') }}">
+                                <a href="{{action('TripCostController@create')}}">Add Trip Cost</a>
                             </li>
                         </ul>
                     </li>
