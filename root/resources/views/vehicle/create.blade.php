@@ -29,7 +29,7 @@
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::open(['action' => 'VehicleController@store','method'=>'post','class'=>'form-horizontal']) }}
+                            {{ Form::model($vehicle = new \App\Vehicle,['action' => 'VehicleController@store','method'=>'post','class'=>'form-horizontal','files'=>true]) }}
                             @include('vehicle.form',['submitButtonText'=>'Save'])
 
                             {{ Form::close() }}

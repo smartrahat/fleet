@@ -29,6 +29,7 @@
         {{ Form::select('owner_id',$repository->owners(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle Owner']) }}
     </div>
 </div>
+
 <!-- Owner ends-->
 <!--Road permit starts-->
 <div class="form-group">
@@ -147,6 +148,18 @@
     </div>
 </div>
 <!-- Status ends-->
+<div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+    <label class="col-md-3 control-label" for="image">Image<span class="required">*</span>:</label>
+    <div class="col-md-9">
+        {!! Form::file('image',['onchange'=>'readURL(this)']) !!}
+        @if ($errors->has('image'))
+            <span class="help-block">
+                    <strong>{{ $errors->first('image') }}</strong>
+                </span>
+        @endif
+        <img src="{{ asset('/images/vehicles/'.$vehicle->image) }}" id="image" class="img-thumbnail" width="265" alt=""/>
+    </div>
+</div>
 <!--Submit button -->
 <div class="form-group">
     <div class="col-md-2 col-md-offset-3">
@@ -160,3 +173,19 @@
     </div>
 </div>
 <!-- ends-->
+
+@section('script')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result).width(150).height(150);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+@stop

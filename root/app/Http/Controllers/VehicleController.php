@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Repositories\VehicleRepository;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 
 class VehicleController extends Controller
@@ -30,7 +32,17 @@ class VehicleController extends Controller
 
     public function store(Request $request)
     {
-        Vehicle::create($request->all());
+        if($request->hasFile('image')){
+            $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'vehicles'"));
+            $name = $query[0]->Auto_increment.'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(base_path().'/images/vehicles/', $name);
+            $data = $request->except('image');
+            $data['image'] = $name;
+            Vehicle::query()->create($data);
+        }else{
+            Vehicle::query()->create($request->except('image'));
+        }
+        Session::flash('success','Vehicle has been added');
         return redirect('vehicles');
     }
 

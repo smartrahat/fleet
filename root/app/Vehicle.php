@@ -16,7 +16,7 @@ class Vehicle extends Model
         'roadPermitStart','roadPermitEnd','taxTokenStart','taxTokenEnd',
         'insuranceStart', 'insuranceEnd','fitnessStart','fitnessEnd',
         'regCertStart','regCertEnd','vehicleNo','engineNo'
-        ,'chasesNo','status_id'
+        ,'chasesNo','status_id','image'
     ];
 
 

@@ -48,4 +48,4 @@
     <!-- Head Libs -->
     <script src="{{asset('assets/vendor/modernizr/modernizr.js')}}"></script>
 
-    <link rel="stylesheet" href="{{ asset('assets/images/favicon.ico') }}"/>
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}"/>

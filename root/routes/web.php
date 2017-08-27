@@ -96,7 +96,6 @@ Route::get('trip/edit/{id}','TripController@edit');
 Route::patch('trip/{id}/update','TripController@update');
 Route::delete('trip/delete/{id}','TripController@destroy');
 
-
 //Trip Cost routes
 Route::get('tripCosts', 'TripCostController@index');
 Route::get('tripCost/create', 'TripCostController@create');
