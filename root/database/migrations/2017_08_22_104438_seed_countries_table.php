@@ -15,7 +15,7 @@ class SeedCountriesTable extends Migration
     public function up()
     {
         Schema::table('countries', function (Blueprint $table) {
-            $data = ['name'=>'Bangladesh'];
+            $data = ['country_id' => 1,'user_id'=> 1,'name'=>'Bangladesh'];
             Country::query()->create($data);
         });
     }

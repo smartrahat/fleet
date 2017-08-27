@@ -15,6 +15,7 @@ class CreateTripCostTable extends Migration
     {
         Schema::create('trip_costs', function (Blueprint $table) {
             $table->increments('id');
+            $table->authorities();
             $table->date('date');
             $table->integer('program_id');
             $table->string('driver_salary');

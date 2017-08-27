@@ -15,6 +15,7 @@ class CreatePartiesTable extends Migration
     {
         Schema::create('parties', function (Blueprint $table) {
             $table->increments('id');
+            $table->authorities();
             $table->string('name');
             $table->string("contact_person");
             $table->text('address');
