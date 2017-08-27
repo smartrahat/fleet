@@ -27,7 +27,7 @@
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::open(array('action' => 'DriverController@store','method'=>'post')) }}
+                            {{ Form::open(array('action' => 'DriverController@store','method'=>'post', 'files'=>true)) }}
                             @include('driver.form',['submitButtonText'=>'Save'])
                             {{ Form::close() }}
                         </div>

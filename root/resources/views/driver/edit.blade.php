@@ -27,7 +27,7 @@
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::model($driver,['action'=>['DriverController@update',$driver->id],'method'=>'patch','class'=>'form-horizontal'])}}
+                            {{ Form::model($driver,['action'=>['DriverController@update',$driver->id],'method'=>'patch','class'=>'form-horizontal','files'=>true])}}
                             @include('driver.form',['submitButtonText'=>'Update'])
                             {{ Form::close() }}
                         </div>

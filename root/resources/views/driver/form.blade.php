@@ -1,73 +1,111 @@
-<!-- Owner Name Starts-->
+<!-- Driver Name Starts-->
 <div class="form-group">
     {{ Form::label('name', 'Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('name', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Owner name ends-->
+<!-- Driver name ends-->
 
-<!-- Owner Father's Name Starts-->
+<!-- Driver Father's Name Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Father\'s Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('f_name', 'Father\'s Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('f_name',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Owner Father's name ends-->
+<!-- Driver Father's name ends-->
 
-<!-- Address Starts-->
+<!-- Driver Mother's Name Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Address', array('class'=>'col-md-3 control-label')) }}
-    {{--<label class="col-md-3 control-label">Name</label>--}}
+    {{ Form::label('m_name', 'Mother\'s Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::text('address',null, array('class' => 'form-control')) }}
+        {{ Form::text('m_name',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Address ends-->
+<!-- Driver Father's name ends-->
+
+<!--Present Address Starts-->
+<div class="form-group">
+    {{ Form::label('pre_address', 'Address', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('pre_address',null, array('class' => 'form-control')) }}
+    </div>
+</div>
+<!-- Present Address ends-->
+
+<!--Permanent Address Starts-->
+<div class="form-group">
+    {{ Form::label('perm_address', 'Address', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('perm_address',null, array('class' => 'form-control')) }}
+    </div>
+</div>
+<!-- Permanent Address ends-->
 
 <!-- NID Number Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'National ID No', array('class'=>'col-md-3 control-label')) }}
-    {{--<label class="col-md-3 control-label">Name</label>--}}
+    {{ Form::label('nid', 'National ID No', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::text('nid_no',null, array('class' => 'form-control')) }}
+        {{ Form::text('nid',null, array('class' => 'form-control')) }}
     </div>
 </div>
 <!-- NID Number ends-->
 
-<!-- Email Starts-->
+<!-- Driving Licence Number Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'E-mail', array('class'=>'col-md-3 control-label')) }}
-    {{--<label class="col-md-3 control-label">Name</label>--}}
+    {{ Form::label('d_licence', 'Driving Licence No', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::text('email',null, array('class' => 'form-control')) }}
+        {{ Form::text('d_licence',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Email ends-->
+<!--  Driving Licence Number ends-->
 
-<!-- Owner Name Starts-->
+<!-- Picture Starts-->
+<div class="form-group">
+    {{ Form::label('d_picture', 'Upload Picture', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::file('d_picture',null, array('class' => 'form-control')) }}
+    </div>
+</div>
+<!--  Picture ends-->
+
+<!-- Mobile Number Starts-->
 <div class="form-group">
     {{ Form::label('name', 'Contact Number', array('class'=>'col-md-3 control-label')) }}
-    {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('mobile_no', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Owner name ends-->
+<!-- Mobile Number ends-->
+
+<!-- Reference Person Starts-->
+<div class="form-group">
+    {{ Form::label('ref_name', 'E-mail', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('ref_name',null, array('class' => 'form-control')) }}
+    </div>
+</div>
+<!-- Reference person ends-->
+
+<!-- Appointment Person Name Starts-->
+<div class="form-group">
+    {{ Form::label('app_person', 'Appointment Person Name', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('app_person', null, array('class' => 'form-control')) }}
+    </div>
+</div>
+<!-- Driver name ends-->
 
 
 <div class="form-group">
     <div class="col-md-2 col-md-offset-3">
-        {{--<input type="submit" value="Update"  class="form-control btn btn-success">--}}
         {{ Form::submit($submitButtonText,['class'=>'form-control btn btn-success']) }}
     </div>
     <div class="col-md-2">
-        {{--<input type="reset" value="Reset"  class="form-control btn btn-warning">--}}
         {{ Form::reset('Reset',['class'=>'form-control btn btn-warning']) }}
     </div>
     <div class="col-md-2">
-        {{--<input type="Button" value="Cancel"  class="form-control btn btn-danger">--}}
         <a href="{{ URL::previous() }}" role="button" class="form-control btn btn-danger">Back</a>
     </div>
 </div>
