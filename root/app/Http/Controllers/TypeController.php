@@ -16,7 +16,8 @@ class TypeController extends Controller
 
     public function store(Request $request)
     {
-        Type::create($request->all());
+        Type::query()->create($request->all());
+        Session::flash('success','"'.$request->name.'" has been added!');
         return redirect('types');
     }
 

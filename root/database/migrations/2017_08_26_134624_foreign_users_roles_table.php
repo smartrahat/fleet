@@ -1,11 +1,10 @@
 <?php
 
-use App\Country;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SeedCountriesTable extends Migration
+class ForeignUsersRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +13,8 @@ class SeedCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('countries', function (Blueprint $table) {
-            $data = ['name'=>'Bangladesh'];
-            Country::query()->create($data);
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
@@ -27,8 +25,8 @@ class SeedCountriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('countries', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_role_id_foreign');
         });
     }
 }

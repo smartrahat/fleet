@@ -9,7 +9,7 @@ use App\Vehicle;
 class ProgramRepository {
 
     public function vehicles(){
-        return Vehicle::all()->pluck('name','id');
+        return Vehicle::all()->pluck('vehicleNo','id');
     }
 
     public function drivers(){

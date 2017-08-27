@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string("f_name");
             $table->text('address');
             $table->string('nid_no');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('mobile_no');
             $table->timestamps();
         });

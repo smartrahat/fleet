@@ -26,7 +26,7 @@ class SeedStatesTable extends Migration
                 ['country_id' => 1,'name'=>'Barisal Division'],
             ];
             foreach($data as $d){
-                State::create($d);
+                State::query()->create($d);
             }
         });
     }

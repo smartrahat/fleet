@@ -8,7 +8,7 @@
 <!-- Vehicle name ends-->
 <!-- brand Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Brand Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('brand_id', 'Brand Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('brand_id',$repository->brands(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Brand']) }}
     </div>
@@ -16,7 +16,7 @@
 <!-- brand ends-->
 <!-- Type start-->
 <div class="form-group">
-    {{ Form::label('name', 'Types', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('type_id', 'Types', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('type_id',$repository->types(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle Type']) }}
     </div>
@@ -24,7 +24,7 @@
 <!-- Types ends-->
 <!-- Owner start-->
 <div class="form-group">
-    {{ Form::label('name', 'Owner Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('owner_id', 'Owner Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('owner_id',$repository->owners(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle Owner']) }}
     </div>

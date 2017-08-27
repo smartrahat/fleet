@@ -1,6 +1,6 @@
 <!-- Vehicle Name Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Vehicle Name', ['class'=>'col-md-3 control-label']) }}
+    {{ Form::label('vehicle_id', 'Vehicle Name', ['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
         {{ Form::select('vehicle_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
     </div>
@@ -8,7 +8,7 @@
 <!-- Vehicle name ends-->
 <!-- Driver Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Driver', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('driver_id', 'Driver', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('driver_id',$repository->drivers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Driver']) }}
     </div>
@@ -16,7 +16,7 @@
 <!-- driver ends-->
 <!-- party start-->
 <div class="form-group">
-    {{ Form::label('name', 'Parties', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('party_id', 'Parties', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('party_id',$repository->parties(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Party']) }}
     </div>
@@ -25,7 +25,7 @@
 
 <!-- Employee start-->
 <div class="form-group">
-    {{ Form::label('name', 'SR Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('employee_id', 'SR Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('employee_id',$repository->employees(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select SR']) }}
     </div>

@@ -15,10 +15,12 @@
                 <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
             </div>
         </header>
-        <div class="col-md-12">
-            @if(Session::has('success'))
-                <div class="alert alert-success">{{ Session::get('success') }}</div>
-            @endif
+        <div class="row">
+            <div class="col-md-12">
+                @if(Session::has('success'))
+                    <div class="alert alert-success">{{ Session::get('success') }}</div>
+                @endif
+            </div>
         </div>
         <!-- start: page -->
         <div class="row">
@@ -30,12 +32,6 @@
                         </div>
                         <h2 class="panel-title">Brand of Vehicle</h2>
                     </header>
-
-                    <div class="col-md-12">
-                        @if(Session::has('success'))
-                            <div class="alert alert-success">{{ Session::get('success') }}</div>
-                        @endif
-                    </div>
 
                     <div class="panel-body">
                         {{ Form::open(['action'=>'BrandController@store','method'=>'post','class'=>'form-horizontal']) }}
