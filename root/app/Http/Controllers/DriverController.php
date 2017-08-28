@@ -23,7 +23,7 @@ class DriverController extends Controller
     public function store(Request $request)
     {
         if($request->hasFile('image')){
-            $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'vehicles'"));
+            $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'drivers'"));
             $name = $query[0]->Auto_increment.'.'.$request->file('image')->getClientOriginalExtension();
             $request->file('image')->move(base_path().'/../images/drivers/', $name);
             $data = $request->except('image');
