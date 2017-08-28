@@ -14,6 +14,7 @@ class ForeignVehiclesBrandsTable extends Migration
     public function up()
     {
         Schema::table('vehicles', function (Blueprint $table) {
+            $table->foreignAuthority();
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('type_id')->references('id')->on('types');
             $table->foreign('owner_id')->references('id')->on('owners');
@@ -29,6 +30,7 @@ class ForeignVehiclesBrandsTable extends Migration
     public function down()
     {
         Schema::table('vehicles', function (Blueprint $table) {
+            $table->foreignAuthority();
             $table->dropForeign(['brand_id']);
             $table->dropForeign(['owner_id']);
             $table->dropForeign(['type_id']);

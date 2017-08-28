@@ -17,7 +17,7 @@ class CreateTripTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->date('date');
-            $table->integer('program_id');
+            $table->integer('program_id')->unsigned();
             $table->string('loading');
             $table->string('unloading');
             $table->string('product');
