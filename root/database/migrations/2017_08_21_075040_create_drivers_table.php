@@ -18,10 +18,15 @@ class CreateDriversTable extends Migration
             $table->authorities();
             $table->string('name');
             $table->string("f_name");
-            $table->text('address');
-            $table->string('nid_no');
-            $table->string('email');
-            $table->string('mobile_no');
+            $table->string("m_name");
+            $table->string("pre_address");
+            $table->string("perm_address");
+            $table->string("nid");
+            $table->string("d_licence");
+            $table->string("image");
+            $table->string("mobile");
+            $table->string("ref_name");
+            $table->string("app_person");
             $table->timestamps();
         });
     }

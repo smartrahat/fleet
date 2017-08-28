@@ -62,26 +62,32 @@
 <!--  Driving Licence Number ends-->
 
 <!-- Picture Starts-->
-<div class="form-group">
-    {{ Form::label('d_picture', 'Upload Picture', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::file('d_picture',null, array('class' => 'form-control')) }}
+<div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+    <label class="col-md-3 control-label" for="image">Image<span class="required">*</span>:</label>
+    <div class="col-md-9">
+        {!! Form::file('image',['onchange'=>'readURL(this)']) !!}
+        @if ($errors->has('image'))
+            <span class="help-block">
+                    <strong>{{ $errors->first('image') }}</strong>
+                </span>
+        @endif
+        <img src="{{ asset('/images/drivers/'.$driver->image) }}" id="image" class="img-thumbnail" width="265" alt=""/>
     </div>
 </div>
 <!--  Picture ends-->
 
 <!-- Mobile Number Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Contact Number', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('name', 'Mobile Number', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::text('mobile_no', null, array('class' => 'form-control')) }}
+        {{ Form::text('mobile', null, array('class' => 'form-control')) }}
     </div>
 </div>
 <!-- Mobile Number ends-->
 
 <!-- Reference Person Starts-->
 <div class="form-group">
-    {{ Form::label('ref_name', 'E-mail', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('ref_name', 'Reference Person Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('ref_name',null, array('class' => 'form-control')) }}
     </div>
@@ -110,3 +116,20 @@
     </div>
 </div>
 <!-- ends-->
+
+
+@section('script')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result).width(150).height(150);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+@stop

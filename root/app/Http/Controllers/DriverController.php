@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Driver;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class DriverController extends Controller
@@ -21,7 +22,17 @@ class DriverController extends Controller
 
     public function store(Request $request)
     {
-        Driver::create($request->all());
+        if($request->hasFile('image')){
+            $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'vehicles'"));
+            $name = $query[0]->Auto_increment.'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(base_path().'/../images/drivers/', $name);
+            $data = $request->except('image');
+            $data['image'] = $name;
+            Driver::query()->create($data);
+        }else{
+            Driver::query()->create($request->except('image'));
+        }
+        Session::flash('success','Vehicle has been added');
         return redirect('drivers');
     }
 
@@ -41,8 +52,7 @@ class DriverController extends Controller
 
     public function destroy($id)
     {
-        $driver = Driver::
-        query()->findOrFail($id);
+        $driver = Driver::query()->findOrFail($id);
         $driver->delete();
         Session::flash('success','"'.$driver->name.'" has been deleted successfully!');
         return redirect('drivers');

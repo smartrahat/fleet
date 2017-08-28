@@ -35,7 +35,7 @@ class VehicleController extends Controller
         if($request->hasFile('image')){
             $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'vehicles'"));
             $name = $query[0]->Auto_increment.'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(base_path().'/images/vehicles/', $name);
+            $request->file('image')->move(base_path().'/../images/vehicles/', $name);
             $data = $request->except('image');
             $data['image'] = $name;
             Vehicle::query()->create($data);
