@@ -1,68 +1,76 @@
 @extends('layouts.app')
 
+@section('title','Login | Fleet')
+
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+    <section class="body-sign">
+
+        <div class="center-sign">
+            <a href="/" class="logo pull-left">
+                <img src="{{ asset('assets/images/logo.png') }}" height="54" alt="webpoint" />
+            </a>
+            <div class="panel panel-sign">
+                <div class="panel-title-sign mt-xl text-right">
+                    <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
+                </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+                    <form method="POST" action="{{ url('/login') }}">
+                        {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} mb-lg">
+                            <label>E-Mail Address</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                            <div class="input-group input-group-icon">
+                                <input type="email" class="form-control input-lg" name="email" value="{{ old('email') }}">
+                                    <span class="input-group-addon">
+                                        <span class="icon icon-lg">
+                                            <i class="fa fa-user"></i>
+                                        </span>
                                     </span>
-                                @endif
                             </div>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} mb-lg">
+                            <div class="clear-fix">
+                                <label class="pull-left">Password</label>
+                                <a class="pull-right" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
+                            <div class="input-group input-group-icon">
+                                <input type="password" class="form-control input-lg" name="password">
+                                    <span class="input-group-addon">
+                                        <span class="icon icon-lg">
+                                            <i class="fa fa-lock"></i>
+                                        </span>
+                                    </span>
+                            </div>
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="checkbox-custom checkbox-default">
+                                    <input id="RememberMe" type="checkbox" name="remember">
+                                    <label for="remember">Remember Me</label>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
+                            <div class="col-md-4 text-right">
+                                <button type="submit" class="btn btn-primary hidden-xs">Login</button>
+                                <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Login</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+            <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2017. All Rights Reserved.</p>
         </div>
-    </div>
-</div>
-@endsection
+    </section>
+@stop

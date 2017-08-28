@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="PublishConfigData" autoUpload="Always" serverName="fleet">
+    <serverData>
+      <paths name="fleet">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/public_html/fleet" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/root/.env" />
+            <excludedPath local="true" path="$PROJECT_DIR$/css" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+            <excludedPath path="/public_html/fleet/.well-known" />
+            <excludedPath path="/public_html/cgi-bin" />
+            <excludedPath path="/public_html/root/.env" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
