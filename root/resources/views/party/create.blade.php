@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+
+@section('title','Add Party')
+
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
@@ -27,7 +30,7 @@
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::open(array('action' => 'PartyController@store','method'=>'post')) }}
+                            {{ Form::open(array('action' => 'PartyController@store','method'=>'post','class'=>'form-horizontal')) }}
                                 @include('party.form',['submitButtonText'=>'Save'])
                             {{ Form::close() }}
                         </div>

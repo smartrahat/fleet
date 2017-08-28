@@ -1,6 +1,6 @@
 <!-- Owner Name Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('name', 'Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('name',null, array('class' => 'form-control')) }}
@@ -10,7 +10,7 @@
 
 <!-- Owner Father's Name Starts-->
 <div class="form-group">
-    {{ Form::label('contact_person', 'Contact Person', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('contact_person', 'Contact Person:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('contact_person',null, array('class' => 'form-control')) }}
@@ -20,7 +20,7 @@
 
 <!-- Address Starts-->
 <div class="form-group">
-    {{ Form::label('address', 'Address', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('address', 'Address:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('address',null, array('class' => 'form-control')) }}
@@ -30,7 +30,7 @@
 
 <!-- NID Number Starts-->
 <div class="form-group">
-    {{ Form::label('nid', 'National ID No', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('nid', 'National ID No:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('nid',null, array('class' => 'form-control')) }}
@@ -40,7 +40,7 @@
 
 <!-- Email Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'E-mail', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('name', 'E-mail:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('email',null, array('class' => 'form-control')) }}
@@ -50,7 +50,7 @@
 
 <!-- Owner Name Starts-->
 <div class="form-group">
-    {{ Form::label('mobil', 'Contact Number', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('mobil', 'Contact Number:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('mobile',null, array('class' => 'form-control')) }}

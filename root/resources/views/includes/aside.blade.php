@@ -15,14 +15,14 @@
                 <ul class="nav nav-main">
                     <li class="{{ isActive('/') }}">
                         <a href="{{ url('/') }}">
-                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-tachometer" aria-hidden="true"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-parent {{ isActive(['employees*','employee*']) }}">
                         <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <i class="fa fa-id-card-o" aria-hidden="true"></i>
                             <span>Employee</span>
                         </a>
                         <ul class="nav nav-children">
@@ -37,7 +37,7 @@
 
                     <li class="nav-parent {{ isActive(['drivers*','driver*']) }}">
                         <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <i class="fa fa-drivers-license" aria-hidden="true"></i>
                             <span>Driver</span>
                         </a>
                         <ul class="nav nav-children">
@@ -52,7 +52,7 @@
 
                     <li class="nav-parent">
                         <a>
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i class="fa fa-users" aria-hidden="true"></i>
                             <span>User</span>
                         </a>
                         <ul class="nav nav-children">
@@ -97,7 +97,7 @@
 
                     <li class="nav-parent {{ isActive(['owner*']) }}">
                         <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <i class="fa fa-user-secret" aria-hidden="true"></i>
                             <span>Owner</span>
                         </a>
                         <ul class="nav nav-children">
@@ -112,7 +112,7 @@
 
                     <li class="nav-parent {{ isActive(['part*']) }}">
                         <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <i class="fa fa-handshake-o" aria-hidden="true"></i>
                             <span>Parties</span>
                         </a>
                         <ul class="nav nav-children">
@@ -127,7 +127,7 @@
 
                     <li class="nav-parent {{ isActive(['programs*','program/create*','trips*','trip/create*','tripCosts*','tripCost/create*']) }}">
                         <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <i class="fa fa-ship" aria-hidden="true"></i>
                             <span>Programs</span>
                         </a>
                         <ul class="nav nav-children">
@@ -209,7 +209,7 @@
 
                     <li>
                         <a>
-                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                            <i class="fa fa-balance-scale" aria-hidden="true"></i>
                             <span>Purchase</span>
                         </a>
                         {{--<ul class="nav nav-children">--}}
