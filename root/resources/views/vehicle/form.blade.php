@@ -24,13 +24,13 @@
 <!-- Types ends-->
 <!-- Owner start-->
 <div class="form-group">
-    {{ Form::label('owner_id', 'Owner Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('owner_id', 'Owner', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('owner_id',$repository->owners(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle Owner']) }}
     </div>
 </div>
 
-<!-- Owner ends-->
+<!-- Owner -->
 <!--Road permit starts-->
 <div class="form-group">
     <label class="col-md-3 control-label">Road Permit</label>

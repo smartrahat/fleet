@@ -19,11 +19,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Owner routes
 Route::get('owners', 'OwnerController@index');
-Route::get('owner/create', 'OwnerController@create');
-Route::post('owner/store', 'OwnerController@store');
-Route::get('owner/edit/{id}','OwnerController@edit');
-Route::patch('owner/{id}/update','OwnerController@update');
-Route::delete('owner/delete/{id}','OwnerController@destroy');
+Route::get('Owner/create', 'OwnerController@create');
+Route::post('Owner/store', 'OwnerController@store');
+Route::get('Owner/edit/{id}','OwnerController@edit');
+Route::patch('Owner/{id}/update','OwnerController@update');
+Route::delete('Owner/delete/{id}','OwnerController@destroy');
 
 //Vehicle routes
 Route::get('vehicles', 'VehicleController@index');

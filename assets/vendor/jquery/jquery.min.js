@@ -3505,7 +3505,7 @@ Data.prototype = {
 		}
 
 		var descriptor = {},
-			// Check if the owner object already has a cache key
+			// Check if the Owner object already has a cache key
 			unlock = owner[ this.expando ];
 
 		// If not, create one
@@ -3535,16 +3535,16 @@ Data.prototype = {
 	set: function( owner, data, value ) {
 		var prop,
 			// There may be an unlock assigned to this node,
-			// if there is no entry for this "owner", create one inline
-			// and set the unlock as though an owner entry had always existed
+			// if there is no entry for this "Owner", create one inline
+			// and set the unlock as though an Owner entry had always existed
 			unlock = this.key( owner ),
 			cache = this.cache[ unlock ];
 
-		// Handle: [ owner, key, value ] args
+		// Handle: [ Owner, key, value ] args
 		if ( typeof data === "string" ) {
 			cache[ data ] = value;
 
-		// Handle: [ owner, { properties } ] args
+		// Handle: [ Owner, { properties } ] args
 		} else {
 			// Fresh assignments by object are shallow copied
 			if ( jQuery.isEmptyObject( cache ) ) {
@@ -3562,7 +3562,7 @@ Data.prototype = {
 		// Either a valid cache is found, or will be created.
 		// New caches will be created and the unlock returned,
 		// allowing direct access to the newly created
-		// empty data object. A valid owner object must be provided.
+		// empty data object. A valid Owner object must be provided.
 		var cache = this.cache[ this.key( owner ) ];
 
 		return key === undefined ?

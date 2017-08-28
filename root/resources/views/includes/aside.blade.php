@@ -104,13 +104,13 @@
                             <li class="{{ isActive('owners') }}">
                                 <a href="{{action('OwnerController@index')}}">Owner</a>
                             </li>
-                            <li class="{{ isActive('owner/create') }}">
+                            <li class="{{ isActive('owner') }}">
                                 <a href="{{action('OwnerController@create')}}">Add Owner</a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['parties**','party/create*']) }}">
+                    <li class="nav-parent {{ isActive(['part*']) }}">
                         <a>
                             <i class="fa fa-users" aria-hidden="true"></i>
                             <span>Parties</span>

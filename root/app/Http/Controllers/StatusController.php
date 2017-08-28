@@ -16,7 +16,8 @@ class StatusController extends Controller
 
     public function store(Request $request)
     {
-        Status::create($request->all());
+        Status::query()->create($request->all());
+        Session::flash('success','"'.$request->name.'" has been added!');
         return redirect('statuses');
     }
 

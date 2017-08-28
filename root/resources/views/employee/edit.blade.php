@@ -1,6 +1,23 @@
 @extends('layouts.admin')
+
+@section('title','Edit Employee')
+
 @section('content')
         <section role="main" class="content-body">
+            <header class="page-header">
+                <h2>Edit Employee</h2>
+                <div class="right-wrapper pull-right">
+                    <ol class="breadcrumbs">
+                        <li>
+                            <a>
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li><span>Edit Employee</span></li>
+                    </ol>
+                    <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+                </div>
+            </header>
             <!-- start: page -->
             <div class="row">
                 <div class="col-xs-12">

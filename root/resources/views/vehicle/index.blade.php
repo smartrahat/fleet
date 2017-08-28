@@ -56,7 +56,7 @@
                                 {{ $vehicle->brand->name or '' }}
                                 {{ $vehicle->type->name or '' }}
                             </td>
-                            <td>{{ $vehicle->owner->name or '' }}</td>
+                            <td>{{ $vehicle->Owner->name or '' }}</td>
                             <td>
                                 {{ $vehicle->roadPermitStart }}
                                 {{ $vehicle->roadPermitEnd }}

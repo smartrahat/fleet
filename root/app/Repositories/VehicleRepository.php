@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 use App\Brand;
-use App\owner;
+use App\Owner;
 use App\Status;
 use App\Type;
 
@@ -23,7 +23,7 @@ class VehicleRepository {
     }
     
     public function owners(){
-        return owner::all()->pluck('name','id');
+        return Owner::all()->pluck('name','id');
     }
 
 }

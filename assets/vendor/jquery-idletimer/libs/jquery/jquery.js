@@ -6403,7 +6403,7 @@ jQuery.extend({
 						// Use the fragment we've already created for this document
 						safeFragment.appendChild( div );
 					} else {
-						// Use a fragment created with the owner document
+						// Use a fragment created with the Owner document
 						createSafeFragment( context ).appendChild( div );
 					}
 

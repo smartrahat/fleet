@@ -39,7 +39,7 @@ class Vehicle extends Model
     }
 
     /**
-     * A vehicle is belongs to a owner
+     * A vehicle is belongs to a Owner
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function owner()

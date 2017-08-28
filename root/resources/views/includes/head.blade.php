@@ -1,7 +1,7 @@
     <!-- Basic -->
     <meta charset="UTF-8">
 
-    <title>Dashboard | Fleet Management System</title>
+    <title>@yield('title')</title>
     <meta name="keywords" content="Fleet Management Systems" />
     <meta name="description" content="Fleet Management System - Track Vehicle">
     <meta name="author" content="Web Point Limited">
@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/vendor/morris/morris.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/vendor/select2/select2.css') }}"/>
-    <link rel="stylesheet" href="assets/vendor/select2/select2.css" />
     <link rel="stylesheet" href="assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
     <link rel="stylesheet" href="assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css" />
     <link rel="stylesheet" href="assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />

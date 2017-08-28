@@ -52,7 +52,7 @@ Thank you.
 # Handle messages from known mailing lists
 # Move messages from IETF filter discussion list to filter folder
 #
-if header :is "Sender" "owner-ietf-mta-filters@imc.org"
+if header :is "Sender" "Owner-ietf-mta-filters@imc.org"
 {
   fileinto "filter";  # move to "filter" folder
 }

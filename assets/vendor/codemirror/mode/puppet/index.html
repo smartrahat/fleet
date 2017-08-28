@@ -55,7 +55,7 @@ class automysqlbackup (
 # Create a subdirectory in /etc for config files
   file { $etc_dir:
     ensure => directory,
-    owner => 'root',
+    Owner => 'root',
     group => 'root',
     mode => '0750',
   }
@@ -63,7 +63,7 @@ class automysqlbackup (
 # Create an example backup file, useful for reference
   file { "${etc_dir}/automysqlbackup.conf.example":
     ensure => file,
-    owner => 'root',
+    Owner => 'root',
     group => 'root',
     mode => '0660',
     source => 'puppet:///modules/automysqlbackup/automysqlbackup.conf',
@@ -82,7 +82,7 @@ class automysqlbackup (
 # Install the actual binary file
   file { "${bin_dir}/automysqlbackup":
     ensure => file,
-    owner => 'root',
+    Owner => 'root',
     group => 'root',
     mode => '0755',
     source => 'puppet:///modules/automysqlbackup/automysqlbackup',
@@ -91,7 +91,7 @@ class automysqlbackup (
 # Create the base backup directory
   file { $backup_dir:
     ensure => directory,
-    owner => 'root',
+    Owner => 'root',
     group => 'root',
     mode => '0755',
   }
