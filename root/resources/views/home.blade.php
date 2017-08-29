@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title','Fleet Management System')
+
 @section('content')
     <section role="main" class="content-body">
         <header class="page-header">
