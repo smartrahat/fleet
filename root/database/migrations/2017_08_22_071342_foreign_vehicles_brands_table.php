@@ -30,7 +30,7 @@ class ForeignVehiclesBrandsTable extends Migration
     public function down()
     {
         Schema::table('vehicles', function (Blueprint $table) {
-            $table->foreignAuthority();
+            $table->dropForeignAuthority();
             $table->dropForeign(['brand_id']);
             $table->dropForeign(['owner_id']);
             $table->dropForeign(['type_id']);

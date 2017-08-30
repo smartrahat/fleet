@@ -14,8 +14,6 @@ class CreateEmployeesTable extends Migration
     public function up()
     {
         Schema::create('Employees', function (Blueprint $table) {
-            ['name','f_name','m_name','pre_address','perm_address', 'nid',
-                'designation','image','mobile','email','join_date','app_person'];
             $table->increments('id');
             $table->authorities();
             $table->string('name');
@@ -24,7 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->text('pre_address')->nullable();
             $table->text('perm_address')->nullable();
             $table->string('nid')->nullable();
-            $table->string('designation');
+            $table->integer('designation_id')->unsigned();
             $table->string('image')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email')->nullable();

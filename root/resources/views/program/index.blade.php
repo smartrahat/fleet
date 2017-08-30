@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title','Program List')
+
 @section('content')
     <section role="main" class="content-body">
 
@@ -33,11 +35,11 @@
                         <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Date</th>
                             <th>Vehicle Name</th>
                             <th>Driver Name</th>
                             <th>Party Name</th>
                             <th>SR Name</th>
-                            <th>Date</th>
                             <th>Serial Number</th>
                             <th>Action</th>
                         </tr>
@@ -46,11 +48,11 @@
                         @foreach($programs as $program)
                         <tr>
                             <td>{{ $program->id }}</td>
-                            <td>{{ $program->vehicle_id }}</td>
-                            <td>{{ $program->driver_id }}</td>
-                            <td>{{ $program->party_id }}</td>
-                            <td>{{ $program->employee_id }}</td>
                             <td>{{ $program->date }}</td>
+                            <td>{{ $program->vehicle->vehicleNo }}</td>
+                            <td>{{ $program->driver->name }}</td>
+                            <td>{{ $program->party->name }}</td>
+                            <td>{{ $program->employee->name }}</td>
                             <td>{{ $program->serial }}</td>
                             <td>
                                 {{ Form::open(['action'=>['ProgramController@destroy',$program->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}

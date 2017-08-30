@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+
+@section('title','Trip List')
+
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
@@ -33,13 +36,14 @@
                                         <th>ID</th>
                                         <th>Date</th>
                                         <th>Program ID</th>
+                                        <th>Party Name</th>
                                         <th>Loading</th>
                                         <th>Unloading</th>
                                         <th>Product Details</th>
                                         <th>Empty Container</th>
                                         <th>Weight</th>
                                         <th>Fuel Quantity (Ltr)</th>
-                                        <th>Rent</th>
+                                        {{--<th>Fare</th>--}}
                                         <th>Driver Advance</th>
                                         <th>Action</th>
                              </tr>
@@ -49,14 +53,15 @@
                                 <tr>
                                     <td>{{$trip->id}}</td>
                                     <td>{{$trip->date}}</td>
-                                    <td>{{$trip->program_id}}</td>
+                                    <td>{{$trip->program->serial}}</td>
+                                    <td>{{ $trip->program->party->name }}</td>
                                     <td>{{$trip->loading}}</td>
                                     <td>{{$trip->unloading}}</td>
                                     <td>{{$trip->product}}</td>
                                     <td>{{$trip->emp_container}}</td>
                                     <td>{{$trip->weight}}</td>
                                     <td>{{$trip->fuel}}</td>
-                                    <td>{{$trip->rent}}</td>
+                                    {{--<td>{{$trip->rent}}</td>--}}
                                     <td>{{$trip->driver_adv}}</td>
                                     <td>
                                         {{ Form::open(['action'=>['TripController@destroy',$trip->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}

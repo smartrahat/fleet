@@ -6,6 +6,7 @@ use App\Employee;
 use App\Repositories\EmployeeRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 
 class EmployeeController extends Controller
@@ -54,16 +55,25 @@ class EmployeeController extends Controller
 
     public function update($id, Request $request)
     {
-        $repository = $this->repository;
         $employee = Employee::query()->findOrFail($id);
-        $employee->update($request->all());
+        if($request->hasFile('image')){
+            $name = $id.'.'.$request->file('image')->getClientOriginalExtension();
+            File::delete('assets/images/employees/'.$employee->image);
+            $request->file('image')->move(base_path().'/../images/employees/', $name);
+            $data = $request->except('image');
+            $data['image'] = $name;
+            $employee->update($data);
+        }else{
+            $employee->update($request->except('image'));
+        }
         Session::flash('success','"'.$employee->name.'" is updated!');
-        return redirect('employees',compact('repository'));
+        return redirect('employees');
     }
 
     public function destroy($id)
     {
         $employee = Employee::query()->findOrFail($id);
+        File::delete('assets/images/employees/'.$employee->image);
         $employee->delete();
         Session::flash('success','"'.$employee->name.'" has been deleted successfully!');
         return redirect('employees');

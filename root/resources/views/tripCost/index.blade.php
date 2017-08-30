@@ -55,7 +55,7 @@
                                 <tr>
                                     <td>{{$tripCost->id}}</td>
                                     <td>{{$tripCost->date}}</td>
-                                    <td>{{$tripCost->program_id}}</td>
+                                    <td>{{$tripCost->program->serial}}</td>
                                     <td>{{$tripCost->driver_salary}}</td>
                                     <td>{{$tripCost->helper_salary}}</td>
                                     <td>{{$tripCost->fuel_cost}}</td>
@@ -83,7 +83,11 @@
                             </div>
                         </div>
                     </section>
+                </div>
+            </div>
+        </section>
 @endsection
+
 @section('script')
 <script>
 function confirmDelete(){

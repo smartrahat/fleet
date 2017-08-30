@@ -32,6 +32,7 @@ class CreateTripCostTable extends Migration
             $table->string('container');
             $table->string('port_gate');
             $table->string('driver_cost');
+            $table->string('other');
             $table->timestamps();
         });
     }

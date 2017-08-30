@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title','Create Program')
+
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
@@ -31,7 +33,6 @@
                         <div class="panel-body">
                             {{ Form::open(['action' => 'ProgramController@store','method'=>'post','class'=>'form-horizontal']) }}
                             @include('program.form',['submitButtonText'=>'Save'])
-
                             {{ Form::close() }}
                         </div>
                     </section>

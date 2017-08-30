@@ -54,9 +54,9 @@
 
 <!-- Designation  Starts-->
 <div class="form-group">
-    {{ Form::label('designation', 'Designation', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('designation_id', 'Designation', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('designation',$repository->designations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Designation']) }}
+        {{ Form::select('designation_id',$repository->designations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Designation']) }}
     </div>
 </div>
 <!--  Designation ends-->
