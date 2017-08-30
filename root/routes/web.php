@@ -55,6 +55,14 @@ Route::patch('status/{id}/update','StatusController@update');
 Route::delete('status/delete/{id}','StatusController@destroy');
 
 
+//designation routes
+Route::get('designations', 'DesignationController@index');
+Route::post('designation/store', 'DesignationController@store');
+Route::get('designation/edit/{id}','DesignationController@edit');
+Route::patch('designation/{id}/update','DesignationController@update');
+Route::delete('designation/delete/{id}','DesignationController@destroy');
+
+
 //Employee routes
 Route::get('employees', 'EmployeeController@index');
 Route::get('employee/create', 'EmployeeController@create');

@@ -43,7 +43,7 @@
                 {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
             </div>
         </div>
-    </div>
+</div>
 
 <!--Date ends-->
 

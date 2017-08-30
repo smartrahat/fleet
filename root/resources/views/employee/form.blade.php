@@ -52,14 +52,23 @@
 </div>
 <!-- NID Number ends-->
 
-<!-- Driving Licence Number Starts-->
+<!-- Designation  Starts-->
 <div class="form-group">
-    {{ Form::label('d_licence', 'Driving Licence No', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('designation', 'Designation', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::text('d_licence',null, array('class' => 'form-control')) }}
+        {{ Form::select('designation',$repository->designations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Designation']) }}
     </div>
 </div>
-<!--  Driving Licence Number ends-->
+<!--  Designation ends-->
+
+<!-- Designation  Starts-->
+<div class="form-group">
+    {{ Form::label('education', 'Educational Qualification', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::select('education',$repository->educations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Educational Qualification']) }}
+    </div>
+</div>
+<!--  Designation ends-->
 
 <!-- Picture Starts-->
 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
@@ -71,7 +80,7 @@
                     <strong>{{ $errors->first('image') }}</strong>
                 </span>
         @endif
-        <img src="{{ asset('/images/drivers/'.$driver->image) }}" id="image" class="img-thumbnail" width="265" alt=""/>
+        <img src="{{ asset('/images/employees/'.$employee->image) }}" id="image" class="img-thumbnail" width="265" alt=""/>
     </div>
 </div>
 <!--  Picture ends-->
@@ -85,14 +94,29 @@
 </div>
 <!-- Mobile Number ends-->
 
-<!-- Reference Person Starts-->
+<!-- Email Number Starts-->
 <div class="form-group">
-    {{ Form::label('ref_name', 'Reference Person Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('name', 'Email', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::text('ref_name',null, array('class' => 'form-control')) }}
+        {{ Form::text('email', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Reference person ends-->
+<!-- Email Number ends-->
+
+
+<!-- Date of joining Starts-->
+<div class="form-group">
+    <label class="col-md-3 control-label">Joining Date</label>
+    <div class="col-md-6">
+        <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            {{ Form::text('join_date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
+        </div>
+    </div>
+</div>
+<!-- Date of joining ends-->
 
 <!-- Appointment Person Name Starts-->
 <div class="form-group">
@@ -122,12 +146,10 @@
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
-
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#image').attr('src', e.target.result).width(150).height(150);
                 };
-
                 reader.readAsDataURL(input.files[0]);
             }
         }

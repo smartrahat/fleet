@@ -20,7 +20,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['employees*','employee*']) }}">
+                    <li class="nav-parent {{ isActive(['employees*','employee*','designation*']) }}">
                         <a>
                             <i class="fa fa-id-card-o" aria-hidden="true"></i>
                             <span>Employee</span>
@@ -31,6 +31,9 @@
                             </li>
                             <li class="{{ isActive('employee/create') }}">
                                 <a href="{{action('EmployeeController@create')}}">Add Employee</a>
+                            </li>
+                            <li class="{{ isActive('designation/index') }}">
+                                <a href="{{action('DesignationController@index')}}">Add Designation</a>
                             </li>
                         </ul>
                     </li>
