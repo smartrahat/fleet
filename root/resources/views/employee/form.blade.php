@@ -1,49 +1,49 @@
-<!-- Driver Name Starts-->
+<!-- Driver Name Starts -->
 <div class="form-group">
     {{ Form::label('name', 'Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('name', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Driver name ends-->
+<!-- Driver name ends -->
 
-<!-- Driver Father's Name Starts-->
+<!-- Driver Father's Name Starts -->
 <div class="form-group">
     {{ Form::label('f_name', 'Father\'s Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('f_name',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Driver Father's name ends-->
+<!-- Driver Father's name ends -->
 
-<!-- Driver Mother's Name Starts-->
+<!-- Driver Mother's Name Starts -->
 <div class="form-group">
     {{ Form::label('m_name', 'Mother\'s Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('m_name',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Driver Father's name ends-->
+<!-- Driver Father's name ends -->
 
-<!--Present Address Starts-->
+<!--Present Address Starts -->
 <div class="form-group">
     {{ Form::label('pre_address', 'Present Address', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('pre_address',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Present Address ends-->
+<!-- Present Address ends -->
 
-<!--Permanent Address Starts-->
+<!--Permanent Address Starts -->
 <div class="form-group">
     {{ Form::label('perm_address', 'Permanent Address', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('perm_address',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Permanent Address ends-->
+<!-- Permanent Address ends -->
 
-<!-- NID Number Starts-->
+<!-- NID Number Starts -->
 <div class="form-group">
     {{ Form::label('nid', 'National ID No', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
@@ -52,25 +52,25 @@
 </div>
 <!-- NID Number ends-->
 
-<!-- Designation  Starts-->
+<!-- Designation  Starts -->
 <div class="form-group">
     {{ Form::label('designation_id', 'Designation', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('designation_id',$repository->designations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Designation']) }}
     </div>
 </div>
-<!--  Designation ends-->
+<!--  Designation ends -->
 
-<!-- Designation  Starts-->
+<!-- Designation  Starts -->
 <div class="form-group">
     {{ Form::label('education', 'Educational Qualification', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('education',$repository->educations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Educational Qualification']) }}
     </div>
 </div>
-<!--  Designation ends-->
+<!--  Designation ends -->
 
-<!-- Picture Starts-->
+<!-- Picture Starts -->
 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
     <label class="col-md-3 control-label" for="image">Image<span class="required">*</span>:</label>
     <div class="col-md-9">
@@ -83,28 +83,28 @@
         <img src="{{ asset('/images/employees/'.$employee->image) }}" id="image" class="img-thumbnail" width="265" alt=""/>
     </div>
 </div>
-<!--  Picture ends-->
+<!--  Picture ends -->
 
-<!-- Mobile Number Starts-->
+<!-- Mobile Number Starts -->
 <div class="form-group">
     {{ Form::label('name', 'Mobile Number', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('mobile', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Mobile Number ends-->
+<!-- Mobile Number ends -->
 
-<!-- Email Number Starts-->
+<!-- Email Number Starts -->
 <div class="form-group">
     {{ Form::label('name', 'Email', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('email', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Email Number ends-->
+<!-- Email Number ends -->
 
 
-<!-- Date of joining Starts-->
+<!-- Date of joining Starts -->
 <div class="form-group">
     <label class="col-md-3 control-label">Joining Date</label>
     <div class="col-md-6">
@@ -116,16 +116,16 @@
         </div>
     </div>
 </div>
-<!-- Date of joining ends-->
+<!-- Date of joining ends -->
 
-<!-- Appointment Person Name Starts-->
+<!-- Appointment Person Name Starts -->
 <div class="form-group">
     {{ Form::label('app_person', 'Appointment Person Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('app_person', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Driver name ends-->
+<!-- Driver name ends -->
 
 
 <div class="form-group">
@@ -139,7 +139,7 @@
         <a href="{{ URL::previous() }}" role="button" class="form-control btn btn-danger">Back</a>
     </div>
 </div>
-<!-- ends-->
+<!-- ends -->
 
 
 @section('script')
