@@ -2,7 +2,7 @@
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Dashboard</h2>
+                <h2>Designation</h2>
                 <div class="right-wrapper pull-right">
                     <ol class="breadcrumbs">
                         <li>
@@ -68,7 +68,7 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Designations of Vehicle</h2>
+                            <h2 class="panel-title">Designations of Employee</h2>
                         </header>
                         <div class="col-md-12">
                             @if(Session::has('success'))

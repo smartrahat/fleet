@@ -2,7 +2,7 @@
 @section('content')
     <section role="main" class="content-body">
         <header class="page-header">
-            <h2>Dashboard</h2>
+            <h2>Designation</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
@@ -30,7 +30,7 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title">Designation of Employee</h2>
+                        <h2 class="panel-title"> Add Designation</h2>
                     </header>
 
                     <div class="panel-body">

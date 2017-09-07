@@ -24,22 +24,15 @@
 </div>
 <!-- Serial ends-->
 
-<!-- Vehicle Name Starts-->
+<!-- party start-->
 <div class="form-group">
-    {{ Form::label('vehicle_id', 'Vehicle Name', ['class'=>'col-md-3 control-label']) }}
+    {{ Form::label('party_id', 'Party Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('vehicle_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
+        {{ Form::select('party_id',$repository->parties(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Party']) }}
     </div>
 </div>
-<!-- Vehicle name ends-->
-<!-- Driver Starts-->
-<div class="form-group">
-    {{ Form::label('driver_id', 'Driver', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::select('driver_id',$repository->drivers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Driver']) }}
-    </div>
-</div>
-<!-- driver ends-->
+<!-- party ends-->
+
 
 <!-- Employee start-->
 <div class="form-group">
@@ -50,14 +43,24 @@
 </div>
 <!-- Employee ends-->
 
-<!-- party start-->
+<!-- Driver Starts-->
 <div class="form-group">
-    {{ Form::label('party_id', 'Party Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('driver_id', 'Driver', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('party_id',$repository->parties(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Party']) }}
+        {{ Form::select('driver_id',$repository->drivers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Driver']) }}
     </div>
 </div>
-<!-- party ends-->
+<!-- driver ends-->
+
+<!-- Vehicle Number Starts-->
+<div class="form-group">
+    {{ Form::label('vehicle_id', 'Vehicle Number', ['class'=>'col-md-3 control-label']) }}
+    <div class="col-md-6">
+        {{ Form::select('vehicle_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
+    </div>
+</div>
+<!-- Vehicle name ends-->
+
 
 <!-- Advance Rent Starts-->
 <div class="form-group">

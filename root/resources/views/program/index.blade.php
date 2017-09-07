@@ -6,7 +6,7 @@
     <section role="main" class="content-body">
 
         <header class="page-header">
-            <h2>Dashboard</h2>
+            <h2>Programs</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
@@ -36,11 +36,14 @@
                         <tr>
                             <th>ID</th>
                             <th>Date</th>
-                            <th>Vehicle Name</th>
-                            <th>Driver Name</th>
+                            <th>Serial Number</th>
                             <th>Party Name</th>
                             <th>SR Name</th>
-                            <th>Serial Number</th>
+                            <th>Driver Name</th>
+                            <th>Vehicle Number</th>
+                            <th>Advance Rent</th>
+                            <th>Due Rent</th>
+                            <th>Total Rent</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -49,11 +52,14 @@
                         <tr>
                             <td>{{ $program->id }}</td>
                             <td>{{ $program->date }}</td>
-                            <td>{{ $program->vehicle->vehicleNo }}</td>
-                            <td>{{ $program->driver->name }}</td>
+                            <td>{{ $program->serial }}</td>
                             <td>{{ $program->party->name }}</td>
                             <td>{{ $program->employee->name }}</td>
-                            <td>{{ $program->serial }}</td>
+                            <td>{{ $program->driver->name }}</td>
+                            <td>{{ $program->vehicle->vehicleNo }}</td>
+                            <td>{{ $program->adv_rent }}</td>
+                            <td>{{ $program->due_rent }}</td>
+                            <td>{{ $program->rent }}</td>
                             <td>
                                 {{ Form::open(['action'=>['ProgramController@destroy',$program->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                 <a href="{{ action('ProgramController@edit',$program->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
