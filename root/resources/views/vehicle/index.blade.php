@@ -4,7 +4,7 @@
     <section role="main" class="content-body">
 
         <header class="page-header">
-            <h2>Dashboard</h2>
+            <h2>Vehicle</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
