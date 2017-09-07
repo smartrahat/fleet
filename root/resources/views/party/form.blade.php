@@ -1,6 +1,6 @@
 <!-- Owner Name Starts-->
 <div class="form-group">
-    {{ Form::label('name', 'Name:', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('name', 'Party Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('name',null, array('class' => 'form-control')) }}
@@ -27,16 +27,6 @@
     </div>
 </div>
 <!-- Address ends-->
-
-<!-- NID Number Starts-->
-<div class="form-group">
-    {{ Form::label('nid', 'National ID No:', array('class'=>'col-md-3 control-label')) }}
-    {{--<label class="col-md-3 control-label">Name</label>--}}
-    <div class="col-md-6">
-        {{ Form::text('nid',null, array('class' => 'form-control')) }}
-    </div>
-</div>
-<!-- NID Number ends-->
 
 <!-- Email Starts-->
 <div class="form-group">

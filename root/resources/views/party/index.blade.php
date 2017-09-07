@@ -32,10 +32,9 @@
                                     <thead>
                                     <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Father's Name</th>
+                                    <th>Party Name</th>
+                                    <th>Contact Person</th>
                                     <th>Address</th>
-                                    <th>National ID No</th>
                                     <th>E-mail</th>
                                     <th>Contact Number</th>
                                     <th>Action</th>
@@ -48,7 +47,6 @@
                                     <td>{{$party->name}}</td>
                                     <td>{{$party->contact_person}}</td>
                                     <td>{{$party->address}}</td>
-                                    <td>{{$party->nid}}</td>
                                     <td>{{$party->email}}</td>
                                     <td>{{$party->mobile}}</td>
                                     <td>
@@ -64,6 +62,9 @@
                             </div>
                         </div>
                     </section>
+                    </div>
+                </div>
+            </section>
 @endsection
 @section('script')
 <script>
@@ -72,4 +73,4 @@ function confirmDelete(){
     return !!x;
 }
 </script>
-@stop
+@endsection
