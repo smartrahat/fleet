@@ -2,6 +2,7 @@
 /public/hot
 /storage/*.key
 /.idea
+/.idea/*
 /.vagrant
 Homestead.json
 Homestead.yaml
