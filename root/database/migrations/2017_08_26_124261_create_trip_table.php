@@ -16,7 +16,6 @@ class CreateTripTable extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->increments('id');
             $table->authorities();
-            $table->date('date');
             $table->integer('program_id')->unsigned();
             $table->string('loading');
             $table->string('unloading');

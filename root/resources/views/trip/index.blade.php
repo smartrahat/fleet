@@ -34,7 +34,6 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Date</th>
                                         <th>Program ID</th>
                                         <th>Party Name</th>
                                         <th>Loading</th>
@@ -52,7 +51,6 @@
                             @foreach($trips as $trip)
                                 <tr>
                                     <td>{{$trip->id}}</td>
-                                    <td>{{$trip->date}}</td>
                                     <td>{{$trip->program->serial}}</td>
                                     <td>{{ $trip->program->party->name }}</td>
                                     <td>{{$trip->loading}}</td>

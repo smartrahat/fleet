@@ -5,7 +5,7 @@
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Dashboard</h2>
+                <h2>Programs</h2>
                 <div class="right-wrapper pull-right">
                     <ol class="breadcrumbs">
                         <li>
@@ -13,7 +13,7 @@
                                 <i class="fa fa-home"></i>
                             </a>
                         </li>
-                        <li><span>Dashboard</span></li>
+                        <li><span>Programs</span></li>
                     </ol>
                     <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -27,7 +27,7 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Vehicle Information Form</h2>
+                            <h2 class="panel-title">Create Program</h2>
                         </header>
 
                         <div class="panel-body">

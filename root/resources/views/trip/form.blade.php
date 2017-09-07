@@ -1,19 +1,3 @@
-
-<!--Date starts-->
-<div class="form-group">
-    <label class="col-md-3 control-label">Program Date</label>
-    <div class="col-md-6">
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-            </span>
-            {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
-        </div>
-    </div>
-</div>
-
-<!--Date ends-->
-
 <!-- Program ID Starts-->
 <div class="form-group">
     {{ Form::label('program_id', 'Program ID', ['class'=>'col-md-3 control-label']) }}

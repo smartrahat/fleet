@@ -13,12 +13,14 @@ class EmployeeController extends Controller
 {
     private $repository;
 
-    public function __construct(EmployeeRepository $repository){
+    public function __construct(EmployeeRepository $repository)
+    {
         $this->middleware('auth');
         $this->repository = $repository;
     }
 
-    public function create(){
+    public function create()
+    {
         $repository = $this->repository;
         return view('employee.create',compact('repository'));
     }
