@@ -31,6 +31,7 @@
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
+                    <a href="{{ action('ProgramController@create') }}" role="button" class="btn btn-success">Add Program</a><br /><br />
                     <table class="table table-bordered table-striped table-condensed mb-none">
                         <thead>
                         <tr>

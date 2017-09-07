@@ -148,7 +148,16 @@
         {{ Form::text('driver_cost', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Container Charge ends-->
+<!-- Driver cost ends-->
+
+<!-- Other Expenses  Starts-->
+<div class="form-group">
+    {{ Form::label('other', 'Other Expenses', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('other', null, array('class' => 'form-control')) }}
+    </div>
+</div>
+<!-- Other Expenses ends-->
 
 <!--Submit button -->
 <div class="form-group">

@@ -30,6 +30,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <a href="{{ action('EmployeeController@create') }}" role="button" class="btn btn-success">Add Employee</a><br />
                                 <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
                                     '

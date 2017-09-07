@@ -27,6 +27,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <a href="{{ action('TripCostController@create') }}" role="button" class="btn btn-success">Add Trip Cost</a><br />
                                 <table class="table table-bordered table-stripCosted table-condensed mb-none">
                                     <thead>
                                     <tr>
@@ -47,6 +48,7 @@
                                         <th>Container Charge</th>
                                         <th>Post Gate Charge</th>
                                         <th>Driver Cost</th>
+                                        <th>Other Expenses</th>
                                         <th>Action</th>
                              </tr>
                         </thead>
@@ -70,6 +72,7 @@
                                     <td>{{$tripCost->container}}</td>
                                     <td>{{$tripCost->port_gate}}</td>
                                     <td>{{$tripCost->driver_cost}}</td>
+                                    <td>{{$tripCost->other}}</td>
                                     <td>
                                         {{ Form::open(['action'=>['TripCostController@destroy',$tripCost->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('TripCostController@edit',$tripCost->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

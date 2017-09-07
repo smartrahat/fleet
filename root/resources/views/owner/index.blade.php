@@ -30,6 +30,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <a href="{{ action('OwnerController@create') }}" role="button" class="btn btn-success">Add Owner</a><br />
                                 <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
                                     <tr>
