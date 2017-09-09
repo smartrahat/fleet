@@ -32,7 +32,7 @@
                             <li class="{{ isActive('employee/create') }}">
                                 <a href="{{action('EmployeeController@create')}}">Add Employee</a>
                             </li>
-                            <li class="{{ isActive('designation/index') }}">
+                            <li class="{{ isActive('designations') }}">
                                 <a href="{{action('DesignationController@index')}}">Add Designation</a>
                             </li>
                         </ul>
@@ -128,7 +128,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['programs*','program/create*','trips*','trip/create*','tripCosts*','tripCost/create*']) }}">
+                    <li class="nav-parent {{ isActive(['program*','trip*']) }}">
                         <a>
                             <i class="fa fa-ship" aria-hidden="true"></i>
                             <span>Programs</span>

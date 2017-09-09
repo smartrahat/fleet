@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Designation;
+use App\Http\Requests\DesignationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -19,9 +20,9 @@ class DesignationController extends Controller
         return view('designation.index',compact('designations'));
     }
 
-    public function store(Request $request)
+    public function store(DesignationRequest $request)
     {
-        Designation::create($request->all());
+        Designation::query()->create($request->all());
         Session::flash('success','"'.$request->name.'" has been added!');
         return redirect('designations');
     }
