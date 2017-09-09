@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Driver;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 
 class DriverController extends Controller
@@ -17,6 +18,7 @@ class DriverController extends Controller
     public function index()
     {
         $drivers = Driver::all();
+        //$drivers = Driver::orderBy('created_at','asc')->get();
         return view('driver.index',compact('drivers'));
     }
 
@@ -32,7 +34,7 @@ class DriverController extends Controller
         }else{
             Driver::query()->create($request->except('image'));
         }
-        Session::flash('success','Vehicle has been added');
+        Session::flash('success','Driver has been added');
         return redirect('drivers');
     }
 
@@ -45,7 +47,16 @@ class DriverController extends Controller
     public function update($id, Request $request)
     {
         $driver = Driver::query()->findOrFail($id);
-        $driver->update($request->all());
+        if($request->hasFile('image')){
+            $name = $id.'.'.$request->file('image')->getClientOriginalExtension();
+            File::delete('assets/images/drivers/'.$driver->image);
+            $request->file('image')->move(base_path().'/../images/drivers/', $name);
+            $data = $request->except('image');
+            $data['image'] = $name;
+            $driver->update($data);
+        }else{
+            $driver->update($request->except('image'));
+        }
         Session::flash('success','"'.$driver->name.'" is updated!');
         return redirect('drivers');
     }

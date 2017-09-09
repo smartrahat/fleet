@@ -6,6 +6,7 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Repositories\VehicleRepository;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 
 
@@ -20,7 +21,6 @@ class VehicleController extends Controller
 
     public function index()
     {
-        //$repository = $this->repository;
         $vehicles = Vehicle::query()->paginate(10);
         return view('vehicle.index',compact('vehicles','repository'));
     }
@@ -57,7 +57,17 @@ class VehicleController extends Controller
     public function update($id, Request $request)
     {
         $vehicle = Vehicle::query()->findOrFail($id);
-        $vehicle->update($request->all());
+        if($request->hasFile('image')){
+            $name = $id.'.'.$request->file('image')->getClientOriginalExtension();
+            File::delete('assets/images/vehicles/'.$vehicle->image);
+            $request->file('image')->move(base_path().'/../images/vehicles/', $name);
+            $data = $request->except('image');
+            $data['image'] = $name;
+            $vehicle->update($data);
+        }else{
+            $vehicle->update($request->except('image'));
+        }
+        Session::flash('success','"'.$vehicle->name.'" is updated!');
         return redirect('vehicles');
     }
 
