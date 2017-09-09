@@ -31,7 +31,7 @@ class TripController extends Controller
 
     public function store(Request $request)
     {
-        Trip::create($request->all());
+        Trip::query()->create($request->all());
         return redirect('trips');
     }
 
