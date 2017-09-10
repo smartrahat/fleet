@@ -31,7 +31,7 @@ class DriverRequest extends FormRequest
             'perm_address'  => 'required|max:255',
             'nid'           => 'required|max:25',
             'd_licence'     => 'required|max:25',
-            'image'         => 'mimes:jpeg,bmp,png',
+            'image'         => 'mimes:jpeg,bmp,png|max:2000',
             'mobile'        => 'required|max:11',
             'ref_name'      => 'required|max:70',
             'app_person'    => 'required|max:70'

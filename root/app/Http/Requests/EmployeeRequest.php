@@ -33,7 +33,7 @@ class EmployeeRequest extends FormRequest
             'designation_id'=> 'required',
             'education'     => 'required|max:25',
             'dob'           => 'required',
-            'image'         => 'mimes:jpeg,bmp,png',
+            'image'         => 'mimes:jpeg,bmp,png|max:2000',
             'mobile'        => 'required|max:11',
             'email'         => 'max:70',
             'join_date'     => 'required|max:25',

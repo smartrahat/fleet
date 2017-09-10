@@ -42,7 +42,7 @@ class VehiclesRequest extends FormRequest
             'engineNo'          =>'required',
             'chasesNo'          =>'required',
             'status_id'         =>'required',
-            'image'             =>'mimes:jpeg,png,bmp'
+            'image'             => 'mimes:jpeg,bmp,png|max:2000',
         ];
     }
 }
