@@ -32,7 +32,6 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Date</th>
                                         <th>Program ID</th>
                                         <th>Driver Salary</th>
                                         <th>Helper Salary</th>
@@ -56,7 +55,6 @@
                             @foreach($tripCosts as $tripCost)
                                 <tr>
                                     <td>{{$tripCost->id}}</td>
-                                    <td>{{$tripCost->date}}</td>
                                     <td>{{$tripCost->program->serial}}</td>
                                     <td>{{$tripCost->driver_salary}}</td>
                                     <td>{{$tripCost->helper_salary}}</td>

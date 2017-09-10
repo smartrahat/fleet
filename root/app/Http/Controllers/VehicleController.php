@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VehiclesRequest;
 use App\Vehicle;
-use Illuminate\Http\Request;
 use App\Repositories\VehicleRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -30,7 +30,7 @@ class VehicleController extends Controller
         return view('vehicle.create',compact('repository'));
     }
 
-    public function store(Request $request)
+    public function store(VehiclesRequest $request)
     {
         if($request->hasFile('image')){
             $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'vehicles'"));
@@ -54,7 +54,7 @@ class VehicleController extends Controller
         return view('vehicle.edit',compact('vehicle','vehicles','repository'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, VehiclesRequest $request)
     {
         $vehicle = Vehicle::query()->findOrFail($id);
         if($request->hasFile('image')){

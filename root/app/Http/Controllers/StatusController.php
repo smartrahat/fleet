@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StatusRequest;
 use App\Status;
 use Illuminate\Support\Facades\Session;
 
@@ -14,7 +14,7 @@ class StatusController extends Controller
         return view('status.index',compact('statuses'));
     }
 
-    public function store(Request $request)
+    public function store(StatusRequest $request)
     {
         Status::query()->create($request->all());
         Session::flash('success','"'.$request->name.'" has been added!');
@@ -28,7 +28,7 @@ class StatusController extends Controller
         return view('status.edit',compact('status','statuses'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, StatusRequest $request)
     {
         $status = Status::query()->findOrFail($id);
         $status->update($request->all());

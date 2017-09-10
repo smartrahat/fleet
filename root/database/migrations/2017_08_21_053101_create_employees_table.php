@@ -22,6 +22,8 @@ class CreateEmployeesTable extends Migration
             $table->text('pre_address')->nullable();
             $table->text('perm_address')->nullable();
             $table->string('nid')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('education')->nullable();
             $table->integer('designation_id')->unsigned();
             $table->string('image')->nullable();
             $table->string('mobile')->nullable();

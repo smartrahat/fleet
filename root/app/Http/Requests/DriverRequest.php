@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeRequest extends FormRequest
+class DriverRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,14 +30,11 @@ class EmployeeRequest extends FormRequest
             'pre_address'   => 'required|max:255',
             'perm_address'  => 'required|max:255',
             'nid'           => 'required|max:25',
-            'designation_id'=> 'required',
-            'education'     => 'required|max:25',
-            'dob'           => 'required',
+            'd_licence'     => 'required|max:25',
             'image'         => 'mimes:jpeg,bmp,png',
             'mobile'        => 'required|max:11',
-            'email'         => 'max:70',
-            'join_date'     => 'required|max:25',
-            'app_person'    => 'required|max:255'
+            'ref_name'      => 'required|max:70',
+            'app_person'    => 'required|max:70'
         ];
     }
 }

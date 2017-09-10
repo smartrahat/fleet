@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
-use Illuminate\Http\Request;
+use App\Http\Requests\BrandRequest;
 use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
@@ -19,7 +19,7 @@ class BrandController extends Controller
         return view('brands.index',compact('brands'));
     }
 
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
         Brand::create($request->all());
         Session::flash('success','"'.$request->name.'" has been added!');
@@ -33,7 +33,7 @@ class BrandController extends Controller
         return view('brands.edit',compact('brand','brands'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, BrandRequest $request)
     {
         $brand = Brand::query()->findOrFail($id);
         $brand->update($request->all());

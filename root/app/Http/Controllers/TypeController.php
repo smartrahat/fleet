@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TypeRequest;
 use App\Type;
 use Illuminate\Support\Facades\Session;
 
@@ -14,7 +14,7 @@ class TypeController extends Controller
         return view('types.index',compact('types'));
     }
 
-    public function store(Request $request)
+    public function store(TypeRequest $request)
     {
         Type::query()->create($request->all());
         Session::flash('success','"'.$request->name.'" has been added!');
@@ -28,7 +28,7 @@ class TypeController extends Controller
         return view('types.edit',compact('type','types'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, TypeRequest $request)
     {
         $type = Type::query()->findOrFail($id);
         $type->update($request->all());

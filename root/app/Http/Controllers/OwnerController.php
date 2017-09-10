@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\OwnerRequest;
 use App\Owner;
 use Illuminate\Support\Facades\Session;
 
@@ -18,7 +18,7 @@ class OwnerController extends Controller
         return view('owner.index',compact('owners'));
     }
 
-    public function store(Request $request)
+    public function store(OwnerRequest $request)
     {
         Owner::create($request->all());
         return redirect('owners');
@@ -26,12 +26,12 @@ class OwnerController extends Controller
 
     public function edit($id)
     {
-        $owners = Owner::all();
+        //$owners = Owner::all();
         $owner = Owner::query()->findOrFail($id);
-        return view('owner.edit',compact('owner','owners'));
+        return view('owner.edit',compact('owner'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, OwnerRequest $request)
     {
         $owner = Owner::query()->findOrFail($id);
         $owner->update($request->all());

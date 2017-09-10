@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\Http\Requests\EmployeeRequest;
 use App\Repositories\EmployeeRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,7 @@ class EmployeeController extends Controller
         return view('employee.index',compact('employees','repository'));
     }
 
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
         if($request->hasFile('image')){
             $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'employees'"));
@@ -55,7 +56,7 @@ class EmployeeController extends Controller
         return view('employee.edit',compact('employee','repository'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, EmployeeRequest $request)
     {
         $employee = Employee::query()->findOrFail($id);
         if($request->hasFile('image')){

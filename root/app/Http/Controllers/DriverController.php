@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\DriverRequest;
 use App\Driver;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -22,7 +22,7 @@ class DriverController extends Controller
         return view('driver.index',compact('drivers'));
     }
 
-    public function store(Request $request)
+    public function store(DriverRequest $request)
     {
         if($request->hasFile('image')){
             $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'drivers'"));
@@ -44,7 +44,7 @@ class DriverController extends Controller
         return view('driver.edit',compact('driver'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, DriverRequest $request)
     {
         $driver = Driver::query()->findOrFail($id);
         if($request->hasFile('image')){

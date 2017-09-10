@@ -28,16 +28,22 @@
 
                         <div class="panel-body">
                             {{ Form::model($status,['action'=>['StatusController@update',$status->id],'method'=>'patch','class'=>'form-horizontal']) }}
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
                                 {{ Form::label('name','Status Name:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
                                     {{ Form::text('name',null,['class' => 'form-control']) }}
+                                    @if($errors->has('name'))
+                                        <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
                                 {{ Form::label('description','Description:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
                                     {{ Form::textarea('description',null,['class' => 'form-control']) }}
+                                    @if($errors->has('description'))
+                                        <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
+                                    @endif
                                 </div>
                             </div>
 

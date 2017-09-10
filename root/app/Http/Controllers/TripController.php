@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TripRequest;
 use App\Repositories\TripRepository;
 use App\Trip;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class TripController extends Controller
@@ -29,7 +29,7 @@ class TripController extends Controller
         return view('trip.index',compact('trips','repository'));
     }
 
-    public function store(Request $request)
+    public function store(TripRequest $request)
     {
         Trip::query()->create($request->all());
         return redirect('trips');
@@ -43,7 +43,7 @@ class TripController extends Controller
         return view('trip.edit',compact('trip','trips','repository'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, TripRequest $request)
     {
         $trip = Trip::query()->findOrFail($id);
         Session::flash('success','"'.$trip->name.'" is updated!');

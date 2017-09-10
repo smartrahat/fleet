@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProgramRequest;
 use App\Program;
 use App\Repositories\ProgramRepository;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class ProgramController extends Controller
@@ -30,7 +30,7 @@ class ProgramController extends Controller
         return view('program.index',compact('programs','repository'));
     }
 
-    public function store(Request $request)
+    public function store(ProgramRequest $request)
     {
         Program::create($request->all());
         return redirect('programs');
@@ -44,7 +44,7 @@ class ProgramController extends Controller
         return view('program.edit',compact('program','programs','repository'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, ProgramRequest $request)
     {
         $program = Program::query()->findOrFail($id);
         Session::flash('success','"'.$program->name.'" is updated!');

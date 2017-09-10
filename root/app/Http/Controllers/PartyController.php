@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PartyRequest;
 use App\Party;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class PartyController extends Controller
@@ -18,7 +18,7 @@ class PartyController extends Controller
         return view('party.index',compact('parties'));
     }
 
-    public function store(Request $request)
+    public function store(PartyRequest $request)
     {
         Party::create($request->all());
         return redirect('parties');
@@ -30,7 +30,7 @@ class PartyController extends Controller
         return view('party.edit',compact('party'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, PartyRequest $request)
     {
         $party = Party::query()->findOrFail($id);
         $party->update($request->all());

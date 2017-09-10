@@ -1,8 +1,11 @@
 <!-- Driver Name Starts -->
-<div class="form-group">
+<div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}" >
     {{ Form::label('name', 'Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('name', null, array('class' => 'form-control')) }}
+        @if ($errors->has('name'))
+            <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
+        @endif
     </div>
 </div>
 <!-- Driver name ends -->
@@ -17,7 +20,7 @@
 <!-- Driver Father's name ends -->
 
 <!-- Driver Mother's Name Starts -->
-<div class="form-group">
+<div class="form-group {{ $errors->has('m_name') ? ' has-error' : '' }}">
     {{ Form::label('m_name', 'Mother\'s Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('m_name',null, array('class' => 'form-control')) }}
@@ -26,46 +29,78 @@
 <!-- Driver Father's name ends -->
 
 <!--Present Address Starts -->
-<div class="form-group">
+<div class="form-group {{ $errors->has('pre_address') ? ' has-error' : '' }}">
     {{ Form::label('pre_address', 'Present Address', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('pre_address',null, array('class' => 'form-control')) }}
+        @if ($errors->has('pre_address'))
+            <span class="help-block"><strong>{{ $errors->first('pre_address') }}</strong></span>
+        @endif
     </div>
 </div>
 <!-- Present Address ends -->
 
 <!--Permanent Address Starts -->
-<div class="form-group">
+<div class="form-group {{ $errors->has('perm_address') ? ' has-error' : '' }}">
     {{ Form::label('perm_address', 'Permanent Address', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('perm_address',null, array('class' => 'form-control')) }}
+        @if ($errors->has('perm_address'))
+            <span class="help-block"><strong>{{ $errors->first('perm_address') }}</strong></span>
+        @endif
     </div>
 </div>
 <!-- Permanent Address ends -->
 
 <!-- NID Number Starts -->
-<div class="form-group">
+<div class="form-group {{ $errors->has('nid') ? ' has-error' : '' }}">
     {{ Form::label('nid', 'National ID No', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('nid',null, array('class' => 'form-control')) }}
+        @if ($errors->has('nid'))
+            <span class="help-block"><strong>{{ $errors->first('nid') }}</strong></span>
+        @endif
     </div>
 </div>
 <!-- NID Number ends-->
 
-<!-- Designation  Starts -->
-<div class="form-group">
-    {{ Form::label('designation_id', 'Designation', array('class'=>'col-md-3 control-label')) }}
+<!-- Date of Birth Starts -->
+<div class="form-group {{ $errors->has('dob') ? ' has-error' : '' }}">
+    <label class="col-md-3 control-label">Date of Birth</label>
     <div class="col-md-6">
-        {{ Form::select('designation_id',$repository->designations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Designation']) }}
+        <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            {{ Form::text('dob', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
+        </div>
+        @if ($errors->has('dob'))
+            <span class="help-block"><strong>{{ $errors->first('dob') }}</strong></span>
+        @endif
+    </div>
+</div>
+<!-- Date of Birth ends -->
+
+<!-- education  Starts -->
+<div class="form-group {{ $errors->has('education') ? ' has-error' : '' }}">
+    {{ Form::label('education', 'Highest Educational Qualification', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::select('education',$repository->educations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Highest Educational Qualification']) }}
+        @if ($errors->has('education'))
+            <span class="help-block"><strong>{{ $errors->first('education') }}</strong></span>
+        @endif
     </div>
 </div>
 <!--  Designation ends -->
 
 <!-- Designation  Starts -->
-<div class="form-group">
-    {{ Form::label('education', 'Educational Qualification', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{ $errors->has('designation_id') ? ' has-error' : '' }}">
+    {{ Form::label('designation_id', 'Designation', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('education',$repository->educations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Educational Qualification']) }}
+        {{ Form::select('designation_id',$repository->designations(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Designation']) }}
+        @if ($errors->has('designation_id'))
+            <span class="help-block"><strong>{{ $errors->first('designation_id') }}</strong></span>
+        @endif
     </div>
 </div>
 <!--  Designation ends -->
@@ -86,26 +121,28 @@
 <!--  Picture ends -->
 
 <!-- Mobile Number Starts -->
-<div class="form-group">
-    {{ Form::label('name', 'Mobile Number', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{ $errors->has('mobile') ? ' has-error' : '' }}">
+    {{ Form::label('mobile', 'Mobile Number', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('mobile', null, array('class' => 'form-control')) }}
+        @if ($errors->has('mobile'))
+            <span class="help-block"><strong>{{ $errors->first('mobile') }}</strong></span>
+        @endif
     </div>
 </div>
 <!-- Mobile Number ends -->
 
-<!-- Email Number Starts -->
-<div class="form-group">
-    {{ Form::label('name', 'Email', array('class'=>'col-md-3 control-label')) }}
+<!-- Email Starts -->
+<div class="form-group ">
+    {{ Form::label('email', 'Email', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('email', null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Email Number ends -->
-
+<!-- Email ends -->
 
 <!-- Date of joining Starts -->
-<div class="form-group">
+<div class="form-group {{ $errors->has('join_date') ? ' has-error' : '' }}">
     <label class="col-md-3 control-label">Joining Date</label>
     <div class="col-md-6">
         <div class="input-group">
@@ -114,15 +151,21 @@
                 </span>
             {{ Form::text('join_date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
         </div>
+        @if ($errors->has('join_date'))
+            <span class="help-block"><strong>{{ $errors->first('join_date') }}</strong></span>
+        @endif
     </div>
 </div>
 <!-- Date of joining ends -->
 
 <!-- Appointment Person Name Starts -->
-<div class="form-group">
+<div class="form-group {{ $errors->has('app_person') ? ' has-error' : '' }}">
     {{ Form::label('app_person', 'Appointment Person Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('app_person', null, array('class' => 'form-control')) }}
+        @if ($errors->has('app_person'))
+            <span class="help-block"><strong>{{ $errors->first('app_person') }}</strong></span>
+        @endif
     </div>
 </div>
 <!-- Driver name ends -->

@@ -60,11 +60,11 @@
                                             <td>{{$employee->pre_address}}</td>
                                             <td>{{$employee->perm_address}}</td>
                                             <td>{{$employee->nid}}</td>
-                                            <td>{{$employee->designation}}</td>
+                                            <td>{{$employee->designation_id}}</td>
                                             <td>{{$employee->mobile}}</td>
                                             <td>{{$employee->join_date}}</td>
                                             <td>{{$employee->app_person}}</td>
-                                            <td><img src='{{asset("images/employees/".$employee->image) }}' height="100" ></td>
+                                            <td><img src='{{asset("images/employees/".$employee->image) }}' height="75" ></td>
                                             <td>
                                                 {{ Form::open(['action'=>['EmployeeController@destroy',$employee->id],'method'=>'delete', 'onsubmit'=>'return confirmDelete()']) }}
                                                 <a href="{{ action('EmployeeController@edit',$employee->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
