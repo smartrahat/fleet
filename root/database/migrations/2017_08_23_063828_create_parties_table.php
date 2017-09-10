@@ -19,7 +19,6 @@ class CreatePartiesTable extends Migration
             $table->string('name');
             $table->string("contact_person");
             $table->text('address');
-            $table->string('nid');
             $table->string('email');
             $table->string('mobile');
             $table->timestamps();

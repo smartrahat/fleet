@@ -20,7 +20,8 @@ class PartyController extends Controller
 
     public function store(PartyRequest $request)
     {
-        Party::create($request->all());
+        //dd($request->all());
+        Party::query()->create($request->all());
         return redirect('parties');
     }
 

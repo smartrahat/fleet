@@ -28,7 +28,7 @@ class PartyRequest extends FormRequest
             'contact_person'    =>'required|max:255',
             'address'           =>'required|max:255',
             'email'             =>'required|max:100',
-            'mobile'            =>'required|max:11'
+            'mobile'            =>'required|digits_between:0,14'
         ];
     }
 }
