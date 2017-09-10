@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
 use App\Http\Requests\ProgramRequest;
 use App\Program;
 use App\Repositories\ProgramRepository;
+use App\Trip;
 use Illuminate\Support\Facades\Session;
 
 class ProgramController extends Controller
@@ -58,5 +60,11 @@ class ProgramController extends Controller
         $program->delete();
         Session::flash('success','"'.$program->name.'" has been deleted successfully!');
         return redirect('programs');
+    }
+
+    public function show(){
+        $trips = Trip::all();
+        return view('program.rotation',compact('trips'));
+
     }
 }

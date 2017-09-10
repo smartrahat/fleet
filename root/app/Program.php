@@ -28,4 +28,8 @@ class Program extends Model
         return $this->belongsTo(Driver::class);
     }
 
+    public function trip(){
+        return $this->hasMany(Trip::class);
+    }
+
 }

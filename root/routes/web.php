@@ -95,6 +95,7 @@ Route::post('program/store', 'ProgramController@store');
 Route::get('program/edit/{id}','ProgramController@edit');
 Route::patch('program/{id}/update','ProgramController@update');
 Route::delete('program/delete/{id}','ProgramController@destroy');
+Route::get('program/rotation','ProgramController@show');
 
 //Trip routes
 Route::get('trips', 'TripController@index');

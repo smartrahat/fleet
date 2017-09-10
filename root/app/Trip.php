@@ -16,4 +16,19 @@ class Trip extends Model
     {
         return $this->belongsTo(Program::class);
     }
+
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
+    public function tripCost()
+    {
+        return $this->belongsTo(TripCost::class);
+    }
 }
