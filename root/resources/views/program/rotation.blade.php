@@ -24,7 +24,6 @@
             <header class="panel-heading">
                 <div class="panel-actions">
                     <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
-                    {{--<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>--}}
                 </div>
 
                 <h2 class="panel-title">Rotation Report</h2>
@@ -71,7 +70,8 @@
                         @endforeach
                         </tbody>
                     </table>
-                </div>
+                </div><br>
+                <a href="#" role="button" class="btn btn-success">Print</a>
             </div>
         </section>
     </section>
