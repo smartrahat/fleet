@@ -34,7 +34,7 @@ class ProgramController extends Controller
 
     public function store(ProgramRequest $request)
     {
-        Program::create($request->all());
+        Program::query()->create($request->all());
         return redirect('programs');
     }
 
@@ -62,9 +62,10 @@ class ProgramController extends Controller
         return redirect('programs');
     }
 
-    public function show(){
+    public function rotation(){
         $trips = Trip::all();
-        return view('program.rotation',compact('trips'));
+        $repository = $this->repository;
+        return view('program.rotation',compact('trips','repository'));
 
     }
 }

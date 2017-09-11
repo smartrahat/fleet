@@ -153,7 +153,7 @@
                                 <a href="{{action('TripCostController@create')}}">Add Trip Cost</a>
                             </li>
                             <li class="{{ isActive('rotation') }}">
-                                <a href="{{action('ProgramController@show')}}">Rotation</a>
+                                <a href="{{action('ProgramController@rotation')}}">Rotation</a>
                             </li>
                         </ul>
                     </li>

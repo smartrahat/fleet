@@ -20,6 +20,28 @@
             </div>
         </header>
 
+        <!-- Search Panel -->
+        <div class="panel panel-body no-print">
+            {!! Form::open(['action'=>'ProgramController@rotation','method'=>'get','class'=>'form-inline']) !!}
+            <div class="form-group">
+                <div class="input-group input-daterange" data-plugin-datepicker>
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    {!! Form::text('start',null,['class'=>'form-control','required']) !!}
+                    <span class="input-group-addon">to</span>
+                    {!! Form::text('end',null,['class'=>'form-control','required']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                {!! Form::select('vehicle',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select Vehicle']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
+                <a href="javascript:window.print()" class="btn btn-success" role="button"><i class="fa fa-print"></i></a>
+            </div>
+            {!! Form::close() !!}
+        </div>
+        <!-- /Search Panel -->
+
         <section class="panel">
             <header class="panel-heading">
                 <div class="panel-actions">
@@ -34,19 +56,19 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Vehicle Number</th>
+                            <th>Vehicle</th>
                             <th>Destination</th>
-                            <th>Driver Advance</th>
-                            <th>SR Name</th>
-                            <th>Party Name</th>
+                            <th>Driver Adv.</th>
+                            <th>SR</th>
+                            <th>Party</th>
                             <th>Empty Container</th>
-                            <th>Vehicle Mobile Number</th>
+                            <th>Vehicle Mobile</th>
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
-                            <th>Product Details</th>
-                            <th>Advance Rent</th>
-                            <th>Due Rent</th>
-                            <th>Total Rent</th>
+                            <th>Details</th>
+                            <th>Advance</th>
+                            <th>Due</th>
+                            <th>Total</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -55,7 +77,7 @@
                                 <td>{{ $trip->id }}</td>
                                 <td>{{ $trip->program->vehicle->vehicleNo }}</td>
                                 <td>{{ $trip->unloading }}</td>
-                                <td>{{ $trip->driver_adv }}</td>
+                                <td class="text-right">{{ number_format($trip->driver_adv) }}/-</td>
                                 <td>{{ $trip->program->employee->name }}</td>
                                 <td>{{ $trip->program->party->name }}</td>
                                 <td>{{ $trip->emp_container }}</td>
@@ -63,9 +85,9 @@
                                 <td>{{ $trip->loading }}</td>
                                 <td>{{ $trip->unloading }}</td>
                                 <td>{{ $trip->product }}</td>
-                                <td>{{ $trip->program->adv_rent }}</td>
-                                <td>{{ $trip->program->due_rent }}</td>
-                                <td>{{ $trip->program->rent }}</td>
+                                <td class="text-right">{{ number_format($trip->program->adv_rent) }}/-</td>
+                                <td class="text-right">{{ number_format($trip->program->due_rent) }}/-</td>
+                                <td class="text-right">{{ number_format($trip->program->rent) }}/-</td>
                             </tr>
                         @endforeach
                         </tbody>

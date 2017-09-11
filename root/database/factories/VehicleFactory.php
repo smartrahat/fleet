@@ -31,6 +31,7 @@ $factory->define(App\Vehicle::class,function(Faker\Generator $faker){
         'status_id' => function(){
             return factory(App\Status::class)->create()->id;
         },
-        'image' => $faker->asciify('demo.png')
+        'image' => $faker->asciify('demo.png'),
+        'mobile' => $faker->phoneNumber
     ];
 });
