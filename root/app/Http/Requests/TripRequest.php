@@ -31,7 +31,6 @@ class TripRequest extends FormRequest
             'emp_container' =>'required',
             'weight'        =>'required',
             'fuel'          =>'required',
-            'rent'          =>'required',
             'driver_adv'    =>'required'
         ];
     }

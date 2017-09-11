@@ -1,16 +1,17 @@
     <!-- start: header -->
     <header class="header">
-        <div class="logo-container">
+        <div class="logo-container no-print">
             <a href="{{ url('/') }}" class="logo">
-                <img src="{{asset('assets/images/logo.png')}}" height="35" alt="Porto Admin" />
+                <img src="{{asset('assets/images/logo.png')}}" height="35" alt="Moulana Logistic" />
             </a>
+            <img src="{{ asset('assets/images/logo.png') }}" class="only-print" height="35" alt="Moulana Logistic" />
             <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
                 <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
             </div>
         </div>
 
         <!-- start: search & user box -->
-        <div class="header-right">
+        <div class="header-right no-print">
             <span class="separator"></span>
 
             <div id="userbox" class="userbox">

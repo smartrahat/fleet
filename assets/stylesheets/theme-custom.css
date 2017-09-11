@@ -1,1 +1,25 @@
 /* Add here all your CSS customizations */
+
+/*=============================
+        Print Styles
+===============================*/
+.only-print{
+    display: none;
+}
+
+@media print {
+    *{
+        margin: 0;
+        padding:0;
+    }
+    .body{
+        /*margin: -100px 0 0;*/
+        padding:0;
+    }
+    .no-print{
+        display: none !important;
+    }
+    .only-print{
+        display: block;
+    }
+}

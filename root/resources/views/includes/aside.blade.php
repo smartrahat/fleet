@@ -1,5 +1,5 @@
 <!-- start: sidebar -->
-<aside id="sidebar-left" class="sidebar-left">
+<aside id="sidebar-left" class="sidebar-left no-print">
     <div class="sidebar-header">
         <div class="sidebar-title">
             Navigation

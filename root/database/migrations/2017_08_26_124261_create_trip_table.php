@@ -23,7 +23,7 @@ class CreateTripTable extends Migration
             $table->string('emp_container');
             $table->string('weight');
             $table->string('fuel');
-            $table->string('rent');
+            //$table->string('rent');
             $table->string('driver_adv');
             $table->timestamps();
         });

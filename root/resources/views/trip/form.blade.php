@@ -83,15 +83,15 @@
 <!-- Fuel ends-->
 
 <!-- Rent Starts-->
-<div class="form-group {{$errors->has('rent')?'has-error':''}}">
-    {{ Form::label('rent', 'Rent', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('rent', null, array('class' => 'form-control')) }}
-        @if($errors->has('rent'))
-            <span class="help-block"><strong>{{$errors->first('rent')}}</strong></span>
-        @endif
-    </div>
-</div>
+{{--<div class="form-group {{$errors->has('rent')?'has-error':''}}">--}}
+    {{--{{ Form::label('rent', 'Rent', array('class'=>'col-md-3 control-label')) }}--}}
+    {{--<div class="col-md-6">--}}
+        {{--{{ Form::text('rent', null, array('class' => 'form-control')) }}--}}
+        {{--@if($errors->has('rent'))--}}
+            {{--<span class="help-block"><strong>{{$errors->first('rent')}}</strong></span>--}}
+        {{--@endif--}}
+    {{--</div>--}}
+{{--</div>--}}
 <!-- Rent ends-->
 
 <!-- Driver Advance Starts-->

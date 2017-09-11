@@ -5,7 +5,7 @@
 @section('content')
     <section role="main" class="content-body">
 
-        <header class="page-header">
+        <header class="page-header no-print">
             <h2>Program Rotation Report</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
@@ -23,9 +23,9 @@
         <section class="panel">
             <header class="panel-heading">
                 <div class="panel-actions">
+                    <a href="javascript:window.print()"><i class="fa fa-print"></i></a>
                     <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                 </div>
-
                 <h2 class="panel-title">Rotation Report</h2>
             </header>
             <div class="panel-body">
@@ -71,7 +71,6 @@
                         </tbody>
                     </table>
                 </div><br>
-                <a href="#" role="button" class="btn btn-success">Print</a>
             </div>
         </section>
     </section>

@@ -1,7 +1,7 @@
 
 <!--Date starts-->
 <div class="form-group {{$errors->has('date')?'has-error':''}}">
-    <label class="col-md-3 control-label">Program Date</label>
+    <label class="col-md-3 control-label">Program Date:</label>
     <div class="col-md-6">
         <div class="input-group">
                 <span class="input-group-addon">
@@ -19,7 +19,7 @@
 
 <!-- Serial Starts-->
 <div class="form-group {{$errors->has('serial')?'has-error':''}}">
-    <label class="col-md-3 control-label">Serial Number</label>
+    <label class="col-md-3 control-label">Serial Number:</label>
     <div class="col-md-6">
         {{ Form::text('serial',null, array('class' => 'form-control')) }}
         @if($errors->has('serial'))
@@ -31,7 +31,7 @@
 
 <!-- party start-->
 <div class="form-group {{$errors->has('party_id')?'has-error':''}}">
-    {{ Form::label('party_id', 'Party Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('party_id', 'Party Name:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('party_id',$repository->parties(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Party']) }}
         @if($errors->has('party_id'))
@@ -44,7 +44,7 @@
 
 <!-- Employee start-->
 <div class="form-group {{$errors->has('employee_id')?'has-error':''}}">
-    {{ Form::label('employee_id', 'SR Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('employee_id', 'SR Name:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('employee_id',$repository->employees(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select SR']) }}
         @if($errors->has('employee_id'))
@@ -56,7 +56,7 @@
 
 <!-- Driver Starts-->
 <div class="form-group {{$errors->has('driver_id')?'has-error':''}}">
-    {{ Form::label('driver_id', 'Driver', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('driver_id', 'Driver:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('driver_id',$repository->drivers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Driver']) }}
         @if($errors->has('driver_id'))
@@ -68,7 +68,7 @@
 
 <!-- Vehicle Number Starts-->
 <div class="form-group {{$errors->has('vehicle_id')?'has-error':''}}">
-    {{ Form::label('vehicle_id', 'Vehicle Number', ['class'=>'col-md-3 control-label']) }}
+    {{ Form::label('vehicle_id', 'Vehicle Number:', ['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
         {{ Form::select('vehicle_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
         @if($errors->has('vehicle_id'))
@@ -81,7 +81,7 @@
 
 <!-- Advance Rent Starts-->
 <div class="form-group {{$errors->has('adv_rent')?'has-error':''}}">
-    <label class="col-md-3 control-label">Advance Rent</label>
+    <label class="col-md-3 control-label">Advance Rent:</label>
     <div class="col-md-6">
         {{ Form::text('adv_rent',null, array('class' => 'form-control')) }}
         @if($errors->has('adv_rent'))
@@ -94,7 +94,7 @@
 
 <!-- Due Rent Starts-->
 <div class="form-group {{$errors->has('due_rent')?'has-error':''}}">
-    <label class="col-md-3 control-label">Due Rent</label>
+    <label class="col-md-3 control-label">Due Rent:</label>
     <div class="col-md-6">
         {{ Form::text('due_rent',null, array('class' => 'form-control')) }}
         @if($errors->has('due_rent'))
@@ -107,7 +107,7 @@
 
 <!-- Total Rent Starts-->
 <div class="form-group {{$errors->has('rent')?'has-error':''}}">
-    <label class="col-md-3 control-label">Total Rent</label>
+    <label class="col-md-3 control-label">Total Rent:</label>
     <div class="col-md-6">
         {{ Form::text('rent',null, array('class' => 'form-control')) }}
         @if($errors->has('rent'))
