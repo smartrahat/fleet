@@ -59,7 +59,7 @@
                                 <td>{{ $trip->program->employee->name }}</td>
                                 <td>{{ $trip->program->party->name }}</td>
                                 <td>{{ $trip->emp_container }}</td>
-                                <td>{{ $trip->program->driver->mobile }}</td>
+                                <td>{{ $trip->program->vehicle->mobile }}</td>
                                 <td>{{ $trip->loading }}</td>
                                 <td>{{ $trip->unloading }}</td>
                                 <td>{{ $trip->product }}</td>

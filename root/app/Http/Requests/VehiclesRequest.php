@@ -41,6 +41,7 @@ class VehiclesRequest extends FormRequest
             'vehicleNo'         =>'required',
             'engineNo'          =>'required',
             'chasesNo'          =>'required',
+            'mobile'            =>'required',
             'status_id'         =>'required',
             'image'             => 'mimes:jpeg,bmp,png|max:2000',
         ];

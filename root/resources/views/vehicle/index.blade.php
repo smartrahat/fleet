@@ -44,6 +44,7 @@
                             <th>Reg. Certificate</th>
                             <th>Numbers</th>
                             <th>Status</th>
+                            <th>Mobile</th>
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -82,6 +83,9 @@
                                 {{ $vehicle->vehicleNo }}
                                 {{ $vehicle->engineNo }}
                                 {{ $vehicle->chasesNo }}
+                            </td>
+                            <td>
+                                {{ $vehicle->mobile}}
                             </td>
                             <td>
                                 {{ $vehicle->status->name or '' }}

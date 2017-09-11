@@ -33,6 +33,7 @@ class CreateVehiclesTable extends Migration
             $table->string('vehicleNo');
             $table->string('engineNo');
             $table->string('chasesNo');
+            $table->string('mobile');
             $table->integer('status_id')->unsigned();
             $table->string('image');
             $table->timestamps();

@@ -190,6 +190,18 @@
 </div>
 <!-- Chesis Number ends-->
 
+<!-- Mobile Number Starts-->
+<div class="form-group {{$errors->has('mobile')? 'has-error':''}}">
+    <label class="col-md-3 control-label">Mobile Number</label>
+    <div class="col-md-6">
+        {{ Form::text('mobile',null, array('class' => 'form-control')) }}
+        @if($errors->has('mobile'))
+            <span class="help-block"><strong>{{$errors->first('mobile')}}</strong></span><br>
+        @endif
+    </div>
+</div>
+<!-- Mobile Number ends-->
+
 <!-- Status Starts-->
 <div class="form-group {{$errors->has('status_id')? 'has-error':''}}">
     <label class="col-md-3 control-label">Status</label>
