@@ -7,6 +7,8 @@ use App\Http\Requests\ProgramRequest;
 use App\Program;
 use App\Repositories\ProgramRepository;
 use App\Trip;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 class ProgramController extends Controller
@@ -62,8 +64,17 @@ class ProgramController extends Controller
         return redirect('programs');
     }
 
-    public function rotation(){
-        $trips = Trip::all();
+    public function rotation(Trip $trip){
+        $trip = $trip->newQuery();
+
+        if(Input::has('vehicle')){
+            $start = Carbon::parse(Input::get('start'));
+            $end = Carbon::parse(Input::get('end'));
+            $program = Program::query()->where('vehicle_id',Input::get('vehicle'))->whereBetween('date',[$start,$end])->pluck('id')->toArray();
+            $trip->whereIn('program_id',$program);
+        }
+
+        $trips = $trip->orderByDesc('created_at')->get();
         $repository = $this->repository;
         return view('program.rotation',compact('trips','repository'));
 
