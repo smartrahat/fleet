@@ -1,6 +1,7 @@
 <!-- Vendor -->
 <script src="{{asset('assets/vendor/jquery/jquery.js')}}"></script>
 <script src="{{asset('assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js')}}"></script>
+<script src="{{asseT('assets/vendor/jquery-autosize/jquery.autosize.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.js')}}"></script>
 <script src="{{asset('assets/vendor/nanoscroller/nanoscroller.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
@@ -34,27 +35,27 @@
 <script src="{{asset('assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js')}}"></script>
 <script src="{{asset('assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js')}}"></script>
 <script src="{{ asset('assets/vendor/select2/select2.js') }}"></script>
-<script src="assets/vendor/select2/select2.js"></script>
-<script src="assets/vendor/jquery-maskedinput/jquery.maskedinput.js"></script>
-<script src="assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
-<script src="assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-<script src="assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-<script src="assets/vendor/fuelux/js/spinner.js"></script>
-<script src="assets/vendor/dropzone/dropzone.js"></script>
-<script src="assets/vendor/bootstrap-markdown/js/markdown.js"></script>
-<script src="assets/vendor/bootstrap-markdown/js/to-markdown.js"></script>
-<script src="assets/vendor/bootstrap-markdown/js/bootstrap-markdown.js"></script>
-<script src="assets/vendor/codemirror/lib/codemirror.js"></script>
-<script src="assets/vendor/codemirror/addon/selection/active-line.js"></script>
-<script src="assets/vendor/codemirror/addon/edit/matchbrackets.js"></script>
-<script src="assets/vendor/codemirror/mode/javascript/javascript.js"></script>
-<script src="assets/vendor/codemirror/mode/xml/xml.js"></script>
-<script src="assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-<script src="assets/vendor/codemirror/mode/css/css.js"></script>
-<script src="assets/vendor/summernote/summernote.js"></script>
-<script src="assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js"></script>
-<script src="assets/vendor/ios7-switch/ios7-switch.js"></script>
-<script src="assets/vendor/bootstrap-confirmation/bootstrap-confirmation.js"></script>
+<script src="{{ asset('assets/vendor/select2/select2.js') }}"</script>
+<script src="{{ asset('assets/vendor/jquery-maskedinput/jquery.maskedinput.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
+<script src="{{ asset('assets/vendor/fuelux/js/spinner.js') }}"></script>
+<script src="{{ asset('assets/vendor/dropzone/dropzone.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-markdown/js/markdown.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-markdown/js/to-markdown.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-markdown/js/bootstrap-markdown.js') }}"></script>
+<script src="{{ asset('assets/vendor/codemirror/lib/codemirror.js') }}"></script>
+<script src="{{ asset('assets/vendor/codemirror/addon/selection/active-line.js') }}"></script>
+<script src="{{ asset('assets/vendor/codemirror/addon/edit/matchbrackets.js') }}"></script>
+<script src="{{ asset('assets/vendor/codemirror/mode/javascript/javascript.js') }}"></script>
+<script src="{{ asset('assets/vendor/codemirror/mode/xml/xml.js') }}"></script>
+<script src="{{ asset('assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
+<script src="{{ asset('assets/vendor/codemirror/mode/css/css.js') }}"></script>
+<script src="{{ asset('assets/vendor/summernote/summernote.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js') }}"></script>
+<script src="{{ asset('assets/vendor/ios7-switch/ios7-switch.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-confirmation/bootstrap-confirmation.js') }}"></script>
 
 <!-- Theme Base, Components and Settings -->
 <script src="{{asset('assets/javascripts/theme.js')}}"></script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\VehiclesRequest;
+use App\Program;
 use App\Vehicle;
 use App\Repositories\VehicleRepository;
 use Illuminate\Support\Facades\DB;
@@ -76,5 +77,11 @@ class VehicleController extends Controller
         $vehicle = Vehicle::query()->findOrFail($id);
         $vehicle->delete();
         return redirect('vehicles');
+    }
+
+    public function show($id)
+    {
+        $programs = Program::all();
+        return view('vehicle.profile',compact('programs'));
     }
 }

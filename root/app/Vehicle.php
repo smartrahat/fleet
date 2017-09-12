@@ -56,6 +56,10 @@ class Vehicle extends Model
         return $this->belongsTo(Status::class);
     }
 
+    public function programs(){
+        return $this->hasMany(Program::class);
+    }
+
     public function getInsuranceStartAttribute($date)
     {
         return Carbon::parse($date)->format('Y-m-d');

@@ -32,6 +32,7 @@ Route::post('vehicle/store', 'VehicleController@store');
 Route::get('vehicle/edit/{id}','VehicleController@edit');
 Route::patch('vehicle/{id}/update','VehicleController@update');
 Route::delete('vehicle/delete/{id}','VehicleController@destroy');
+Route::get('vehicle/profile/{id}', 'VehicleController@show');
 
 //Brand routes
 Route::get('brands', 'BrandController@index');
@@ -96,6 +97,7 @@ Route::get('program/edit/{id}','ProgramController@edit');
 Route::patch('program/{id}/update','ProgramController@update');
 Route::delete('program/delete/{id}','ProgramController@destroy');
 Route::get('program/rotation','ProgramController@rotation');
+Route::get('program/report','ProgramController@programReport');
 
 //Trip routes
 Route::get('trips', 'TripController@index');

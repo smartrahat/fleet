@@ -95,8 +95,9 @@
                             </td>
                             <td>
                                 {{ Form::open(['action'=>['VehicleController@destroy',$vehicle->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
-                                <a href="{{ action('VehicleController@edit',$vehicle->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="{{ action('VehicleController@edit',$vehicle->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit" title="Edit"></i></a>
                                 {{ Form::submit('X',['class'=>'btn btn-danger']) }}
+                                <a href="{{ action('VehicleController@show',$vehicle->id) }}" role="button" class="btn btn-info"><i class="fa fa-info-circle" title="Information"></i></a>
                                 {{ Form::close() }}
                             </td>
                         </tr>

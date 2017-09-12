@@ -128,7 +128,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['program*','trip*','rotation*']) }}">
+                    <li class="nav-parent {{ isActive(['program*','trip*','rotation*','report*']) }}">
                         <a>
                             <i class="fa fa-ship" aria-hidden="true"></i>
                             <span>Programs</span>
@@ -154,6 +154,9 @@
                             </li>
                             <li class="{{ isActive('program/rotation') }}">
                                 <a href="{{action('ProgramController@rotation')}}">Rotation</a>
+                            </li>
+                            <li class="{{ isActive('program/report') }}">
+                                <a href="{{action('ProgramController@programReport')}}">Report</a>
                             </li>
                         </ul>
                     </li>

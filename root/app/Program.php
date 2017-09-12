@@ -29,7 +29,11 @@ class Program extends Model
     }
 
     public function trip(){
-        return $this->hasMany(Trip::class);
+        return $this->hasOne(Trip::class);
+    }
+
+    public function tripCost(){
+        return $this->hasOne(TripCost::class);
     }
 
 }
