@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="{{asset('assets/stylesheets/theme-custom.css')}}">
 
     <!-- Head Libs -->
+    <script src="{{asset('assets/vendor/jquery/jquery.js')}}"></script>
     <script src="{{asset('assets/vendor/modernizr/modernizr.js')}}"></script>
 
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}"/>

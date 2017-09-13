@@ -83,7 +83,7 @@
 <div class="form-group {{$errors->has('adv_rent')?'has-error':''}}">
     <label class="col-md-3 control-label">Advance Rent:</label>
     <div class="col-md-6">
-        {{ Form::text('adv_rent',null, array('class' => 'form-control')) }}
+        {{ Form::text('adv_rent',null, array('class' => 'form-control','id'=>'adv_rent')) }}
         @if($errors->has('adv_rent'))
             <span class="help-block"><strong>{{$errors->first('adv_rent')}}</strong></span>
         @endif
@@ -96,7 +96,7 @@
 <div class="form-group {{$errors->has('due_rent')?'has-error':''}}">
     <label class="col-md-3 control-label">Due Rent:</label>
     <div class="col-md-6">
-        {{ Form::text('due_rent',null, array('class' => 'form-control')) }}
+        {{ Form::text('due_rent',null, array('class' => 'form-control','id'=>'due_rent')) }}
         @if($errors->has('due_rent'))
             <span class="help-block"><strong>{{$errors->first('due_rent')}}</strong></span>
         @endif
@@ -109,7 +109,7 @@
 <div class="form-group {{$errors->has('rent')?'has-error':''}}">
     <label class="col-md-3 control-label">Total Rent:</label>
     <div class="col-md-6">
-        {{ Form::text('rent',null, array('class' => 'form-control')) }}
+        {{ Form::text('rent',null, array('class' => 'form-control','id'=>'rent','readonly')) }}
         @if($errors->has('rent'))
             <span class="help-block"><strong>{{$errors->first('rent')}}</strong></span>
         @endif
@@ -132,3 +132,13 @@
     </div>
 </div>
 <!-- ends-->
+
+@section('script')
+    <script>
+        $(document).keyup(function () {
+            var advance = $('#adv_rent').val();
+            var due = $('#due_rent').val();
+            $('#rent').val(parseInt(advance) + parseInt(due));
+        })
+    </script>
+@stop

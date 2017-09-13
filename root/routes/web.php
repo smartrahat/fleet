@@ -32,7 +32,7 @@ Route::post('vehicle/store', 'VehicleController@store');
 Route::get('vehicle/edit/{id}','VehicleController@edit');
 Route::patch('vehicle/{id}/update','VehicleController@update');
 Route::delete('vehicle/delete/{id}','VehicleController@destroy');
-Route::get('vehicle/profile/{id}', 'VehicleController@show');
+Route::get('vehicle/show/{id}', 'VehicleController@show');
 
 //Brand routes
 Route::get('brands', 'BrandController@index');

@@ -61,7 +61,7 @@
                                     <td>{{$trip->weight}}</td>
                                     <td>{{$trip->fuel}}</td>
                                     {{--<td>{{$trip->rent}}</td>--}}
-                                    <td>{{$trip->driver_adv}}</td>
+                                    <td class="text-right">{{ number_format($trip->driver_adv) }}/-</td>
                                     <td>
                                         {{ Form::open(['action'=>['TripController@destroy',$trip->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('TripController@edit',$trip->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
