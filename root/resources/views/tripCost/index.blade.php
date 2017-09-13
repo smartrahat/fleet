@@ -36,14 +36,14 @@
                                         <th>Driver Salary</th>
                                         <th>Helper Salary</th>
                                         <th>Fuel Cost</th>
-                                        <th>Driver Allowance</th>
-                                        <th>Helper Allowance</th>
+                                        <th>Driver Allow<br>ance</th>
+                                        <th>Helper Allow<br>ance</th>
                                         <th>Labour Load Unload</th>
                                         <th>Toll</th>
                                         <th>Bridge</th>
                                         <th>Scale</th>
-                                        <th>Wheel Maintenance</th>
-                                        <th>Guard/Bazar Donation</th>
+                                        <th>Wheel</th>
+                                        <th>Guard/<br>Bazar Donation</th>
                                         <th>Container Charge</th>
                                         <th>Post Gate Charge</th>
                                         <th>Driver Cost</th>
@@ -56,21 +56,21 @@
                                 <tr>
                                     <td>{{$tripCost->id}}</td>
                                     <td>{{$tripCost->program->serial}}</td>
-                                    <td>{{$tripCost->driver_salary}}</td>
-                                    <td>{{$tripCost->helper_salary}}</td>
-                                    <td>{{$tripCost->fuel_cost}}</td>
-                                    <td>{{$tripCost->driver_allow}}</td>
-                                    <td>{{$tripCost->helper_allow}}</td>
-                                    <td>{{$tripCost->labour}}</td>
-                                    <td>{{$tripCost->toll}}</td>
-                                    <td>{{$tripCost->bridge}}</td>
-                                    <td>{{$tripCost->scale}}</td>
-                                    <td>{{$tripCost->wheel}}</td>
-                                    <td>{{$tripCost->donation}}</td>
-                                    <td>{{$tripCost->container}}</td>
-                                    <td>{{$tripCost->port_gate}}</td>
-                                    <td>{{$tripCost->driver_cost}}</td>
-                                    <td>{{$tripCost->other}}</td>
+                                    <td class="text-right">{{number_format($tripCost->driver_salary)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->helper_salary)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->fuel_cost)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->driver_allow)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->helper_allow)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->labour)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->toll)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->bridge)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->scale)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->wheel)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->donation)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->container)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->port_gate)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->driver_cost)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->other)}}/-</td>
                                     <td>
                                         {{ Form::open(['action'=>['TripCostController@destroy',$tripCost->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('TripCostController@edit',$tripCost->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

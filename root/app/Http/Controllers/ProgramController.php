@@ -9,6 +9,8 @@ use App\Repositories\ProgramRepository;
 use App\Trip;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
+use App\TripCost;
+
 use Illuminate\Support\Facades\Session;
 
 class ProgramController extends Controller
@@ -78,5 +80,11 @@ class ProgramController extends Controller
         $repository = $this->repository;
         return view('program.rotation',compact('trips','repository'));
 
+    }
+
+    public function programReport(){
+        $tripCosts = TripCost::all();
+        $repository = $this->repository;
+        return view('program.programReport',compact('tripCosts','repository'));
     }
 }

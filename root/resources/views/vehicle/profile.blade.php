@@ -34,7 +34,7 @@
 									<div class="thumb-info mb-md">
 										<img src="assets/images/!logged-user.jpg" class="rounded img-responsive" alt="John Doe">
 										<div class="thumb-info-title">
-											<span class="thumb-info-inner">John Doe</span>
+											<span class="thumb-info-inner">Jhon Doe</span>
 											<span class="thumb-info-type">CEO</span>
 										</div>
 									</div>
@@ -77,6 +77,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>ID</th>
+                                                    <th>Driver</th>
                                                     <th>Program No</th>
                                                     <th>Total Income</th>
                                                     <th>Total Expense</th>
@@ -87,6 +88,7 @@
                                                 @foreach($programs as $program)
                                                     <tr>
                                                         <td>{{$program->vehicle_id}}</td>
+                                                        <td>{{$program->driver->name}}</td>
                                                         <td>{{$program->serial}}</td>
                                                         <td>{{$program->rent}}</td>
                                                         <td>{{$totalCost =
