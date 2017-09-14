@@ -29,10 +29,10 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <a href="{{ action('TripCostController@create') }}" role="button" class="btn btn-success">Add Trip Cost</a><br />
-                                <table class="table table-bordered table-stripCosted table-condensed mb-none">
+                                <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>ID</th>
                                         <th>Program ID</th>
                                         <th>Driver Salary</th>
                                         <th>Helper Salary</th>
@@ -50,8 +50,8 @@
                                         <th>Driver Cost</th>
                                         <th>Other Expenses</th>
                                         <th>Action</th>
-                             </tr>
-                        </thead>
+                                             </tr>
+                                        </thead>
                         <tbody>
                             @foreach($tripCosts as $tripCost)
                                 <tr>

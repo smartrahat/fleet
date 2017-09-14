@@ -239,6 +239,24 @@
                         {{--</ul>--}}
                     </li>
 
+                    <li class="nav-parent {{ isActive(['user*']) }}">
+                        <a>
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>User Management</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('users') }}">
+                                <a href="{{ action('UserController@index') }}">Users</a>
+                            </li>
+                            <li class="{{ isActive('user/create')}}">
+                                <a href="{{ action('UserController@create') }}">Add User</a>
+                            </li>
+                            <li class="{{ isActive('user/change')}}">
+                                <a href="{{ action('UserController@changePassword') }}">Change Password</a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             </nav>
 

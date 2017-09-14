@@ -118,3 +118,15 @@ Route::delete('tripCost/delete/{id}','TripCostController@destroy');
 
 /** Company Route */
 Route::get('company/show/{id}','CompanyController@show');
+
+/** User Routes */
+Route::get('users','UserController@index');
+Route::get('user/create','UserController@create');
+Route::post('user/store','UserController@store');
+Route::get('user/show/{id}','UserController@show');
+Route::get('user/edit/{id}','UserController@edit');
+Route::patch('user/{id}/update','UserController@update');
+Route::patch('user/{id}/reset','UserController@resetPassword');
+Route::get('user/change','UserController@changePassword');
+Route::patch('user/new','UserController@newPassword');
+Route::delete('user/destroy/{id}','UserController@destroy');
