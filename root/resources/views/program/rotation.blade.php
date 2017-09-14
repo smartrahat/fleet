@@ -57,8 +57,8 @@
                         <tr>
                             <th>ID</th>
                             <th>Vehicle</th>
-                            <th>Destination</th>
-                            <th>Driver Adv.</th>
+                            <th>Location</th>
+                            <th>Driver Adv. Fixed</th>
                             <th>SR</th>
                             <th>Party</th>
                             <th>Empty Container</th>

@@ -26,7 +26,7 @@
                     <a href="javascript:window.print()"><i class="fa fa-print"></i></a>
                     <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                 </div>
-                <h2 class="panel-title">Program Report</h2>
+                <h2 class="panel-title">Accounting From Driver</h2>
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
