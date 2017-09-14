@@ -78,6 +78,17 @@
 </div>
 <!-- Vehicle name ends-->
 
+<!-- Total Rent Starts-->
+<div class="form-group {{$errors->has('rent')?'has-error':''}}">
+    <label class="col-md-3 control-label">Total Rent:</label>
+    <div class="col-md-6">
+        {{ Form::text('rent',null, array('class' => 'form-control','id'=>'rent')) }}
+        @if($errors->has('rent'))
+            <span class="help-block"><strong>{{$errors->first('rent')}}</strong></span>
+        @endif
+    </div>
+</div>
+<!-- Total Rent ends-->
 
 <!-- Advance Rent Starts-->
 <div class="form-group {{$errors->has('adv_rent')?'has-error':''}}">
@@ -96,28 +107,13 @@
 <div class="form-group {{$errors->has('due_rent')?'has-error':''}}">
     <label class="col-md-3 control-label">Due Rent:</label>
     <div class="col-md-6">
-        {{ Form::text('due_rent',null, array('class' => 'form-control','id'=>'due_rent')) }}
+        {{ Form::text('due_rent',null, array('class' => 'form-control','id'=>'due_rent','readonly')) }}
         @if($errors->has('due_rent'))
             <span class="help-block"><strong>{{$errors->first('due_rent')}}</strong></span>
         @endif
     </div>
 </div>
-<!-- Advance Rent ends-->
-
-
-<!-- Total Rent Starts-->
-<div class="form-group {{$errors->has('rent')?'has-error':''}}">
-    <label class="col-md-3 control-label">Total Rent:</label>
-    <div class="col-md-6">
-        {{ Form::text('rent',null, array('class' => 'form-control','id'=>'rent','readonly')) }}
-        @if($errors->has('rent'))
-            <span class="help-block"><strong>{{$errors->first('rent')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Total Rent ends-->
-
-
+<!-- Due Rent ends-->
 
 <!--Submit button -->
 <div class="form-group">
@@ -136,9 +132,9 @@
 @section('script')
     <script>
         $(document).keyup(function () {
+            var rent = $('#rent').val();
             var advance = $('#adv_rent').val();
-            var due = $('#due_rent').val();
-            $('#rent').val(parseInt(advance) + parseInt(due));
+            $('#due_rent').val(parseInt(rent) - parseInt(advance));
         })
     </script>
 @stop

@@ -128,7 +128,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['program*','trip*','rotation*','report*']) }}">
+                    <li class="nav-parent {{ isActive(['program*','trip*','rotation*','report*','receipt*']) }}">
                         <a>
                             <i class="fa fa-ship" aria-hidden="true"></i>
                             <span>Programs</span>
@@ -157,6 +157,9 @@
                             </li>
                             <li class="{{ isActive('program/report') }}">
                                 <a href="{{action('ProgramController@programReport')}}">Report</a>
+                            </li>
+                            <li class="{{ isActive('program/receipt') }}">
+                                <a href="{{action('ProgramController@driverReceipt')}}">Accounting From Driver</a>
                             </li>
                         </ul>
                     </li>

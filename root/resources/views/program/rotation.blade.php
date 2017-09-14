@@ -65,7 +65,7 @@
                             <th>Vehicle Mobile</th>
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
-                            <th>Details</th>
+                            <th>Quantity</th>
                             <th>Advance</th>
                             <th>Due</th>
                             <th>Total</th>

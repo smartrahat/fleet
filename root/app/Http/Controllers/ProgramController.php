@@ -87,4 +87,10 @@ class ProgramController extends Controller
         $repository = $this->repository;
         return view('program.programReport',compact('tripCosts','repository'));
     }
+
+    public function driverReceipt(){
+        $tripCosts = TripCost::all();
+        $repository = $this->repository;
+        return view('program.driverReceipt',compact('tripCosts','repository'));
+    }
 }

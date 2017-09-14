@@ -94,9 +94,9 @@
 {{--</div>--}}
 <!-- Rent ends-->
 
-<!-- Driver Advance Starts-->
+<!-- Driver Advance Fixed Starts-->
 <div class="form-group {{$errors->has('driver_adv')?'has-error':''}}">
-    {{ Form::label('driver_adv', 'Driver Advance', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('driver_adv', 'Driver Advance (Fixed)', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('driver_adv', null, array('class' => 'form-control')) }}
         @if($errors->has('driver_adv'))
@@ -104,7 +104,7 @@
         @endif
     </div>
 </div>
-<!-- Driver Advance ends-->
+<!-- Driver Advance Fixed ends-->
 
 <!--Submit button -->
 <div class="form-group">

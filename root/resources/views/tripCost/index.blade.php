@@ -39,7 +39,7 @@
                                         <th>Fuel Cost</th>
                                         <th>Driver Allow<br>ance</th>
                                         <th>Helper Allow<br>ance</th>
-                                        <th>Labour Load Unload</th>
+                                        <th>Labour<br>Load/<br>Unload</th>
                                         <th>Toll</th>
                                         <th>Bridge</th>
                                         <th>Scale</th>

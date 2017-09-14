@@ -166,18 +166,6 @@
 </div>
 <!-- Port gate Charge ends-->
 
-<!-- Driver cost  Starts-->
-<div class="form-group {{$errors->has('driver_cost')?'has-error':''}}">
-    {{ Form::label('driver_cost', 'Driver Cost', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('driver_cost', null, array('class' => 'form-control')) }}
-        @if($errors->has('driver_cost'))
-            <span class="help-block"><strong>{{$errors->first('driver_cost')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Driver cost ends-->
-
 <!-- Other Expenses  Starts-->
 <div class="form-group {{$errors->has('other')?'has-error':''}}">
     {{ Form::label('other', 'Other Expenses', array('class'=>'col-md-3 control-label')) }}

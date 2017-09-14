@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Rotation List')
+@section('title','Accounting From Driver')
 
 @section('content')
     <section role="main" class="content-body">
@@ -26,7 +26,7 @@
                     <a href="javascript:window.print()"><i class="fa fa-print"></i></a>
                     <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                 </div>
-                <h2 class="panel-title">Program Report</h2>
+                <h2 class="panel-title">Accounting From Driver</h2>
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -37,17 +37,10 @@
                             <th>Date</th>
                             <th>Truck No</th>
                             <th>Driver Name</th>
-                            <th>Party Name</th>
-                            <th>Party Address</th>
-                            <th>Contact Person</th>
-                            <th>Mobile</th>
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
                             <th>Empty Container</th>
                             <th>Product<br>(Qty)</th>
-                            <th>(Rent)<br>Adv.<br>
-                                Due<br>
-                                Total </th>
                             <th>Fuel (Ltr)<br>Cost</th>
                             <th>Cont. Charge<br>Labour (load/<br>unload)</th>
                             <th>(Allowance)<br>Driver <br>Helper</th>
@@ -66,17 +59,10 @@
                                 <td>{{$tripCost->program->date}}</td>
                                 <td>{{$tripCost->program->vehicle->vehicleNo}}</td>
                                 <td>{{$tripCost->program->driver->name}}</td>
-                                <td>{{$tripCost->program->party->name}}</td>
-                                <td>{{$tripCost->program->party->address}}</td>
-                                <td>{{$tripCost->program->party->contact_person}}</td>
-                                <td>{{$tripCost->program->vehicle->mobile}}</td>
                                 <td>{{$tripCost->program->trip->loading}}</td>
                                 <td>{{$tripCost->program->trip->unloading}}</td>
                                 <td>{{$tripCost->program->trip->emp_container}}</td>
                                 <td>{{$tripCost->program->trip->product}}</td>
-                                <td class="text-right">{{number_format($tripCost->program->adv_rent)}}/-<br>
-                                    {{number_format($tripCost->program->due_rent)}}/-<br>
-                                    {{number_format($tripCost->program->rent)}}/-</td>
                                 <td class="text-right">{{$tripCost->program->trip->fuel}}<br>
                                     {{number_format($tripCost->fuel_cost)}}/-</td>
                                 <td class="text-right">{{number_format($tripCost->program->tripCost->container)}}/-<br>{{number_format($tripCost->labour) }}/-</td>

@@ -77,7 +77,7 @@
                                 <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Date</th>
                                         <th>Driver</th>
                                         <th>Program No</th>
                                         <th>Total Income</th>
@@ -88,28 +88,28 @@
                                     <tbody>
                                     @foreach($vehicle->programs as $program)
                                         <tr>
-                                            <td>{{$program->vehicle_id}}</td>
+                                            <td>{{$program->date}}</td>
                                             <td>{{$program->driver->name}}</td>
                                             <td class="text-center">{{ $program->serial }}</td>
                                             <td class="text-right">{{ number_format($program->rent) }}/-</td>
-                                            <td>{{ $program->tripCost }}</td>
-                                            {{--<td class="text-right">{{ $totalCost =--}}
-                                                        {{--$program->tripCost->driver_salary+--}}
-                                                        {{--$program->tripCost->helper_salary+--}}
-                                                        {{--$program->tripCost->fuel_cost+--}}
-                                                        {{--$program->tripCost->driver_allow+--}}
-                                                        {{--$program->tripCost->helper_allow+--}}
-                                                        {{--$program->tripCost->labour+--}}
-                                                        {{--$program->tripCost->toll+--}}
-                                                        {{--$program->tripCost->bridge+--}}
-                                                        {{--$program->tripCost->scale+--}}
-                                                        {{--$program->tripCost->wheel+--}}
-                                                        {{--$program->tripCost->donation+--}}
-                                                        {{--$program->tripCost->container+--}}
-                                                        {{--$program->tripCost->port_gate+--}}
-                                                        {{--$program->tripCost->driver_cost+--}}
-                                                        {{--$program->tripCost->other }}/-</td>--}}
-{{--                                            <td class="text-right">{{ number_format($program->rent - $totalCost) }}/-</td>--}}
+
+                                            <td class="text-right">{{ number_format($totalCost =
+                                                        $program->tripCost->driver_salary+
+                                                        $program->tripCost->helper_salary+
+                                                        $program->tripCost->fuel_cost+
+                                                        $program->tripCost->driver_allow+
+                                                        $program->tripCost->helper_allow+
+                                                        $program->tripCost->labour+
+                                                        $program->tripCost->toll+
+                                                        $program->tripCost->bridge+
+                                                        $program->tripCost->scale+
+                                                        $program->tripCost->wheel+
+                                                        $program->tripCost->donation+
+                                                        $program->tripCost->container+
+                                                        $program->tripCost->port_gate+
+                                                        $program->tripCost->driver_cost+
+                                                        $program->tripCost->other) }}/-</td>
+                                            <td class="text-right">{{ number_format($program->rent - $totalCost) }}/-</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

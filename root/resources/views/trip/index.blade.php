@@ -42,9 +42,9 @@
                                         <th>Product Details</th>
                                         <th>Empty Container</th>
                                         <th>Weight</th>
-                                        <th>Fuel Quantity (Ltr)</th>
+                                        <th>Fuel<br>Quantity<br>(Ltr)</th>
                                         {{--<th>Fare</th>--}}
-                                        <th>Driver Advance</th>
+                                        <th>Driver<br>Advance<br>(Fixed)</th>
                                         <th>Action</th>
                              </tr>
                         </thead>

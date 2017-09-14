@@ -98,6 +98,7 @@ Route::patch('program/{id}/update','ProgramController@update');
 Route::delete('program/delete/{id}','ProgramController@destroy');
 Route::get('program/rotation','ProgramController@rotation');
 Route::get('program/report','ProgramController@programReport');
+Route::get('program/receipt','ProgramController@driverReceipt');
 
 //Trip routes
 Route::get('trips', 'TripController@index');

@@ -81,7 +81,6 @@ class VehicleController extends Controller
 
     public function show($id)
     {
-        //$programs = Program::all()->where('vehicle_id',$id);
         $vehicle = Vehicle::query()->findOrFail($id);
         return view('vehicle.show',compact('programs','vehicle'));
     }
