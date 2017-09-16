@@ -33,8 +33,7 @@
                                 <a href="{{ action('DriverController@create') }}" role="button" class="btn btn-success">Add Driver</a><br />
                                 <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
-                                    '
-                                        <tr>
+                                    <tr>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Father's Name</th>
@@ -64,7 +63,9 @@
                                             <td>{{$driver->mobile}}</td>
                                             <td>{{$driver->ref_name}}</td>
                                             <td>{{$driver->app_person}}</td>
-                                            <td><img src='{{asset("images/drivers/".$driver->image) }}' height="100" ></td>
+                                            <td>
+                                                <img src='{{asset("images/drivers/") }}/{{ $driver->image != null ? $driver->image : 'dummy.jpg' }}' height="100" >
+                                            </td>
                                             <td>
                                                 {{ Form::open(['action'=>['DriverController@destroy',$driver->id],'method'=>'delete', 'onsubmit'=>'return confirmDelete()']) }}
                                                 <a href="{{ action('DriverController@edit',$driver->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

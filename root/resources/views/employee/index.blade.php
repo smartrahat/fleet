@@ -33,8 +33,7 @@
                                 <a href="{{ action('EmployeeController@create') }}" role="button" class="btn btn-success">Add Employee</a><br />
                                 <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
-                                    '
-                                        <tr>
+                                    <tr>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Father's Name</th>
@@ -64,7 +63,9 @@
                                             <td>{{$employee->mobile}}</td>
                                             <td>{{$employee->join_date}}</td>
                                             <td>{{$employee->app_person}}</td>
-                                            <td><img src='{{asset("images/employees/".$employee->image) }}' height="75" ></td>
+                                            <td>
+                                                <img src='{{asset("images/employees/") }}/{{ $employee->image != null ? $employee->image : 'dummy.jpg' }}' height="75" >
+                                            </td>
                                             <td>
                                                 {{ Form::open(['action'=>['EmployeeController@destroy',$employee->id],'method'=>'delete', 'onsubmit'=>'return confirmDelete()']) }}
                                                 <a href="{{ action('EmployeeController@edit',$employee->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
