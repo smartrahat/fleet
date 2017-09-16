@@ -10,30 +10,6 @@
 </div>
 <!-- Program ID ends-->
 
-<!-- Driver Salary Starts-->
-<div class="form-group {{$errors->has('driver_salary')?'has-error':''}}">
-    {{ Form::label('driver_salary', 'Driver Salary', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('driver_salary', null, array('class' => 'form-control')) }}
-        @if($errors->has('driver_salary'))
-            <span class="help-block"><strong>{{$errors->first('driver_salary')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Driver Salary ends-->
-
-<!-- Helper Salary Starts-->
-<div class="form-group {{$errors->has('helper_salary')?'has-error':''}}">
-    {{ Form::label('helper_salary', 'Helper Salary', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('helper_salary', null, array('class' => 'form-control')) }}
-        @if($errors->has('helper_salary'))
-            <span class="help-block"><strong>{{$errors->first('helper_salary')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Helper Salary ends-->
-
 <!-- Fuel Cost Starts-->
 <div class="form-group {{$errors->has('fuel_cost')?'has-error':''}}">
     {{ Form::label('fuel_cost', 'Fuel Cost', array('class'=>'col-md-3 control-label')) }}

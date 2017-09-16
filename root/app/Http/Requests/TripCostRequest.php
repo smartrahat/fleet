@@ -25,8 +25,6 @@ class TripCostRequest extends FormRequest
     {
         return [
             'program_id'        =>'required',
-            'driver_salary'     =>'required',
-            'helper_salary'     =>'required',
             'fuel_cost'         =>'required',
             'driver_allow'      =>'required',
             'helper_allow'      =>'required',
@@ -38,7 +36,6 @@ class TripCostRequest extends FormRequest
             'donation'          =>'required',
             'container'         =>'required',
             'port_gate'         =>'required',
-            'driver_cost'       =>'required',
             'other'             =>'required',
         ];
     }

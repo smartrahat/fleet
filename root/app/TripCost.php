@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TripCost extends Model
 {
-    protected $fillable = ['date','program_id','driver_salary','helper_salary','fuel_cost','driver_allow',
+    protected $fillable = ['date','program_id','fuel_cost','driver_allow',
         'helper_allow','labour','toll','bridge','scale','wheel','donation','container','port_gate','other'];
 
     /**
