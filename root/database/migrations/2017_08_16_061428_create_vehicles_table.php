@@ -37,6 +37,7 @@ class CreateVehiclesTable extends Migration
             $table->integer('status_id')->unsigned();
             $table->string('image');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

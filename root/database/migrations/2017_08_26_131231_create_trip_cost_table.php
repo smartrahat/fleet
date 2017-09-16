@@ -32,6 +32,7 @@ class CreateTripCostTable extends Migration
             $table->string('port_gate');
             $table->string('other');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

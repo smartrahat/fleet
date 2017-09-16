@@ -28,6 +28,7 @@ class CreateDriversTable extends Migration
             $table->string("ref_name");
             $table->string("app_person")->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Trip extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = ['program_id','loading','unloading','product','emp_container','weight','fuel', 'driver_adv'];
 
     /**

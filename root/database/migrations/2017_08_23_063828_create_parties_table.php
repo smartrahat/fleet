@@ -22,6 +22,7 @@ class CreatePartiesTable extends Migration
             $table->string('email');
             $table->string('mobile');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

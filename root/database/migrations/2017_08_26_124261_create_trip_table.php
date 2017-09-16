@@ -26,6 +26,7 @@ class CreateTripTable extends Migration
             //$table->string('rent');
             $table->string('driver_adv');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

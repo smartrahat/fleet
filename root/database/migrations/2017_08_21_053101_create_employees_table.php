@@ -31,6 +31,7 @@ class CreateEmployeesTable extends Migration
             $table->date('join_date')->nullable();
             $table->string('app_person')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

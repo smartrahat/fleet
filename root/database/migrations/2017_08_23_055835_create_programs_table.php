@@ -26,6 +26,7 @@ class CreateProgramsTable extends Migration
             $table->integer('due_rent');
             $table->integer('rent');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

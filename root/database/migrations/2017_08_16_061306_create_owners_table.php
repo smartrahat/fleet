@@ -23,6 +23,7 @@ class CreateOwnersTable extends Migration
             $table->string('email');
             $table->string('mobile_no');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

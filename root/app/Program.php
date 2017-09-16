@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Program extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = ['vehicle_id','driver_id','party_id','employee_id','date','serial','adv_rent','due_rent','rent'];
 
     public function party()

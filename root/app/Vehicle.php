@@ -4,9 +4,12 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Vehicle extends Model
 {
+    use SoftDeletes;
+
     protected $dates= ['roadPermitStart','roadPermitEnd','taxTokenStart','taxTokenEnd',
         'insuranceStart', 'insuranceEnd','fitnessStart','fitnessEnd',
         'regCertStart','regCertEnd'];
