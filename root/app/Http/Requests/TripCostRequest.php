@@ -37,6 +37,7 @@ class TripCostRequest extends FormRequest
             'container'         =>'required',
             'port_gate'         =>'required',
             'other'             =>'required',
+            'total'             =>'required',
         ];
     }
 }

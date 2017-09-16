@@ -46,8 +46,9 @@
                             <th>(Allowance)<br>Driver <br>Helper</th>
                             <th>Toll<br>Bridge<br>Scale</th>
                             <th>Wheel Main</th>
-                            <th>Guard/<br>Dona<br>tion</th>
+                            <th>Guard/<br>Dona<br>tion<br>Port Gate</th>
                             <th>Other</th>
+                            <th>Total Cost</th>
                             <th>Driver Advance</th>
                             <th>Nit Received/<br>Paid</th>
                         </tr>
@@ -72,10 +73,12 @@
                                     {{number_format($tripCost->bridge)}}/-<br>
                                     {{number_format($tripCost->scale)}}/-<br></td>
                                 <td class="text-right">{{number_format($tripCost->wheel) }}/-</td>
-                                <td class="text-right">{{number_format($tripCost->donation) }}/-</td>
+                                <td class="text-right">{{number_format($tripCost->donation) }}/-<br>
+                                    {{number_format($tripCost->port_gate) }}/-</td>
                                 <td class="text-right">{{number_format($tripCost->other) }}/-</td>
+                                <td class="text-right">{{number_format($tripCost->total) }}/-</td>
                                 <td class="text-right">{{number_format($tripCost->program->trip->driver_adv)}}/-</td>
-                                <td class="text-right"></td>
+                                <td class="text-right">{{number_format($tripCost->program->trip->driver_adv-$tripCost->total)}}/-</td>
                             </tr>
                         @endforeach
                         </tbody>

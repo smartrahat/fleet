@@ -107,7 +107,7 @@
 <div class="form-group {{$errors->has('due_rent')?'has-error':''}}">
     <label class="col-md-3 control-label">Due Rent:</label>
     <div class="col-md-6">
-        {{ Form::text('due_rent',null, array('class' => 'form-control','id'=>'due_rent','readonly')) }}
+        {{ Form::text('due_rent',null, ['class' => 'form-control','id'=>'due_rent','readonly']) }}
         @if($errors->has('due_rent'))
             <span class="help-block"><strong>{{$errors->first('due_rent')}}</strong></span>
         @endif

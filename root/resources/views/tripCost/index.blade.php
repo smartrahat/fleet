@@ -46,8 +46,9 @@
                                         <th>Wheel</th>
                                         <th>Guard/<br>Bazar Donation</th>
                                         <th>Container Charge</th>
-                                        <th>Post Gate Charge</th>
+                                        <th>Port Gate Charge</th>
                                         <th>Other Expenses</th>
+                                        <th>Total</th>
                                         <th>Action</th>
                                              </tr>
                                         </thead>
@@ -68,6 +69,7 @@
                                     <td class="text-right">{{number_format($tripCost->container)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->port_gate)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->other)}}/-</td>
+                                    <td class="text-right">{{number_format($tripCost->total)}}/-</td>
                                     <td>
                                         {{ Form::open(['action'=>['TripCostController@destroy',$tripCost->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('TripCostController@edit',$tripCost->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

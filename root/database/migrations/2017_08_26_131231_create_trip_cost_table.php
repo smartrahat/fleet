@@ -17,8 +17,6 @@ class CreateTripCostTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->integer('program_id')->unsigned();
-            $table->string('driver_salary');
-            $table->string('helper_salary');
             $table->string('fuel_cost');
             $table->string('driver_allow');
             $table->string('helper_allow');
@@ -31,6 +29,7 @@ class CreateTripCostTable extends Migration
             $table->string('container');
             $table->string('port_gate');
             $table->string('other');
+            $table->string('total');
             $table->timestamps();
             $table->softDeletes();
         });
