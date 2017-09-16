@@ -53,25 +53,6 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent">
-                        <a>
-                            <i class="fa fa-users" aria-hidden="true"></i>
-                            <span>User</span>
-                        </a>
-                        <ul class="nav nav-children">
-                            <li>
-                                <a href="ui-elements-typography.html">
-                                    Users
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    Add User
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
                     <li class="nav-parent {{ isActive(['vehicle*','brand*','type*','status*']) }}">
                         <a>
                             <i class="fa fa-truck" aria-hidden="true"></i>

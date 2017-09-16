@@ -1,10 +1,12 @@
 @extends('layouts.admin')
 
+@section('title','Vehicles')
+
 @section('content')
     <section role="main" class="content-body">
 
         <header class="page-header">
-            <h2>Vehicle</h2>
+            <h2>Vehicles</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>

@@ -53,10 +53,10 @@
                             <td>{{ $program->id }}</td>
                             <td>{{ $program->date }}</td>
                             <td>{{ $program->serial }}</td>
-                            <td>{{ $program->party->name }}</td>
-                            <td>{{ $program->employee->name }}</td>
-                            <td>{{ $program->driver->name }}</td>
-                            <td>{{ $program->vehicle->vehicleNo }}</td>
+                            <td>{{ $program->party->name or '' }}</td>
+                            <td>{{ $program->employee->name or '' }}</td>
+                            <td>{{ $program->driver->name or '' }}</td>
+                            <td>{{ $program->vehicle->vehicleNo or '' }}</td>
                             <td class="text-right">{{ number_format($program->adv_rent) }}/-</td>
                             <td class="text-right">{{ number_format($program->due_rent) }}/-</td>
                             <td class="text-right">{{ number_format($program->rent) }}/-</td>

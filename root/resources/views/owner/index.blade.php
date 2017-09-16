@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Vehicle List')
+@section('title','Vehicle Owners')
 
 @section('content')
         <section role="main" class="content-body">

@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title','Trip Cost')
+
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
@@ -56,7 +58,7 @@
                             @foreach($tripCosts as $tripCost)
                                 <tr>
                                     <td>{{$tripCost->id}}</td>
-                                    <td>{{$tripCost->program->serial}}</td>
+                                    <td>{{ $tripCost->program->serial or 0 }}</td>
                                     <td class="text-right">{{number_format($tripCost->driver_salary)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->helper_salary)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->fuel_cost)}}/-</td>
