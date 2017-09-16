@@ -56,6 +56,7 @@
                         <tbody>
                         @foreach($tripCosts as $tripCost)
                             <tr>
+
                                 <td>{{$tripCost->id }}</td>
                                 <td>{{$tripCost->program->date}}</td>
                                 <td>{{$tripCost->program->vehicle->vehicleNo}}</td>
