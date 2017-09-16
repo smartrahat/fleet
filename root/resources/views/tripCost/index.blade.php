@@ -36,8 +36,6 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Program ID</th>
-                                        <th>Driver Salary</th>
-                                        <th>Helper Salary</th>
                                         <th>Fuel Cost</th>
                                         <th>Driver Allow<br>ance</th>
                                         <th>Helper Allow<br>ance</th>
@@ -49,7 +47,6 @@
                                         <th>Guard/<br>Bazar Donation</th>
                                         <th>Container Charge</th>
                                         <th>Post Gate Charge</th>
-                                        <th>Driver Cost</th>
                                         <th>Other Expenses</th>
                                         <th>Action</th>
                                              </tr>
@@ -70,7 +67,6 @@
                                     <td class="text-right">{{number_format($tripCost->donation)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->container)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->port_gate)}}/-</td>
-                                    <td class="text-right">{{number_format($tripCost->driver_cost)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->other)}}/-</td>
                                     <td>
                                         {{ Form::open(['action'=>['TripCostController@destroy',$tripCost->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
