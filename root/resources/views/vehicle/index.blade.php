@@ -93,7 +93,7 @@
                                 {{ $vehicle->status->name or '' }}
                             </td>
                             <td>
-                                <img src='{{asset("images/vehicles/".$vehicle->image) }}' height="100" >
+                                <img src='{{asset("images/vehicles/") }}/{{ $vehicle->image != null ? $vehicle->image : 'demo.png' }}' height="100" >
                             </td>
                             <td>
                                 {{ Form::open(['action'=>['VehicleController@destroy',$vehicle->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}

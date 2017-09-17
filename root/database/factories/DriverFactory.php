@@ -12,7 +12,7 @@ $factory->define(App\Driver::class,function(Faker\Generator $faker){
         'perm_address' => $faker->streetAddress,
         'nid' => $faker->bankAccountNumber,
         'd_licence' => $faker->creditCardNumber,
-        'image' => $faker->asciify('null'),
+        'image' => $faker->asciify(null),
         'mobile' => $faker->phoneNumber,
         'ref_name' => $faker->firstName,
         'app_person' => $faker->firstName

@@ -18,7 +18,7 @@ trait RegistersUsers
     public function showRegistrationForm()
     {
         return view('auth.register');
-        //abort('404'); // guest registration is temporarily disabled by smartrahat. 2017-08-26 07:54PM
+//        abort('404'); // guest registration is temporarily disabled by smartrahat. 2017-08-26 07:54PM
     }
 
     /**

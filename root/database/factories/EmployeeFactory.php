@@ -16,7 +16,7 @@ $factory->define(App\Employee::class,function(Faker\Generator $faker){
         'designation_id' => function(){
             return factory(App\Designation::class)->create()->id;
         },
-        'image' => $faker->asciify('null'),
+        'image' => $faker->asciify(null),
         'mobile' => $faker->phoneNumber,
         'email' => $faker->safeEmail,
         'join_date' => $faker->dateTimeBetween(30),
