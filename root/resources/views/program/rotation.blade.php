@@ -24,23 +24,19 @@
         <div class="panel panel-body no-print">
             {!! Form::open(['action'=>'ProgramController@rotation','method'=>'get','class'=>'form-inline']) !!}
             <div class="form-group {{$errors->has('date')?'has-error':''}}">
-                <label class="col-md-4 control-label">Program Date</label>
-                <div class="col-md-8">
+                <label class="control-label">Program Date: </label>
                     <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </span>
-                        {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
+                        {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"','placeholder'=>'YYYY-MM-DD' )) }}
                     </div>
                     @if($errors->has('date'))
                         <span class="help-block"><strong>{{$errors->first('date')}}</strong></span>
                     @endif
                 </div>
-            </div>
-            <div class="form-group">
                 {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
                 <a href="javascript:window.print()" class="btn btn-success" role="button"><i class="fa fa-print"></i></a>
-            </div>
             {!! Form::close() !!}
         </div>
         <!-- /Search Panel -->
@@ -81,21 +77,21 @@
                                 <td>{{ $vehicle->id }}</td>
                                 <td>{{ $vehicle->vehicleNo }}</td>
                                 <td>{{ $vehicle->status->name }}</td>
-                                @foreach($vehicle->programs as $program)
-                                    <td>{{ $program->trip->unloading }}</td>
-                                    <td>{{ $program->trip->driver_adv }}</td>
-                                    <td>{{ $program->employee->name }}</td>
-                                    <td>{{ $program->party->name }}</td>
-                                    <td>{{ $program->trip->emp_container }}</td>
-                                    <td>{{ $program->vehicle->mobile }}</td>
-                                    <td>{{ $program->trip->loading }}</td>
-                                    <td>{{ $program->trip->unloading }}</td>
-                                    <td>{{ $program->trip->product }}</td>
-                                    <td>{{ $program->adv_rent }}</td>
-                                    <td>{{ $program->due_rent }}</td>
-                                    <td>{{ $program->rent }}</td>
+                                @foreach($vehicle->programs->where('date',$date) as $program)
+                                    <td>{{ $program->trip->unloading or '' }}</td>
+                                    <td class="text-right">{{ $program->trip->driver_adv or 0 }}/-</td>
+                                    <td>{{ $program->employee->name or '' }}</td>
+                                    <td>{{ $program->party->name or '' }}</td>
+                                    <td>{{ $program->trip->emp_container or '' }}</td>
+                                    <td>{{ $program->vehicle->mobile or '' }}</td>
+                                    <td>{{ $program->trip->loading or '' }}</td>
+                                    <td>{{ $program->trip->unloading or '' }}</td>
+                                    <td>{{ $program->trip->product or '' }}</td>
+                                    <td class="text-right">{{ number_format($program->adv_rent) }}/-</td>
+                                    <td class="text-right">{{ number_format($program->due_rent) }}/-</td>
+                                    <td class="text-right">{{ number_format($program->rent) }}/-</td>
                                 @endforeach
-                                @if($vehicle->programs->count()=='')
+                                @if($vehicle->programs->count() == 0 || $vehicle->programs->where('date',$date)->count() == 0)
                                     <td></td>
                                     <td></td>
                                     <td></td>

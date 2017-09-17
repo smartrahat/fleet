@@ -97,9 +97,10 @@ class ProgramController extends Controller
 
     public function rotation()
     {
+        $date = Input::has('date') ? Carbon::parse(Input::get('date')) : Carbon::now();
         $repository = $this->repository;
         $vehicles = Vehicle::all();
-        return view('program.rotation',compact('vehicles','program','repository'));
+        return view('program.rotation',compact('vehicles','repository','date'));
     }
 
 }

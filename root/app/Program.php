@@ -9,6 +9,8 @@ class Program extends Model
 {
     use SoftDeletes;
 
+    protected $dates = ['date'];
+
     protected $fillable = ['vehicle_id','driver_id','party_id','employee_id','date','serial','adv_rent','due_rent','rent'];
 
     public function party()
