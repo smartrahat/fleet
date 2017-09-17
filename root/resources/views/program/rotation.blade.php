@@ -23,16 +23,19 @@
         <!-- Search Panel -->
         <div class="panel panel-body no-print">
             {!! Form::open(['action'=>'ProgramController@rotation','method'=>'get','class'=>'form-inline']) !!}
-            <div class="form-group">
-                <div class="input-group input-daterange" data-plugin-datepicker>
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                    {!! Form::text('start',null,['class'=>'form-control','required']) !!}
-                    <span class="input-group-addon">to</span>
-                    {!! Form::text('end',null,['class'=>'form-control','required']) !!}
+            <div class="form-group {{$errors->has('date')?'has-error':''}}">
+                <label class="col-md-4 control-label">Program Date</label>
+                <div class="col-md-8">
+                    <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+                        {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
+                    </div>
+                    @if($errors->has('date'))
+                        <span class="help-block"><strong>{{$errors->first('date')}}</strong></span>
+                    @endif
                 </div>
-            </div>
-            <div class="form-group">
-                {!! Form::select('vehicle',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select Vehicle']) !!}
             </div>
             <div class="form-group">
                 {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
@@ -57,6 +60,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Vehicle</th>
+                            <th>Status</th>
                             <th>Location</th>
                             <th>Driver Adv. Fixed</th>
                             <th>SR</th>
@@ -72,22 +76,50 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($trips as $trip)
+                        @foreach($vehicles as $vehicle)
                             <tr>
-                                <td>{{ $trip->id }}</td>
-                                <td>{{ $trip->program->vehicle->vehicleNo }}</td>
-                                <td>{{ $trip->unloading }}</td>
-                                <td class="text-right">{{ number_format($trip->driver_adv) }}/-</td>
-                                <td>{{ $trip->program->employee->name }}</td>
-                                <td>{{ $trip->program->party->name }}</td>
-                                <td>{{ $trip->emp_container }}</td>
-                                <td>{{ $trip->program->vehicle->mobile }}</td>
-                                <td>{{ $trip->loading }}</td>
-                                <td>{{ $trip->unloading }}</td>
-                                <td>{{ $trip->product }}</td>
-                                <td class="text-right">{{ number_format($trip->program->adv_rent) }}/-</td>
-                                <td class="text-right">{{ number_format($trip->program->due_rent) }}/-</td>
-                                <td class="text-right">{{ number_format($trip->program->rent) }}/-</td>
+                                <td>{{ $vehicle->id }}</td>
+                                <td>{{ $vehicle->vehicleNo }}</td>
+                                <td>{{ $vehicle->status->name }}</td>
+                                @foreach($vehicle->programs as $program)
+                                    <td>{{ $program->trip->unloading }}</td>
+                                    <td>{{ $program->trip->driver_adv }}</td>
+                                    <td>{{ $program->employee->name }}</td>
+                                    <td>{{ $program->party->name }}</td>
+                                    <td>{{ $program->trip->emp_container }}</td>
+                                    <td>{{ $program->vehicle->mobile }}</td>
+                                    <td>{{ $program->trip->loading }}</td>
+                                    <td>{{ $program->trip->unloading }}</td>
+                                    <td>{{ $program->trip->product }}</td>
+                                    <td>{{ $program->adv_rent }}</td>
+                                    <td>{{ $program->due_rent }}</td>
+                                    <td>{{ $program->rent }}</td>
+                                @endforeach
+                                @if($vehicle->programs->count()=='')
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                @endif
+                                {{--<td class="text-right">{{ number_format($trip->driver_adv) }}/-</td>--}}
+                                {{--<td>{{ $trip->program->employee->name }}</td>--}}
+                                {{--<td>{{ $trip->program->party->name }}</td>--}}
+                                {{--<td>{{ $trip->emp_container }}</td>--}}
+                                {{--<td>{{ $trip->program->vehicle->mobile }}</td>--}}
+                                {{--<td>{{ $trip->loading }}</td>--}}
+                                {{--<td>{{ $trip->unloading }}</td>--}}
+                                {{--<td>{{ $trip->product }}</td>--}}
+                                {{--<td class="text-right">{{ number_format($trip->program->adv_rent) }}/-</td>--}}
+                                {{--<td class="text-right">{{ number_format($trip->program->due_rent) }}/-</td>--}}
+                                {{--<td class="text-right">{{ number_format($trip->program->rent) }}/-</td>--}}
                             </tr>
                         @endforeach
                         </tbody>

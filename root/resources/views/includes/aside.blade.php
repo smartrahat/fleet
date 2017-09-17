@@ -136,9 +136,9 @@
                             <li class="{{ isActive('program/rotation') }}">
                                 <a href="{{action('ProgramController@rotation')}}">Rotation</a>
                             </li>
-                            <li class="{{ isActive('program/report') }}">
-                                <a href="{{action('ProgramController@programReport')}}">Report</a>
-                            </li>
+                            {{--<li class="{{ isActive('program/report') }}">--}}
+                                {{--<a href="{{action('ProgramController@programReport')}}">Report</a>--}}
+                            {{--</li>--}}
                             <li class="{{ isActive('program/receipt') }}">
                                 <a href="{{action('ProgramController@driverReceipt')}}">Accounting From Driver</a>
                             </li>

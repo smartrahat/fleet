@@ -7,6 +7,7 @@ use App\Http\Requests\ProgramRequest;
 use App\Program;
 use App\Repositories\ProgramRepository;
 use App\Trip;
+use App\Vehicle;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use App\TripCost;
@@ -66,21 +67,21 @@ class ProgramController extends Controller
         return redirect('programs');
     }
 
-    public function rotation(Trip $trip){
-        $trip = $trip->newQuery();
-
-        if(Input::has('vehicle')){
-            $start = Carbon::parse(Input::get('start'));
-            $end = Carbon::parse(Input::get('end'));
-            $program = Program::query()->where('vehicle_id',Input::get('vehicle'))->whereBetween('date',[$start,$end])->pluck('id')->toArray();
-            $trip->whereIn('program_id',$program);
-        }
-
-        $trips = $trip->orderByDesc('created_at')->get();
-        $repository = $this->repository;
-        return view('program.rotation',compact('trips','repository'));
-
-    }
+//    public function rotation(Trip $trip){
+//        $trip = $trip->newQuery();
+//
+//        if(Input::has('vehicle')){
+//            $start = Carbon::parse(Input::get('start'));
+//            $end = Carbon::parse(Input::get('end'));
+//            $program = Program::query()->where('vehicle_id',Input::get('vehicle'))->whereBetween('date',[$start,$end])->pluck('id')->toArray();
+//            $trip->whereIn('program_id',$program);
+//        }
+//
+//        $trips = $trip->orderByDesc('created_at')->get();
+//        $repository = $this->repository;
+//        return view('program.rotation',compact('trips','repository'));
+//
+//    }
 
     public function programReport(){
         $tripCosts = TripCost::all();
@@ -93,4 +94,12 @@ class ProgramController extends Controller
         $repository = $this->repository;
         return view('program.driverReceipt',compact('tripCosts','repository'));
     }
+
+    public function rotation()
+    {
+        $repository = $this->repository;
+        $vehicles = Vehicle::all();
+        return view('program.rotation',compact('vehicles','program','repository'));
+    }
+
 }

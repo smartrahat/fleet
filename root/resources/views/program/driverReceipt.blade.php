@@ -50,7 +50,7 @@
                             <th>Other</th>
                             <th>Total Cost</th>
                             <th>Driver Advance</th>
-                            <th>Nit Received/<br>Paid</th>
+                            <th>Balance</th>
                         </tr>
                         </thead>
                         <tbody>
