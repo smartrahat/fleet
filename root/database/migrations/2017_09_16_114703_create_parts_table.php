@@ -17,7 +17,7 @@ class CreatePartsTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->string('name')->unique();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

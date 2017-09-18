@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class OwnerController extends Controller
 {
     public function create(){
-        return view('Owner.create');
+        return view('owner.create');
     }
 
     public function index()
@@ -20,7 +20,7 @@ class OwnerController extends Controller
 
     public function store(OwnerRequest $request)
     {
-        Owner::create($request->all());
+        Owner::query()->create($request->all());
         return redirect('owners');
     }
 

@@ -130,3 +130,17 @@ Route::patch('user/{id}/reset','UserController@resetPassword');
 Route::get('user/change','UserController@changePassword');
 Route::patch('user/new','UserController@newPassword');
 Route::delete('user/destroy/{id}','UserController@destroy');
+
+/** Part Routes */
+Route::get('parts','PartController@index');
+Route::post('part/store','PartController@store');
+Route::get('part/edit/{id}','PartController@edit');
+Route::patch('part/{id}/update','PartController@update');
+Route::delete('part/destroy/{id}','PartController@destroy');
+
+/** Spare Part Routes */
+Route::get('spare-parts','SparePartController@index');
+Route::post('spare-part/store','SparePartController@store');
+Route::get('spare-part/edit/{id}','SparePartController@edit');
+Route::patch('spare-part/{id}/update','SparePartController@update');
+Route::delete('spare-part/destroy/{id}','SparePartController@destroy');

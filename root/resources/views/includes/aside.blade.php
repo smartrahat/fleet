@@ -94,7 +94,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['part*']) }}">
+                    <li class="nav-parent {{ isActive(['party*','parti*']) }}">
                         <a>
                             <i class="fa fa-handshake-o" aria-hidden="true"></i>
                             <span>Parties</span>
@@ -137,7 +137,7 @@
                                 <a href="{{action('ProgramController@rotation')}}">Rotation</a>
                             </li>
                             {{--<li class="{{ isActive('program/report') }}">--}}
-                                {{--<a href="{{action('ProgramController@programReport')}}">Report</a>--}}
+                            {{--<a href="{{action('ProgramController@programReport')}}">Report</a>--}}
                             {{--</li>--}}
                             <li class="{{ isActive('program/receipt') }}">
                                 <a href="{{action('ProgramController@driverReceipt')}}">Accounting From Driver</a>
@@ -200,24 +200,19 @@
                         </ul>
                     </li>
 
-                    <li>
+                    <li class="nav-parent {{ isActive(['part*','spare*','purchase*','supplier*']) }}">
                         <a>
                             <i class="fa fa-balance-scale" aria-hidden="true"></i>
                             <span>Purchase</span>
                         </a>
-                        {{--<ul class="nav nav-children">--}}
-                        {{--<li>--}}
-                        {{--<a href="ui-elements-typography.html">--}}
-                        {{--Supplier list--}}
-                        {{--</a>--}}
-
-                        {{--</li>--}}
-                        {{--<li>--}}
-                        {{--<a>--}}
-                        {{--Add Supplier--}}
-                        {{--</a>--}}
-                        {{--</li>--}}
-                        {{--</ul>--}}
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('parts') }}">
+                                <a href="{{ action('PartController@index') }}">Parts</a>
+                            </li>
+                            <li class="{{ isActive('spare-parts') }}">
+                                <a href="{{ action('SparePartController@index') }}">Spare Parts</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="nav-parent {{ isActive(['user*']) }}">
