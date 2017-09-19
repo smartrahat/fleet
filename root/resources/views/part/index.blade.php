@@ -88,7 +88,7 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title">Parts of Employee</h2>
+                        <h2 class="panel-title">List of Parts</h2>
                     </header>
 
                     <div class="panel-body">

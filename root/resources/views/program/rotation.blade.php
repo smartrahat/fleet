@@ -66,9 +66,9 @@
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
                             <th>Quantity</th>
+                            <th>Total</th>
                             <th>Advance</th>
                             <th>Due</th>
-                            <th>Total</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -87,9 +87,9 @@
                                     <td>{{ $program->trip->loading or '' }}</td>
                                     <td>{{ $program->trip->unloading or '' }}</td>
                                     <td>{{ $program->trip->product or '' }}</td>
+                                    <td class="text-right">{{ number_format($program->rent) }}/-</td>
                                     <td class="text-right">{{ number_format($program->adv_rent) }}/-</td>
                                     <td class="text-right">{{ number_format($program->due_rent) }}/-</td>
-                                    <td class="text-right">{{ number_format($program->rent) }}/-</td>
                                 @endforeach
                                 @if($vehicle->programs->count() == 0 || $vehicle->programs->where('date',$date)->count() == 0)
                                     <td></td>
@@ -105,17 +105,6 @@
                                     <td></td>
                                     <td></td>
                                 @endif
-                                {{--<td class="text-right">{{ number_format($trip->driver_adv) }}/-</td>--}}
-                                {{--<td>{{ $trip->program->employee->name }}</td>--}}
-                                {{--<td>{{ $trip->program->party->name }}</td>--}}
-                                {{--<td>{{ $trip->emp_container }}</td>--}}
-                                {{--<td>{{ $trip->program->vehicle->mobile }}</td>--}}
-                                {{--<td>{{ $trip->loading }}</td>--}}
-                                {{--<td>{{ $trip->unloading }}</td>--}}
-                                {{--<td>{{ $trip->product }}</td>--}}
-                                {{--<td class="text-right">{{ number_format($trip->program->adv_rent) }}/-</td>--}}
-                                {{--<td class="text-right">{{ number_format($trip->program->due_rent) }}/-</td>--}}
-                                {{--<td class="text-right">{{ number_format($trip->program->rent) }}/-</td>--}}
                             </tr>
                         @endforeach
                         </tbody>

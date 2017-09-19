@@ -9,7 +9,8 @@ class Trip extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['program_id','loading','unloading','product','emp_container','weight','fuel', 'driver_adv'];
+    protected $fillable = ['program_id','loading','unloading','product','emp_container','weight','fuel', 'driver_adv',
+        'driver_adv_fix','extra_adv'];
 
     /**
      * A trip is belongs to a program

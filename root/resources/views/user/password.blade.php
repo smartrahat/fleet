@@ -62,7 +62,7 @@
                         <div class="form-group {{$errors->has('password_confirmation')?'has-error':''}}">
                             <label class="col-md-3 control-label">Confirm New Password:</label>
                             <div class="col-md-6">
-                                {{ Form::password('password_confirmation',['class' => 'form-control','placeholder'=>'Confirm Email','required']) }}
+                                {{ Form::password('password_confirmation',['class' => 'form-control','placeholder'=>'Confirm Password','required']) }}
                                 @if($errors->has('password_confirmation'))
                                     <span class="help-block"><strong>{{$errors->first('password_confirmation')}}</strong></span>
                                 @endif

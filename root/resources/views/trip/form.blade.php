@@ -94,17 +94,44 @@
 {{--</div>--}}
 <!-- Rent ends-->
 
-<!-- Driver Advance Fixed Starts-->
+
+
+<!-- Driver Advance Starts-->
 <div class="form-group {{$errors->has('driver_adv')?'has-error':''}}">
-    {{ Form::label('driver_adv', 'Driver Advance (Fixed)', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('driver_adv', 'Driver Advance', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::text('driver_adv', null, array('class' => 'form-control')) }}
+        {{ Form::text('driver_adv', null, array('class' => 'form-control','id'=>'driver_adv')) }}
         @if($errors->has('driver_adv'))
             <span class="help-block"><strong>{{$errors->first('driver_adv')}}</strong></span>
         @endif
     </div>
 </div>
+<!-- Driver Advance ends-->
+
+
+<!-- Driver Advance Fixed Starts-->
+<div class="form-group {{$errors->has('driver_adv_fix')?'has-error':''}}">
+    {{ Form::label('driver_adv_fix', 'Driver Advance (Fixed)', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('driver_adv_fix', null, array('class' => 'form-control','id'=>'driver_adv_fix')) }}
+        @if($errors->has('driver_adv_fix'))
+            <span class="help-block"><strong>{{$errors->first('driver_adv_fix')}}</strong></span>
+        @endif
+    </div>
+</div>
 <!-- Driver Advance Fixed ends-->
+
+<!-- Driver Extra Given Starts-->
+<div class="form-group {{$errors->has('extra_adv')?'has-error':''}}">
+    {{ Form::label('extra_adv', 'Extra Advance', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('extra_adv', null, array('class' => 'form-control','id'=>'extra_adv','readonly')) }}
+        @if($errors->has('extra_adv'))
+            <span class="help-block"><strong>{{$errors->first('extra_adv')}}</strong></span>
+        @endif
+    </div>
+</div>
+<!-- Driver Extra Given ends-->
 
 <!--Submit button -->
 <div class="form-group">
@@ -119,3 +146,13 @@
     </div>
 </div>
 <!-- ends-->
+
+@section('script')
+    <script>
+        $(document).keyup(function () {
+            var driver_adv = $('#driver_adv').val();
+            var driver_adv_fix = $('#driver_adv_fix').val();
+            $('#extra_adv').val(parseInt(driver_adv) - parseInt(driver_adv_fix));
+        })
+    </script>
+@stop

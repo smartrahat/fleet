@@ -49,7 +49,8 @@
                             <th>Guard/<br>Dona<br>tion<br>Port Gate</th>
                             <th>Other</th>
                             <th>Total Cost</th>
-                            <th>Driver Advance</th>
+                            <th>Driver Advance (Fixed)</th>
+                            <th>Extra/less Advance (-)</th>
                             <th>Balance</th>
                         </tr>
                         </thead>
@@ -79,7 +80,8 @@
                                 <td class="text-right">{{number_format($tripCost->other) }}/-</td>
                                 <td class="text-right">{{number_format($tripCost->total) }}/-</td>
                                 <td class="text-right">{{number_format($tripCost->program->trip->driver_adv)}}/-</td>
-                                <td class="text-right">{{number_format($tripCost->program->trip->driver_adv-$tripCost->total)}}/-</td>
+                                <td class="text-right">{{number_format($tripCost->program->trip->extra_adv)}}/-</td>
+                                <td class="text-right">{{number_format($tripCost->program->trip->driver_adv+$tripCost->total-$tripCost->program->trip->extra_adv)}}/-</td>
                             </tr>
                         @endforeach
                         </tbody>
