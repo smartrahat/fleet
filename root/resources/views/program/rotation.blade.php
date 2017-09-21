@@ -76,7 +76,7 @@
                             <tr>
                                 <td>{{ $vehicle->id }}</td>
                                 <td>{{ $vehicle->vehicleNo }}</td>
-                                <td>{{ $vehicle->status->name }}</td>
+                                <td>{{ $vehicle->status->name or '' }}</td>
                                 @foreach($vehicle->programs->where('date',$date) as $program)
                                     <td>{{ $program->trip->unloading or '' }}</td>
                                     <td class="text-right">{{ $program->trip->driver_adv or 0 }}/-</td>

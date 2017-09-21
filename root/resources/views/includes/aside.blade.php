@@ -180,22 +180,17 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-parent">
+                    <li class="nav-parent {{ isActive(['supplier*']) }}">
                         <a>
                             <i class="fa fa-briefcase" aria-hidden="true"></i>
                             <span>Suppliers</span>
                         </a>
                         <ul class="nav nav-children">
-                            <li>
-                                <a href="ui-elements-typography.html">
-                                    Supplier list
-                                </a>
-
+                            <li class="{{ isActive('suppliers') }}">
+                                <a href="{{ action('SupplierController@index') }}">Supplier list</a>
                             </li>
-                            <li>
-                                <a>
-                                    Add Supplier
-                                </a>
+                            <li class="{{ isActive('supplier/create') }}">
+                                <a href="{{ action('SupplierController@create') }}">Add Supplier</a>
                             </li>
                         </ul>
                     </li>

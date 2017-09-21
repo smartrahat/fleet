@@ -94,8 +94,6 @@
 {{--</div>--}}
 <!-- Rent ends-->
 
-
-
 <!-- Driver Advance Starts-->
 <div class="form-group {{$errors->has('driver_adv')?'has-error':''}}">
     {{ Form::label('driver_adv', 'Driver Advance', array('class'=>'col-md-3 control-label')) }}

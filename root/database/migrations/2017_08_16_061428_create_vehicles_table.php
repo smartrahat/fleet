@@ -28,8 +28,8 @@ class CreateVehiclesTable extends Migration
             $table->date('insuranceEnd');
             $table->date('fitnessStart');
             $table->date('fitnessEnd');
-            $table->date('regCardStart');
-            $table->date('regCardEnd');
+            $table->date('regCertStart');
+            $table->date('regCertEnd');
             $table->string('vehicleNo');
             $table->string('engineNo');
             $table->string('chasesNo');

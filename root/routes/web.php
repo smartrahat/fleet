@@ -144,3 +144,7 @@ Route::post('spare-part/store','SparePartController@store');
 Route::get('spare-part/edit/{id}','SparePartController@edit');
 Route::patch('spare-part/{id}/update','SparePartController@update');
 Route::delete('spare-part/destroy/{id}','SparePartController@destroy');
+
+/** Supplier Routes */
+Route::get('suppliers','SupplierController@index');
+Route::get('supplier/create','SupplierController@create');
