@@ -22,6 +22,8 @@ class CreateProgramsTable extends Migration
             $table->integer('driver_id')->unsigned();
             $table->integer('employee_id')->unsigned();
             $table->integer('party_id')->unsigned();
+            $table->integer('weight')->nullable();
+            $table->integer('rate')->nullable();
             $table->integer('adv_rent');
             $table->integer('due_rent');
             $table->integer('rent');

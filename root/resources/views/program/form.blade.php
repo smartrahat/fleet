@@ -78,6 +78,33 @@
 </div>
 <!-- Vehicle name ends-->
 
+<!-- Option Starts-->
+<div class="form-group">
+    {{ Form::label('option', 'Rent Option:', ['class'=>'col-md-3 control-label']) }}
+    <div class="col-md-6">
+        {{ Form::select('option',['Fixed','On Product Weight'],null,['class'=>'form-control populate','id'=>'option','data-plugin-selectTwo','placeholder'=>'Select Rent Option']) }}
+    </div>
+</div>
+<!-- Option ends-->
+
+<!-- Weight Starts-->
+<div class="form-group" id='weight_div' hidden="hidden">
+    <label class="col-md-3 control-label">Weight (kg):</label>
+    <div class="col-md-6">
+        {{ Form::text('weight',null, array('class' => 'form-control','id'=>'weight')) }}
+    </div>
+</div>
+<!-- Weight ends-->
+
+<!-- Rate Starts-->
+<div class="form-group" id='rate_div' hidden="hidden">
+    <label class="col-md-3 control-label">Rate (tk):</label>
+    <div class="col-md-6">
+        {{ Form::text('rate',null, array('class' => 'form-control','id'=>'rate')) }}
+    </div>
+</div>
+<!-- Rate ends-->
+
 <!-- Total Rent Starts-->
 <div class="form-group {{$errors->has('rent')?'has-error':''}}">
     <label class="col-md-3 control-label">Total Rent:</label>
@@ -131,10 +158,43 @@
 
 @section('script')
     <script>
+        $(document).ready( function() {
+            $('#option').bind('change', function (e) {
+
+                if( $('#option').val() == 1) {
+                    $('#rate_div').show();
+                    $('#weight_div').show();
+
+                    $('#rate').removeAttr('disabled');
+                    $('#weight').removeAttr('disabled');
+                }else{
+                    $('#rate_div').hide();
+                    $('#weight_div').hide();
+                    $('#weight').val(0);
+                    $('#rate').val(0);
+                    $('#rate').attr('disabled','disabled');
+                    $('#weight').attr('disabled','disabled');
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).keyup(function () {
+            var weight = $('#weight').val();
+            var rate = $('#rate').val();
+            if(weight>0 && rate>0){
+                $('#rent').val(parseInt(weight)*parseInt(rate));
+            }
+        })
+    </script>
+
+
+    <script>
         $(document).keyup(function () {
             var rent = $('#rent').val();
             var advance = $('#adv_rent').val();
             $('#due_rent').val(parseInt(rent) - parseInt(advance));
         })
     </script>
+
 @stop
