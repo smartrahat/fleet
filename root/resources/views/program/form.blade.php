@@ -155,7 +155,6 @@
     </div>
 </div>
 <!-- ends-->
-
 @section('script')
     <script>
         $(document).ready( function() {
