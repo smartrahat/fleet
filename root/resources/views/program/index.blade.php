@@ -57,9 +57,9 @@
                             <td>{{ $program->employee->name or '' }}</td>
                             <td>{{ $program->driver->name or '' }}</td>
                             <td>{{ $program->vehicle->vehicleNo or '' }}</td>
-                            <td class="text-right">{{ number_format($program->adv_rent) }}/-</td>
-                            <td class="text-right">{{ number_format($program->due_rent) }}/-</td>
-                            <td class="text-right">{{ number_format($program->rent) }}/-</td>
+                            <td class="text-right">{{ number_format($program->adv_rent,2) }}/-</td>
+                            <td class="text-right">{{ number_format($program->due_rent,2) }}/-</td>
+                            <td class="text-right">{{ number_format($program->rent,2) }}/-</td>
                             <td>
                                 {{ Form::open(['action'=>['ProgramController@destroy',$program->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                 <a href="{{ action('ProgramController@edit',$program->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
