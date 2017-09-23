@@ -178,6 +178,7 @@
             });
         });
     </script>
+
     <script>
         $(document).keyup(function () {
             var weight = $('#weight').val();
