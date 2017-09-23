@@ -183,7 +183,7 @@
             var weight = $('#weight').val();
             var rate = $('#rate').val();
             if(weight>0 && rate>0){
-                $('#rent').val(parseInt(weight)*parseInt(rate));
+                $('#rent').val(parseFloat(weight)*parseFloat(rate));
             }
         })
     </script>
@@ -193,7 +193,7 @@
         $(document).keyup(function () {
             var rent = $('#rent').val();
             var advance = $('#adv_rent').val();
-            $('#due_rent').val(parseInt(rent) - parseInt(advance));
+            $('#due_rent').val(parseFloat(rent) - parseFloat(advance));
         })
     </script>
 
