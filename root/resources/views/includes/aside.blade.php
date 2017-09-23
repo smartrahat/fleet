@@ -202,10 +202,10 @@
                         </a>
                         <ul class="nav nav-children">
                             <li class="{{ isActive('parts') }}">
-                                <a href="{{ action('PartController@index') }}">Parts</a>
+                                <a href="{{ action('PartController@index') }}">Catagory</a>
                             </li>
                             <li class="{{ isActive('spare-parts') }}">
-                                <a href="{{ action('SparePartController@index') }}">Spare Parts</a>
+                                <a href="{{ action('SparePartController@index') }}">Parts</a>
                             </li>
                         </ul>
                     </li>
