@@ -120,12 +120,6 @@
                             <li class="{{ isActive('program/create') }}">
                                 <a href="{{action('ProgramController@create')}}">Add Program</a>
                             </li>
-                            <li class="{{ isActive('trips') }}">
-                                <a href="{{action('TripController@index')}}">Trip list</a>
-                            </li>
-                            <li class="{{ isActive('trip/create') }}">
-                                <a href="{{action('TripController@create')}}">Add Trip</a>
-                            </li>
                             <li class="{{ isActive('tripCosts') }}">
                                 <a href="{{action('TripCostController@index')}}">Trip Cost list</a>
                             </li>

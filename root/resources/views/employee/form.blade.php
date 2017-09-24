@@ -1,4 +1,16 @@
-<!-- Driver Name Starts -->
+<!-- Employee Rank Starts -->
+<div class="form-group {{ $errors->has('rank') ? ' has-error' : '' }}" >
+    {{ Form::label('name', 'Position', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::text('rank', null, array('class' => 'form-control')) }}
+        @if ($errors->has('rank'))
+            <span class="help-block"><strong>{{ $errors->first('rank') }}</strong></span>
+        @endif
+    </div>
+</div>
+<!-- Employee name ends -->
+
+<!-- Employee Name Starts -->
 <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}" >
     {{ Form::label('name', 'Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
@@ -8,25 +20,25 @@
         @endif
     </div>
 </div>
-<!-- Driver name ends -->
+<!-- Employee name ends -->
 
-<!-- Driver Father's Name Starts -->
+<!-- Employee Father's Name Starts -->
 <div class="form-group">
     {{ Form::label('f_name', 'Father\'s Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('f_name',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Driver Father's name ends -->
+<!-- Employee Father's name ends -->
 
-<!-- Driver Mother's Name Starts -->
+<!-- Employee Mother's Name Starts -->
 <div class="form-group {{ $errors->has('m_name') ? ' has-error' : '' }}">
     {{ Form::label('m_name', 'Mother\'s Name', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('m_name',null, array('class' => 'form-control')) }}
     </div>
 </div>
-<!-- Driver Father's name ends -->
+<!-- Employee Father's name ends -->
 
 <!--Present Address Starts -->
 <div class="form-group {{ $errors->has('pre_address') ? ' has-error' : '' }}">
@@ -168,7 +180,7 @@
         @endif
     </div>
 </div>
-<!-- Driver name ends -->
+<!-- Employee name ends -->
 
 
 <div class="form-group">

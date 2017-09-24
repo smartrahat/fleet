@@ -29,8 +29,10 @@ class EmployeeController extends Controller
     public function index()
     {
         $repository = $this->repository;
-        $employees = Employee::all();
-        return view('employee.index',compact('employees','repository'));
+        $i = 1;
+//        $employees = Employee::all();
+        $employees = Employee::orderBy('rank','asc')->get();
+        return view('employee.index',compact('employees','repository','i'));
     }
 
     public function store(EmployeeRequest $request)

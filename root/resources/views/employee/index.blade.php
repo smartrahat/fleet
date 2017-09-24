@@ -34,7 +34,7 @@
                                 <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>SN</th>
                                         <th>Name</th>
                                         <th>Father's Name</th>
                                         <th>Mother's Name</th>
@@ -52,7 +52,7 @@
                                 <tbody>
                                     @foreach($employees as $employee)
                                         <tr>
-                                            <td>{{$employee->id}}</td>
+                                            <td>{{$i++}}</td>
                                             <td>{{$employee->name}}</td>
                                             <td>{{$employee->f_name}}</td>
                                             <td>{{$employee->m_name}}</td>

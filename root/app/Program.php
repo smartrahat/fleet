@@ -11,7 +11,9 @@ class Program extends Model
 
     protected $dates = ['date'];
 
-    protected $fillable = ['vehicle_id','driver_id','party_id','employee_id','date','serial','weight','rate','adv_rent','due_rent','rent'];
+    protected $fillable = ['vehicle_id','driver_id','party_id','employee_id','date','serial','weight','rate','adv_rent','due_rent','rent',
+                            'loading','unloading','product','emp_container','fuel', 'driver_adv',
+                            'driver_adv_fix','extra_adv'];
 
     public function party()
     {
@@ -33,9 +35,6 @@ class Program extends Model
         return $this->belongsTo(Driver::class);
     }
 
-    public function trip(){
-        return $this->hasOne(Trip::class);
-    }
 
     public function tripCost(){
         return $this->hasOne(TripCost::class);
