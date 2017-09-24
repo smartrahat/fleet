@@ -8,7 +8,6 @@
             <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
         </div>
     </div>
-
     <div class="nano">
         <div class="nano-content">
             <nav id="menu" class="nav-main" role="navigation">
