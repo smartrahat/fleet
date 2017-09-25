@@ -35,7 +35,6 @@ class Program extends Model
         return $this->belongsTo(Driver::class);
     }
 
-
     public function tripCost(){
         return $this->hasOne(TripCost::class);
     }

@@ -129,7 +129,6 @@
 </div>
 <!-- Advance Rent ends-->
 
-
 <!-- Due Rent Starts-->
 <div class="form-group {{$errors->has('due_rent')?'has-error':''}}">
     <label class="col-md-3 control-label">Due Rent:</label>
@@ -141,11 +140,6 @@
     </div>
 </div>
 <!-- Due Rent ends-->
-
-
-
-
-
 
 <!-- Loading Starts-->
 <div class="form-group {{$errors->has('loading')?'has-error':''}}">

@@ -39,7 +39,7 @@
                     <div class="panel-body">
                         {{ Form::open(['action'=>'SparePartController@store','method'=>'post','class'=>'form-horizontal']) }}
                         <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                            {{ Form::label('name', 'Part Name:', ['class'=>'col-md-3 control-label']) }}
+                            {{ Form::label('name', 'Parts Name:', ['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
                                 {{ Form::text('name', null, ['class' => 'form-control','required']) }}
                                 @if ($errors->has('name'))
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="form-group {{ $errors->has('part_id') ? ' has-error' : '' }}">
-                            {{ Form::label('part_id', 'Part Name:', ['class'=>'col-md-3 control-label']) }}
+                            {{ Form::label('part_id', 'Category Name:', ['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
                                 {{ Form::select('part_id',$repository->parts(),null, ['class' => 'form-control populate','data-plugin-selectTwo','placeholder'=>'Parts','required']) }}
                                 @if ($errors->has('part_id'))
