@@ -51,7 +51,7 @@
                         @foreach($programs as $program)
                         <tr>
                             <td>{{ $program->id }}</td>
-                            <td>{{ $program->date }}</td>
+                            <td>{{ $program->date->format('Y-m-d') }}</td>
                             <td>{{ $program->serial }}</td>
                             <td>{{ $program->party->name or '' }}</td>
                             <td>{{ $program->employee->name or '' }}</td>

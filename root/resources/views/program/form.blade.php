@@ -238,6 +238,38 @@
 </div>
 <!-- Driver Extra Given ends-->
 
+<div class="col-md-12">
+    <hr>
+</div>
+
+<div id="door">
+    <div class="col-md-12" id="product1">
+        <div class="form-group col-md-3">
+            <label class="control-label" for="vehicle_id">Driver:</label>
+            <div class="">
+                {!! Form::select('driver_id1',$repository->drivers(),null,['id'=>'driver_id1','class'=>'form-control','required','placeholder'=>'Select a driver']) !!}
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <label class="control-label" for="vehicle_id">Vehicle:</label>
+            <div class="">
+                {!! Form::select('vehicle_id1',$repository->vehicles(),null,['id'=>'vehicle_id1','class'=>'form-control','required','placeholder'=>'Select a vehicle']) !!}
+            </div>
+        </div>
+        <div class="form-group col-md-1">
+            <label for=""></label>
+            <div class="">
+                <button type="button" class="btn btn-danger remove-btn">-</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="form-group col-md-1">
+        <button class="btn btn-success" onclick="addRow()" type="button">+</button>
+    </div>
+</div>
+
 <!--Submit button -->
 <div class="form-group">
     <div class="col-md-2 col-md-offset-3">
@@ -254,8 +286,50 @@
 
 @section('script')
     <script>
-        $(document).ready( function() {
-            $('#option').bind('change', function (e) {
+        // Add new row
+        function addRow(){
+            // get the last DIV which ID starts with ^= "products"
+            var $div = $('div[id^="product"]:last');
+
+            // Read the Number from that DIV's ID (i.e: 3 from "product3")
+            // And increment that number by 1
+            var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+
+            // Clone it and assign the new ID (i.e: from num 4 to ID "product4")
+            var $klon = $div.clone().prop('id', 'product'+num);
+
+            $('select[id^="driver_id"]:last').prop('id','driver_id'+num).prop('name','driver_id'+num);
+            $('select[id^="vehicle_id"]:last').prop('id','vehicle_id'+num).prop('name','vehicle_id'+num);
+
+            // >>> Append $klon wherever you want
+            $klon.appendTo($("#door"));
+        }
+    </script>
+    <script>
+        // remove "remove button" if only one row left
+        $(document).on('click ready',function(){
+            if($('div[id^="product"]').length > 1){
+                $(".remove-btn").show()
+            }else{
+                $(".remove-btn").hide()
+            }
+        });
+    </script>
+    <script>
+        // remove program's row
+        setInterval(function(){
+            $(".remove-btn").click(function(){
+                var $div = $('div[id^="product"]');
+                if($div.length > 1){
+                    $(this).closest($div).remove()
+                }
+            });
+        },1000)
+
+    </script>
+    <script>
+//        $(document).ready( function() {
+            $('#option').bind('change', function () {
 
                 if( $('#option').val() == 1) {
                     $('#rate_div').show();
@@ -272,7 +346,7 @@
                     $('#weight').attr('disabled','disabled');
                 }
             });
-        });
+//        });
     </script>
     <script>
         $(document).keyup(function () {
