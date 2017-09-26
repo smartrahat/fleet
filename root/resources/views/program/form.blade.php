@@ -222,41 +222,41 @@
         </div>
 
         <!-- Driver Advance Starts-->
-            <div class="col-md-2 {{$errors->has('driver_adv1')?'has-error':''}}">
-                <label class="control-label text-left" for="driver_adv">Driver Advance</label>
-                {{ Form::text('driver_adv1', null, array('class' => 'form-control','id'=>'driver_adv1')) }}
-                @if($errors->has('driver_adv1'))
-                    <span class="help-block"><strong>{{$errors->first('driver_adv')}}</strong></span>
-                @endif
-            </div>
+        <div class="col-md-2 {{$errors->has('driver_adv1')?'has-error':''}}">
+            <label class="control-label text-left" for="driver_adv">Driver Advance</label>
+            {{ Form::text('driver_adv1', null, ['class' => 'form-control','id'=>'driver_adv1']) }}
+            @if($errors->has('driver_adv1'))
+                <span class="help-block"><strong>{{$errors->first('driver_adv1')}}</strong></span>
+            @endif
+        </div>
         <!-- Driver Advance ends-->
 
         <!-- Driver Advance Fixed Starts-->
 
-            <div class="col-md-2 {{$errors->has('driver_adv_fix1')?'has-error':''}}">
-                <label class="control-label text-center" for="driver_adv_fix">Driver Adv. (Fixed)</label>
-                {{ Form::text('driver_adv_fix1', null, array('class' => 'form-control','id'=>'driver_adv_fix1')) }}
-                @if($errors->has('driver_adv_fix1'))
-                    <span class="help-block"><strong>{{$errors->first('driver_adv_fix1')}}</strong></span>
-                @endif
-            </div>
+        <div class="col-md-2 {{$errors->has('driver_adv_fix1')?'has-error':''}}">
+            <label class="control-label text-center" for="driver_adv_fix">Driver Adv. (Fixed)</label>
+            {{ Form::text('driver_adv_fix1', null, array('class' => 'form-control','id'=>'driver_adv_fix1')) }}
+            @if($errors->has('driver_adv_fix1'))
+                <span class="help-block"><strong>{{$errors->first('driver_adv_fix1')}}</strong></span>
+            @endif
+        </div>
 
         <!-- Driver Advance Fixed ends-->
 
         <!-- Driver Extra Given Starts-->
-            <div class="col-md-2 {{$errors->has('extra_adv1')?'has-error':''}}">
-                <label class="control-label text-left" for="extra_adv">Extra Advance</label>
-                {{ Form::text('extra_adv1', null, array('class' => 'form-control','id'=>'extra_adv1','readonly')) }}
-                @if($errors->has('extra_adv1'))
-                    <span class="help-block"><strong>{{$errors->first('extra_adv1')}}</strong></span>
-                @endif
-            </div>
+        <div class="col-md-2 {{$errors->has('extra_adv1')?'has-error':''}}">
+            <label class="control-label text-left" for="extra_adv">Extra Advance</label>
+            {{ Form::text('extra_adv1', null, array('class' => 'form-control','id'=>'extra_adv1','readonly')) }}
+            @if($errors->has('extra_adv1'))
+                <span class="help-block"><strong>{{$errors->first('extra_adv1')}}</strong></span>
+            @endif
+        </div>
         <!-- Driver Extra Given ends-->
-            <div class="form-group col-md-1" style="padding-top: 29px;">
-                <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">-</button>
-            </div>
+        <div class="form-group col-md-1" style="padding-top: 29px;">
+            <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">-</button>
         </div>
     </div>
+</div>
 
 <div class="col-md-12">
     <div class="form-group col-md-1">
@@ -294,9 +294,9 @@
 
             $('select[id^="driver_id"]:last').prop('id','driver_id'+num).prop('name','driver_id'+num);
             $('select[id^="vehicle_id"]:last').prop('id','vehicle_id'+num).prop('name','vehicle_id'+num);
-            $('select[id^="driver_adv"]:last').prop('id','driver_adv'+num).prop('name','driver_adv'+num);
-            $('select[id^="driver_adv_fix"]:last').prop('id','driver_adv_fix'+num).prop('name','driver_adv_fix'+num);
-            $('select[id^="extra_adv"]:last').prop('id','extra_adv'+num).prop('name','extra_adv'+num);
+            $('input[id^="driver_adv"]:last').prop('id','driver_adv'+num).prop('name','driver_adv'+num);
+            $('input[id^="driver_adv_fix"]:last').prop('id','driver_adv_fix'+num).prop('name','driver_adv_fix'+num);
+            $('input[id^="extra_adv"]:last').prop('id','extra_adv'+num).prop('name','extra_adv'+num);
 
             // >>> Append $klon wherever you want
             $klon.appendTo($("#door"));

@@ -23,7 +23,7 @@
             <div class="col-xs-12">
                 <div class="panel">
                     <div class="panel-body">
-                        <h2>Welcome Fleet Management Software</h2>
+                        <h2>Welcome to Fleet Management Software</h2>
                     </div>
                 </div>
             </div>
