@@ -9,6 +9,7 @@ use App\Repositories\ProgramRepository;
 use App\Trip;
 use App\Vehicle;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\TripCost;
 
@@ -39,7 +40,11 @@ class ProgramController extends Controller
 
     public function store(ProgramRequest $request)
     {
+        $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'programs'"));
+        $query = $query[0]->Auto_increment;
+        //dd('halt');
         Program::query()->create($request->all());
+        $this->trips($request->all(),$query);
         return redirect('programs');
     }
 
@@ -86,5 +91,27 @@ class ProgramController extends Controller
         $repository = $this->repository;
         $vehicles = Vehicle::all();
         return view('program.rotation',compact('vehicles','repository','date'));
+    }
+
+    public function trips($request,$query)
+    {
+        //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
+        //dd($request);
+        $keys = preg_grep('/^driver_id[0-9]/',array_keys($request));
+        //dd($keys);
+        foreach($keys as $key){
+            //dd($key);
+            preg_match('!\d+!',$key,$number);
+            //dd($number);
+            foreach($number as $num){
+                //dd($num);
+                $data = [
+                    'program_id' => $query,
+                    'vehicle_id' => $request['vehicle_id'],
+                    'driver_id' => $request['driver_id'],
+                ];
+                Trip::query()->create($data);
+            }
+        }
     }
 }
