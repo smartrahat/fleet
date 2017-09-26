@@ -38,6 +38,7 @@
 
                     <div class="panel-body">
                         {{ Form::open(['action'=>'SparePartController@store','method'=>'post','class'=>'form-horizontal']) }}
+
                         <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                             {{ Form::label('name', 'Parts Name:', ['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">

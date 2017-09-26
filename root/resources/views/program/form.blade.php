@@ -201,69 +201,63 @@
 </div>
 <!-- Fuel ends-->
 
-<!-- Driver Advance Starts-->
-<div class="form-group {{$errors->has('driver_adv')?'has-error':''}}">
-    {{ Form::label('driver_adv', 'Driver Advance', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('driver_adv', null, array('class' => 'form-control','id'=>'driver_adv')) }}
-        @if($errors->has('driver_adv'))
-            <span class="help-block"><strong>{{$errors->first('driver_adv')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Driver Advance ends-->
-
-
-<!-- Driver Advance Fixed Starts-->
-<div class="form-group {{$errors->has('driver_adv_fix')?'has-error':''}}">
-    {{ Form::label('driver_adv_fix', 'Driver Advance (Fixed)', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('driver_adv_fix', null, array('class' => 'form-control','id'=>'driver_adv_fix')) }}
-        @if($errors->has('driver_adv_fix'))
-            <span class="help-block"><strong>{{$errors->first('driver_adv_fix')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Driver Advance Fixed ends-->
-
-<!-- Driver Extra Given Starts-->
-<div class="form-group {{$errors->has('extra_adv')?'has-error':''}}">
-    {{ Form::label('extra_adv', 'Extra Advance', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('extra_adv', null, array('class' => 'form-control','id'=>'extra_adv','readonly')) }}
-        @if($errors->has('extra_adv'))
-            <span class="help-block"><strong>{{$errors->first('extra_adv')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Driver Extra Given ends-->
-
 <div class="col-md-12">
     <hr>
 </div>
 
 <div id="door">
     <div class="col-md-12" id="product1">
-        <div class="form-group col-md-3">
-            <label class="control-label" for="vehicle_id">Driver:</label>
+        <div class="form-group col-md-2">
+            <label class="control-label" for="driver_id">Driver</label>
+
             <div class="">
                 {!! Form::select('driver_id1',$repository->drivers(),null,['id'=>'driver_id1','class'=>'form-control','required','placeholder'=>'Select a driver']) !!}
             </div>
         </div>
-        <div class="form-group col-md-3">
-            <label class="control-label" for="vehicle_id">Vehicle:</label>
+        <div class="col-md-2">
+            <label class="control-label" for="vehicle_id">Vehicle</label>
             <div class="">
                 {!! Form::select('vehicle_id1',$repository->vehicles(),null,['id'=>'vehicle_id1','class'=>'form-control','required','placeholder'=>'Select a vehicle']) !!}
             </div>
         </div>
-        <div class="form-group col-md-1">
-            <label for=""></label>
-            <div class="">
-                <button type="button" class="btn btn-danger remove-btn">-</button>
+
+        <!-- Driver Advance Starts-->
+            <div class="col-md-2 {{$errors->has('driver_adv1')?'has-error':''}}">
+                <label class="control-label text-left" for="driver_adv">Driver Advance</label>
+                {{ Form::text('driver_adv1', null, array('class' => 'form-control','id'=>'driver_adv1')) }}
+                @if($errors->has('driver_adv1'))
+                    <span class="help-block"><strong>{{$errors->first('driver_adv')}}</strong></span>
+                @endif
+            </div>
+        <!-- Driver Advance ends-->
+
+        <!-- Driver Advance Fixed Starts-->
+
+            <div class="col-md-2 {{$errors->has('driver_adv_fix1')?'has-error':''}}">
+                <label class="control-label text-center" for="driver_adv_fix">Driver Adv. (Fixed)</label>
+                {{ Form::text('driver_adv_fix1', null, array('class' => 'form-control','id'=>'driver_adv_fix1')) }}
+                @if($errors->has('driver_adv_fix1'))
+                    <span class="help-block"><strong>{{$errors->first('driver_adv_fix1')}}</strong></span>
+                @endif
+            </div>
+
+        <!-- Driver Advance Fixed ends-->
+
+        <!-- Driver Extra Given Starts-->
+            <div class="col-md-2 {{$errors->has('extra_adv1')?'has-error':''}}">
+                <label class="control-label text-left" for="extra_adv">Extra Advance</label>
+                {{ Form::text('extra_adv1', null, array('class' => 'form-control','id'=>'extra_adv1','readonly')) }}
+                @if($errors->has('extra_adv1'))
+                    <span class="help-block"><strong>{{$errors->first('extra_adv1')}}</strong></span>
+                @endif
+            </div>
+        <!-- Driver Extra Given ends-->
+            <div class="form-group col-md-1" style="padding-top: 29px;">
+                <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">-</button>
             </div>
         </div>
     </div>
-</div>
+
 <div class="col-md-12">
     <div class="form-group col-md-1">
         <button class="btn btn-success" onclick="addRow()" type="button">+</button>
@@ -300,6 +294,9 @@
 
             $('select[id^="driver_id"]:last').prop('id','driver_id'+num).prop('name','driver_id'+num);
             $('select[id^="vehicle_id"]:last').prop('id','vehicle_id'+num).prop('name','vehicle_id'+num);
+            $('select[id^="driver_adv"]:last').prop('id','driver_adv'+num).prop('name','driver_adv'+num);
+            $('select[id^="driver_adv_fix"]:last').prop('id','driver_adv_fix'+num).prop('name','driver_adv_fix'+num);
+            $('select[id^="extra_adv"]:last').prop('id','extra_adv'+num).prop('name','extra_adv'+num);
 
             // >>> Append $klon wherever you want
             $klon.appendTo($("#door"));
@@ -330,7 +327,6 @@
     <script>
 //        $(document).ready( function() {
             $('#option').bind('change', function () {
-
                 if( $('#option').val() == 1) {
                     $('#rate_div').show();
                     $('#weight_div').show();
