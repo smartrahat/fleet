@@ -24,8 +24,6 @@ class ProgramRequest extends FormRequest
     public function rules()
     {
         return [
-            'vehicle_id'    =>'required',
-            'driver_id'     =>'required',
             'party_id'      =>'required',
             'employee_id'   =>'required',
             'date'          =>'required',

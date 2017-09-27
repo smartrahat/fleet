@@ -174,6 +174,13 @@
         @if($errors->has('fuel'))
             <span class="help-block"><strong>{{$errors->first('fuel')}}</strong></span>
         @endif
+        @if($errors)
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 </div>
 <!-- Fuel ends-->
