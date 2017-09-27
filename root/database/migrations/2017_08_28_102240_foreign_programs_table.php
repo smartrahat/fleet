@@ -15,8 +15,6 @@ class ForeignProgramsTable extends Migration
     {
         Schema::table('programs', function (Blueprint $table) {
             $table->foreignAuthority();
-            $table->foreign('driver_id')->references('id')->on('drivers');
-            $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->foreign('party_id')->references('id')->on('parties');
             $table->foreign('employee_id')->references('id')->on('employees');
         });
@@ -31,8 +29,6 @@ class ForeignProgramsTable extends Migration
     {
         Schema::table('programs', function (Blueprint $table) {
             $table->dropForeignAuthority();
-            $table->dropForeign(['driver_id']);
-            $table->dropForeign(['vehicle_id']);
             $table->dropForeign(['party_id']);
             $table->dropForeign(['employee_id']);
         });

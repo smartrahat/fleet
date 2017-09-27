@@ -18,8 +18,6 @@ class CreateProgramsTable extends Migration
             $table->authorities();
             $table->date('date');
             $table->integer('serial');
-            $table->integer('vehicle_id')->unsigned();
-            $table->integer('driver_id')->unsigned();
             $table->integer('employee_id')->unsigned();
             $table->integer('party_id')->unsigned();
             $table->float('weight')->nullable();

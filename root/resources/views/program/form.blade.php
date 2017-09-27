@@ -54,30 +54,6 @@
 </div>
 <!-- Employee ends-->
 
-<!-- Driver Starts-->
-<div class="form-group {{$errors->has('driver_id')?'has-error':''}}">
-    {{ Form::label('driver_id', 'Driver:', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::select('driver_id',$repository->drivers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Driver']) }}
-        @if($errors->has('driver_id'))
-            <span class="help-block"><strong>{{$errors->first('driver_id')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- driver ends-->
-
-<!-- Vehicle Number Starts-->
-<div class="form-group {{$errors->has('vehicle_id')?'has-error':''}}">
-    {{ Form::label('vehicle_id', 'Vehicle Number:', ['class'=>'col-md-3 control-label']) }}
-    <div class="col-md-6">
-        {{ Form::select('vehicle_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
-        @if($errors->has('vehicle_id'))
-            <span class="help-block"><strong>{{$errors->first('vehicle_id')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Vehicle name ends-->
-
 <!-- Option Starts-->
 <div class="form-group">
     {{ Form::label('option', 'Rent Option:', ['class'=>'col-md-3 control-label']) }}

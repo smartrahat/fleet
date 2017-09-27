@@ -11,9 +11,8 @@ class Program extends Model
 
     protected $dates = ['date'];
 
-    protected $fillable = ['vehicle_id','driver_id','party_id','employee_id','date','serial','weight','rate','adv_rent','due_rent','rent',
-                            'loading','unloading','product','emp_container','fuel', 'driver_adv',
-                            'd_a_fix','extra_adv'];
+    protected $fillable = ['party_id','employee_id','date','serial','weight','rate','adv_rent','due_rent','rent',
+                            'loading','unloading','product','emp_container','fuel'];
 
     public function party()
     {
