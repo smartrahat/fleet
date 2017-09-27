@@ -23,6 +23,7 @@ class Program extends Model
         return $this->belongsTo(Employee::class);
     }
 
+
     public function vehicle()
     {
         return $this->belongsTo(Vehicle::class);
