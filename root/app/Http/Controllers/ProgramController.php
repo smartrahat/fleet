@@ -107,9 +107,13 @@ class ProgramController extends Controller
                 //dd($num);
                 $data = [
                     'program_id' => $query,
-                    'vehicle_id' => $request['vehicle_id'],
-                    'driver_id' => $request['driver_id'],
+                    'vehicle_id' => $request['vehicle_id'.$num],
+                    'driver_id' => $request['driver_id'.$num],
+                    'driver_adv' => $request['driver_adv'.$num],
+                    'd_a_fix' => $request['d_a_fix'.$num],
+                    'extra_adv' => $request['extra_adv'.$num]
                 ];
+                //dd($data);
                 Trip::query()->create($data);
             }
         }

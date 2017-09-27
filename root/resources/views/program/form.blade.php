@@ -29,6 +29,7 @@
 </div>
 <!-- Serial ends-->
 
+
 <!-- party start-->
 <div class="form-group {{$errors->has('party_id')?'has-error':''}}">
     {{ Form::label('party_id', 'Party Name:', array('class'=>'col-md-3 control-label')) }}
