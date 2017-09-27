@@ -118,132 +118,127 @@
 </div>
 <!-- Due Rent ends-->
 
-<!-- Loading Starts-->
-<div class="form-group {{$errors->has('loading')?'has-error':''}}">
-    {{ Form::label('loading', 'Loading Point', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('loading', null, array('class' => 'form-control')) }}
-        @if($errors->has('loading'))
-            <span class="help-block"><strong>{{$errors->first('loading')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Loading ends-->
-
-<!-- Unloading Starts-->
-<div class="form-group {{$errors->has('unloading')?'has-error':''}}">
-    {{ Form::label('unloading', 'Unloading Point', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('unloading', null, array('class' => 'form-control')) }}
-        @if($errors->has('unloading'))
-            <span class="help-block"><strong>{{$errors->first('unloading')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Unloading ends-->
-
-<!-- Product Details Starts-->
-<div class="form-group {{$errors->has('product')?'has-error':''}}">
-    {{ Form::label('product', 'Product Details', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('product', null, array('class' => 'form-control')) }}
-        @if($errors->has('product'))
-            <span class="help-block"><strong>{{$errors->first('product')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Product Details ends-->
-
-<!-- Empty Container Starts-->
-<div class="form-group {{$errors->has('emp_container')?'has-error':''}}">
-    {{ Form::label('emp_container', 'Empty Container', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('emp_container', null, array('class' => 'form-control')) }}
-        @if($errors->has('emp_container'))
-            <span class="help-block"><strong>{{$errors->first('emp_container')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Empty Container ends-->
-
-<!-- Fuel Starts-->
-<div class="form-group {{$errors->has('fuel')?'has-error':''}}">
-    {{ Form::label('fuel', 'Fuel Quantity (Ltr)', array('class'=>'col-md-3 control-label')) }}
-    <div class="col-md-6">
-        {{ Form::text('fuel', null, array('class' => 'form-control')) }}
-        @if($errors->has('fuel'))
-            <span class="help-block"><strong>{{$errors->first('fuel')}}</strong></span>
-        @endif
-        @if($errors)
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
-</div>
-<!-- Fuel ends-->
-
 <div class="col-md-12">
     <hr>
 </div>
 
+
+<!--DOOR OPEN-->
 <div id="door">
-    <div class="col-md-12" id="product1">
-        <div class="form-group col-md-2">
-            <label class="control-label" for="driver_id">Driver</label>
+    <div class="col-md-11" id="product1">
+        <div class="col-md-12">
+            <div class="form-group col-md-2">
+                <label class="control-label" for="driver_id">Driver</label>
+                <div class="">
+                    {!! Form::select('driver_id1',$repository->drivers(),null,['id'=>'driver_id1','class'=>'form-control','required','placeholder'=>'Select a driver']) !!}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="control-label" for="vehicle_id">Vehicle</label>
+                <div class="">
+                    {!! Form::select('vehicle_id1',$repository->vehicles(),null,['id'=>'vehicle_id1','class'=>'form-control','required','placeholder'=>'Select a vehicle']) !!}
+                </div>
+            </div>
 
-            <div class="">
-                {!! Form::select('driver_id1',$repository->drivers(),null,['id'=>'driver_id1','class'=>'form-control','required','placeholder'=>'Select a driver']) !!}
+            <!-- Driver Advance Starts-->
+            <div class="col-md-2 {{$errors->has('driver_adv1')?'has-error':''}}">
+                <label class="control-label text-left" for="driver_adv">Driver Advance</label>
+                {{ Form::text('driver_adv1', null, ['class' => 'form-control','id'=>'driver_adv1']) }}
+                @if($errors->has('driver_adv1'))
+                    <span class="help-block"><strong>{{$errors->first('driver_adv1')}}</strong></span>
+                @endif
+            </div>
+            <!-- Driver Advance ends-->
+
+            <!-- Driver Advance Fixed Starts-->
+
+            <div class="col-md-2 {{$errors->has('d_a_fix1')?'has-error':''}}">
+                <label class="control-label text-center" for="d_a_fix">Drv Adv (Fixed)</label>
+                {{ Form::text('d_a_fix1', null, array('class' => 'form-control','id'=>'d_a_fix1')) }}
+                @if($errors->has('d_a_fix1'))
+                    <span class="help-block"><strong>{{$errors->first('d_a_fix1')}}</strong></span>
+                @endif
+            </div>
+
+            <!-- Driver Advance Fixed ends-->
+
+            <!-- Driver Extra Given Starts-->
+            <div class="col-md-2 {{$errors->has('extra_adv1')?'has-error':''}}">
+                <label class="control-label text-left" for="extra_adv">Extra Advance</label>
+                {{ Form::text('extra_adv1', null, array('class' => 'form-control','id'=>'extra_adv1','readonly')) }}
+                @if($errors->has('extra_adv1'))
+                    <span class="help-block"><strong>{{$errors->first('extra_adv1')}}</strong></span>
+                @endif
+            </div>
+            <!-- Driver Extra Given ends-->
+            {{--</div>--}}
+            {{--<div id="door">--}}
+            <!-- Loading Starts-->
+            <div class="col-md-2 {{$errors->has('loading')?'has-error':''}}">
+                <label class="control-label text-center" for="loading">Loading Point</label>
+                {{ Form::text('loading', null, array('class' => 'form-control')) }}
+                @if($errors->has('loading'))
+                    <span class="help-block"><strong>{{$errors->first('loading')}}</strong></span>
+                @endif
+            </div>
+            <!-- Loading ends-->
+
+            <!-- Unloading Starts-->
+            <div class="col-md-2 {{$errors->has('unloading')?'has-error':''}}">
+                <label class="control-label text-center" for="unloading">Unloading Point</label>
+                {{ Form::text('unloading', null, array('class' => 'form-control')) }}
+                @if($errors->has('unloading'))
+                    <span class="help-block"><strong>{{$errors->first('unloading')}}</strong></span>
+                @endif
+            </div>
+            <!-- Unloading ends-->
+
+            <!-- Product Details Starts-->
+            <div class="col-md-2 {{$errors->has('product')?'has-error':''}}">
+                <label class="control-label text-center" for="loading">Product Details</label>
+                {{ Form::text('product', null, array('class' => 'form-control')) }}
+                @if($errors->has('product'))
+                    <span class="help-block"><strong>{{$errors->first('product')}}</strong></span>
+                @endif
+            </div>
+            <!-- Product Details ends-->
+
+            <!-- Empty Container Starts-->
+            <div class="col-md-2 {{$errors->has('emp_container')?'has-error':''}}">
+                <label class="control-label text-center" for="emp_container">Empty Container</label>
+                {{ Form::text('emp_container', null, array('class' => 'form-control')) }}
+                @if($errors->has('emp_container'))
+                    <span class="help-block"><strong>{{$errors->first('emp_container')}}</strong></span>
+                @endif
+            </div>
+            <!-- Empty Container ends-->
+
+            <!-- Fuel Starts-->
+            <div class="col-md-2 {{$errors->has('fuel')?'has-error':''}}">
+                <label class="control-label text-center" for="loading">Fuel Qty (Ltr)</label>
+                {{ Form::text('fuel', null, array('class' => 'form-control')) }}
+                @if($errors->has('fuel'))
+                    <span class="help-block"><strong>{{$errors->first('fuel')}}</strong></span>
+                @endif
+            </div>
+            <!-- Fuel ends-->
+        </div>
+        <!--REMOVE BUTTON START-->
+        <div class="col-md-1" >
+            <div class="form-group " style="padding-top: 29px;">
+                <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">-</button>
             </div>
         </div>
-        <div class="col-md-2">
-            <label class="control-label" for="vehicle_id">Vehicle</label>
-            <div class="">
-                {!! Form::select('vehicle_id1',$repository->vehicles(),null,['id'=>'vehicle_id1','class'=>'form-control','required','placeholder'=>'Select a vehicle']) !!}
-            </div>
+        <div class="col-md-12">
+            <hr>
         </div>
-
-        <!-- Driver Advance Starts-->
-        <div class="col-md-2 {{$errors->has('driver_adv1')?'has-error':''}}">
-            <label class="control-label text-left" for="driver_adv">Driver Advance</label>
-            {{ Form::text('driver_adv1', null, ['class' => 'form-control','id'=>'driver_adv1']) }}
-            @if($errors->has('driver_adv1'))
-                <span class="help-block"><strong>{{$errors->first('driver_adv1')}}</strong></span>
-            @endif
-        </div>
-        <!-- Driver Advance ends-->
-
-        <!-- Driver Advance Fixed Starts-->
-
-        <div class="col-md-2 {{$errors->has('d_a_fix1')?'has-error':''}}">
-            <label class="control-label text-center" for="d_a_fix">Driver Adv. (Fixed)</label>
-            {{ Form::text('d_a_fix1', null, array('class' => 'form-control','id'=>'d_a_fix1')) }}
-            @if($errors->has('d_a_fix1'))
-                <span class="help-block"><strong>{{$errors->first('d_a_fix1')}}</strong></span>
-            @endif
-        </div>
-
-        <!-- Driver Advance Fixed ends-->
-
-        <!-- Driver Extra Given Starts-->
-        <div class="col-md-2 {{$errors->has('extra_adv1')?'has-error':''}}">
-            <label class="control-label text-left" for="extra_adv">Extra Advance</label>
-            {{ Form::text('extra_adv1', null, array('class' => 'form-control','id'=>'extra_adv1','readonly')) }}
-            @if($errors->has('extra_adv1'))
-                <span class="help-block"><strong>{{$errors->first('extra_adv1')}}</strong></span>
-            @endif
-        </div>
-        <!-- Driver Extra Given ends-->
-        <div class="form-group col-md-1" style="padding-top: 29px;">
-            <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">-</button>
-        </div>
+        <!--REMOVE BUTTON END-->
     </div>
 </div>
+<!--DOOR CLOSE-->
 
 <div class="col-md-12">
-    <div class="form-group col-md-1">
+    <div class="form-group col-md-2">
         <button class="btn btn-success" onclick="addRow()" type="button">+</button>
     </div>
 </div>
