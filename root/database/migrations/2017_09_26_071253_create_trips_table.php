@@ -19,6 +19,9 @@ class CreateTripsTable extends Migration
             $table->integer('program_id')->unsigned();
             $table->integer('driver_id')->unsigned();
             $table->integer('vehicle_id')->unsigned();
+            $table->integer('driver_adv')->nullable();
+            $table->integer('d_a_fix')->nullable();
+            $table->integer('extra_adv')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

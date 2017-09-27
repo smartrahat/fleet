@@ -32,9 +32,6 @@ class CreateProgramsTable extends Migration
             $table->string('product');
             $table->string('emp_container');
             $table->string('fuel');
-            $table->string('driver_adv');
-            $table->string('driver_adv_fix');
-            $table->string('extra_adv');
             $table->timestamps();
             $table->softDeletes();
         });

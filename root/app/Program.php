@@ -13,7 +13,7 @@ class Program extends Model
 
     protected $fillable = ['vehicle_id','driver_id','party_id','employee_id','date','serial','weight','rate','adv_rent','due_rent','rent',
                             'loading','unloading','product','emp_container','fuel', 'driver_adv',
-                            'driver_adv_fix','extra_adv'];
+                            'd_a_fix','extra_adv'];
 
     public function party()
     {
@@ -37,6 +37,11 @@ class Program extends Model
 
     public function tripCost(){
         return $this->hasOne(TripCost::class);
+    }
+
+
+    public function trip(){
+        return $this->hasMany(Trip::class);
     }
 
 }

@@ -233,11 +233,11 @@
 
         <!-- Driver Advance Fixed Starts-->
 
-        <div class="col-md-2 {{$errors->has('driver_adv_fix1')?'has-error':''}}">
-            <label class="control-label text-center" for="driver_adv_fix">Driver Adv. (Fixed)</label>
-            {{ Form::text('driver_adv_fix1', null, array('class' => 'form-control','id'=>'driver_adv_fix1')) }}
-            @if($errors->has('driver_adv_fix1'))
-                <span class="help-block"><strong>{{$errors->first('driver_adv_fix1')}}</strong></span>
+        <div class="col-md-2 {{$errors->has('d_a_fix1')?'has-error':''}}">
+            <label class="control-label text-center" for="d_a_fix">Driver Adv. (Fixed)</label>
+            {{ Form::text('d_a_fix1', null, array('class' => 'form-control','id'=>'d_a_fix1')) }}
+            @if($errors->has('d_a_fix1'))
+                <span class="help-block"><strong>{{$errors->first('d_a_fix1')}}</strong></span>
             @endif
         </div>
 
@@ -295,7 +295,7 @@
             $('select[id^="driver_id"]:last').prop('id','driver_id'+num).prop('name','driver_id'+num);
             $('select[id^="vehicle_id"]:last').prop('id','vehicle_id'+num).prop('name','vehicle_id'+num);
             $('input[id^="driver_adv"]:last').prop('id','driver_adv'+num).prop('name','driver_adv'+num);
-            $('input[id^="driver_adv_fix"]:last').prop('id','driver_adv_fix'+num).prop('name','driver_adv_fix'+num);
+            $('input[id^="d_a_fix"]:last').prop('id','d_a_fix'+num).prop('name','d_a_fix'+num);
             $('input[id^="extra_adv"]:last').prop('id','extra_adv'+num).prop('name','extra_adv'+num);
 
             // >>> Append $klon wherever you want
@@ -364,10 +364,9 @@
 
     <script>
         $(document).keyup(function () {
-            var driver_adv = $('#driver_adv').val();
-            var driver_adv_fix = $('#driver_adv_fix').val();
-            $('#extra_adv').val(parseInt(driver_adv) - parseInt(driver_adv_fix));
+            var driver_adv = $('#driver_adv1').val();
+            var d_a_fix = $('#d_a_fix1').val();
+            $('#extra_adv1').val(parseInt(driver_adv) - parseInt(d_a_fix));
         })
     </script>
-
 @stop
