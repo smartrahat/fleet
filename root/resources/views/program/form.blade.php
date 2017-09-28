@@ -125,7 +125,7 @@
 
 <!--DOOR OPEN-->
 <div id="door">
-    <div class="col-md-11" id="product1">
+    <div class="col-md-11 text-center" id="product1">
         <div class="col-md-12">
             <div class="form-group col-md-2">
                 <label class="control-label" for="driver_id">Driver</label>
@@ -261,7 +261,7 @@
     <script>
         // Add new row
         function addRow(){
-            // get the last DIV which ID starts with ^= "products"
+            // get the last DIV which ID starts with ^= "product"
             var $div = $('div[id^="product"]:last');
 
             // Read the Number from that DIV's ID (i.e: 3 from "product3")
@@ -341,11 +341,24 @@
         })
     </script>
 
+    {{--<script>--}}
+        {{--$(document).keyup(function () {--}}
+            {{--var driver_adv = $('#driver_adv1').val();--}}
+            {{--var d_a_fix = $('#d_a_fix1').val();--}}
+            {{--$('#extra_adv1').val(parseInt(driver_adv) - parseInt(d_a_fix));--}}
+        {{--})--}}
+    {{--</script>--}}
     <script>
         $(document).keyup(function () {
-            var driver_adv = $('#driver_adv1').val();
-            var d_a_fix = $('#d_a_fix1').val();
-            $('#extra_adv1').val(parseInt(driver_adv) - parseInt(d_a_fix));
+            var $div = $('div[id^="product"]:last');
+            var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+
+            for(var i=1;i<num;i++){
+                var a = $("#product"+i+" input[id^='driver_adv']").val();
+                var b = $("#product"+i+" input[id^='d_a_fix']").val();
+                var c =$("#product"+i+" input[id^='extra_adv']").val(parseInt(a)-parseInt(b));
+
+            }
         })
     </script>
 @stop
