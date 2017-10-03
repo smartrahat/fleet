@@ -39,7 +39,7 @@ class Program extends Model
     }
 
 
-    public function trip(){
+    public function trips(){
         return $this->hasMany(Trip::class);
     }
 

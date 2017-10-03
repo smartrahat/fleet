@@ -6,7 +6,7 @@
     <section role="main" class="content-body">
 
         <header class="page-header no-print">
-            <h2>Program Rotation Report</h2>
+            <h2>Daily Program Rotation Report</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
@@ -22,7 +22,7 @@
 
         <!-- Search Panel -->
         <div class="panel panel-body no-print">
-            {!! Form::open(['action'=>'ProgramController@rotation','method'=>'get','class'=>'form-inline']) !!}
+            {!! Form::open(['action'=>'ProgramController@dailyReport','method'=>'get','class'=>'form-inline']) !!}
             <div class="form-group {{$errors->has('date')?'has-error':''}}">
                 <label class="control-label">Program Date: </label>
                     <div class="input-group">
@@ -47,7 +47,7 @@
                     <a href="javascript:window.print()"><i class="fa fa-print"></i></a>
                     <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                 </div>
-                <h2 class="panel-title">Rotation Report</h2>
+                <h2 class="panel-title">Daily Program Rotation Report</h2>
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -55,48 +55,39 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Vehicle</th>
-                            <th>Status</th>
-                            <th>Location</th>
-                            <th>Driver Adv. Fixed</th>
-                            <th>SR</th>
                             <th>Party</th>
-                            <th>Empty Container</th>
-                            <th>Vehicle Mobile</th>
+                            <th>Previous Balance</th>
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
+                            <th>Empty Container</th>
+                            <th>Total Trip</th>
+                            <th>Weight</th>
+                            <th>Rate</th>
+                            <th>Taka</th>
+                            <th>Old Collection</th>
                             <th>Advance</th>
-                            <th>Due</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($vehicles as $vehicle)
-                            <tr>
-                                <td>{{ $vehicle->id }}</td>
-                                <td>{{ $vehicle->vehicleNo }}</td>
-                                <td>{{ $vehicle->status->name or '' }}</td>
-                                @foreach($vehicle->trips as $trip)
-                                    @if($trip->program->date == $date)
-                                        <td>{{ $trip->program->unloading or '' }}</td>
-                                        <td class="text-right">{{ $trip->driver_adv or 0 }}/-</td>
-                                        <td>{{ $trip->program->employee->name or '' }}</td>
-                                        <td>{{ $trip->program->party->name or '' }}</td>
-                                        <td>{{ $trip->program->emp_container or '' }}</td>
-                                        <td>{{ $vehicle->mobile or '' }}</td>
-                                        <td>{{ $trip->program->loading or '' }}</td>
-                                        <td>{{ $trip->program->unloading or '' }}</td>
-                                        <td>{{ $trip->program->product or '' }}</td>
-                                        <td class="text-right">{{ number_format($trip->program->rent) }}/-</td>
-                                        <td class="text-right">{{ number_format($trip->program->adv_rent) }}/-</td>
-                                        <td class="text-right">{{ number_format($trip->program->due_rent) }}/-</td>
+                        @foreach($programs as $program)
+                                <tr>
+                                    @if($program->date == $date)
+                                        <td>{{ $program->id or '' }}</td>
+                                        <td>{{ $program->party->name or '' }}</td>
+                                        <td>Previous Balance</td>
+                                        <td>{{ $program->loading or '' }}</td>
+                                        <td>{{ $program->unloading or '' }}</td>
+                                        <td>{{ $program->emp_container or '' }}</td>
+                                        <td>Total Trip</td>
+                                        <td class="text-center">{{ $program->weight or '-' }}</td>
+                                        <td class="text-center">{{ $program->rate or '-' }}</td>
+                                        <td class="text-right">{{ number_format($program->rent) }}/-</td>
+                                        <td class="text-right">Old Collection</td>
+                                        <td class="text-right">Advance</td>
                                     @endif
-                                @endforeach
-                                {{--|| $vehicle->trips->where('date',$date)->count() == 0--}}
-
-                            </tr>
-                        @endforeach
+                                    {{--|| $vehicle->trips->where('date',$date)->count() == 0--}}
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div><br>

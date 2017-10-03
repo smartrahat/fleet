@@ -99,6 +99,7 @@ Route::delete('program/delete/{id}','ProgramController@destroy');
 Route::get('program/rotation','ProgramController@rotation');
 Route::get('program/report','ProgramController@programReport');
 Route::get('program/receipt','ProgramController@driverReceipt');
+Route::get('program/dailyReport','ProgramController@dailyReport');
 
 //Trip routes
 Route::get('trips', 'TripController@index');

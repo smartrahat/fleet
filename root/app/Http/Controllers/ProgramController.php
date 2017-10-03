@@ -93,6 +93,16 @@ class ProgramController extends Controller
         return view('program.rotation',compact('vehicles','repository','date'));
     }
 
+    public function dailyReport()
+    {
+        $date = Input::has('date') ? Carbon::parse(Input::get('date')) : Carbon::now();
+        //$repository = $this->repository;
+        $programs = Program::query()->where('date',$date)->get();
+//        dd($programs);
+//        query()->whereDate('date','=',$date);
+        return view('program.dailyReport',compact('programs','date'));
+    }
+
     public function trips($request,$query)
     {
         //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
