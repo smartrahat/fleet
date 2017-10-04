@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Employee;
 use App\Http\Requests\ProgramRequest;
+use App\Income;
 use App\Program;
 use App\Repositories\ProgramRepository;
 use App\Trip;
@@ -35,15 +36,17 @@ class ProgramController extends Controller
     {
         $repository = $this->repository;
         $programs = Program::all();
-        return view('program.index',compact('programs','repository'));
+        $i=1;
+        return view('program.index',compact('programs','i','repository'));
     }
 
     public function store(ProgramRequest $request)
     {
         $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'programs'"));
         $query = $query[0]->Auto_increment;
-        //dd('halt');
+        $request['program_id'] = $query;
         Program::query()->create($request->all());
+        Income::query()->create($request->all());
         $this->trips($request->all(),$query);
         return redirect('programs');
     }
@@ -67,7 +70,9 @@ class ProgramController extends Controller
     public function destroy($id)
     {
         $program = Program::query()->findOrFail($id);
+        $income = Income::query()->findOrFail($id);
         $program->delete();
+        $income->delete();
         Session::flash('success','"'.$program->name.'" has been deleted successfully!');
         return redirect('programs');
     }
@@ -127,5 +132,13 @@ class ProgramController extends Controller
                 Trip::query()->create($data);
             }
         }
+    }
+
+    public function dailyIncomeReport()
+    {
+        $date = Input::has('date') ? Carbon::parse(Input::get('date')) : Carbon::now();
+        $incomes = Income::query()->where('date',$date)->get();
+        $i = 1;
+        return view('program.dailyIncomeReport',compact('i','incomes','date'));
     }
 }

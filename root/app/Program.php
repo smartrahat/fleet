@@ -43,4 +43,8 @@ class Program extends Model
         return $this->hasMany(Trip::class);
     }
 
+    public function income(){
+        return $this->belongsTo(Income::class);
+    }
+
 }

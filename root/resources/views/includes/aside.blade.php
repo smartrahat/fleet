@@ -131,7 +131,7 @@
                             </li>
 
                             <li class="{{ isActive('program/dailyReport') }}">
-                                <a href="{{action('ProgramController@dailyReport')}}">Daily Report</a>
+                                <a href="{{action('ProgramController@dailyIncomeReport')}}">Daily Income Report</a>
                             </li>
 
                             {{--<li class="{{ isActive('program/report') }}">--}}
@@ -142,6 +142,23 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-parent {{ isActive(['accounts*','due/create*']) }}">
+                        <a>
+                            <i class="fa fa-ship" aria-hidden="true"></i>
+                            <span>Accounts</span>
+                        </a>
+                        <ul class="nav nav-children">
+
+                            <li class="{{ isActive('due/create') }}">
+                                <a href="{{action('DueController@create')}}">Due Collection</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
 
                     <li class="nav-parent">
                         <a>

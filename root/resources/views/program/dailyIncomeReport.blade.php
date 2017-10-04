@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title','Rotation List')
+@section('title','Daily Income Report')
 
 @section('content')
     <section role="main" class="content-body">
 
         <header class="page-header no-print">
-            <h2>Daily Program Rotation Report</h2>
+            <h2>Daily Program Income Report</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
@@ -22,7 +22,7 @@
 
         <!-- Search Panel -->
         <div class="panel panel-body no-print">
-            {!! Form::open(['action'=>'ProgramController@dailyReport','method'=>'get','class'=>'form-inline']) !!}
+            {!! Form::open(['action'=>'ProgramController@dailyIncomeReport','method'=>'get','class'=>'form-inline']) !!}
             <div class="form-group {{$errors->has('date')?'has-error':''}}">
                 <label class="control-label">Program Date: </label>
                     <div class="input-group">
@@ -47,7 +47,7 @@
                     <a href="javascript:window.print()"><i class="fa fa-print"></i></a>
                     <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                 </div>
-                <h2 class="panel-title">Daily Program Rotation Report</h2>
+                <h2 class="panel-title">Daily Program Income Report</h2>
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -56,7 +56,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Party</th>
-                            <th>Previous Balance</th>
+                            {{--<th>Previous Balance</th>--}}
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
                             <th>Empty Container</th>
@@ -64,28 +64,29 @@
                             <th>Weight</th>
                             <th>Rate</th>
                             <th>Taka</th>
-                            <th>Old Collection</th>
+                            {{--<th>Old Collection</th>--}}
                             <th>Advance</th>
+                            <th>Due</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($programs as $program)
+                        @foreach($incomes as $income)
                                 <tr>
-                                    @if($program->date == $date)
-                                        <td>{{ $program->id or '' }}</td>
-                                        <td>{{ $program->party->name or '' }}</td>
-                                        <td>{{ $program->income }}</td>
-                                        <td>{{ $program->loading or '' }}</td>
-                                        <td>{{ $program->unloading or '' }}</td>
-                                        <td>{{ $program->emp_container or '' }}</td>
-                                        <td>Total Trip</td>
-                                        <td class="text-center">{{ $program->weight or '-' }}</td>
-                                        <td class="text-center">{{ $program->rate or '-' }}</td>
-                                        <td class="text-right">{{ number_format($program->rent) }}/-</td>
-                                        <td class="text-right">Old Collection</td>
-                                        <td class="text-right">Advance</td>
+                                    @if($income->date == $date)
+                                        <td>{{ $i++}}</td>
+                                        <td>{{ $income->party->name or '' }}</td>
+                                        {{--<td>{{ $income->where('party_id',$income->party->id)->sum('due_rent') }}</td>--}}
+                                        <td>{{ $income->program->loading or '' }}</td>
+                                        <td>{{ $income->program->unloading or '' }}</td>
+                                        <td>{{ $income->program->emp_container or '' }}</td>
+                                        <td>{{$income->program->trips->count()}}</td>
+                                        <td>{{ $income->program->weight or '' }}</td>
+                                        <td>{{ $income->program->rate or '' }}</td>
+                                        <td class="text-right">{{ number_format($income->rent) }}/-</td>
+                                        {{--<td class="text-right">/-</td>--}}
+                                        <td class="text-right">{{ number_format($income->adv_rent) }}/-</td>
+                                        <td class="text-right">{{ number_format($income->due_rent) }}/-</td>
                                     @endif
-                                    {{--|| $vehicle->trips->where('date',$date)->count() == 0--}}
                                 </tr>
                             @endforeach
                         </tbody>

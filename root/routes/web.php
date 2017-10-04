@@ -100,6 +100,7 @@ Route::get('program/rotation','ProgramController@rotation');
 Route::get('program/report','ProgramController@programReport');
 Route::get('program/receipt','ProgramController@driverReceipt');
 Route::get('program/dailyReport','ProgramController@dailyReport');
+Route::get('program/dailyIncomeReport','ProgramController@dailyIncomeReport');
 
 //Trip routes
 Route::get('trips', 'TripController@index');
@@ -116,6 +117,20 @@ Route::post('tripCost/store', 'TripCostController@store');
 Route::get('tripCost/edit/{id}','TripCostController@edit');
 Route::patch('tripCost/{id}/update','TripCostController@update');
 Route::delete('tripCost/delete/{id}','TripCostController@destroy');
+
+
+
+//Due Collection routes
+Route::get('dues', 'DueController@index');
+Route::get('due/create', 'DueController@create');
+Route::post('due/store', 'DueController@store');
+Route::get('due/edit/{id}','DueController@edit');
+Route::patch('due/{id}/update','DueController@update');
+Route::delete('due/delete/{id}','DueController@destroy');
+
+
+
+
 
 /** Company Route */
 Route::get('company/show/{id}','CompanyController@show');

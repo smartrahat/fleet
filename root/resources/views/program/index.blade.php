@@ -50,7 +50,7 @@
                         <tbody>
                         @foreach($programs as $program)
                         <tr>
-                            <td>{{ $program->id }}</td>
+                            <td>{{ $i++ }}</td>
                             <td>{{ $program->date->format('Y-m-d') }}</td>
                             <td>{{ $program->serial }}</td>
                             <td>{{ $program->party->name or '' }}</td>
