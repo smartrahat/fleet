@@ -57,4 +57,5 @@ class DueController extends Controller
         Session::flash('success','"'.$due_collection->name.'" has been deleted successfully!');
         return redirect('due_collections');
     }
+
 }
