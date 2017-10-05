@@ -38,7 +38,6 @@ class Program extends Model
         return $this->hasOne(TripCost::class);
     }
 
-
     public function trips(){
         return $this->hasMany(Trip::class);
     }
