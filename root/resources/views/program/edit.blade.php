@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Create Program')
+@section('title','Edit Program')
 
 @section('content')
     <section role="main" class="content-body">

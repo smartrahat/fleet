@@ -15,7 +15,7 @@ class ForeignIncomeTable extends Migration
     {
         Schema::table('incomes', function (Blueprint $table) {
             $table->foreignAuthority();
-            $table->foreign('program_id')->references('id')->on('programs');
+            $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade');
         });
     }
 

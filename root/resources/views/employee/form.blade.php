@@ -1,6 +1,6 @@
 <!-- Employee Rank Starts -->
 <div class="form-group {{ $errors->has('rank') ? ' has-error' : '' }}" >
-    {{ Form::label('name', 'Position', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('rank', 'Position', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::text('rank', null, array('class' => 'form-control')) }}
         @if ($errors->has('rank'))

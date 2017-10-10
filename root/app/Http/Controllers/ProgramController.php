@@ -46,6 +46,8 @@ class ProgramController extends Controller
         $query = $query[0]->Auto_increment;
         $request['program_id'] = $query;
         Program::query()->create($request->all());
+
+        $request['paid'] = $request->get('adv_rent');
         Income::query()->create($request->all());
         $this->trips($request->all(),$query);
         return redirect('programs');
@@ -54,9 +56,10 @@ class ProgramController extends Controller
     public function edit($id)
     {
         $repository = $this->repository;
-        $programs = Program::all();
+        $trips = Trip::all()->where('program_id',$id);
+        $num = 1;
         $program = Program::query()->findOrFail($id);
-        return view('program.edit',compact('program','programs','repository'));
+        return view('program.edit',compact('program','trips','num','repository'));
     }
 
     public function update($id, ProgramRequest $request)
@@ -70,9 +73,9 @@ class ProgramController extends Controller
     public function destroy($id)
     {
         $program = Program::query()->findOrFail($id);
-        $income = Income::query()->findOrFail($id);
+        //$income = Income::query()->findOrFail($id);
         $program->delete();
-        $income->delete();
+        //$income->delete();
         Session::flash('success','"'.$program->name.'" has been deleted successfully!');
         return redirect('programs');
     }

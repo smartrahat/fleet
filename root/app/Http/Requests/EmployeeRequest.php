@@ -34,10 +34,11 @@ class EmployeeRequest extends FormRequest
             'education'     => 'required|max:25',
             'dob'           => 'required',
             'image'         => 'mimes:jpeg,bmp,png|max:2000',
-            'mobile'        => 'required|max:11',
+            'mobile'        => 'required|max:11|integer',
             'email'         => 'max:70',
             'join_date'     => 'required|max:25',
-            'app_person'    => 'required|max:255'
+            'app_person'    => 'required|max:255',
+            'rank'          => 'required|numeric'
         ];
     }
 }

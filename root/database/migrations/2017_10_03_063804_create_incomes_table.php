@@ -20,7 +20,7 @@ class CreateIncomesTable extends Migration
             $table->integer('program_id')->unsigned();
             $table->date('date');
             $table->integer('rent');
-            $table->integer('adv_rent');
+            $table->integer('paid');
             $table->integer('due_rent');
             $table->timestamps();
             $table->softDeletes();
