@@ -145,7 +145,7 @@
 
                     <li class="nav-parent {{ isActive(['accounts*','due/create*']) }}">
                         <a>
-                            <i class="fa fa-ship" aria-hidden="true"></i>
+                            <i class="fa fa-money" aria-hidden="true"></i>
                             <span>Accounts</span>
                         </a>
                         <ul class="nav nav-children">
