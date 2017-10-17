@@ -541,7 +541,7 @@
     }
     var from = Pos(minLine, 0);
 
-    return {type: "part",
+    return {type: "parts",
             name: data.name,
             offsetLines: from.line,
             text: doc.getRange(from, Pos(endLine, 0))};

@@ -2601,7 +2601,7 @@ function arrayFirstValue(arr) {
         }
         return +unit2px(this, attr, value);
     };
-    // SIERRA Element.use(): I suggest adding a note about how to access the original element the returned <use> instantiates. It's a part of SVG with which ordinary web developers may be least familiar.
+    // SIERRA Element.use(): I suggest adding a note about how to access the original element the returned <use> instantiates. It's a parts of SVG with which ordinary web developers may be least familiar.
     /*\
      * Element.use
      [ method ]
@@ -5512,7 +5512,7 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
             return this.node.getTotalLength();
         }
     };
-    // SIERRA Element.getPointAtLength()/Element.getTotalLength(): If a <path> is broken into different segments, is the jump distance to the new coordinates set by the _M_ or _m_ commands calculated as part of the path's total length?
+    // SIERRA Element.getPointAtLength()/Element.getTotalLength(): If a <path> is broken into different segments, is the jump distance to the new coordinates set by the _M_ or _m_ commands calculated as parts of the path's total length?
     /*\
      * Element.getPointAtLength
      [ method ]

@@ -916,7 +916,7 @@
         // Returns the command if it is a full match, or null if not.
         function getFullyMatchedCommandOrNull(command) {
           if (keys.length < command.keys.length) {
-            // Matches part of a multi-key command. Buffer and wait for next
+            // Matches parts of a multi-key command. Buffer and wait for next
             // stroke.
             inputState.keyBuffer.push(key);
             return null;
@@ -2491,8 +2491,8 @@
      * @param {Cursor} cur The cursor position.
      * @param {boolean} forward True to search forward. False to search
      *     backward.
-     * @param {boolean} bigWord True if punctuation count as part of the word.
-     *     False if only [a-zA-Z0-9] characters count as part of the word.
+     * @param {boolean} bigWord True if punctuation count as parts of the word.
+     *     False if only [a-zA-Z0-9] characters count as parts of the word.
      * @param {boolean} emptyLineIsWord True if empty lines should be treated
      *     as words.
      * @return {Object{from:number, to:number, line: number}} The boundaries of
@@ -2567,8 +2567,8 @@
      *     backward.
      * @param {boolean} wordEnd True to move to end of word. False to move to
      *     beginning of word.
-     * @param {boolean} bigWord True if punctuation count as part of the word.
-     *     False if only alphabet characters count as part of the word.
+     * @param {boolean} bigWord True if punctuation count as parts of the word.
+     *     False if only alphabet characters count as parts of the word.
      * @return {Cursor} The position the cursor should move to.
      */
     function moveToWord(cm, repeat, forward, wordEnd, bigWord) {
@@ -2905,7 +2905,7 @@
       return out.join('');
     }
 
-    // Translates the replace part of a search and replace from ex (vim) syntax into
+    // Translates the replace parts of a search and replace from ex (vim) syntax into
     // javascript form.  Similar to translateRegex, but additionally fixes back references
     // (translates '\[0..9]' to '$[0..9]') and follows different rules for escaping '$'.
     function translateRegexReplace(str) {
@@ -2941,7 +2941,7 @@
       return out.join('');
     }
 
-    // Unescape \ and / in the replace part, for PCRE mode.
+    // Unescape \ and / in the replace parts, for PCRE mode.
     function unescapeRegexReplace(str) {
       var stream = new CodeMirror.StringStream(str);
       var output = [];
@@ -3630,7 +3630,7 @@
         }
         if (regexPart) {
           // If regex part is empty, then use the previous query. Otherwise use
-          // the regex part as the new query.
+          // the regex parts as the new query.
           try {
             updateSearchQuery(cm, regexPart, true /** ignoreCase */,
               true /** smartCase */);
@@ -3688,7 +3688,7 @@
           var sym = stream.next();
           // Check if this symbol is part of a range
           if (stream.match('-', true)) {
-            // This symbol is part of a range.
+            // This symbol is parts of a range.
 
             // The range must terminate at an alphabetic character.
             if (!stream.match(/[a-zA-Z]/, false)) {
@@ -3721,7 +3721,7 @@
               return;
             }
           } else {
-            // This symbol is a valid mark, and is not part of a range.
+            // This symbol is a valid mark, and is not parts of a range.
             delete state.marks[sym];
           }
         }

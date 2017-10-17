@@ -101,6 +101,7 @@ Route::get('program/report','ProgramController@programReport');
 Route::get('program/receipt','ProgramController@driverReceipt');
 Route::get('program/dailyReport','ProgramController@dailyReport');
 Route::get('program/dailyIncomeReport','ProgramController@dailyIncomeReport');
+Route::get('program/show/{id}','ProgramController@show');
 
 //Trip routes
 Route::get('trips', 'TripController@index');
@@ -147,20 +148,33 @@ Route::get('user/change','UserController@changePassword');
 Route::patch('user/new','UserController@newPassword');
 Route::delete('user/destroy/{id}','UserController@destroy');
 
-/** Part Routes */
-Route::get('parts','PartController@index');
-Route::post('part/store','PartController@store');
-Route::get('part/edit/{id}','PartController@edit');
-Route::patch('part/{id}/update','PartController@update');
-Route::delete('part/destroy/{id}','PartController@destroy');
+/** Category Routes */
+Route::get('categories','CategoryController@index');
+Route::post('category/store','CategoryController@store');
+Route::get('category/edit/{id}','CategoryController@edit');
+Route::patch('category/{id}/update','CategoryController@update');
+Route::delete('category/destroy/{id}','CategoryController@destroy');
 
 /** Spare Part Routes */
 Route::get('spare-parts','SparePartController@index');
-Route::post('spare-part/store','SparePartController@store');
-Route::get('spare-part/edit/{id}','SparePartController@edit');
-Route::patch('spare-part/{id}/update','SparePartController@update');
-Route::delete('spare-part/destroy/{id}','SparePartController@destroy');
+Route::post('purchase/store','SparePartController@store');
+Route::get('purchase/edit/{id}','SparePartController@edit');
+Route::patch('purchase/{id}/update','SparePartController@update');
+Route::delete('purchase/destroy/{id}','SparePartController@destroy');
 
 /** Supplier Routes */
 Route::get('suppliers','SupplierController@index');
 Route::get('supplier/create','SupplierController@create');
+Route::post('supplier/store','SupplierController@store');
+Route::get('supplier/edit/{id}','SupplierController@edit');
+Route::patch('supplier/{id}/update','SupplierController@update');
+Route::delete('supplier/destroy/{id}','SupplierController@destroy');
+
+
+//**Purchase routes
+Route::get('purchases', 'PurchaseController@index');
+Route::get('purchase/create', 'PurchaseController@create');
+Route::post('purchase/store', 'PurchaseController@store');
+Route::get('purchase/edit/{id}','PurchaseController@edit');
+Route::patch('purchase/{id}/update','PurchaseController@update');
+Route::delete('purchase/delete/{id}','PurchaseController@destroy');

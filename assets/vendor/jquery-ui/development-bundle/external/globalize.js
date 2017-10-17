@@ -517,7 +517,7 @@ formatDate = function( value, format, culture ) {
 			case 2:
 				return date.getDate();
 			default:
-				throw "Invalid part value " + part;
+				throw "Invalid parts value " + part;
 		}
 	}
 
@@ -1388,7 +1388,7 @@ Globalize.findClosestCulture = function( name ) {
 				if ( index === -1 ) {
 					break;
 				}
-				// strip off the last part. e.g. en-US => en
+				// strip off the last parts. e.g. en-US => en
 				lang = lang.substr( 0, index );
 				match = cultures[ lang ];
 				if ( match ) {

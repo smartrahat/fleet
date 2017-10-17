@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title','Spare Parts')
+@section('title','Categories')
 
 @section('content')
     <section role="main" class="content-body">
         <header class="page-header">
-            <h2>Spare Part</h2>
+            <h2>Categories</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
@@ -13,7 +13,7 @@
                             <i class="fa fa-home"></i>
                         </a>
                     </li>
-                    <li><span>Dashboard</span></li>
+                    <li><span>Categories</span></li>
                 </ol>
                 <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
             </div>
@@ -33,42 +33,26 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title"> Add Part</h2>
+                        <h2 class="panel-title">Category of Vehicle</h2>
                     </header>
 
                     <div class="panel-body">
-                        {{ Form::open(['action'=>'SparePartController@store','method'=>'post','class'=>'form-horizontal']) }}
-
-                        <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                            {{ Form::label('name', 'Parts Name:', ['class'=>'col-md-3 control-label']) }}
+                        {{ Form::open(['action'=>'CategoryController@store','method'=>'post','class'=>'form-horizontal']) }}
+                        <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
+                            {{ Form::label('name', 'Category Name:', ['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
                                 {{ Form::text('name', null, ['class' => 'form-control','required']) }}
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
+                                @if($errors->has('name'))
+                                    <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group {{ $errors->has('part_id') ? ' has-error' : '' }}">
-                            {{ Form::label('part_id', 'Category Name:', ['class'=>'col-md-3 control-label']) }}
-                            <div class="col-md-6">
-                                {{ Form::select('part_id',$repository->parts(),null, ['class' => 'form-control populate','data-plugin-selectTwo','placeholder'=>'Parts','required']) }}
-                                @if ($errors->has('part_id'))
-                                    <span class="help-block">
-                                    <strong>{{ $errors->first('part_id') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                        <div class="form-group {{ $errors->has('description')? 'has-error':'' }}">
                             {{ Form::label('description','Description:',['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
                                 {{ Form::textarea('description', null, ['class' => 'form-control']) }}
-                                @if ($errors->has('description'))
-                                    <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
-                                </span>
+                                @if($errors->has('description'))
+                                    <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
                                 @endif
                             </div>
                         </div>
@@ -100,7 +84,7 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title">Spare Parts</h2>
+                        <h2 class="panel-title">Categories of Vehicle</h2>
                     </header>
 
                     <div class="panel-body">
@@ -110,21 +94,19 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Part</th>
                                     <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($parts as $part)
+                                @foreach($categories as $category)
                                     <tr>
-                                        <td>{{ $part->id }}</td>
-                                        <td>{{ $part->name }}</td>
-                                        <td>{{ $part->part->name }}</td>
-                                        <td>{{ $part->description }}</td>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->description }}</td>
                                         <td>
-                                            {{ Form::open(['action'=>['SparePartController@destroy',$part->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
-                                            <a href="{{ action('SparePartController@edit',$part->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                            {{ Form::open(['action'=>['CategoryController@destroy',$category->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
+                                            <a href="{{ action('CategoryController@edit',$category->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                             {{ Form::submit('X',['class'=>'btn btn-danger']) }}
                                             {{ Form::close() }}
                                         </td>
@@ -145,7 +127,7 @@
 @section('script')
     <script>
         function confirmDelete(){
-            var x = confirm('Are you sure you want to delete this record?');
+            var x = confirm('Are you sure you want to delete this category?');
             return !!x;
         }
     </script>

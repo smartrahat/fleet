@@ -12950,7 +12950,7 @@
 		"json": undefined,
 	
 		/**
-		 * Data submitted as part of the last Ajax request
+		 * Data submitted as parts of the last Ajax request
 		 *  @type object
 		 *  @default undefined
 		 */

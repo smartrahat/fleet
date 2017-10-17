@@ -1326,7 +1326,7 @@ function EventManager(options) { // assumed to be a calendar
 	
 	function isFetchNeeded(start, end) {
 		return !rangeStart || // nothing has been fetched yet?
-			// or, a part of the new range is outside of the old range? (after normalizing)
+			// or, a parts of the new range is outside of the old range? (after normalizing)
 			start.clone().stripZone() < rangeStart.clone().stripZone() ||
 			end.clone().stripZone() > rangeEnd.clone().stripZone();
 	}
@@ -2336,7 +2336,7 @@ function makeMoment(args, parseAsUTC, parseZone) {
 				isAmbigZone = true;
 			}
 			else if ((ambigMatch = ambigTimeOrZoneRegex.exec(input))) {
-				isAmbigTime = !ambigMatch[5]; // no time part?
+				isAmbigTime = !ambigMatch[5]; // no time parts?
 				isAmbigZone = true;
 			}
 		}
@@ -4399,7 +4399,7 @@ function AgendaView(element, calendar, viewName) {
 
 		var top =
 			slotTop - 1 + // because first row doesn't have a top border
-			slotPartial * slotHeight; // part-way through the row
+			slotPartial * slotHeight; // parts-way through the row
 
 		top = Math.max(top, 0);
 
@@ -5416,7 +5416,7 @@ function computeSlotSegPressures(seg) {
 // from 0 to 1. If the calendar is left-to-right, the seg.backwardCoord maps to "left" and
 // seg.forwardCoord maps to "right" (via percentage). Vice-versa if the calendar is right-to-left.
 //
-// The segment might be part of a "series", which means consecutive segments with the same pressure
+// The segment might be parts of a "series", which means consecutive segments with the same pressure
 // who's width is unknown until an edge has been hit. `seriesBackwardPressure` is the number of
 // segments behind this one in the current series, and `seriesBackwardCoord` is the starting
 // coordinate of the first segment in the series.

@@ -1715,7 +1715,7 @@
             easing;
 
           // Check if an easing is specified in the definition object and delete it from the object as it will not
-          // be part of the animate element attributes.
+          // be parts of the animate element attributes.
           if(animationDefinition.easing) {
             // If already an easing Bézier curve array we take it or we lookup a easing array in the Easing object
             easing = animationDefinition.easing instanceof Array ?

@@ -1437,7 +1437,7 @@ QUnit.jsDump = (function() {
 				}
 				return ret + close + open + '/' + tag + close;
 			},
-			functionArgs: function( fn ) {//function calls it internally, it's the arguments part of the function
+			functionArgs: function( fn ) {//function calls it internally, it's the arguments parts of the function
 				var l = fn.length;
 				if ( !l ) {
 					return '';

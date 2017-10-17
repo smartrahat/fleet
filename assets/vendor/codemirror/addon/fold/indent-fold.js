@@ -22,7 +22,7 @@ CodeMirror.registerHelper("fold", "indent", function(cm, start) {
     var curLine = cm.getLine(i);
     var curIndent = getIndent(curLine);
     if (curIndent > myIndent) {
-      // Lines with a greater indent are considered part of the block.
+      // Lines with a greater indent are considered parts of the block.
       lastLineInFold = i;
     } else if (!/\S/.test(curLine)) {
       // Empty lines might be breaks within the block we're trying to fold.

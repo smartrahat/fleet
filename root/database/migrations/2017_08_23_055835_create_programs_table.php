@@ -25,11 +25,6 @@ class CreateProgramsTable extends Migration
             $table->integer('adv_rent');
             $table->integer('due_rent');
             $table->integer('rent');
-            $table->string('loading');
-            $table->string('unloading');
-            $table->string('product');
-            $table->string('emp_container');
-            $table->string('fuel');
             $table->timestamps();
             $table->softDeletes();
         });

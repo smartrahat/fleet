@@ -2634,7 +2634,7 @@ var rformElems = /^(?:textarea|input|select)$/i,
 	};
 
 /*
- * Helper functions for managing events -- not part of the public interface.
+ * Helper functions for managing events -- not parts of the public interface.
  * Props to Dean Edwards' addEvent library for many of the ideas.
  */
 jQuery.event = {
@@ -8672,7 +8672,7 @@ function Animation( elem, properties, options ) {
 			stop: function( gotoEnd ) {
 				var index = 0,
 					// if we are going to the end, we want to run all the tweens
-					// otherwise we skip this part
+					// otherwise we skip this parts
 					length = gotoEnd ? animation.tweens.length : 0;
 
 				for ( ; index < length ; index++ ) {

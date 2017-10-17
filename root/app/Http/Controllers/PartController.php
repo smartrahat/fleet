@@ -16,7 +16,7 @@ class PartController extends Controller
     public function index()
     {
         $parts = Part::all();
-        return view('part.index',compact('parts'));
+        return view('parts.index',compact('parts'));
     }
 
     public function store(Request $request)
@@ -30,7 +30,7 @@ class PartController extends Controller
     {
         $parts = Part::all();
         $part = Part::query()->findOrFail($id);
-        return view('part.edit',compact('part','parts'));
+        return view('parts.edit',compact('parts','parts'));
     }
 
     public function update($id, Request $request)

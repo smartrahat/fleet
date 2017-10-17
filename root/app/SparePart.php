@@ -12,7 +12,7 @@ class SparePart extends Model
     protected $fillable = ['name','part_id','description'];
 
     /**
-     * A spare part is belongs to a part
+     * A spare parts is belongs to a parts
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function part()

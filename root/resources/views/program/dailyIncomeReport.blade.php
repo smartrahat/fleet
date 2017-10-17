@@ -56,7 +56,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Party</th>
-                            {{--<th>Previous Balance</th>--}}
+                            <th>Program ID</th>
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
                             <th>Empty Container</th>
@@ -75,7 +75,7 @@
                                     @if($income->date == $date)
                                         <td>{{ $i++}}</td>
                                         <td>{{ $income->party->name or '' }}</td>
-                                        {{--<td>{{ $income->where('party_id',$income->party->id)->sum('due_rent') }}</td>--}}
+                                        <td><a href="{{url('program/show',$income->program->id)}}"> {{$income->program->serial}}</a></td>
                                         <td>{{ $income->program->loading or '' }}</td>
                                         <td>{{ $income->program->unloading or '' }}</td>
                                         <td>{{ $income->program->emp_container or '' }}</td>

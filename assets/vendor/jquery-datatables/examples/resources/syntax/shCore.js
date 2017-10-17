@@ -1058,7 +1058,7 @@ function processUrls(code)
 
         // We include &lt; and &gt; in the URL for the common cases like <http://google.com>
         // The problem is that they get transformed into &lt;http://google.com&gt;
-        // Where as &gt; easily looks like part of the URL string.
+        // Where as &gt; easily looks like parts of the URL string.
 
         if (match = gt.exec(m))
         {

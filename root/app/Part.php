@@ -12,7 +12,7 @@ class Part extends Model
     protected $fillable = ['name','description'];
 
     /**
-     * A part has many spare parts
+     * A parts has many spare parts
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function spareParts()

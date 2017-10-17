@@ -28,7 +28,9 @@ class ProgramController extends Controller
 
     public function create(){
         $repository = $this->repository;
-        return view('program.create',compact('repository'));
+        $trips = Trip::all()->where('program_id',null);
+        $num = 0;
+        return view('program.create',compact('repository','trips','num'));
         //je view te repository field gulo lagbe shei view te  repository pass korte hobe
     }
 
@@ -44,9 +46,11 @@ class ProgramController extends Controller
     {
         $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'programs'"));
         $query = $query[0]->Auto_increment;
+
         $request['program_id'] = $query;
         Program::query()->create($request->all());
 
+        //dd($request->all());
         $request['paid'] = $request->get('adv_rent');
         Income::query()->create($request->all());
         $this->trips($request->all(),$query);
@@ -65,8 +69,22 @@ class ProgramController extends Controller
     public function update($id, ProgramRequest $request)
     {
         $program = Program::query()->findOrFail($id);
-        Session::flash('success','"'.$program->name.'" is updated!');
         $program->update($request->all());
+
+        $ids = Trip::all()->whereIn('program_id',$id)->pluck('id');
+        foreach($ids as $id){
+            $trip = Trip::query()->findOrFail($id);
+            $trip->delete();
+        }
+
+        //dd($id);
+        $this->trips($request->all(),$id);
+
+       // $request['program_id'] = $id;
+        $request['paid'] = $request->get('adv_rent');
+        Income::query()->update($request->only('rent','paid','due_rent'));
+
+        Session::flash('success','"'.$program->name.'" is updated!');
         return redirect('programs');
     }
 
@@ -116,7 +134,7 @@ class ProgramController extends Controller
         //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
         //dd($request);
         $keys = preg_grep('/^driver_id[0-9]/',array_keys($request));
-        //dd($keys);
+//        dd($keys);
         foreach($keys as $key){
             //dd($key);
             preg_match('!\d+!',$key,$number);
@@ -129,7 +147,12 @@ class ProgramController extends Controller
                     'driver_id' => $request['driver_id'.$num],
                     'driver_adv' => $request['driver_adv'.$num],
                     'd_a_fix' => $request['d_a_fix'.$num],
-                    'extra_adv' => $request['extra_adv'.$num]
+                    'extra_adv' => $request['extra_adv'.$num],
+                    'loading' => $request['loading'.$num],
+                    'unloading' => $request['unloading'.$num],
+                    'product' => $request['product'.$num],
+                    'emp_container' => $request['emp_container'.$num],
+                    'fuel' => $request['fuel'.$num]
                 ];
                 //dd($data);
                 Trip::query()->create($data);
@@ -143,5 +166,10 @@ class ProgramController extends Controller
         $incomes = Income::query()->where('date',$date)->get();
         $i = 1;
         return view('program.dailyIncomeReport',compact('i','incomes','date'));
+    }
+
+    public function show($id){
+        $programs = Program::query()->findOrFail($id);
+        return view('program.show',compact('programs'));
     }
 }

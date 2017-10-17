@@ -746,7 +746,7 @@ var JSHINT = (function () {
             WeakMap             : false
         },
 
-        // widely adopted global names that are not part of ECMAScript standard
+        // widely adopted global names that are not parts of ECMAScript standard
         nonstandard = {
             escape              : false,
             unescape            : false

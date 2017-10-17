@@ -2,7 +2,7 @@
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Spare Part</h2>
+                <h2>Categories</h2>
                 <div class="right-wrapper pull-right">
                     <ol class="breadcrumbs">
                         <li>
@@ -10,18 +10,11 @@
                                 <i class="fa fa-home"></i>
                             </a>
                         </li>
-                        <li><span>Dashboard</span></li>
-                        <li><span>Spare Part</span></li>
-                        <li><span>Edit Spare Part</span></li>
+                        <li><span>Categories</span></li>
                     </ol>
                     <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
                 </div>
             </header>
-            <div class="col-md-12">
-                @if(Session::has('success'))
-                    <div class="alert alert-success">{{ Session::get('success') }}</div>
-                @endif
-            </div>
             <!-- start: page -->
             <div class="row">
                 <div class="col-xs-12">
@@ -30,34 +23,25 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Part</h2>
+                            <h2 class="panel-title">Category</h2>
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::model($part,['action'=>['SparePartController@update',$part->id],'method'=>'patch','class'=>'form-horizontal']) }}
-                            <div class="form-group  {{ $errors->has('name') ? ' has-error' : '' }}">
+                            {{ Form::model($category,['action'=>['CategoryController@update',$category->id],'method'=>'patch','class'=>'form-horizontal']) }}
+                            <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
                                 {{ Form::label('name','Category Name:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
                                     {{ Form::text('name',null,['class' => 'form-control']) }}
-                                    @if ($errors->has('name'))
+                                    @if($errors->has('name'))
                                         <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group  {{ $errors->has('part_id') ? ' has-error' : '' }}">
-                                {{ Form::label('part_id','Parts Name:',['class'=>'col-md-3 control-label']) }}
-                                <div class="col-md-6">
-                                    {{ Form::select('part_id',$repository->parts(),null,['class' => 'form-control populate','data-plugin-selectTwo','placeholder'=>'Select a Part']) }}
-                                    @if ($errors->has('part_id'))
-                                        <span class="help-block"><strong>{{ $errors->first('part_id') }}</strong></span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
+                            <div class="form-group {{ $errors->has('description')? 'has-error':'' }}">
                                 {{ Form::label('description','Description:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
                                     {{ Form::textarea('description',null,['class' => 'form-control']) }}
-                                    @if ($errors->has('description'))
+                                    @if($errors->has('description'))
                                         <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
                                     @endif
                                 </div>
@@ -88,8 +72,13 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Spare Parts</h2>
+                            <h2 class="panel-title">Categories</h2>
                         </header>
+                        <div class="col-md-12">
+                            @if(Session::has('success'))
+                                <div class="alert alert-success">{{ Session::get('success') }}</div>
+                            @endif
+                        </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-condensed mb-none">
@@ -102,14 +91,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($parts as $part)
+                                    @foreach($categories as $category)
                                         <tr>
-                                            <td>{{ $part->id }}</td>
-                                            <td>{{ $part->name }}</td>
-                                            <td>{{ $part->description }}</td>
+                                            <td>{{ $category->id }}</td>
+                                            <td>{{ $category->name }}</td>
+                                            <td>{{ $category->description }}</td>
                                             <td>
-                                                {{ Form::open(['action'=>['SparePartController@destroy',$part->id],'method'=>'delete']) }}
-                                                <a href="{{ action('SparePartController@edit',$part->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                {{ Form::open(['action'=>['CategoryController@destroy',$category->id],'method'=>'delete']) }}
+                                                <a href="{{ action('CategoryController@edit',$category->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                 {{ Form::submit('X',['class'=>'btn btn-danger']) }}
                                                 {{ Form::close() }}
                                             </td>

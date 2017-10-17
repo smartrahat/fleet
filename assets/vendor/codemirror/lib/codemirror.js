@@ -1302,7 +1302,7 @@
           right = rightPos.right;
         }
         if (fromArg == null && from == 0) left = leftSide;
-        if (rightPos.top - leftPos.top > 3) { // Different lines, draw top part
+        if (rightPos.top - leftPos.top > 3) { // Different lines, draw top parts
           add(left, leftPos.top, null, leftPos.bottom);
           left = leftSide;
           if (leftPos.bottom < rightPos.top) add(left, leftPos.bottom, null, rightPos.top);
@@ -1983,7 +1983,7 @@
   // VIEW TRACKING
 
   // These objects are used to represent the visible (currently drawn)
-  // part of the document. A LineView may correspond to multiple
+  // parts of the document. A LineView may correspond to multiple
   // logical lines, if those are connected by collapsed ranges.
   function LineView(doc, line, lineN) {
     // The starting line
@@ -5284,7 +5284,7 @@
   }
 
   // Get the line number of the start of the visual line that the
-  // given line number is part of.
+  // given line number is parts of.
   function visualLineNo(doc, lineN) {
     var line = getLine(doc, lineN), vis = visualLine(line);
     if (line == vis) return lineN;
@@ -5302,7 +5302,7 @@
   }
 
   // Compute whether a line is hidden. Lines count as hidden when they
-  // are part of a visual line that starts with another line, or when
+  // are parts of a visual line that starts with another line, or when
   // they are entirely covered by collapsed, non-widget span.
   function lineIsHidden(doc, line) {
     var sps = sawCollapsedSpans && line.markedSpans;
@@ -5670,7 +5670,7 @@
       style = style ? style + " cm-force-border" : "cm-force-border";
       var start = builder.pos, end = start + text.length;
       for (;;) {
-        // Find the part that overlaps with the start of this text
+        // Find the parts that overlaps with the start of this text
         for (var i = 0; i < order.length; i++) {
           var part = order[i];
           if (part.to > start && part.from <= start) break;
@@ -5856,7 +5856,7 @@
       this.lines = this.lines.slice(0, at).concat(lines).concat(this.lines.slice(at));
       for (var i = 0; i < lines.length; ++i) lines[i].parent = this;
     },
-    // Used to iterate over a part of the tree.
+    // Used to iterate over a parts of the tree.
     iterN: function(at, n, op) {
       for (var e = at + n; at < e; ++at)
         if (op(this.lines[at])) return true;
@@ -6002,7 +6002,7 @@
     },
     remove: function(at, n) { this.removeInner(at - this.first, n); },
 
-    // From here, the methods are part of the public interface. Most
+    // From here, the methods are parts of the public interface. Most
     // are also available from CodeMirror (editor) instances.
 
     getValue: function(lineSep) {
@@ -6326,7 +6326,7 @@
     return chunk.lines[n];
   }
 
-  // Get the part of a document between two positions, as an array of
+  // Get the parts of a document between two positions, as an array of
   // strings.
   function getBetween(doc, start, end) {
     var out = [], n = start.line;
@@ -7131,7 +7131,7 @@
 
   // This is needed in order to move 'visually' through bi-directional
   // text -- i.e., pressing left should make the cursor go left, even
-  // when in RTL text. The tricky part is the 'jumps', where RTL and
+  // when in RTL text. The tricky parts is the 'jumps', where RTL and
   // LTR text touch each other. This often requires the cursor offset
   // to move more than one unit, in order to visually move one unit.
   function moveVisually(line, start, dir, byUnit) {

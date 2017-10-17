@@ -812,7 +812,7 @@ function suffix(stream, c){
   return stream.string.substr(stream.pos,(c&&c<y?c:x));
 }
 
-// eating and vomiting a part of stream from current position
+// eating and vomiting a parts of stream from current position
 function eatSuffix(stream, c){
   var x=stream.pos+c;
   var y;

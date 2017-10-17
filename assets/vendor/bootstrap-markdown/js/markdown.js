@@ -1155,7 +1155,7 @@ function split_meta_hash( meta_string ) {
         if ( in_quotes ) {
           parts[ parts.length - 1 ] += letter;
         }
-        // otherwise make a new part
+        // otherwise make a new parts
         else {
           parts.push( "" );
         }

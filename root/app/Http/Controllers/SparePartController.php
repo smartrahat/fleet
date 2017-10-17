@@ -24,7 +24,7 @@ class SparePartController extends Controller
     {
         $parts = SparePart::all();
         $repository = $this->repository;
-        return view('spare-part.index',compact('parts','repository'));
+        return view('purchase.index',compact('parts','repository'));
     }
 
     public function store(Request $request)
@@ -39,7 +39,7 @@ class SparePartController extends Controller
         $parts = SparePart::all();
         $part = SparePart::query()->findOrFail($id);
         $repository = $this->repository;
-        return view('spare-part.edit',compact('part','parts','repository'));
+        return view('purchase.edit',compact('parts','parts','repository'));
     }
 
     public function update($id, Request $request)
