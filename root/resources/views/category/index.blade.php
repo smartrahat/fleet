@@ -33,7 +33,7 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title">Category of Vehicle</h2>
+                        <h2 class="panel-title">Categories</h2>
                     </header>
 
                     <div class="panel-body">
@@ -84,7 +84,7 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title">Categories of Vehicle</h2>
+                        <h2 class="panel-title">Categories</h2>
                     </header>
 
                     <div class="panel-body">

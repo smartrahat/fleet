@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories.index',compact('categories'));
+        return view('category.index',compact('categories'));
     }
 
     public function store(Request $request)
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         $category = Category::query()->findOrFail($id);
-        return view('categories.edit',compact('category','categories'));
+        return view('category.edit',compact('category','categories'));
     }
 
     public function update($id, Request $request)
