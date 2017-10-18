@@ -59,7 +59,7 @@
                                             <td>{{$employee->pre_address}}</td>
                                             <td>{{$employee->perm_address}}</td>
                                             <td>{{$employee->nid}}</td>
-                                            <td>{{$employee->designation_id}}</td>
+                                            <td>{{ $employee->designation->name }}</td>
                                             <td>{{$employee->mobile}}</td>
                                             <td>{{$employee->join_date}}</td>
                                             <td>{{$employee->app_person}}</td>
