@@ -1,9 +1,25 @@
+<!--Date starts-->
+<div class="form-group {{$errors->has('date')?'has-error':''}}">
+    <label class="col-md-3 control-label">Purchase Date:</label>
+    <div class="col-md-6">
+        <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"' )) }}
+        </div>
+        @if($errors->has('date'))
+            <span class="help-block"><strong>{{$errors->first('date')}}</strong></span>
+        @endif
+    </div>
+</div>
+
 <!-- Shop Name Starts-->
 <div class="form-group {{$errors->has('shop')?'has-error':''}}">
     {{ Form::label('shop', 'Shop Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::text('shop',null, array('class' => 'form-control')) }}
+        {{ Form::select('vehicleNo',$repository->suppliers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Supplier']) }}
         @if($errors->has('shop'))
             <span class="help-block"><strong>{{$errors->first('shop')}}</strong></span>
         @endif
@@ -19,6 +35,19 @@
         {{ Form::text('mobile',null, array('class' => 'form-control')) }}
         @if($errors->has('mobile'))
             <span class="help-block"><strong>{{$errors->first('mobile')}}</strong></span>
+        @endif
+    </div>
+</div>
+<!-- Mobile ends-->
+
+<!-- Voucher Starts-->
+<div class="form-group {{$errors->has('voucher')?'has-error':''}}">
+    {{ Form::label('voucher', 'Voucher No:', array('class'=>'col-md-3 control-label')) }}
+    {{--<label class="col-md-3 control-label">Name</label>--}}
+    <div class="col-md-6">
+        {{ Form::text('voucher',null, array('class' => 'form-control')) }}
+        @if($errors->has('voucher'))
+            <span class="help-block"><strong>{{$errors->first('voucher')}}</strong></span>
         @endif
     </div>
 </div>
@@ -41,7 +70,7 @@
     {{ Form::label('category', 'Category:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::text('category',null, array('class' => 'form-control')) }}
+        {{ Form::select('category',$repository->categories(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Category']) }}
         @if($errors->has('category'))
             <span class="help-block"><strong>{{$errors->first('category')}}</strong></span>
         @endif
@@ -54,7 +83,7 @@
     {{ Form::label('parts', 'Parts Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::text('parts',null, array('class' => 'form-control')) }}
+        {{ Form::select('parts',$repository->parts(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Parts']) }}
         @if($errors->has('parts'))
             <span class="help-block"><strong>{{$errors->first('parts')}}</strong></span>
         @endif
@@ -67,7 +96,7 @@
     {{ Form::label('brand', 'Brand Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::text('brand',null, array('class' => 'form-control')) }}
+        {{ Form::select('brand',$repository->brands(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Brand']) }}
         @if($errors->has('brand'))
             <span class="help-block"><strong>{{$errors->first('brand')}}</strong></span>
         @endif

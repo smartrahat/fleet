@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PurchaseRequest;
 use App\Purchase;
-use App\Repositories\ProgramRepository;
-use App\Repositories\VehicleRepository;
-use Illuminate\Http\Request;
+use App\Repositories\PurchaseRepository;
 
 class PurchaseController extends Controller
 {
     private $repository;
 
-    public function __construct(ProgramRepository $repository){
+    public function __construct(PurchaseRepository $repository){
         $this->middleware('auth');
         $this->repository=$repository;
         //programRepository is the class name & also the file name

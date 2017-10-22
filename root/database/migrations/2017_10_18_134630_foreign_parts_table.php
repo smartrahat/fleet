@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ForeignSparePartsPartsTable extends Migration
+class ForeignPartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class ForeignSparePartsPartsTable extends Migration
      */
     public function up()
     {
-        Schema::table('spare_parts', function (Blueprint $table) {
+        Schema::table('parts', function (Blueprint $table) {
             $table->foreignAuthority();
-            $table->foreign('part_id')->references('id')->on('parts')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
@@ -26,9 +26,9 @@ class ForeignSparePartsPartsTable extends Migration
      */
     public function down()
     {
-        Schema::table('spare_parts', function (Blueprint $table) {
-            $table->dropForeign(['part_id']);
+        Schema::table('parts', function (Blueprint $table) {
             $table->dropForeignAuthority();
+            $table->dropForeign('category_id');
         });
     }
 }

@@ -25,7 +25,6 @@ class DueController extends Controller
     public function index()
     {
         $due_collections = Income::all();
-
         return view('due_collection.index',compact('due_collections','repository'));
     }
 

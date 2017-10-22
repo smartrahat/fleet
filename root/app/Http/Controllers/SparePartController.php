@@ -9,6 +9,21 @@ use Illuminate\Support\Facades\Session;
 
 class SparePartController extends Controller
 {
+    public function index()
+    {
+//        $parts = SparePart::all();
+//        $repository = $this->repository;
+//        return view('parts.index',compact('parts','repository'));
+        return view('parts.index');
+    }
+
+    public function store(Request $request)
+    {
+        SparePart::query()->create($request->all());
+        Session::flash('success','"'.$request->name.'" has been added!');
+        return redirect('spare-parts');
+    }
+
     /**
      * @var SparePartRepository
      */
@@ -20,26 +35,12 @@ class SparePartController extends Controller
         $this->repository = $repository;
     }
 
-    public function index()
-    {
-        $parts = SparePart::all();
-        $repository = $this->repository;
-        return view('purchase.index',compact('parts','repository'));
-    }
-
-    public function store(Request $request)
-    {
-        SparePart::query()->create($request->all());
-        Session::flash('success','"'.$request->name.'" has been added!');
-        return redirect('spare-parts');
-    }
-
     public function edit($id)
     {
         $parts = SparePart::all();
         $part = SparePart::query()->findOrFail($id);
         $repository = $this->repository;
-        return view('purchase.edit',compact('parts','parts','repository'));
+        return view('purchase.edit',compact('parts','part','repository'));
     }
 
     public function update($id, Request $request)

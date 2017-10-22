@@ -103,7 +103,7 @@
         @endif
     </div>
 </div>
-<!--  Designation ends -->
+<!--  Education ends -->
 
 <!-- Designation  Starts -->
 <div class="form-group {{ $errors->has('designation_id') ? ' has-error' : '' }}">

@@ -2,40 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Part;
+use App\Repositories\PartsRepository;
 use Illuminate\Http\Request;
+use App\Parts;
 use Illuminate\Support\Facades\Session;
 
-class PartController extends Controller
+class PartsController extends Controller
 {
-    public function __construct()
+
+    private $repository;
+
+    public function __construct(PartsRepository $repository)
     {
         $this->middleware('auth');
+        $this->repository = $repository;
     }
 
     public function index()
     {
-        $parts = Part::all();
-        return view('parts.index',compact('parts'));
+        $repository = $this->repository;
+        $parts = Parts::all();
+        return view('parts.index',compact('parts','repository'));
     }
 
     public function store(Request $request)
     {
-        Part::query()->create($request->all());
+
+        Parts::query()->create($request->all());
         Session::flash('success','"'.$request->name.'" has been added!');
         return redirect('parts');
     }
 
     public function edit($id)
     {
-        $parts = Part::all();
-        $part = Part::query()->findOrFail($id);
-        return view('parts.edit',compact('parts','parts'));
+        $parts = Parts::all();
+        $part = Parts::query()->findOrFail($id);
+        return view('parts.edit',compact('part','parts'));
     }
 
     public function update($id, Request $request)
     {
-        $part = Part::query()->findOrFail($id);
+        $part = Parts::query()->findOrFail($id);
         $part->update($request->all());
         Session::flash('success','"'.$part->name.'" is updated!');
         return redirect('parts');
@@ -43,7 +50,7 @@ class PartController extends Controller
 
     public function destroy($id)
     {
-        $part = Part::query()->findOrFail($id);
+        $part = Parts::query()->findOrFail($id);
         $part->delete();
         Session::flash('success','"'.$part->name.'" has been deleted successfully!');
         return redirect('parts');

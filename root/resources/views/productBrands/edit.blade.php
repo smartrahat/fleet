@@ -2,7 +2,7 @@
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Part</h2>
+                <h2>Product Brands</h2>
                 <div class="right-wrapper pull-right">
                     <ol class="breadcrumbs">
                         <li>
@@ -10,9 +10,7 @@
                                 <i class="fa fa-home"></i>
                             </a>
                         </li>
-                        <li><span>Dashboard</span></li>
-                        <li><span>Part</span></li>
-                        <li><span>Edit Part</span></li>
+                        <li><span>Product Brands</span></li>
                     </ol>
                     <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -25,25 +23,25 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Part</h2>
+                            <h2 class="panel-title">Product Brands</h2>
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::model($part,['action'=>['PartsController@update',$part->id],'method'=>'patch','class'=>'form-horizontal']) }}
-                            <div class="form-group  {{ $errors->has('name') ? ' has-error' : '' }}">
-                                {{ Form::label('name','Part Name:',['class'=>'col-md-3 control-label']) }}
+                            {{ Form::model($brand,['action'=>['ProductBrandController@update',$brand->id],'method'=>'patch','class'=>'form-horizontal']) }}
+                            <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
+                                {{ Form::label('name','Brand Name:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
                                     {{ Form::text('name',null,['class' => 'form-control']) }}
-                                    @if ($errors->has('name'))
+                                    @if($errors->has('name'))
                                         <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
+                            <div class="form-group {{ $errors->has('description')? 'has-error':'' }}">
                                 {{ Form::label('description','Description:',['class'=>'col-md-3 control-label']) }}
                                 <div class="col-md-6">
                                     {{ Form::textarea('description',null,['class' => 'form-control']) }}
-                                    @if ($errors->has('description'))
+                                    @if($errors->has('description'))
                                         <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
                                     @endif
                                 </div>
@@ -74,7 +72,7 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Parts of Employee</h2>
+                            <h2 class="panel-title">Product Brand List</h2>
                         </header>
                         <div class="col-md-12">
                             @if(Session::has('success'))
@@ -93,14 +91,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($parts as $part)
+                                    @foreach($brands as $brand)
                                         <tr>
-                                            <td>{{ $part->id }}</td>
-                                            <td>{{ $part->name }}</td>
-                                            <td>{{ $part->description }}</td>
+                                            <td>{{ $brand->id }}</td>
+                                            <td>{{ $brand->name }}</td>
+                                            <td>{{ $brand->description }}</td>
                                             <td>
-                                                {{ Form::open(['action'=>['PartsController@destroy',$part->id],'method'=>'delete']) }}
-                                                <a href="{{ action('PartsController@edit',$part->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                {{ Form::open(['action'=>['ProductBrandController@destroy',$brand->id],'method'=>'delete']) }}
+                                                <a href="{{ action('ProductBrandController@edit',$brand->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                 {{ Form::submit('X',['class'=>'btn btn-danger']) }}
                                                 {{ Form::close() }}
                                             </td>

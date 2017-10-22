@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSparePartsTable extends Migration
+class CreatePartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateSparePartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('spare_parts', function (Blueprint $table) {
+        Schema::create('parts', function (Blueprint $table) {
             $table->increments('id');
             $table->authorities();
-            $table->integer('part_id')->unsigned();
-            $table->string('name')->unique();
-            $table->text('description')->nullable();
+            $table->integer('category_id')->unsigned();
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +31,6 @@ class CreateSparePartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spare_parts');
+        Schema::dropIfExists('parts');
     }
 }

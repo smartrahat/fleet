@@ -157,10 +157,20 @@ Route::delete('category/destroy/{id}','CategoryController@destroy');
 
 /** Spare Part Routes */
 Route::get('spare-parts','SparePartController@index');
-Route::post('purchase/store','SparePartController@store');
-Route::get('purchase/edit/{id}','SparePartController@edit');
-Route::patch('purchase/{id}/update','SparePartController@update');
-Route::delete('purchase/destroy/{id}','SparePartController@destroy');
+Route::post('spare-parts/store','SparePartController@store');
+Route::get('spare-parts/edit/{id}','SparePartController@edit');
+Route::patch('spare-parts/{id}/update','SparePartController@update');
+Route::delete('spare-parts/destroy/{id}','SparePartController@destroy');
+
+
+/** Parts Routes */
+Route::get('parts','PartsController@index');
+Route::post('parts/store','PartsController@store');
+Route::get('parts/edit/{id}','PartsController@edit');
+Route::patch('parts/{id}/update','PartsController@update');
+Route::delete('parts/destroy/{id}','PartsController@destroy');
+
+
 
 /** Supplier Routes */
 Route::get('suppliers','SupplierController@index');
@@ -178,3 +188,12 @@ Route::post('purchase/store', 'PurchaseController@store');
 Route::get('purchase/edit/{id}','PurchaseController@edit');
 Route::patch('purchase/{id}/update','PurchaseController@update');
 Route::delete('purchase/delete/{id}','PurchaseController@destroy');
+
+
+
+//Product Brand routes
+Route::get('productBrands', 'ProductBrandController@index');
+Route::post('productBrand/store', 'ProductBrandController@store');
+Route::get('productBrand/edit/{id}','ProductBrandController@edit');
+Route::patch('productBrand/{id}/update','ProductBrandController@update');
+Route::delete('productBrand/delete/{id}','ProductBrandController@destroy');
