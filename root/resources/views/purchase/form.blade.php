@@ -15,13 +15,13 @@
 </div>
 
 <!-- Shop Name Starts-->
-<div class="form-group {{$errors->has('shop')?'has-error':''}}">
-    {{ Form::label('shop', 'Shop Name:', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{$errors->has('supplier_id')?'has-error':''}}">
+    {{ Form::label('supplier_id', 'Shop Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::select('vehicleNo',$repository->suppliers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Supplier']) }}
-        @if($errors->has('shop'))
-            <span class="help-block"><strong>{{$errors->first('shop')}}</strong></span>
+        {{ Form::select('supplier_id',$repository->suppliers(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Supplier']) }}
+        @if($errors->has('supplier_id'))
+            <span class="help-block"><strong>{{$errors->first('supplier_id')}}</strong></span>
         @endif
     </div>
 </div>
@@ -54,51 +54,51 @@
 <!-- Mobile ends-->
 
 <!-- Vehicle Number Starts-->
-<div class="form-group {{ $errors->has('vehicleNo')?'has-error':'' }}">
-    {{ Form::label('VehicleNo', 'Vehicle No:', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{ $errors->has('vehicle_id')?'has-error':'' }}">
+    {{ Form::label('vehicle_id', 'Vehicle No:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('vehicleNo',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
-        @if($errors->has('vehicleNo'))
-            <span class="help-block"><strong>{{$errors->first('vehicleNo')}}</strong></span>
+        {{ Form::select('vehicle_id',$repository->vehicles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle']) }}
+        @if($errors->has('vehicle_id'))
+            <span class="help-block"><strong>{{$errors->first('vehicle_id')}}</strong></span>
         @endif
     </div>
 </div>
 <!-- Vehicle Number ends-->
 
 <!-- Category Starts-->
-<div class="form-group {{$errors->has('category')?'has-error':''}}">
-    {{ Form::label('category', 'Category:', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{$errors->has('category_id')?'has-error':''}}">
+    {{ Form::label('category_id', 'Category:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::select('category',$repository->categories(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Category']) }}
-        @if($errors->has('category'))
-            <span class="help-block"><strong>{{$errors->first('category')}}</strong></span>
+        {{ Form::select('category_id',$repository->categories(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Category']) }}
+        @if($errors->has('category_id'))
+            <span class="help-block"><strong>{{$errors->first('category_id')}}</strong></span>
         @endif
     </div>
 </div>
 <!-- Category ends-->
 
 <!-- Parts Name Starts-->
-<div class="form-group {{$errors->has('parts')?'has-error':''}}">
-    {{ Form::label('parts', 'Parts Name:', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{$errors->has('parts_id')?'has-error':''}}">
+    {{ Form::label('parts_id', 'Parts Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::select('parts',$repository->parts(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Parts']) }}
-        @if($errors->has('parts'))
-            <span class="help-block"><strong>{{$errors->first('parts')}}</strong></span>
+        {{ Form::select('parts_id',$repository->parts(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Parts']) }}
+        @if($errors->has('parts_id'))
+            <span class="help-block"><strong>{{$errors->first('parts_id')}}</strong></span>
         @endif
     </div>
 </div>
 <!-- Parts Name ends-->
 
 <!-- Brand name Starts-->
-<div class="form-group {{$errors->has('brand')?'has-error':''}}p">
-    {{ Form::label('brand', 'Brand Name:', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{$errors->has('brand_id')?'has-error':''}}p">
+    {{ Form::label('brand_id', 'Brand Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
-        {{ Form::select('brand',$repository->brands(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Brand']) }}
-        @if($errors->has('brand'))
-            <span class="help-block"><strong>{{$errors->first('brand')}}</strong></span>
+        {{ Form::select('brand_id',$repository->brands(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Brand']) }}
+        @if($errors->has('brand_id'))
+            <span class="help-block"><strong>{{$errors->first('brand_id')}}</strong></span>
         @endif
     </div>
 </div>
@@ -127,36 +127,36 @@
 <!-- Rate ends-->
 
 <!-- Total Starts-->
-<div class="form-group {{$errors->has('rent')?'has-error':''}}">
-    <label class="col-md-3 control-label">Total Rent:</label>
+<div class="form-group {{$errors->has('total')?'has-error':''}}">
+    <label class="col-md-3 control-label">Total:</label>
     <div class="col-md-6">
-        {{ Form::text('rent',null, array('class' => 'form-control','id'=>'rent')) }}
-        @if($errors->has('rent'))
-            <span class="help-block"><strong>{{$errors->first('rent')}}</strong></span>
+        {{ Form::text('total',null, array('class' => 'form-control','id'=>'total','readonly')) }}
+        @if($errors->has('total'))
+            <span class="help-block"><strong>{{$errors->first('total')}}</strong></span>
         @endif
     </div>
 </div>
 <!-- Total ends-->
 
 <!-- Advance Starts-->
-<div class="form-group {{$errors->has('adv_rent')?'has-error':''}}">
-    <label class="col-md-3 control-label">Advance Rent:</label>
+<div class="form-group {{$errors->has('advance')?'has-error':''}}">
+    <label class="col-md-3 control-label">Advance:</label>
     <div class="col-md-6">
-        {{ Form::text('adv_rent',null, array('class' => 'form-control','id'=>'adv_rent')) }}
-        @if($errors->has('adv_rent'))
-            <span class="help-block"><strong>{{$errors->first('adv_rent')}}</strong></span>
+        {{ Form::text('advance',null, array('class' => 'form-control','id'=>'advance')) }}
+        @if($errors->has('advance'))
+            <span class="help-block"><strong>{{$errors->first('advance')}}</strong></span>
         @endif
     </div>
 </div>
 <!-- Advance ends-->
 
 <!-- Due Starts-->
-<div class="form-group {{$errors->has('due_rent')?'has-error':''}}">
-    <label class="col-md-3 control-label">Due Rent:</label>
+<div class="form-group {{$errors->has('due')?'has-error':''}}">
+    <label class="col-md-3 control-label">Due:</label>
     <div class="col-md-6">
-        {{ Form::text('due_rent',null, ['class' => 'form-control','id'=>'due_rent','readonly']) }}
-        @if($errors->has('due_rent'))
-            <span class="help-block"><strong>{{$errors->first('due_rent')}}</strong></span>
+        {{ Form::text('due',null, ['class' => 'form-control','id'=>'due','readonly']) }}
+        @if($errors->has('due'))
+            <span class="help-block"><strong>{{$errors->first('due')}}</strong></span>
         @endif
     </div>
 </div>
@@ -182,16 +182,16 @@
     $(document).keyup(function () {
         var weight = $('#quantity').val();
         var rate = $('#rate').val();
-        if(weight>0 && rate>0){
-            $('#rent').val(parseFloat(weight)*parseFloat(rate));
+        if(weight>=0 && rate>=0){
+            $('#total').val(parseFloat(weight)*parseFloat(rate));
         }
     })
 </script>
 
 <script>
     $(document).keyup(function () {
-        var rent = $('#rent').val();
-        var advance = $('#adv_rent').val();
-        $('#due_rent').val(parseFloat(rent) - parseFloat(advance));
+        var total = $('#total').val();
+        var advance = $('#advance').val();
+        $('#due').val(parseFloat(total) - parseFloat(advance));
     })
 </script>

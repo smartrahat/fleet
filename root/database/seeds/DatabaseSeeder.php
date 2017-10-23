@@ -22,5 +22,9 @@ class DatabaseSeeder extends Seeder
         $this->call(OwnerTableSeeder::class);
         $this->call(PartyTableSeeder::class);
         $this->call(VehicleTableSeeder::class);
+//        $this->call(CategoryTableSeeder::class);
+//        $this->call(PartsTableSeeder::class);
+//        $this->call(ProductBrandTableSeeder::class);
+//        $this->call(SupplierTableSeeder::class);
     }
 }

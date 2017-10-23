@@ -15,7 +15,22 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->increments('id');
+            $table->authorities();
+            $table->date('date');
+            $table->integer('supplier_id')->unsigned();
+            $table->string('mobile');
+            $table->string('voucher');
+            $table->integer('vehicle_id')->unsigned();
+            $table->integer('category_id')->unsigned();
+            $table->integer('parts_id')->unsigned();
+            $table->integer('brand_id')->unsigned();
+            $table->integer('quantity');
+            $table->float('rate');
+            $table->float('total');
+            $table->float('advance');
+            $table->float('due');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
