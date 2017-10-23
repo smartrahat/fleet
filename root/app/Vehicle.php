@@ -81,4 +81,40 @@ class Vehicle extends Model
     {
         return Carbon::parse($date)->format('Y-m-d');
     }
+
+    public function getRoadPermitStartAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
+    public function getRoadPermitEndAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
+    public function getTaxTokenStartAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
+    public function getTaxTokenEndAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
+    public function getRegCertStartAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
+    public function getRegCertEndAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
+    public function getFitnessStartAttribute($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
 }

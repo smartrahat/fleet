@@ -32,7 +32,7 @@
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::model($supplier = new \App\Supplier,['action' => 'SupplierController@store','method'=>'post']) }}
+                            {{ Form::model($supplier = new \App\Supplier,['action' => 'SupplierController@store','method'=>'post','class'=>'form-horizontal']) }}
                             @include('supplier.form',['submitButtonText'=>'Save'])
                             {{ Form::close() }}
                         </div>

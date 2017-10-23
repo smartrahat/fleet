@@ -20,6 +20,37 @@
             </div>
         </header>
 
+        <!-- Search Panel Start -->
+        <div class="panel panel-body no-print">
+            {!! Form::open(['action'=>'VehicleController@index','method'=>'get','class'=>'form-inline']) !!}
+            <div class="form-group">
+                {{--<div class="input-group input-daterange" data-plugin-datepicker>--}}
+                    {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
+                    {{--{!! Form::text('start',null,['class'=>'form-control','required']) !!}--}}
+                    {{--<span class="input-group-addon">to</span>--}}
+                    {{--{!! Form::text('end',null,['class'=>'form-control','required']) !!}--}}
+                {{--</div>--}}
+            </div>
+            <div class="form-group">
+                {{--{!! Form::select('warehouse',$repository->warehouses(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select Warehouse',$isReadOnly]) !!}--}}
+            </div>
+            <div class="form-group">
+                {{--{!! Form::select('customer',$repository->customers(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select Customer']) !!}--}}
+            </div>
+            <div class="form-group">
+{{--                {!! Form::select('invoice',$repository->invoices(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select Invoice']) !!}--}}
+            </div>
+            <div class="form-group">
+                {{ Form::text('q',null,['class'=>'form-control','placeholder'=>'What are you looking for?']) }}
+            </div>
+            <div class="form-group">
+                {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
+                <a href="javascript:window.print()" class="btn btn-success" role="button"><i class="fa fa-print"></i></a>
+            </div>
+            {!! Form::close() !!}
+        </div>
+        <!-- Search Panel End -->
+
         <section class="panel">
             <header class="panel-heading">
                 <div class="panel-actions">

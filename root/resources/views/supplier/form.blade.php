@@ -1,6 +1,6 @@
 <!-- Supplier Name Starts-->
 <div class="form-group {{ $errors->has('supplier_name')? 'has-error':'' }}">
-    {{ Form::label('supplier_name', 'Supplier Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('supplier_name', 'Supplier Name:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('supplier_name', null, array('class' => 'form-control')) }}
@@ -13,7 +13,7 @@
 
 <!-- Supplier Contact person Name Starts-->
 <div class="form-group  {{ $errors->has('name') ? ' has-error' : '' }}">
-    {{ Form::label('name', 'Contact Person Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('name', 'Contact Person:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('name', null, array('class' => 'form-control')) }}
@@ -26,7 +26,7 @@
 
 <!-- Address Starts-->
 <div class="form-group  {{ $errors->has('address') ? ' has-error' : '' }}">
-    {{ Form::label('address', 'Address', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('address', 'Address:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('address', null, array('class' => 'form-control')) }}
@@ -39,7 +39,7 @@
 
 <!-- mobile Number Starts-->
 <div class="form-group  {{ $errors->has('mobile') ? ' has-error' : '' }}">
-    {{ Form::label('mobile', 'Mobile No.', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('mobile', 'Mobile No.:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('mobile',null, array('class' => 'form-control')) }}
@@ -52,7 +52,7 @@
 
 <!-- Email Starts-->
 <div class="form-group  {{ $errors->has('email') ? ' has-error' : '' }}">
-    {{ Form::label('email', 'E-mail', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('email', 'E-mail:', array('class'=>'col-md-3 control-label')) }}
     {{--<label class="col-md-3 control-label">Name</label>--}}
     <div class="col-md-6">
         {{ Form::text('email',null, array('class' => 'form-control')) }}

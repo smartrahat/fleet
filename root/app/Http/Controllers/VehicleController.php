@@ -8,6 +8,7 @@ use App\Vehicle;
 use App\Repositories\VehicleRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 
@@ -20,9 +21,21 @@ class VehicleController extends Controller
         $this->repository = $repository;
     }
 
-    public function index()
+    public function index(Vehicle $vehicle)
     {
-        $vehicles = Vehicle::query()->paginate(10);
+        $vehicle = $vehicle->newQuery();
+        if(Input::has('q')){
+            $q = Input::get('q');
+            $vehicle->where('name','like','%'.$q.'%')
+                //->orWhere('description',$q)
+                //->orWhere('owner',$q)
+                ->orWhere('vehicleNo','like','%'.$q.'%')
+                //->orWhere('status',$q)
+                ->orWhere('mobile','like','%'.$q.'%');
+        }
+        //$vehicles = Vehicle::query()->paginate(10);
+        $vehicles = $vehicle->paginate(10);
+        //dd($vehicles);
         return view('vehicle.index',compact('vehicles','repository'));
     }
 

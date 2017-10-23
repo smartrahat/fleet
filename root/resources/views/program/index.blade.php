@@ -14,7 +14,7 @@
                             <i class="fa fa-home"></i>
                         </a>
                     </li>
-                    <li><span>Dashboard</span></li>
+                    <li><span>Programs</span></li>
                 </ol>
                 <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
             </div>
