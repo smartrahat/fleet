@@ -12,4 +12,11 @@ class ProductBrand extends Model
     protected $table = 'productBrands';
 
     protected $fillable = ['name','description'];
+
+
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class);
+    }
+
 }

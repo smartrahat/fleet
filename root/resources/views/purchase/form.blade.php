@@ -27,19 +27,6 @@
 </div>
 <!-- Shop Name ends-->
 
-<!-- Mobile Starts-->
-<div class="form-group {{$errors->has('mobile')?'has-error':''}}">
-    {{ Form::label('mobile', 'Mobile No:', array('class'=>'col-md-3 control-label')) }}
-    {{--<label class="col-md-3 control-label">Name</label>--}}
-    <div class="col-md-6">
-        {{ Form::text('mobile',null, array('class' => 'form-control')) }}
-        @if($errors->has('mobile'))
-            <span class="help-block"><strong>{{$errors->first('mobile')}}</strong></span>
-        @endif
-    </div>
-</div>
-<!-- Mobile ends-->
-
 <!-- Voucher Starts-->
 <div class="form-group {{$errors->has('voucher')?'has-error':''}}">
     {{ Form::label('voucher', 'Voucher No:', array('class'=>'col-md-3 control-label')) }}

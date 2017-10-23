@@ -18,7 +18,6 @@ class CreatePurchasesTable extends Migration
             $table->authorities();
             $table->date('date');
             $table->integer('supplier_id')->unsigned();
-            $table->string('mobile');
             $table->string('voucher');
             $table->integer('vehicle_id')->unsigned();
             $table->integer('category_id')->unsigned();

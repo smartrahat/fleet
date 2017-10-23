@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PurchaseRequest;
 use App\Purchase;
 use App\Repositories\PurchaseRepository;
+use Illuminate\Support\Facades\Session;
 
 class PurchaseController extends Controller
 {
@@ -36,8 +37,9 @@ class PurchaseController extends Controller
 
     public function edit($id)
     {
+        $repository = $this->repository;
         $purchase = Purchase::query()->findOrFail($id);
-        return view('purchase.edit',compact('purchase'));
+        return view('purchase.edit',compact('purchase','repository'));
     }
 
     public function update($id, PurchaseRequest $request)

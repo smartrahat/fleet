@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title','Party Edit')
+@section('title','Purchase Edit')
 
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Edit Party</h2>
+                <h2>Edit Purchase</h2>
                 <div class="right-wrapper pull-right">
                     <ol class="breadcrumbs">
                         <li>
@@ -13,7 +13,7 @@
                                 <i class="fa fa-home"></i>
                             </a>
                         </li>
-                        <li><span>Edit Party</span></li>
+                        <li><span>Edit Purchase</span></li>
                     </ol>
                     <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
                 </div>

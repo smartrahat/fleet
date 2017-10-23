@@ -28,7 +28,7 @@ class PurchaseRepository {
 
     public function suppliers()
     {
-        return Supplier::all()->pluck('name','id');
+        return Supplier::all()->pluck('supplier_name','id');
     }
 
     public function vehicles()

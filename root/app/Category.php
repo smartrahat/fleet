@@ -9,4 +9,10 @@ class Category extends Model
 {
     use SoftDeletes;
     protected $fillable = ['name','description'];
+
+
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class);
+    }
 }

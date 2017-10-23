@@ -17,4 +17,9 @@ class Parts extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class);
+    }
+
 }

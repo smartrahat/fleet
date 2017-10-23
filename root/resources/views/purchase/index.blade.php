@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Parties')
+@section('title','Purchases')
 
 @section('content')
         <section role="main" class="content-body">
@@ -35,6 +35,9 @@
                                     <thead>
                                     <tr>
                                     <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Supplier</th>
+                                    <th>Voucher</th>
                                     <th>Vehicle No</th>
                                     <th>Category</th>
                                     <th>Parts</th>
@@ -44,27 +47,33 @@
                                     <th>Total</th>
                                     <th>Paid</th>
                                     <th>Due</th>
-                                    <th>Shop Name</th>
-                                    <th>Mobile No.</th>
+                                    <th>Actions</th>
                              </tr>
                         </thead>
                         <tbody>
-                            {{--@foreach($parties as $party)--}}
-                                {{--<tr>--}}
-                                    {{--<td>{{$party->id}}</td>--}}
-                                    {{--<td>{{$party->name}}</td>--}}
-                                    {{--<td>{{$party->contact_person}}</td>--}}
-                                    {{--<td>{{$party->address}}</td>--}}
-                                    {{--<td>{{$party->email}}</td>--}}
-                                    {{--<td>{{$party->mobile}}</td>--}}
-                                    {{--<td>--}}
-                                        {{--{{ Form::open(['action'=>['PartyController@destroy',$party->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}--}}
-                                        {{--<a href="{{ action('PartyController@edit',$party->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>--}}
-                                        {{--{{ Form::submit('X',['class'=>'btn btn-danger']) }}--}}
-                                        {{--{{ Form::close() }}--}}
-                                    {{--</td>--}}
-                                {{--</tr>--}}
-                            {{--@endforeach--}}
+                            @foreach($purchases as $purchase)
+                                <tr>
+                                    <td>{{$purchase->id}}</td>
+                                    <td>{{$purchase->date}}</td>
+                                    <td>{{$purchase->supplier->supplier_name}}</td>
+                                    <td>{{$purchase->voucher}}</td>
+                                    <td>{{$purchase->vehicle->vehicleNo}}</td>
+                                    <td>{{$purchase->category->name}}</td>
+                                    <td>{{$purchase->parts->name}}</td>
+                                    <td>{{$purchase->brand->name}}</td>
+                                    <td>{{$purchase->quantity}}</td>
+                                    <td>{{$purchase->rate}}</td>
+                                    <td>{{$purchase->total}}</td>
+                                    <td>{{$purchase->advance}}</td>
+                                    <td>{{$purchase->due}}</td>
+                                  <td>
+                                        {{ Form::open(['action'=>['PurchaseController@destroy',$purchase->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
+                                        <a href="{{ action('PurchaseController@edit',$purchase->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        {{ Form::submit('X',['class'=>'btn btn-danger']) }}
+                                        {{ Form::close() }}
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                                 </table>
                             </div>

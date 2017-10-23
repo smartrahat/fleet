@@ -41,6 +41,11 @@ class Vehicle extends Model
         return $this->belongsTo(Type::class);
     }
 
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class);
+    }
+
     /**
      * A vehicle is belongs to a Owner
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
