@@ -9,7 +9,7 @@
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
-                        <a>
+                        <a href="{{ url('/') }}">
                             <i class="fa fa-home"></i>
                         </a>
                     </li>
@@ -41,7 +41,7 @@
                         <div class="form-group {{ $errors->has('name')? 'has-error':'' }}">
                             {{ Form::label('name', 'Brand Name:', ['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
-                                {{ Form::text('name', null, ['class' => 'form-control','required']) }}
+                                {{ Form::text('name', null, ['class' => 'form-control','placeholder'=>'Brand Name','required']) }}
                                 @if($errors->has('name'))
                                     <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
                                 @endif
@@ -50,7 +50,7 @@
                         <div class="form-group {{ $errors->has('description')? 'has-error':'' }}">
                             {{ Form::label('description','Description:',['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
-                                {{ Form::textarea('description', null, ['class' => 'form-control']) }}
+                                {{ Form::textarea('description', null, ['class' => 'form-control','placeholder'=>'Enter description']) }}
                                 @if($errors->has('description'))
                                     <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
                                 @endif

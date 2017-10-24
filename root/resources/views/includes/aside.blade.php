@@ -156,6 +156,29 @@
                         </ul>
                     </li>
 
+
+                    <li class="nav-parent {{ isActive(['part*','product*','categor*']) }}">
+                        <a>
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                            <span>Products</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li>
+                                <a href="ui-elements-typography.html">
+                                    Add Product
+                                </a>
+                            </li>
+                            <li class="{{ isActive('categories') }}">
+                                <a href="{{ action('CategoryController@index') }}">Add Category</a>
+                            </li>
+                            <li class="{{ isActive('parts') }}">
+                                <a href="{{ action('PartsController@index') }}">Add Parts</a>
+                            </li>
+                            <li class="{{ isActive('productBrands') }}">
+                                <a href="{{ action('ProductBrandController@index') }}">Add Product Brand</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-parent {{ isActive([]) }}">
                         <a>
                             <i class="fa fa-wrench" aria-hidden="true"></i>
@@ -214,15 +237,6 @@
                             </li>
                             <li class="{{ isActive('supplier/create') }}">
                                 <a href="{{ action('SupplierController@create') }}">Add Supplier</a>
-                            </li>
-                            <li class="{{ isActive('categories') }}">
-                                <a href="{{ action('CategoryController@index') }}">Add Category</a>
-                            </li>
-                            <li class="{{ isActive('parts') }}">
-                                <a href="{{ action('PartsController@index') }}">Add Parts</a>
-                            </li>
-                            <li class="{{ isActive('productBrand') }}">
-                                <a href="{{ action('ProductBrandController@index') }}">Add Product Brand</a>
                             </li>
                         </ul>
                     </li>

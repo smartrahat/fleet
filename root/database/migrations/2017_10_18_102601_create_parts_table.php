@@ -18,7 +18,7 @@ class CreatePartsTable extends Migration
             $table->authorities();
             $table->integer('category_id')->unsigned();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -21,7 +21,7 @@ class ProductBrandController extends Controller
 
     public function store(ProductBrandRequest $request)
     {
-        ProductBrand::create($request->all());
+        ProductBrand::query()->create($request->all());
         Session::flash('success','"'.$request->name.'" has been added!');
         return redirect('productBrands');
     }

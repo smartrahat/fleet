@@ -41,7 +41,7 @@
                                     <th>Mobile No</th>
                                     <th>E-mail</th>
                                     <th>Action</th>
-                                         </tr>
+                                </tr>
                                     </thead>
                                     <tbody>
                                 @foreach($suppliers as $supplier)

@@ -180,8 +180,7 @@ Route::get('supplier/edit/{id}','SupplierController@edit');
 Route::patch('supplier/{id}/update','SupplierController@update');
 Route::delete('supplier/destroy/{id}','SupplierController@destroy');
 
-
-//**Purchase routes
+/**Purchase routes */
 Route::get('purchases', 'PurchaseController@index');
 Route::get('purchase/create', 'PurchaseController@create');
 Route::post('purchase/store', 'PurchaseController@store');
@@ -189,9 +188,7 @@ Route::get('purchase/edit/{id}','PurchaseController@edit');
 Route::patch('purchase/{id}/update','PurchaseController@update');
 Route::delete('purchase/delete/{id}','PurchaseController@destroy');
 
-
-
-//Product Brand routes
+/** Product Brand routes */
 Route::get('productBrands', 'ProductBrandController@index');
 Route::post('productBrand/store', 'ProductBrandController@store');
 Route::get('productBrand/edit/{id}','ProductBrandController@edit');

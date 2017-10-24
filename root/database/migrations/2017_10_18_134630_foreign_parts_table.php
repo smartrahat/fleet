@@ -28,7 +28,7 @@ class ForeignPartsTable extends Migration
     {
         Schema::table('parts', function (Blueprint $table) {
             $table->dropForeignAuthority();
-            $table->dropForeign('category_id');
+            $table->dropForeign(['category_id']);
         });
     }
 }
