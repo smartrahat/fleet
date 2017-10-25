@@ -194,3 +194,8 @@ Route::post('productBrand/store', 'ProductBrandController@store');
 Route::get('productBrand/edit/{id}','ProductBrandController@edit');
 Route::patch('productBrand/{id}/update','ProductBrandController@update');
 Route::delete('productBrand/delete/{id}','ProductBrandController@destroy');
+
+/** Product routes */
+Route::get('products','ProductController@index');
+Route::post('product/store','ProductController@store');
+Route::get('product/edit/{id}','ProductController@edit');

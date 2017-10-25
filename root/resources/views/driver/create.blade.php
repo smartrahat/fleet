@@ -30,7 +30,7 @@
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::model($driver = new \App\Driver,['action' => 'DriverController@store','method'=>'post', 'files'=>true]) }}
+                            {{ Form::model($driver = new \App\Driver,['action' => 'DriverController@store','method'=>'post','class'=>'form-horizontal','files'=>true]) }}
                             @include('driver.form',['submitButtonText'=>'Save'])
                             {{ Form::close() }}
                         </div>

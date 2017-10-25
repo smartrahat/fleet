@@ -163,8 +163,8 @@
                             <span>Products</span>
                         </a>
                         <ul class="nav nav-children">
-                            <li>
-                                <a href="ui-elements-typography.html">
+                            <li class="{{ isActive('products') }}">
+                                <a href="{{ action('ProductController@index') }}">
                                     Add Product
                                 </a>
                             </li>

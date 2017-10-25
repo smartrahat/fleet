@@ -11,7 +11,7 @@
 <!-- Vehicle name ends-->
 <!-- brand Starts-->
 <div class="form-group {{$errors->has('brand_id')? 'has-error':''}}">
-    {{ Form::label('brand_id', 'Brand Name', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('brand_id', 'Brand Name:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('brand_id',$repository->brands(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Brand']) }}
         @if($errors->has('brand_id'))
@@ -22,7 +22,7 @@
 <!-- brand ends-->
 <!-- Type start-->
 <div class="form-group {{$errors->has('type_id')? 'has-error':''}}">
-    {{ Form::label('type_id', 'Types', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('type_id', 'Types:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('type_id',$repository->types(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle Type']) }}
         @if($errors->has('type_id'))
@@ -33,7 +33,7 @@
 <!-- Types ends-->
 <!-- Owner start-->
 <div class="form-group {{$errors->has('owner_id')? 'has-error':''}}">
-    {{ Form::label('owner_id', 'Owner', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('owner_id', 'Owner:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
         {{ Form::select('owner_id',$repository->owners(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle Owner']) }}
         @if($errors->has('owner_id'))
@@ -45,7 +45,8 @@
 <!-- Owner -->
 <!--Road permit starts-->
 <div class="form-group {{$errors->has('roadPermitStart','roadPermitEnd')? 'has-error':''}}">
-    <label class="col-md-3 control-label">Road Permit</label>
+    {{--<label class="col-md-3 control-label">Road Permit</label>--}}
+    {{ Form::label('roadPermit','Road Permit:',['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
         <div class="input-daterange input-group" data-plugin-datepicker data-date-format='yyyy-mm-dd' data-date-format='yyyy-mm-dd'>
             <span class="input-group-addon">
@@ -68,7 +69,8 @@
 
 <!--Tax Token starts-->
 <div class="form-group {{$errors->has('taxTokenStart','taxTokenEnd')? 'has-error':''}}">
-    <label class="col-md-3 control-label">Tax Token</label>
+    {{--<label class="col-md-3 control-label">Tax Token</label>--}}
+    {{ Form::label('taxToken','Tax Token:',['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
         <div class="input-daterange input-group" data-plugin-datepicker data-date-format='yyyy-mm-dd'>
             <span class="input-group-addon">
@@ -89,12 +91,13 @@
 <!--Road permit ends-->
 <!--Road permit starts-->
 <div class="form-group {{$errors->has('insuranceStart','insuranceEnd')? 'has-error':''}}">
-    <label class="col-md-3 control-label">Insurance</label>
+    {{--<label class="col-md-3 control-label">Insurance</label>--}}
+    {{ Form::label('insurance','Insurance:',['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
         <div class="input-daterange input-group" data-plugin-datepicker data-date-format='yyyy-mm-dd'>
-														<span class="input-group-addon">
-															<i class="fa fa-calendar"></i>
-														</span>
+            <span class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </span>
             {{ Form::text('insuranceStart', null, array('class' => 'form-control')) }}
             <span class="input-group-addon">to</span>
             {{ Form::text('insuranceEnd', null, array('class' => 'form-control')) }}
@@ -111,7 +114,8 @@
 
 <!--Fitness starts-->
 <div class="form-group {{$errors->has('fitnessStart','fitnessEnd')? 'has-error':''}}">
-    <label class="col-md-3 control-label">Fitness</label>
+    {{--<label class="col-md-3 control-label">Fitness</label>--}}
+    {{ Form::label('fitness','Fitness:',['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
         <div class="input-daterange input-group" data-plugin-datepicker data-date-format='yyyy-mm-dd'>
             <span class="input-group-addon">
