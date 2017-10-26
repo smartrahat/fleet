@@ -93,7 +93,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['party*','parti*']) }}">
+                    <li class="nav-parent {{ isActive(['party*','parties*']) }}">
                         <a>
                             <i class="fa fa-handshake-o" aria-hidden="true"></i>
                             <span>Parties</span>
@@ -157,26 +157,23 @@
                     </li>
 
 
-                    <li class="nav-parent {{ isActive(['part*','product*','categor*','unit*']) }}">
+                    <li class="nav-parent {{ isActive(['parts*','productBrands*','categories*','products*']) }}">
                         <a>
                             <i class="fa fa-gift" aria-hidden="true"></i>
                             <span>Products</span>
                         </a>
                         <ul class="nav nav-children">
                             <li class="{{ isActive('products') }}">
-                                <a href="{{ action('ProductController@index') }}">Add Products</a>
+                                <a href="{{ action('ProductController@index') }}">Add Product</a>
                             </li>
                             <li class="{{ isActive('categories') }}">
-                                <a href="{{ action('CategoryController@index') }}">Categories</a>
+                                <a href="{{ action('CategoryController@index') }}">Add Category</a>
                             </li>
                             <li class="{{ isActive('parts') }}">
-                                <a href="{{ action('PartsController@index') }}">Vehicle Parts</a>
+                                <a href="{{ action('PartsController@index') }}">Add Parts</a>
                             </li>
                             <li class="{{ isActive('productBrands') }}">
-                                <a href="{{ action('ProductBrandController@index') }}">Product Brands</a>
-                            </li>
-                            <li class="{{ isActive('units') }}">
-                                <a href="{{ action('UnitController@index') }}">Units</a>
+                                <a href="{{ action('ProductBrandController@index') }}">Add Product Brand</a>
                             </li>
                         </ul>
                     </li>
@@ -227,7 +224,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-parent {{ isActive(['brand*','suppliers*','supplier/create*','categories*','parts*']) }}">
+                    <li class="nav-parent {{ isActive(['suppliers*','supplier/create*']) }}">
                         <a>
                             <i class="fa fa-briefcase" aria-hidden="true"></i>
                             <span>Suppliers</span>
