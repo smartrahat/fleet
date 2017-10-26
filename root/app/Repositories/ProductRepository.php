@@ -11,6 +11,7 @@ namespace App\Repositories;
 
 use App\Category;
 use App\Parts;
+use App\Unit;
 
 class ProductRepository
 {
@@ -26,6 +27,6 @@ class ProductRepository
 
     public function units()
     {
-        return [1=>'Piece',2=>'Litre'];
+        return Unit::all()->pluck('name','id');
     }
 }

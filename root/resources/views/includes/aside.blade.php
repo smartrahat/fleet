@@ -157,25 +157,26 @@
                     </li>
 
 
-                    <li class="nav-parent {{ isActive(['part*','product*','categor*']) }}">
+                    <li class="nav-parent {{ isActive(['part*','product*','categor*','unit*']) }}">
                         <a>
                             <i class="fa fa-gift" aria-hidden="true"></i>
                             <span>Products</span>
                         </a>
                         <ul class="nav nav-children">
                             <li class="{{ isActive('products') }}">
-                                <a href="{{ action('ProductController@index') }}">
-                                    Add Product
-                                </a>
+                                <a href="{{ action('ProductController@index') }}">Add Products</a>
                             </li>
                             <li class="{{ isActive('categories') }}">
-                                <a href="{{ action('CategoryController@index') }}">Add Category</a>
+                                <a href="{{ action('CategoryController@index') }}">Categories</a>
                             </li>
                             <li class="{{ isActive('parts') }}">
-                                <a href="{{ action('PartsController@index') }}">Add Parts</a>
+                                <a href="{{ action('PartsController@index') }}">Vehicle Parts</a>
                             </li>
                             <li class="{{ isActive('productBrands') }}">
-                                <a href="{{ action('ProductBrandController@index') }}">Add Product Brand</a>
+                                <a href="{{ action('ProductBrandController@index') }}">Product Brands</a>
+                            </li>
+                            <li class="{{ isActive('units') }}">
+                                <a href="{{ action('UnitController@index') }}">Units</a>
                             </li>
                         </ul>
                     </li>

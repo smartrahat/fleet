@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('part_id')->unsigned();
             $table->integer('unit_id')->unsigned();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

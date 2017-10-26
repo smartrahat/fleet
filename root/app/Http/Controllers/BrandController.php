@@ -21,7 +21,7 @@ class BrandController extends Controller
 
     public function store(BrandRequest $request)
     {
-        Brand::create($request->all());
+        Brand::query()->create($request->all());
         Session::flash('success','"'.$request->name.'" has been added!');
         return redirect('brands');
     }

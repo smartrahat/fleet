@@ -119,8 +119,6 @@ Route::get('tripCost/edit/{id}','TripCostController@edit');
 Route::patch('tripCost/{id}/update','TripCostController@update');
 Route::delete('tripCost/delete/{id}','TripCostController@destroy');
 
-
-
 //Due Collection routes
 Route::get('dues', 'DueController@index');
 Route::get('due/create', 'DueController@create');
@@ -128,10 +126,6 @@ Route::post('due/store', 'DueController@store');
 Route::get('due/edit/{id}','DueController@edit');
 Route::patch('due/{id}/update','DueController@update');
 Route::delete('due/delete/{id}','DueController@destroy');
-
-
-
-
 
 /** Company Route */
 Route::get('company/show/{id}','CompanyController@show');
@@ -162,15 +156,12 @@ Route::get('spare-parts/edit/{id}','SparePartController@edit');
 Route::patch('spare-parts/{id}/update','SparePartController@update');
 Route::delete('spare-parts/destroy/{id}','SparePartController@destroy');
 
-
 /** Parts Routes */
 Route::get('parts','PartsController@index');
 Route::post('parts/store','PartsController@store');
 Route::get('parts/edit/{id}','PartsController@edit');
 Route::patch('parts/{id}/update','PartsController@update');
 Route::delete('parts/destroy/{id}','PartsController@destroy');
-
-
 
 /** Supplier Routes */
 Route::get('suppliers','SupplierController@index');
@@ -199,3 +190,11 @@ Route::delete('productBrand/delete/{id}','ProductBrandController@destroy');
 Route::get('products','ProductController@index');
 Route::post('product/store','ProductController@store');
 Route::get('product/edit/{id}','ProductController@edit');
+Route::delete('product/destroy/{id}','ProductController@destroy');
+
+/** Brand routes */
+Route::get('units', 'UnitController@index');
+Route::post('unit/store', 'UnitController@store');
+Route::get('unit/edit/{id}','UnitController@edit');
+Route::patch('unit/{id}/update','UnitController@update');
+Route::delete('unit/delete/{id}','UnitController@destroy');
