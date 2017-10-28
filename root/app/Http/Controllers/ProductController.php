@@ -27,9 +27,31 @@ class ProductController extends Controller
         return view('product.index',compact('repository','products'));
     }
 
+    public function create()
+    {
+        $repository = $this->repository;
+        return view('product.create',compact('repository'));
+    }
+
     public function store(Request $request)
     {
         Product::query()->create($request->all());
+        Session::flash('success','"'.$request->name.'" has been added!');
+        return redirect('products');
+    }
+
+    public function edit($id)
+    {
+        $product = Product::query()->findOrFail($id);
+        $repository = $this->repository;
+        return view('product.edit',compact('product','repository'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product = Product::query()->findOrFail($id);
+        $product->update($request->all());
+        Session::flash('success','"'.$product->name.'" has been updated!');
         return redirect('products');
     }
 
