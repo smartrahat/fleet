@@ -226,7 +226,7 @@
                     <strong>{{ $errors->first('image') }}</strong>
                 </span>
         @endif
-        <img src="{{ asset('/images/vehicles/'.$vehicle->image) }}" id="image" class="img-thumbnail" width="265" alt=""/>
+        <img src="{{ asset('/images/vehicles/') }}/{{ $vehicle->image != null ? $vehicle->image : 'demo.png' }}" id="image" class="img-thumbnail" width="265" alt=""/>
     </div>
 </div>
 <!--Submit button -->

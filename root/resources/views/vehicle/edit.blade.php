@@ -29,7 +29,7 @@
                     </header>
 
                     <div class="panel-body">
-                        {{ Form::model($vehicle,['action' => ['VehicleController@update',$vehicle->id],'method'=>'patch','class'=>'form-horizontal']) }}
+                        {{ Form::model($vehicle,['action' => ['VehicleController@update',$vehicle->id],'method'=>'patch','class'=>'form-horizontal','files'=>true]) }}
                        @include('vehicle.form',['submitButtonText'=>'Update'])
                         {{ Form::close() }}
                     </div>
