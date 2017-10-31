@@ -19,4 +19,9 @@ class ProductBrand extends Model
         return $this->belongsTo(Purchase::class);
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PurchaseRequest;
 use App\Purchase;
 use App\Repositories\PurchaseRepository;
+use App\Stock;
 use Illuminate\Support\Facades\Session;
 
 class PurchaseController extends Controller
@@ -22,10 +23,13 @@ class PurchaseController extends Controller
         return view('purchase.create',compact('repository'));
     }
 
-    public function index()
+    public function index(PurchaseRequest $request)
     {
         $purchases = Purchase::all();
-        return view('purchase.index',compact('purchases'));
+        $total = Purchase::query()->sum('total');
+        $paid = Purchase::query()->sum('advance');
+        $due = Purchase::query()->sum('due');
+        return view('purchase.index',compact('purchases','total','paid','due'));
     }
 
     public function store(PurchaseRequest $request)

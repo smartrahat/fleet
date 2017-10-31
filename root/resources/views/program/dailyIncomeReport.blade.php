@@ -84,7 +84,7 @@
                                         <td>{{ $income->program->rate or '' }}</td>
                                         <td class="text-right">{{ number_format($income->rent) }}/-</td>
                                         {{--<td class="text-right">/-</td>--}}
-                                        <td class="text-right">{{ number_format($income->adv_rent) }}/-</td>
+                                        <td class="text-right">{{ number_format($income->paid) }}/-</td>
                                         <td class="text-right">{{ number_format($income->due_rent) }}/-</td>
                                     @endif
                                 </tr>

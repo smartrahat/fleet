@@ -74,6 +74,13 @@
                                     </td>
                                 </tr>
                             @endforeach
+                                <tr>
+                                    <td colspan="10" class="text-right">Total</td>
+                                    <td>{{$total}}</td>
+                                    <td>{{$paid}}</td>
+                                    <td>{{$due}}</td>
+                                    <td></td>
+                                </tr>
                         </tbody>
                                 </table>
                             </div>

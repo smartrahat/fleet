@@ -156,12 +156,15 @@ Route::get('spare-parts/edit/{id}','SparePartController@edit');
 Route::patch('spare-parts/{id}/update','SparePartController@update');
 Route::delete('spare-parts/destroy/{id}','SparePartController@destroy');
 
+
 /** Parts Routes */
 Route::get('parts','PartsController@index');
 Route::post('parts/store','PartsController@store');
 Route::get('parts/edit/{id}','PartsController@edit');
 Route::patch('parts/{id}/update','PartsController@update');
 Route::delete('parts/destroy/{id}','PartsController@destroy');
+
+
 
 /** Supplier Routes */
 Route::get('suppliers','SupplierController@index');
@@ -192,11 +195,9 @@ Route::get('product/create','ProductController@create');
 Route::post('product/store','ProductController@store');
 Route::get('product/edit/{id}','ProductController@edit');
 Route::patch('product/{id}/update','ProductController@update');
-Route::delete('product/destroy/{id}','ProductController@destroy');
+Route::delete('product/delete/{id}','ProductController@destroy');
 
-/** Brand routes */
-Route::get('units', 'UnitController@index');
-Route::post('unit/store', 'UnitController@store');
-Route::get('unit/edit/{id}','UnitController@edit');
-Route::patch('unit/{id}/update','UnitController@update');
-Route::delete('unit/delete/{id}','UnitController@destroy');
+
+
+/** Stock routes */
+Route::get('stocks','StockController@index');

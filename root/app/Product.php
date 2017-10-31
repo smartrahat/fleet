@@ -15,4 +15,25 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function stock()
+    {
+       return $this->belongsTo(Stock::class);
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(ProductBrand::class);
+    }
+
+
+    public function part()
+    {
+        return $this->belongsTo(Parts::class);
+    }
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
 }

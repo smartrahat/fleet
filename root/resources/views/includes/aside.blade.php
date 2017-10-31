@@ -157,14 +157,17 @@
                     </li>
 
 
-                    <li class="nav-parent {{ isActive(['parts*','productBrands*','categories*','products*']) }}">
+                    <li class="nav-parent {{ isActive(['parts*','productBrands*','categories*','products*','product/create*']) }}">
                         <a>
                             <i class="fa fa-gift" aria-hidden="true"></i>
                             <span>Products</span>
                         </a>
                         <ul class="nav nav-children">
                             <li class="{{ isActive('products') }}">
-                                <a href="{{ action('ProductController@index') }}">Add Product</a>
+                                <a href="{{ action('ProductController@index') }}">Product List</a>
+                            </li>
+                            <li class="{{ isActive('product/create') }}">
+                                <a href="{{ action('ProductController@create') }}">Add Product</a>
                             </li>
                             <li class="{{ isActive('categories') }}">
                                 <a href="{{ action('CategoryController@index') }}">Add Category</a>
@@ -177,7 +180,21 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-parent {{ isActive([]) }}">
+
+                    <li class="nav-parent {{ isActive(['stock*']) }}">
+                        <a>
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                            <span>Stock</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('stocks') }}">
+                                <a href="{{action('StockController@index')}}">Stock List</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-parent {{ isActive(['']) }}">
                         <a>
                             <i class="fa fa-wrench" aria-hidden="true"></i>
                             <span>Garage</span>

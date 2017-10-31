@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Repositories\ProductRepository;
+use App\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
