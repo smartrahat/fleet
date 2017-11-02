@@ -94,42 +94,37 @@
                         <div class=" col-md-2">
                             <label class="control-label" for="category_id">Category</label>
                             <div class="">
-                                {!! Form::select('category_id',$repository->categories(),$product->id,['id'=>'category_id'.$num,'class'=>'form-control','required','placeholder'=>'Select a category']) !!}
+                                {!! Form::select('category_id',$repository->categories(),null,['id'=>'category_id','class'=>'form-control','required','placeholder'=>'Select a category']) !!}
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <label class="control-label" for="part_id">Parts</label>
+                            <label class="control-label" for="parts_id">Parts</label>
                             <div class="">
-                                {!! Form::select('parts_id',$repository->parts(),$product->id,['id'=>'parts_id'.$num,'class'=>'form-control','required','placeholder'=>'Select a part']) !!}
+                                {!! Form::select('parts_id',$repository->parts(),null,['id'=>'parts_id','class'=>'form-control','required','placeholder'=>'Select a part']) !!}
                             </div>
                         </div>
 
-                        <!-- Brand Starts-->
-                        <div class="col-md-2 {{$errors->has('brand_id')?'has-error':''}}">
-                            <label class="control-label text-left" for="category_adv">Brand</label>
-                            {{ Form::text('brand_id', $product->brand, ['class' => 'form-control','id'=>'brand_id'.$num]) }}
-                            @if($errors->has('brand_id'))
-                                <span class="help-block"><strong>{{$errors->first('brand_id')}}</strong></span>
-                            @endif
+                        <div class="col-md-2">
+                            <label class="control-label" for="brand_id">Brand</label>
+                            <div class="">
+                                {!! Form::select('brand_id',$repository->brands(),null,['id'=>'brand_id','class'=>'form-control','required','placeholder'=>'Select a brand']) !!}
+                            </div>
                         </div>
-                        <!-- Brand ends-->
 
                         <!-- Quantity Starts-->
-
                         <div class="col-md-2 {{$errors->has('quantity')?'has-error':''}}">
-                            <label class="control-label text-center" for="quantity">Quantity</label>
-                            {{ Form::text('quantity', $product->quantity, array('class' => 'form-control','id'=>'quantity'.$num)) }}
+                            <label class="control-label text-left" for="quantity1">Quantity</label>
+                            {{ Form::text('quantity', null, ['class' => 'form-control','id'=>'quantity1']) }}
                             @if($errors->has('quantity'))
                                 <span class="help-block"><strong>{{$errors->first('quantity')}}</strong></span>
                             @endif
                         </div>
-
                         <!-- Quantity ends-->
 
                         <!-- Rate Starts-->
                         <div class="col-md-2 {{$errors->has('rate')?'has-error':''}}">
-                            <label class="control-label text-left" for="rate">Rate</label>
-                            {{ Form::text('rate', $product->rate, array('class' => 'form-control','id'=>'rate'.$num,'readonly')) }}
+                            <label class="control-label text-left" for="rate1">Rate(tk)</label>
+                            {{ Form::text('rate', null, ['class' => 'form-control','id'=>'rate']) }}
                             @if($errors->has('rate'))
                                 <span class="help-block"><strong>{{$errors->first('rate')}}</strong></span>
                             @endif
@@ -146,13 +141,14 @@
                         </div>
                         <!-- Total ends-->
 
-
                     </div>
                 </div>
+
+
                 <!--REMOVE BUTTON START-->
-                <div class="col-md-1 col-md-pull-1" >
+                <div class="col-md-1 " >
                     <div class="form-group " style="padding-top: 29px;">
-                        <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">Remove</button>
+                        <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">X</button>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -311,15 +307,7 @@
 
     </script>
 
-    <script>
-        $(document).keyup(function () {
-            var weight = $('#weight').val();
-            var rate = $('#rate').val();
-            if(weight>0 && rate>0){
-                $('#rent').val(parseFloat(weight)*parseFloat(rate));
-            }
-        })
-    </script>
+
 
     <script>
         $(document).keyup(function () {
@@ -340,13 +328,43 @@
         $(document).keyup(function () {
             var $div = $('div[id^="product"]:last');
             var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+            var total = 0;
 
-            for(var i=1;i<num;i++){
-                var a = $("#product"+i+" input[id^='rate']").val();
-                var b = $("#product"+i+" input[id^='quantity']").val();
-                var c =$("#product"+i+" input[id^='p_total']").val(parseInt(a)*parseInt(b));
+            for(var i=1;i<num;i++) {
+                var a = $("#product" + i + " input[id^='rate']").val();
+                var b = $("#product" + i + " input[id^='quantity']").val();
+                var c = $("#product" + i + " input[id^='p_total']").val(parseInt(a) * parseInt(b));
+
+                if (isNaN(a)) {a = 0}
+                if (isNaN(b)) {b = 0}
+
+                $("#product" + i + " input[id^=t]").val(Math.floor(a * b));
+
+                total += Math.floor((a * b));
             }
+            $("#total").val(total);
         })
     </script>
+    {{--<script>--}}
+        {{--var $div = $('div[id^="product"]:last');--}}
+        {{--var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;--}}
+
+        {{--//var count = $('div[id^="products"]').length+1;--}}
+        {{--//alert(count);--}}
+        {{--var total = 0;--}}
+        {{--for(var i=1;i<num;i++){--}}
+            {{--var a = parseFloat($("#product"+i+" input[id^='quantity']").val());--}}
+            {{--var b = parseFloat($("#product"+i+" input[id^='rate']").val());--}}
+
+            {{--if(isNaN(a)){a=0}--}}
+            {{--if(isNaN(b)){b=0}--}}
+
+            {{--$("#product"+i+" input[id^=t]").val(Math.floor(a*b));--}}
+
+            {{--total += Math.floor((a*b));--}}
+        {{--}--}}
+        {{--$("#total").val(total);--}}
+
+    {{--</script>--}}
 
 @stop

@@ -44,5 +44,4 @@ class Program extends Model
     public function income(){
         return $this->belongsTo(Income::class);
     }
-
 }

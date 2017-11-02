@@ -24,12 +24,12 @@
 <!--Categories ends -->
 
 <!-- Parts  Starts -->
-<div class="form-group {{ $errors->has('part_id') ? ' has-error' : '' }}">
-    {{ Form::label('part', 'Parts:', array('class'=>'col-md-3 control-label')) }}
+<div class="form-group {{ $errors->has('parts_id') ? ' has-error' : '' }}">
+    {{ Form::label('parts', 'Parts:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('part_id',$repository->parts(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Part']) }}
-        @if ($errors->has('part_id'))
-            <span class="help-block"><strong>{{ $errors->first('part_id') }}</strong></span>
+        {{ Form::select('parts_id',$repository->parts(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Part']) }}
+        @if ($errors->has('parts_id'))
+            <span class="help-block"><strong>{{ $errors->first('parts_id') }}</strong></span>
         @endif
     </div>
 </div>

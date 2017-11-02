@@ -14,19 +14,9 @@ class Purchase extends Model
         return $this->belongsTo(Supplier::class);
     }
 
-    public function category()
+    public function invoices()
     {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function parts()
-    {
-        return $this->belongsTo(Parts::class);
-    }
-
-    public function brand()
-    {
-        return $this->belongsTo(ProductBrand::class);
+        return $this->hasMany(Invoice::class);
     }
 
     public function stock()
@@ -34,10 +24,6 @@ class Purchase extends Model
         return $this->belongsTo(Stock::class);
     }
 
-    public function purchasedProducts()
-    {
-        return $this->hasMany(PurchasedProduct::class);
-    }
 
 }
 

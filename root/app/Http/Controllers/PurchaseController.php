@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PurchaseRequest;
+use App\Invoice;
 use App\Product;
 use App\Purchase;
 use App\Repositories\PurchaseRepository;
 use App\Stock;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class PurchaseController extends Controller
@@ -38,8 +40,13 @@ class PurchaseController extends Controller
 
     public function store(PurchaseRequest $request)
     {
-        //dd($request->all());
+        $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'purchases'"));
+        $query = $query[0]->Auto_increment;
+
+        $request['purchase_id'] = $query;
         Purchase::query()->create($request->all());
+
+        $this->goods($request->all(),$query);
         return redirect('purchases');
     }
 
@@ -65,4 +72,31 @@ class PurchaseController extends Controller
         Session::flash('success','"'.$purchase->name.'" has been deleted successfully!');
         return redirect('purchases');
     }
+
+    public function goods($request,$query)
+    {
+        //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
+        //dd($request);
+        $keys = preg_grep('/^parts_id[0-9]/',array_keys($request));
+//        dd($keys);
+        foreach($keys as $key){
+            //dd($key);
+            preg_match('!\d+!',$key,$number);
+            //dd($number);
+            foreach($number as $num){
+                //dd($num);
+                $data = [
+                    'purchase_id' => $query,
+                    'category_id' => $request['category_id'.$num],
+                    'brand_id' => $request['brand_id'.$num],
+                    'quantity' => $request['quantity'.$num],
+                    'rate' => $request['rate'.$num],
+                    'p_total' => $request['p_total'.$num],
+                ];
+                //dd($data);
+                Invoice::query()->create($data);
+            }
+        }
+    }
+
 }

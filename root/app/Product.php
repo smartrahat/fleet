@@ -26,7 +26,6 @@ class Product extends Model
         return $this->belongsTo(ProductBrand::class);
     }
 
-
     public function part()
     {
         return $this->belongsTo(Parts::class);

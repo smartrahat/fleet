@@ -65,10 +65,10 @@
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->category->name }}</td>
                                         <td>{{ $product->description }}</td>
-                                        <td>{{ $product->brand->name }}</td>
-                                        <td>{{ $product->category->name }}</td>
-                                        <td>{{ $product->part->name }}</td>
-                                        <td>{{ $product->unit->name }}</td>
+                                        <td>{{ $product->brand }}</td>
+                                        <td>{{ $product->category->name or '' }}</td>
+                                        <td>{{ $product->parts->name or '' }}</td>
+                                        <td>{{ $product->unit->name or ''}}</td>
                                         <td>
                                             {{ Form::open(['action'=>['ProductController@destroy',$product->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                             <a href="{{ action('ProductController@edit',$product->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
