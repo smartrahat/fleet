@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PurchaseRequest;
+use App\Product;
 use App\Purchase;
 use App\Repositories\PurchaseRepository;
 use App\Stock;
@@ -18,9 +19,12 @@ class PurchaseController extends Controller
         //programRepository is the class name & also the file name
     }
 
-    public function create(){
+    public function create()
+    {
         $repository = $this->repository;
-        return view('purchase.create',compact('repository'));
+        $products = Product::all()->where('purchase_id', null);
+        $num = 0;
+        return view('purchase.create', compact('repository', 'products', 'num'));
     }
 
     public function index(PurchaseRequest $request)

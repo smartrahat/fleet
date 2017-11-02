@@ -9,7 +9,7 @@ class Product extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name','brand_id','category_id','part_id','unit_id','description'];
+    protected $fillable = ['name','brand_id','category_id','parts_id','unit_id','description'];
 
     public function category()
     {
@@ -18,7 +18,7 @@ class Product extends Model
 
     public function stock()
     {
-       return $this->belongsTo(Stock::class);
+       return $this->hasOne(Stock::class);
     }
 
     public function brand()

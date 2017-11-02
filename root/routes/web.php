@@ -201,3 +201,5 @@ Route::delete('product/delete/{id}','ProductController@destroy');
 
 /** Stock routes */
 Route::get('stocks','StockController@index');
+Route::get('stock/edit/{id}','StockController@edit');
+Route::delete('stocks','StockController@destroy');

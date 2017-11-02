@@ -16,7 +16,6 @@ class ForeignPurchasesTable extends Migration
         Schema::table('purchases', function (Blueprint $table) {
             $table->foreignAuthority();
             $table->foreign('supplier_id')->references('id')->on('suppliers');
-            $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('parts_id')->references('id')->on('parts');
             $table->foreign('brand_id')->references('id')->on('productbrands');
@@ -34,7 +33,6 @@ class ForeignPurchasesTable extends Migration
         Schema::table('purchases', function (Blueprint $table) {
             $table->dropForeignAuthority();
             $table->dropForeign(['supplier_id']);
-            $table->dropForeign(['vehicle_id']);
             $table->dropForeign(['category_id']);
             $table->dropForeign(['parts_id']);
             $table->dropForeign(['brand_id']);

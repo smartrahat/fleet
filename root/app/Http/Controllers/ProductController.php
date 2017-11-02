@@ -6,6 +6,7 @@ use App\Product;
 use App\Repositories\ProductRepository;
 use App\Stock;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
@@ -36,8 +37,16 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'products'"));
+        $query = $query[0]->Auto_increment;
+
+        $request['product_id'] = $query;
         Product::query()->create($request->all());
-        Session::flash('success','"'.$request->name.'" has been added!');
+
+        //dd($request->all());
+//        $request['paid'] = $request->get('adv_rent');
+        Stock::query()->create($request->all());
+
         return redirect('products');
     }
 

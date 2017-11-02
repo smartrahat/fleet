@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('brand_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->integer('part_id')->unsigned();
+            $table->integer('parts_id')->unsigned();
             $table->integer('unit_id')->unsigned();
             $table->text('description')->nullable();
             $table->timestamps();

@@ -36,13 +36,14 @@
                             <th>Serial No.</th>
                             <th>Product Name</th>
                             <th>Quantity</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($stocks as $stock)
                         <tr>
                             <td>{{ $stock->id }}</td>
-                            <td>{{ $stock->product->name }}</td>
+                            <td>{{ $stock->product->name}}</td>
                             <td>{{ $stock->quantity or '' }}</td>
                             <td>
                                 {{ Form::open(['action'=>['StockController@destroy',$stock->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}

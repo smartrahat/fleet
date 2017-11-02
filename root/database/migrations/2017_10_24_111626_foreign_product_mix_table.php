@@ -17,7 +17,7 @@ class ForeignProductMixTable extends Migration
             $table->foreignAuthority();
             $table->foreign('brand_id')->references('id')->on('productBrands');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('part_id')->references('id')->on('parts');
+            $table->foreign('parts_id')->references('id')->on('parts');
             $table->foreign('unit_id')->references('id')->on('units');
         });
     }
@@ -33,7 +33,7 @@ class ForeignProductMixTable extends Migration
             $table->dropForeignAuthority();
             $table->dropForeign(['brand_id']);
             $table->dropForeign(['category_id']);
-            $table->dropForeign(['part_id']);
+            $table->dropForeign(['parts_id']);
             $table->dropForeign(['unit_id']);
         });
     }
