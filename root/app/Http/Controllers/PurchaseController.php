@@ -24,7 +24,7 @@ class PurchaseController extends Controller
     public function create()
     {
         $repository = $this->repository;
-        $products = Product::all()->where('purchase_id', null);
+        $products = Invoice::all()->where('purchase_id', null);
         $num = 0;
         return view('purchase.create', compact('repository', 'products', 'num'));
     }
