@@ -88,12 +88,13 @@ class PurchaseController extends Controller
                 $data = [
                     'purchase_id' => $query,
                     'category_id' => $request['category_id'.$num],
+                    'parts_id' => $request['parts_id'.$num],
                     'brand_id' => $request['brand_id'.$num],
                     'quantity' => $request['quantity'.$num],
                     'rate' => $request['rate'.$num],
                     'p_total' => $request['p_total'.$num],
                 ];
-                //dd($data);
+//                dd($data);
                 Invoice::query()->create($data);
             }
         }
