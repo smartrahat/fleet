@@ -19,11 +19,6 @@ class CreatePurchasesTable extends Migration
             $table->date('date');
             $table->integer('supplier_id')->unsigned();
             $table->string('voucher');
-            $table->integer('category_id')->unsigned();
-            $table->integer('parts_id')->unsigned();
-            $table->integer('brand_id')->unsigned();
-            $table->integer('quantity');
-            $table->float('rate');
             $table->float('total');
             $table->float('advance');
             $table->float('due');
