@@ -138,7 +138,7 @@ class ProgramController extends Controller
         foreach($keys as $key){
             //dd($key);
             preg_match('!\d+!',$key,$number);
-            //dd($number);
+//            dd($number);
             foreach($number as $num){
 //                dd($num);
                 $data = [

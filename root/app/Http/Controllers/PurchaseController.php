@@ -77,14 +77,14 @@ class PurchaseController extends Controller
     {
         //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
         //dd($request);
-        $keys = preg_grep('/^brand_id[0-9]/',array_keys($request));
+        $keys = preg_grep('/^category_id[0-9]/',array_keys($request));
 //        dd($keys);
         foreach($keys as $key){
-            //dd($key);
+//            dd($key);
             preg_match('!\d+!',$key,$number);
 //            dd($number);
             foreach($number as $num){
-                //dd($num);
+//                dd($num);
                 $data = [
                     'purchase_id' => $query,
                     'category_id' => $request['category_id'.$num],

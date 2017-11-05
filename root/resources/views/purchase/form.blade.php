@@ -114,7 +114,7 @@
                         <!-- Quantity Starts-->
                         <div class="col-md-2 {{$errors->has('quantity')?'has-error':''}}">
                             <label class="control-label text-left" for="quantity1">Quantity</label>
-                            {{ Form::text('quantity', null, ['class' => 'form-control','id'=>'quantity1']) }}
+                            {{ Form::text('quantity', null, ['class' => 'form-control','id'=>'quantity']) }}
                             @if($errors->has('quantity'))
                                 <span class="help-block"><strong>{{$errors->first('quantity')}}</strong></span>
                             @endif
@@ -257,7 +257,6 @@
 <!-- ends-->
 
 
-
 @section('script')
     <script>
         // Add new row
@@ -274,7 +273,7 @@
 
             $('select[id^="category_id"]:last').prop('id','category_id'+num).prop('name','category_id'+num);
             $('select[id^="parts_id"]:last').prop('id','parts_id'+num).prop('name','parts_id'+num);
-            $('input[id^="brand_id"]:last').prop('id','brand_id'+num).prop('name','brand_id'+num);
+            $('select[id^="brand_id"]:last').prop('id','brand_id'+num).prop('name','brand_id'+num);
             $('input[id^="quantity"]:last').prop('id','quantity'+num).prop('name','quantity'+num);
             $('input[id^="rate"]:last').prop('id','rate'+num).prop('name','rate'+num);
             $('input[id^="p_total"]:last').prop('id','p_total'+num).prop('name','p_total'+num);
@@ -333,7 +332,7 @@
             for(var i=1;i<num;i++) {
                 var a = $("#product" + i + " input[id^='rate']").val();
                 var b = $("#product" + i + " input[id^='quantity']").val();
-                var c = $("#product" + i + " input[id^='p_total']").val(parseInt(a) * parseInt(b));
+                var c = $("#product" + i + " input[id^='p_total']").val(parseFloat(a) * parseInt(b));
 
                 if (isNaN(a)) {a = 0}
                 if (isNaN(b)) {b = 0}
