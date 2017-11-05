@@ -42,7 +42,7 @@ class PurchaseController extends Controller
     {
         $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'purchases'"));
         $query = $query[0]->Auto_increment;
-
+//        dd($query);
         $request['purchase_id'] = $query;
         Purchase::query()->create($request->all());
 
@@ -77,12 +77,12 @@ class PurchaseController extends Controller
     {
         //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
         //dd($request);
-        $keys = preg_grep('/^parts_id[0-9]/',array_keys($request));
+        $keys = preg_grep('/^brand_id[0-9]/',array_keys($request));
 //        dd($keys);
         foreach($keys as $key){
             //dd($key);
             preg_match('!\d+!',$key,$number);
-            //dd($number);
+//            dd($number);
             foreach($number as $num){
                 //dd($num);
                 $data = [
@@ -92,7 +92,7 @@ class PurchaseController extends Controller
                     'brand_id' => $request['brand_id'.$num],
                     'quantity' => $request['quantity'.$num],
                     'rate' => $request['rate'.$num],
-                    'p_total' => $request['p_total'.$num],
+                    'p_total' => $request['p_total'.$num]
                 ];
 //                dd($data);
                 Invoice::query()->create($data);

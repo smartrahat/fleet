@@ -140,7 +140,7 @@ class ProgramController extends Controller
             preg_match('!\d+!',$key,$number);
             //dd($number);
             foreach($number as $num){
-                //dd($num);
+//                dd($num);
                 $data = [
                     'program_id' => $query,
                     'vehicle_id' => $request['vehicle_id'.$num],

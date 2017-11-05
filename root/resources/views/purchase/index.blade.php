@@ -55,17 +55,17 @@
                                 <tr>
                                     <td>{{$purchase->id}}</td>
                                     <td>{{$purchase->date}}</td>
-                                    <td>{{$purchase->supplier->supplier_name}}</td>
-                                    <td>{{$purchase->voucher}}</td>
-                                    <td>{{$purchase->vehicle->vehicleNo}}</td>
-                                    <td>{{$purchase->category->name}}</td>
-                                    <td>{{$purchase->parts->name}}</td>
-                                    <td>{{$purchase->brand->name}}</td>
-                                    <td>{{$purchase->quantity}}</td>
-                                    <td>{{$purchase->rate}}</td>
-                                    <td>{{$purchase->total}}</td>
-                                    <td>{{$purchase->advance}}</td>
-                                    <td>{{$purchase->due}}</td>
+                                    <td>{{$purchase->supplier->supplier_name or ''}}</td>
+                                    <td>{{$purchase->voucher or ''}}</td>
+                                    <td>{{$purchase->vehicle->vehicleNo or ''}}</td>
+                                    <td>{{$purchase->category->name or ''}}</td>
+                                    <td>{{$purchase->parts->name or ''}}</td>
+                                    <td>{{$purchase->brand->name or ''}}</td>
+                                    <td>{{$purchase->quantity or ''}}</td>
+                                    <td>{{$purchase->rate or ''}}</td>
+                                    <td>{{$purchase->total or ''}}</td>
+                                    <td>{{$purchase->advance or ''}}</td>
+                                    <td>{{$purchase->due or ''}}</td>
                                   <td>
                                         {{ Form::open(['action'=>['PurchaseController@destroy',$purchase->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('PurchaseController@edit',$purchase->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
