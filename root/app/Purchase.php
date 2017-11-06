@@ -6,25 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Purchase extends Model
 {
-    protected $fillable = ['date','supplier_id','voucher','total','advance','due'];
+    protected $fillable = ['invoice_id','category_id','parts_id','brand_id','quantity','rate','p_total'];
 
-
-    public function supplier()
+    public function invoice()
     {
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsTo(Invoice::class);
     }
 
-    public function invoices()
+    public function category()
     {
-        return $this->hasMany(Invoice::class);
+        return $this->belongsTo(Category::class);
     }
 
-    public function stock()
+    public function parts()
     {
-        return $this->belongsTo(Stock::class);
+        return $this->belongsTo(Parts::class);
     }
 
-
+    public function brand()
+    {
+        return $this->belongsTo(ProductBrand::class);
+    }
 }
-
-

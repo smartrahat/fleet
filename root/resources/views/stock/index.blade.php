@@ -33,18 +33,18 @@
                     <table class="table table-bordered table-striped table-condensed mb-none">
                         <thead>
                         <tr>
-                            <th>Serial No.</th>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Action</th>
+                            <th class="text-center">Serial No.</th>
+                            <th class="text-center">Product Name</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($stocks as $stock)
-                        <tr>
+                        <tr class="text-center">
                             <td>{{ $stock->id }}</td>
                             <td>{{ $stock->product->name}}</td>
-                            <td>{{ $stock->quantity or '' }}</td>
+                            <td>{{ $stock->quantity or 0 }}</td>
                             <td>
                                 {{ Form::open(['action'=>['StockController@destroy',$stock->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                 <a href="{{ action('StockController@edit',$stock->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

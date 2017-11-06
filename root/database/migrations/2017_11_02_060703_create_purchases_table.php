@@ -16,12 +16,13 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->increments('id');
             $table->authorities();
-            $table->date('date');
-            $table->integer('supplier_id')->unsigned();
-            $table->string('voucher');
-            $table->float('total');
-            $table->float('advance');
-            $table->float('due');
+            $table->integer('invoice_id')->unsigned();
+            $table->integer('category_id')->unsigned();
+            $table->integer('parts_id')->unsigned();
+            $table->integer('brand_id')->unsigned();
+            $table->integer('quantity');
+            $table->float('rate');
+            $table->float('p_total');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +35,6 @@ class CreatePurchasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('invoices');
     }
 }

@@ -10,7 +10,7 @@ use App\ProductBrand;
 use App\Supplier;
 use App\Vehicle;
 
-class PurchaseRepository {
+class InvoiceRepository {
 
     public function categories(){
         return Category::all()->pluck('name','id');

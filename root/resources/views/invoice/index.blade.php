@@ -30,7 +30,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <a href="{{ action('PurchaseController@create') }}" role="button" class="btn btn-success">New Purchase</a><br />
+                                <a href="{{ action('InvoiceController@create') }}" role="button" class="btn btn-success">New Purchase</a><br />
                                 <table class="table table-bordered table-striped table-condensed mb-none">
                                     <thead>
                                     <tr>
@@ -51,24 +51,24 @@
                              </tr>
                         </thead>
                         <tbody>
-                            @foreach($purchases as $purchase)
+                            @foreach($invoices as $invoice)
                                 <tr>
-                                    <td>{{$purchase->id}}</td>
-                                    <td>{{$purchase->date}}</td>
-                                    <td>{{$purchase->supplier->supplier_name or ''}}</td>
-                                    <td>{{$purchase->voucher or ''}}</td>
-                                    <td>{{$purchase->vehicle->vehicleNo or ''}}</td>
-                                    <td>{{$purchase->category->name or ''}}</td>
-                                    <td>{{$purchase->parts->name or ''}}</td>
-                                    <td>{{$purchase->brand->name or ''}}</td>
-                                    <td>{{$purchase->quantity or ''}}</td>
-                                    <td>{{$purchase->rate or ''}}</td>
-                                    <td>{{$purchase->total or ''}}</td>
-                                    <td>{{$purchase->advance or ''}}</td>
-                                    <td>{{$purchase->due or ''}}</td>
+                                    <td>{{$invoice->id}}</td>
+                                    <td>{{$invoice->date}}</td>
+                                    <td>{{$invoice->supplier->supplier_name or ''}}</td>
+                                    <td>{{$invoice->voucher or ''}}</td>
+                                    <td>{{$invoice->vehicle->vehicleNo or ''}}</td>
+                                    <td>{{$invoice->category->name or ''}}</td>
+                                    <td>{{$invoice->parts->name or ''}}</td>
+                                    <td>{{$invoice->brand->name or ''}}</td>
+                                    <td>{{$invoice->quantity or ''}}</td>
+                                    <td>{{$invoice->rate or ''}}</td>
+                                    <td>{{$invoice->total or ''}}</td>
+                                    <td>{{$invoice->advance or ''}}</td>
+                                    <td>{{$invoice->due or ''}}</td>
                                   <td>
-                                        {{ Form::open(['action'=>['PurchaseController@destroy',$purchase->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
-                                        <a href="{{ action('PurchaseController@edit',$purchase->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        {{ Form::open(['action'=>['InvoiceController@destroy',$invoice->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
+                                        <a href="{{ action('InvoiceController@edit',$invoice->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                         {{ Form::submit('X',['class'=>'btn btn-danger']) }}
                                         {{ Form::close() }}
                                     </td>

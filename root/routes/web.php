@@ -174,13 +174,13 @@ Route::get('supplier/edit/{id}','SupplierController@edit');
 Route::patch('supplier/{id}/update','SupplierController@update');
 Route::delete('supplier/destroy/{id}','SupplierController@destroy');
 
-/**Purchase routes */
-Route::get('purchases', 'PurchaseController@index');
-Route::get('purchase/create', 'PurchaseController@create');
-Route::post('purchase/store', 'PurchaseController@store');
-Route::get('purchase/edit/{id}','PurchaseController@edit');
-Route::patch('purchase/{id}/update','PurchaseController@update');
-Route::delete('purchase/delete/{id}','PurchaseController@destroy');
+/**Invoice routes */
+Route::get('purchases', 'InvoiceController@index');
+Route::get('purchase/create', 'InvoiceController@create');
+Route::post('purchase/store', 'InvoiceController@store');
+Route::get('purchase/edit/{id}','InvoiceController@edit');
+Route::patch('purchase/{id}/update','InvoiceController@update');
+Route::delete('purchase/delete/{id}','InvoiceController@destroy');
 
 /** Product Brand routes */
 Route::get('productBrands', 'ProductBrandController@index');

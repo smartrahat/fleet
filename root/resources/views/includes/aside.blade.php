@@ -263,10 +263,10 @@
                         </a>
                         <ul class="nav nav-children">
                             <li class="{{ isActive('purchases') }}">
-                                <a href="{{ action('PurchaseController@index') }}">Purchase list</a>
+                                <a href="{{ action('InvoiceController@index') }}">Purchase list</a>
                             </li>
                             <li class="{{ isActive('purchase/create') }}">
-                                <a href="{{ action('PurchaseController@create') }}">Add Purchase</a>
+                                <a href="{{ action('InvoiceController@create') }}">Add Purchase</a>
                             </li>
                         </ul>
                     </li>

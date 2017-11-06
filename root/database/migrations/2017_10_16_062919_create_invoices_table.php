@@ -16,13 +16,12 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
             $table->authorities();
-            $table->integer('purchase_id')->unsigned();
-            $table->integer('category_id')->unsigned();
-            $table->integer('parts_id')->unsigned();
-            $table->integer('brand_id')->unsigned();
-            $table->integer('quantity');
-            $table->float('rate');
-            $table->float('p_total');
+            $table->date('date');
+            $table->integer('supplier_id')->unsigned();
+            $table->string('voucher');
+            $table->float('total');
+            $table->float('advance');
+            $table->float('due');
             $table->timestamps();
             $table->softDeletes();
         });

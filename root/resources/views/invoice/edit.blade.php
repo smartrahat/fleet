@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title','Add Purchase')
+@section('title','Purchase Edit')
 
 @section('content')
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Dashboard</h2>
+                <h2>Edit Purchase</h2>
                 <div class="right-wrapper pull-right">
                     <ol class="breadcrumbs">
                         <li>
@@ -13,7 +13,7 @@
                                 <i class="fa fa-home"></i>
                             </a>
                         </li>
-                        <li><span>Dashboard</span></li>
+                        <li><span>Edit Purchase</span></li>
                     </ol>
                     <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -26,18 +26,17 @@
                             <div class="panel-actions">
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">Purchase Form</h2>
+                            <h2 class="panel-title">Purchase Update Form</h2>
                         </header>
 
                         <div class="panel-body">
-                            {{ Form::open(array('action' => 'PurchaseController@store','method'=>'post','class'=>'form-horizontal')) }}
-                                @include('purchase.form',['submitButtonText'=>'Save'])
+                            {{ Form::model($invoice,['action'=>['InvoiceController@update',$invoice->id],'method'=>'patch','class'=>'form-horizontal'])}}
+                            @include('invoice.form',['submitButtonText'=>'Update'])
                             {{ Form::close() }}
                         </div>
                     </section>
                 </div>
             </div>
         </section>
-    </div>
     <!-- end: page -->
 @endsection

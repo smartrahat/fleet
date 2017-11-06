@@ -3,28 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Invoice extends Model
 {
-    protected $fillable = ['purchase_id','category_id','parts_id','brand_id','quantity','rate','p_total'];
+    use SoftDeletes;
+    protected $fillable = ['date','supplier_id','voucher','total','advance','due'];
 
-    public function purchase()
+    public function supplier()
     {
-        return $this->belongsTo(Purchase::class);
+        return $this->belongsTo(Supplier::class);
     }
 
-    public function category()
+    public function purchases()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Purchase::class);
     }
 
-    public function parts()
+    public function stock()
     {
-        return $this->belongsTo(Parts::class);
-    }
-
-    public function brand()
-    {
-        return $this->belongsTo(ProductBrand::class);
+        return $this->belongsTo(Stock::class);
     }
 }

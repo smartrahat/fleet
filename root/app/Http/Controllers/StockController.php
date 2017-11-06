@@ -12,6 +12,7 @@ class StockController extends Controller
     {
         $stocks = Stock::all();
         return view('stock.index',compact('stocks'));
+
     }
 
     public function edit($id)
