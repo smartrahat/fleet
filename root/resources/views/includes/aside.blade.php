@@ -178,6 +178,9 @@
                             <li class="{{ isActive('productBrands') }}">
                                 <a href="{{ action('ProductBrandController@index') }}">Add Product Brand</a>
                             </li>
+                            <li class="{{ isActive('units') }}">
+                                <a href="{{ action('UnitController@index') }}">Add Unit</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -262,10 +265,10 @@
                             <span>Purchase</span>
                         </a>
                         <ul class="nav nav-children">
-                            <li class="{{ isActive('purchases') }}">
+                            <li class="{{ isActive('invoices') }}">
                                 <a href="{{ action('InvoiceController@index') }}">Purchase list</a>
                             </li>
-                            <li class="{{ isActive('purchase/create') }}">
+                            <li class="{{ isActive('invoice/create') }}">
                                 <a href="{{ action('InvoiceController@create') }}">Add Purchase</a>
                             </li>
                         </ul>

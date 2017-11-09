@@ -38,8 +38,11 @@ class ProgramController extends Controller
     {
         $repository = $this->repository;
         $programs = Program::all();
+        $total = Program::query()->sum('rent');
+        $paid = Program::query()->sum('adv_rent');
+        $due = Program::query()->sum('due_rent');
         $i=1;
-        return view('program.index',compact('programs','i','repository'));
+        return view('program.index',compact('programs','i','total','paid','due','repository'));
     }
 
     public function store(ProgramRequest $request)

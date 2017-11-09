@@ -24,7 +24,11 @@ class SupplierRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+                'supplier_name'     =>'required|max:255',
+                'name'              =>'required|max:255',
+                'address'           =>'required|max:255',
+                'mobile'            =>'required|digits_between:0,14',
+                'email'             =>'required|max:100'
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\SupplierRequest;
 use App\Supplier;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class SupplierController extends Controller
         return redirect('suppliers');
     }
 
-    public function index(SupplierRequest $request)
+    public function index()
     {
         $suppliers = Supplier::all();
         return view('supplier.index',compact('suppliers'));

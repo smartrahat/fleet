@@ -6,6 +6,7 @@ namespace App\Repositories;
 use App\Brand;
 use App\Category;
 use App\Parts;
+use App\Product;
 use App\ProductBrand;
 use App\Supplier;
 use App\Vehicle;
@@ -34,5 +35,10 @@ class InvoiceRepository {
     public function vehicles()
     {
         return Vehicle::all()->pluck('vehicleNo','id');
+    }
+
+    public function products()
+    {
+        return Product::all()->pluck('name','id');
     }
 }

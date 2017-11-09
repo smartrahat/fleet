@@ -39,8 +39,6 @@
                             <th>Serial Number</th>
                             <th>Party Name</th>
                             <th>SR Name</th>
-                            <th>Driver Name</th>
-                            <th>Vehicle Number</th>
                             <th>Advance Rent</th>
                             <th>Due Rent</th>
                             <th>Total Rent</th>
@@ -55,8 +53,6 @@
                             <td>{{ $program->serial }}</td>
                             <td>{{ $program->party->name or '' }}</td>
                             <td>{{ $program->employee->name or '' }}</td>
-                            <td>{{ $program->driver->name or '' }}</td>
-                            <td>{{ $program->vehicle->vehicleNo or '' }}</td>
                             <td class="text-right">{{ number_format($program->adv_rent,2) }}/-</td>
                             <td class="text-right">{{ number_format($program->due_rent,2) }}/-</td>
                             <td class="text-right">{{ number_format($program->rent,2) }}/-</td>
@@ -68,6 +64,13 @@
                             </td>
                         </tr>
                         @endforeach
+                        <tr>
+                            <td colspan="5" class="text-right"><b>Total</b></td>
+                            <td class="text-right"><b>{{ number_format($paid)}}/-</b></td>
+                            <td class="text-right"><b>{{number_format($due)}}/-</b></td>
+                            <td class="text-right"><b>{{number_format($total)}}/-</b></td>
+                            <td></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

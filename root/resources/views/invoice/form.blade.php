@@ -94,23 +94,9 @@
                         <div class=" col-md-2">
                             <label class="control-label" for="category_id">Category</label>
                             <div class="">
-                                {!! Form::select('category_id',$repository->categories(),null,['id'=>'category_id','class'=>'form-control','required','placeholder'=>'Select a category']) !!}
+                                {!! Form::select('product_id',$repository->products(),null,['id'=>'product_id','class'=>'form-control','required','placeholder'=>'Select a product']) !!}
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <label class="control-label" for="parts_id">Parts</label>
-                            <div class="">
-                                {!! Form::select('parts_id',$repository->parts(),null,['id'=>'parts_id','class'=>'form-control','required','placeholder'=>'Select a part']) !!}
-                            </div>
-                        </div>
-
-                        <div class="col-md-2">
-                            <label class="control-label" for="brand_id">Brand</label>
-                            <div class="">
-                                {!! Form::select('brand_id',$repository->brands(),null,['id'=>'brand_id','class'=>'form-control','required','placeholder'=>'Select a brand']) !!}
-                            </div>
-                        </div>
-
                         <!-- Quantity Starts-->
                         <div class="col-md-2 {{$errors->has('quantity')?'has-error':''}}">
                             <label class="control-label text-left" for="quantity1">Quantity</label>
@@ -166,21 +152,8 @@
                     <div class=" col-md-2">
                         <label class="control-label" for="category_id">Category</label>
                         <div class="">
-                            {!! Form::select('category_id1',$repository->categories(),null,['id'=>'category_id1','class'=>'form-control','required','placeholder'=>'Select a category']) !!}
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="control-label" for="parts_id">Parts</label>
-                        <div class="">
-                            {!! Form::select('parts_id1',$repository->parts(),null,['id'=>'parts_id1','class'=>'form-control','required','placeholder'=>'Select a part']) !!}
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label class="control-label" for="brand_id">Brand</label>
-                        <div class="">
-                            {!! Form::select('brand_id1',$repository->brands(),null,['id'=>'brand_id1','class'=>'form-control','required','placeholder'=>'Select a brand']) !!}
-                        </div>
+                            {!! Form::select('product_id1',$repository->products(),null,['id'=>'product_id1','class'=>'form-control','required','placeholder'=>'Select a product']) !!}
+                         </div>
                     </div>
 
                     <!-- Quantity Starts-->
@@ -271,9 +244,7 @@
             // Clone it and assign the new ID (i.e: from num 4 to ID "product4")
             var $klon = $div.clone().prop('id', 'product'+num);
 
-            $('select[id^="category_id"]:last').prop('id','category_id'+num).prop('name','category_id'+num);
-            $('select[id^="parts_id"]:last').prop('id','parts_id'+num).prop('name','parts_id'+num);
-            $('select[id^="brand_id"]:last').prop('id','brand_id'+num).prop('name','brand_id'+num);
+            $('select[id^="product_id"]:last').prop('id','product_id'+num).prop('name','product_id'+num);
             $('input[id^="quantity"]:last').prop('id','quantity'+num).prop('name','quantity'+num);
             $('input[id^="rate"]:last').prop('id','rate'+num).prop('name','rate'+num);
             $('input[id^="p_total"]:last').prop('id','p_total'+num).prop('name','p_total'+num);

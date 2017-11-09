@@ -6,6 +6,7 @@ use App\Http\Requests\InvoiceRequest;
 use App\Invoice;
 use App\Purchase;
 use App\Repositories\InvoiceRepository;
+use App\Stock;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -40,7 +41,6 @@ class InvoiceController extends Controller
     {
         $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
         $query = $query[0]->Auto_increment;
-//        dd($query);
         $request['invoice_id'] = $query;
         Invoice::query()->create($request->all());
 
@@ -75,7 +75,7 @@ class InvoiceController extends Controller
     {
         //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
         //dd($request);
-        $keys = preg_grep('/^category_id[0-9]/',array_keys($request));
+        $keys = preg_grep('/^product_id[0-9]/',array_keys($request));
 //        dd($keys);
         foreach($keys as $key){
 //            dd($key);
@@ -85,15 +85,21 @@ class InvoiceController extends Controller
 //                dd($num);
                 $data = [
                     'invoice_id' => $query,
-                    'category_id' => $request['category_id'.$num],
-                    'parts_id' => $request['parts_id'.$num],
-                    'brand_id' => $request['brand_id'.$num],
+                    'product_id' => $request['product_id'.$num],
                     'quantity' => $request['quantity'.$num],
                     'rate' => $request['rate'.$num],
                     'p_total' => $request['p_total'.$num]
                 ];
 //                dd($data);
                 Purchase::query()->create($data);
+
+                $stock = Stock::query()->where('product_id',$request['product_id'.$num])->first();
+                $data = $stock->quantity + $request['quantity'.$num];
+                $stock->update(['quantity'=>$data]);
+
+
+
+
             }
         }
     }

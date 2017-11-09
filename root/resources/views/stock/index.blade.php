@@ -44,7 +44,7 @@
                         <tr class="text-center">
                             <td>{{ $stock->id }}</td>
                             <td>{{ $stock->product->name}}</td>
-                            <td>{{ $stock->quantity or 0 }}</td>
+                            <td>{{ $stock->quantity or 0 }} {{$stock->product->unit->name}}</td>
                             <td>
                                 {{ Form::open(['action'=>['StockController@destroy',$stock->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                 <a href="{{ action('StockController@edit',$stock->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

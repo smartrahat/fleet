@@ -17,9 +17,7 @@ class CreatePurchasesTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->integer('invoice_id')->unsigned();
-            $table->integer('category_id')->unsigned();
-            $table->integer('parts_id')->unsigned();
-            $table->integer('brand_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->integer('quantity');
             $table->float('rate');
             $table->float('p_total');

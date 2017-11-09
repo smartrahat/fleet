@@ -15,7 +15,7 @@ class ForeignStockTable extends Migration
     {
         Schema::table('stocks', function (Blueprint $table) {
             $table->foreignAuthority();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
