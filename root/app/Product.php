@@ -26,7 +26,11 @@ class Product extends Model
         return $this->belongsTo(ProductBrand::class);
     }
 
-    public function part()
+    /**
+     * A product is belongs to a parts
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parts()
     {
         return $this->belongsTo(Parts::class);
     }

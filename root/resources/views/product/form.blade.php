@@ -3,7 +3,7 @@
 <div class="form-group {{ $errors->has('brand_id') ? ' has-error' : '' }}">
     {{ Form::label('brand', 'Brand:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('brand_id',$repository->categories(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Brands']) }}
+        {{ Form::select('brand_id',$repository->brands(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Brands']) }}
         @if ($errors->has('brand_id'))
             <span class="help-block"><strong>{{ $errors->first('brand_id') }}</strong></span>
         @endif

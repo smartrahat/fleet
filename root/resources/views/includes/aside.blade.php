@@ -157,7 +157,7 @@
                     </li>
 
 
-                    <li class="nav-parent {{ isActive(['parts*','productBrands*','categories*','products*','product/create*']) }}">
+                    <li class="nav-parent {{ isActive(['parts*','categor*','product*','unit*']) }}">
                         <a>
                             <i class="fa fa-gift" aria-hidden="true"></i>
                             <span>Products</span>
@@ -259,7 +259,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['purchase*','addPurchase*']) }}">
+                    <li class="nav-parent {{ isActive(['invoice*','addPurchase*']) }}">
                         <a>
                             <i class="fa fa-balance-scale" aria-hidden="true"></i>
                             <span>Purchase</span>

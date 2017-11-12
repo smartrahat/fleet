@@ -9,12 +9,18 @@
 namespace App\Repositories;
 
 
+use App\Brand;
 use App\Category;
 use App\Parts;
 use App\Unit;
 
 class ProductRepository
 {
+    public function brands()
+    {
+        return Brand::all()->pluck('name','id');
+    }
+
     public function categories()
     {
         return Category::all()->pluck('name','id');

@@ -112,6 +112,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Category</th>
                                     <th>Description</th>
                                     <th>Action</th>
                                 </tr>
@@ -121,6 +122,7 @@
                                     <tr>
                                         <td>{{ $part->id }}</td>
                                         <td>{{ $part->name }}</td>
+                                        <td>{{ $part->category->name }}</td>
                                         <td>{{ $part->description }}</td>
                                         <td>
                                             {{ Form::open(['action'=>['PartsController@destroy',$part->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}

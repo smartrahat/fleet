@@ -11,8 +11,11 @@ class Parts extends Model
 
     protected $fillable = ['category_id','name','description',];
 
-
-    public function categories()
+    /**
+     * A part is belongs to a category
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }

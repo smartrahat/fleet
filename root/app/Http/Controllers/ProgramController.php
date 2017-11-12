@@ -75,8 +75,8 @@ class ProgramController extends Controller
         $program->update($request->all());
 
         $ids = Trip::all()->whereIn('program_id',$id)->pluck('id');
-        foreach($ids as $id){
-            $trip = Trip::query()->findOrFail($id);
+        foreach($ids as $tid){
+            $trip = Trip::query()->findOrFail($tid);
             $trip->delete();
         }
 
@@ -135,15 +135,13 @@ class ProgramController extends Controller
     public function trips($request,$query)
     {
         //$query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'invoices'"));
-        //dd($request);
         $keys = preg_grep('/^driver_id[0-9]/',array_keys($request));
-//        dd($keys);
+        //dd($query);
         foreach($keys as $key){
             //dd($key);
             preg_match('!\d+!',$key,$number);
 //            dd($number);
             foreach($number as $num){
-//                dd($num);
                 $data = [
                     'program_id' => $query,
                     'vehicle_id' => $request['vehicle_id'.$num],
