@@ -17,7 +17,7 @@ class CreateUnitsTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

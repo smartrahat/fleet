@@ -9,7 +9,7 @@ class Unit extends Model
 {
     //use SoftDeletes;
 
-    protected $fillable = ['name','description'];
+    protected $fillable = ['company_id','user_id','name','description'];
 
     /**
      * An unit has many products
