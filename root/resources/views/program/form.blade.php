@@ -241,7 +241,9 @@
                 <!--REMOVE BUTTON END-->
 
             </div>
-
+            <div style="display:none">
+                {{ $num++ }}
+            </div>
         @endforeach
     @else
     <div class="text-center" id="product1">
