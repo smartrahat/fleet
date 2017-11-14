@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Invoice extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['date','supplier_id','voucher','total','advance','due'];
+    protected $fillable = ['date','employee_id','supplier_id','voucher','total','advance','due'];
 
     public function supplier()
     {
@@ -23,5 +23,10 @@ class Invoice extends Model
     public function stock()
     {
         return $this->belongsTo(Stock::class);
+    }
+
+    public function employees()
+    {
+        return $this->belongsTo(Employee::class);
     }
 }

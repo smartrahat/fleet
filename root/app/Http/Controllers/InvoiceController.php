@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InvoiceRequest;
+
 use App\Invoice;
 use App\Purchase;
 use App\Repositories\InvoiceRepository;
@@ -51,14 +52,26 @@ class InvoiceController extends Controller
     public function edit($id)
     {
         $repository = $this->repository;
+        $products = Purchase::all()->where('invoice_id',$id);
+        $num = 1;
         $invoice = Invoice::query()->findOrFail($id);
-        return view('invoice.edit',compact('invoice','repository'));
+        return view('invoice.edit',compact('products','invoice','num','repository'));
     }
 
     public function update($id, InvoiceRequest $request)
     {
         $invoice = Invoice::query()->findOrFail($id);
         $invoice->update($request->all());
+
+        $ids = Purchase::all()->whereIn('program_id',$id)->pluck('id');
+        foreach($ids as $tid){
+            $purchase = Purchase::query()->findOrFail($tid);
+            $purchase->delete();
+        }
+
+        //dd($id);
+        $this->goods($request->all(),$id);
+
         Session::flash('success','"'.$invoice->name.'" is updated!');
         return redirect('invoices');
     }
@@ -96,10 +109,6 @@ class InvoiceController extends Controller
                 $stock = Stock::query()->where('product_id',$request['product_id'.$num])->first();
                 $data = $stock->quantity + $request['quantity'.$num];
                 $stock->update(['quantity'=>$data]);
-
-
-
-
             }
         }
     }

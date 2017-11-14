@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Invoice;
 use App\Purchase;
 use App\Repositories\InvoiceRepository;
@@ -9,7 +10,8 @@ use Illuminate\Support\Facades\Session;
 
 class PurchaseController extends Controller
 {
-    public function __construct(InvoiceRepository $repository){
+    public function __construct(InvoiceRepository $repository)
+    {
         $this->middleware('auth');
         $this->repository=$repository;
     }
@@ -29,6 +31,7 @@ class PurchaseController extends Controller
         $total = Purchase::query()->where('invoice_id',$id)->sum('p_total');
         return view('invoice.show',compact('invoice','total'));
     }
+
 
     public function destroy($id)
     {

@@ -17,6 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->date('date');
+            $table->integer('employee_id')->unsigned();
             $table->integer('supplier_id')->unsigned();
             $table->string('voucher');
             $table->float('total');

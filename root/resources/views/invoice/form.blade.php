@@ -14,6 +14,21 @@
     </div>
 </div>
 
+<!-- Buyer Name Starts-->
+<div class="form-group {{$errors->has('employee_id')?'has-error':''}}">
+    {{ Form::label('employee_id', 'Buyer Name:', array('class'=>'col-md-3 control-label')) }}
+    {{--<label class="col-md-3 control-label">Name</label>--}}
+    <div class="col-md-6">
+        {{ Form::select('employee_id',$repository->employees(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Supplier']) }}
+        @if($errors->has('employee_id'))
+            <span class="help-block"><strong>{{$errors->first('employee_id')}}</strong></span>
+        @endif
+    </div>
+</div>
+<!-- Supplier Name ends-->
+
+
+
 <!-- Supplier Name Starts-->
 <div class="form-group {{$errors->has('supplier_id')?'has-error':''}}">
     {{ Form::label('supplier_id', 'Shop Name:', array('class'=>'col-md-3 control-label')) }}
@@ -91,16 +106,16 @@
             <div class="text-center" id="product{{ $num }}">
                 <div class="col-md-10">
                     <div class="col-md-12">
-                        <div class=" col-md-2">
-                            <label class="control-label" for="category_id">Category</label>
+                        <div class=" col-md-3">
+                            <label class="control-label" for="product_id">Product Name</label>
                             <div class="">
-                                {!! Form::select('product_id',$repository->products(),null,['id'=>'product_id','class'=>'form-control','required','placeholder'=>'Select a product']) !!}
+                                {!! Form::select('product_id',$repository->products(),$product->product_id,['id'=>'product_id','class'=>'form-control','required','placeholder'=>'Select a product']) !!}
                             </div>
                         </div>
                         <!-- Quantity Starts-->
-                        <div class="col-md-2 {{$errors->has('quantity')?'has-error':''}}">
-                            <label class="control-label text-left" for="quantity1">Quantity</label>
-                            {{ Form::text('quantity', null, ['class' => 'form-control','id'=>'quantity']) }}
+                        <div class="col-md-3 {{$errors->has('quantity')?'has-error':''}}">
+                            <label class="control-label text-left" for="quantity">Quantity</label>
+                            {{ Form::text('quantity', $product->quantity, ['class' => 'form-control','id'=>'quantity']) }}
                             @if($errors->has('quantity'))
                                 <span class="help-block"><strong>{{$errors->first('quantity')}}</strong></span>
                             @endif
@@ -108,9 +123,9 @@
                         <!-- Quantity ends-->
 
                         <!-- Rate Starts-->
-                        <div class="col-md-2 {{$errors->has('rate')?'has-error':''}}">
+                        <div class="col-md-3 {{$errors->has('rate')?'has-error':''}}">
                             <label class="control-label text-left" for="rate1">Rate(tk)</label>
-                            {{ Form::text('rate', null, ['class' => 'form-control','id'=>'rate']) }}
+                            {{ Form::text('rate', $product->rate, ['class' => 'form-control','id'=>'rate']) }}
                             @if($errors->has('rate'))
                                 <span class="help-block"><strong>{{$errors->first('rate')}}</strong></span>
                             @endif
@@ -118,9 +133,9 @@
                         <!-- Rate ends-->
 
                         <!-- Total Starts-->
-                        <div class="col-md-2 {{$errors->has('p_total')?'has-error':''}}">
+                        <div class="col-md-3 {{$errors->has('p_total')?'has-error':''}}">
                             <label class="control-label text-left" for="p_total1">Total</label>
-                            {{ Form::text('p_total', null, ['class' => 'form-control','id'=>'p_total','readonly']) }}
+                            {{ Form::text('p_total', $product->p_total, ['class' => 'form-control','id'=>'p_total','readonly']) }}
                             @if($errors->has('p_total'))
                                 <span class="help-block"><strong>{{$errors->first('p_total')}}</strong></span>
                             @endif
@@ -132,32 +147,33 @@
 
 
                 <!--REMOVE BUTTON START-->
-                <div class="col-md-1 " >
+                <div class="col-md-2 " >
                     <div class="form-group " style="padding-top: 29px;">
-                        <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">X</button>
+                        <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">Remove</button>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <hr>
                 </div>
                 <!--REMOVE BUTTON END-->
-
             </div>
-
+            <div style="display:none">
+                {{ $num++ }}
+            </div>
         @endforeach
     @else
         <div class="text-center" id="product1">
-            <div class="col-md-11">
+            <div class="col-md-10">
                 <div class="col-md-12 col-md-offset-1" style="padding-left:0; padding-right: 40px;">
-                    <div class=" col-md-2">
-                        <label class="control-label" for="category_id">Category</label>
+                    <div class=" col-md-3">
+                        <label class="control-label" for="product_id">Product Name</label>
                         <div class="">
                             {!! Form::select('product_id1',$repository->products(),null,['id'=>'product_id1','class'=>'form-control','required','placeholder'=>'Select a product']) !!}
                          </div>
                     </div>
 
                     <!-- Quantity Starts-->
-                    <div class="col-md-2 {{$errors->has('quantity1')?'has-error':''}}">
+                    <div class="col-md-3 {{$errors->has('quantity1')?'has-error':''}}">
                         <label class="control-label text-left" for="quantity1">Quantity</label>
                         {{ Form::text('quantity1', null, ['class' => 'form-control','id'=>'quantity1']) }}
                         @if($errors->has('quantity1'))
@@ -167,7 +183,7 @@
                     <!-- Quantity ends-->
 
                     <!-- Rate Starts-->
-                    <div class="col-md-2 {{$errors->has('rate1')?'has-error':''}}">
+                    <div class="col-md-3 {{$errors->has('rate1')?'has-error':''}}">
                         <label class="control-label text-left" for="rate1">Rate(tk)</label>
                         {{ Form::text('rate1', null, ['class' => 'form-control','id'=>'rate1']) }}
                         @if($errors->has('rate1'))
@@ -177,7 +193,7 @@
                     <!-- Rate ends-->
 
                     <!-- Total Starts-->
-                    <div class="col-md-2 {{$errors->has('p_total1')?'has-error':''}}">
+                    <div class="col-md-3 {{$errors->has('p_total1')?'has-error':''}}">
                         <label class="control-label text-left" for="p_total1">Total</label>
                         {{ Form::text('p_total1', null, ['class' => 'form-control','id'=>'p_total1','readonly']) }}
                         @if($errors->has('p_total1'))
@@ -191,9 +207,9 @@
 
 
             <!--REMOVE BUTTON START-->
-            <div class="col-md-1 " >
+            <div class="col-md-2 " >
                 <div class="form-group " style="padding-top: 29px;">
-                    <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">X</button>
+                    <button type="button" class="btn btn-danger remove-btn" style="display: inline-block;">Remove</button>
                 </div>
             </div>
             <div class="col-md-12">

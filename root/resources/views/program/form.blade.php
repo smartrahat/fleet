@@ -59,7 +59,7 @@
 <div class="form-group">
     {{ Form::label('option', 'Rent Option:', ['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
-        {{ Form::select('option',['Fixed','On Product Weight'],null,['class'=>'form-control populate','id'=>'option','data-plugin-selectTwo','placeholder'=>'Select Rent Option']) }}
+        {{ Form::select('option',['Fixed','On Product Weight'],$program->option or null,['class'=>'form-control populate','id'=>'option','data-plugin-selectTwo','placeholder'=>'Select Rent Option']) }}
     </div>
 </div>
 <!-- Option ends-->

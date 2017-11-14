@@ -157,7 +157,7 @@
                     </li>
 
 
-                    <li class="nav-parent {{ isActive(['parts*','categor*','product*','unit*']) }}">
+                    <li class="nav-parent {{ isActive(['parts*','productBrands*','categories*','products*','product/create*']) }}">
                         <a>
                             <i class="fa fa-gift" aria-hidden="true"></i>
                             <span>Products</span>
@@ -216,12 +216,12 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a href="ui-elements-typography.html">
+                                <a href="">
                                     Add Product
                                 </a>
                             </li>
                             <li>
-                                <a href="ui-elements-typography.html">
+                                <a href="">
                                     Category
                                 </a>
 

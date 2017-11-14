@@ -15,6 +15,7 @@ class ForeignInvoicesTable extends Migration
     {
         Schema::table('invoices', function (Blueprint $table) {
             $table->foreignAuthority();
+            $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('supplier_id')->references('id')->on('suppliers');
         });
     }
@@ -29,6 +30,7 @@ class ForeignInvoicesTable extends Migration
     {
         Schema::table('invoices', function (Blueprint $table) {
             $table->dropForeignAuthority();
+            $table->dropForeign(['employee_id']);
             $table->dropForeign(['supplier_id']);
         });
     }

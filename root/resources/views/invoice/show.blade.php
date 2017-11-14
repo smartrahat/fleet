@@ -64,7 +64,6 @@
                                             {{ Form::close() }}
                                         </td>
                                     </tr>
-
                                 @endforeach
                                 <tr>
                                     <td colspan="6" class="text-right"><b>Total</b></td>

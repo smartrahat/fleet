@@ -19,4 +19,9 @@ class Employee extends Model
     {
         return $this->belongsTo(Designation::class);
     }
+
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class);
+    }
 }
