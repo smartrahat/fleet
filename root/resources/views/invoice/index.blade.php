@@ -19,6 +19,27 @@
             </div>
         </header>
 
+        <!-- Search Panel -->
+        <div class="panel panel-body no-print">
+            {!! Form::open(['action'=>'InvoiceController@index','method'=>'get','class'=>'form-inline']) !!}
+            <div class="form-group {{$errors->has('date')?'has-error':''}}">
+                <label class="control-label">Program Date: </label>
+                <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </span>
+                    {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"','placeholder'=>'YYYY-MM-DD' )) }}
+                </div>
+                @if($errors->has('date'))
+                    <span class="help-block"><strong>{{$errors->first('date')}}</strong></span>
+                @endif
+            </div>
+            {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
+            <a href="javascript:window.print()" class="btn btn-success" role="button"><i class="fa fa-print"></i></a>
+            {!! Form::close() !!}
+        </div>
+        <!-- /Search Panel -->
+
         <div class="row">
             <div class="col-xs-12">
                 <section class="panel">
@@ -30,7 +51,6 @@
                     </header>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <a href="{{ action('InvoiceController@create') }}" role="button" class="btn btn-success">New Purchase</a><br /><br />
                             <table class="table table-bordered table-striped table-condensed mb-none">
                                 <thead>
                                 <tr>

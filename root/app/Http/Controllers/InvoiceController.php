@@ -8,7 +8,9 @@ use App\Invoice;
 use App\Purchase;
 use App\Repositories\InvoiceRepository;
 use App\Stock;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 class InvoiceController extends Controller
@@ -29,13 +31,23 @@ class InvoiceController extends Controller
         return view('invoice.create', compact('repository', 'products', 'num'));
     }
 
-    public function index(InvoiceRequest $request)
+    public function index()
     {
-        $invoices = Invoice::all();
-        $total = Invoice::query()->sum('total');
-        $paid = Invoice::query()->sum('advance');
-        $due = Invoice::query()->sum('due');
-        return view('invoice.index',compact('invoices','total','paid','due'));
+//        $date = Input::has('date') ? Carbon::parse(Input::get('date')) : Carbon::now();
+
+        if(Input::has('date')){
+            $date = Carbon::parse(Input::get('date'));
+            $invoices = Invoice::query()->where('date',$date)->get();
+            $total = Invoice::query()->where('date',$date)->sum('total');
+            $paid = Invoice::query()->where('date',$date)->sum('advance');
+            $due = Invoice::query()->where('date',$date)->sum('due');
+        }else{
+            $invoices = Invoice::all();
+            $total = Invoice::query()->sum('total');
+            $paid = Invoice::query()->sum('advance');
+            $due = Invoice::query()->sum('due');
+        }
+        return view('invoice.index',compact('invoices','date','total','paid','due'));
     }
 
     public function store(InvoiceRequest $request)
@@ -83,6 +95,23 @@ class InvoiceController extends Controller
         Session::flash('success','"'.$invoice->name.'" has been deleted successfully!');
         return redirect('invoices');
     }
+
+
+//    public function dailyReport()
+//    {
+//        $date = Input::has('date') ? Carbon::parse(Input::get('date')) : Carbon::now();
+//
+//        $invoices = Invoice::query()->where('date',$date)->get();
+//        $total = Invoice::query()->where('date',$date)->sum('total');
+//        $paid = Invoice::query()->where('date',$date)->sum('advance');
+//        $due = Invoice::query()->where('date',$date)->sum('due');
+//
+//        return view('invoice.index',compact('invoices','date','total','paid','due'));
+//    }
+
+
+
+
 
     public function goods($request,$query)
     {

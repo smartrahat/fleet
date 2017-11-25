@@ -31,7 +31,6 @@ class ProgramController extends Controller
         $trips = Trip::all()->where('program_id',null);
         $num = 0;
         return view('program.create',compact('repository','trips','num'));
-        //je view te repository field gulo lagbe shei view te  repository pass korte hobe
     }
 
     public function index()

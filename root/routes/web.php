@@ -33,6 +33,7 @@ Route::get('vehicle/edit/{id}','VehicleController@edit');
 Route::patch('vehicle/{id}/update','VehicleController@update');
 Route::delete('vehicle/delete/{id}','VehicleController@destroy');
 Route::get('vehicle/show/{id}', 'VehicleController@show');
+Route::get('vehicleDailyReport', 'VehicleController@report');
 
 //Brand routes
 Route::get('brands', 'BrandController@index');
@@ -221,3 +222,30 @@ Route::post('unit/store', 'UnitController@store');
 Route::get('unit/edit/{id}','UnitController@edit');
 Route::patch('unit/{id}/update','UnitController@update');
 Route::delete('unit/delete/{id}','UnitController@destroy');
+
+
+/** Expense routes */
+Route::get('expenses','ExpenseController@index');
+Route::get('expense/create','ExpenseController@create');
+Route::post('expense/store','ExpenseController@store');
+Route::get('expense/edit/{id}','ExpenseController@edit');
+Route::patch('expense/{id}/update','ExpenseController@update');
+Route::delete('expense/delete/{id}','ExpenseController@destroy');
+
+
+/** Expense Category routes */
+Route::get('expenseCategories','ExpenseCategoryController@index');
+Route::get('expenseCategory/create','ExpenseCategoryController@create');
+Route::post('expenseCategory/store','ExpenseCategoryController@store');
+Route::get('expenseCategory/edit/{id}','ExpenseCategoryController@edit');
+Route::patch('expenseCategory/{id}/update','ExpenseCategoryController@update');
+Route::delete('expenseCategory/delete/{id}','ExpenseCategoryController@destroy');
+
+
+/** Vehicle User Assign routes */
+Route::get('vehicleUserAssigns','VehicleUserAssignController@index');
+Route::get('vehicleUserAssign/create','VehicleUserAssignController@create');
+Route::post('vehicleUserAssign/store','VehicleUserAssignController@store');
+Route::get('vehicleUserAssign/edit/{id}','VehicleUserAssignController@edit');
+Route::patch('vehicleUserAssign/{id}/update','VehicleUserAssignController@update');
+Route::delete('vehicleUserAssign/delete/{id}','VehicleUserAssignController@destroy');

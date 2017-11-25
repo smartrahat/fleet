@@ -37,6 +37,21 @@
                         </ul>
                     </li>
 
+                    <li class="nav-parent {{ isActive(['vehicleUserAssigns*','assign/create*']) }}">
+                        <a>
+                            <i class="fa fa-drivers-license" aria-hidden="true"></i>
+                            <span>Vehicle Assignation</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('vehicleUserAssigns') }}">
+                                <a href="{{action('VehicleUserAssignController@index')}}">List of vehicles</a>
+                            </li>
+                            <li class="{{ isActive('assign/create') }}">
+                                <a href="{{action('VehicleUserAssignController@create')}}">Assign Vehicle</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-parent {{ isActive(['drivers*','driver*']) }}">
                         <a>
                             <i class="fa fa-drivers-license" aria-hidden="true"></i>
@@ -59,9 +74,7 @@
                         </a>
                         <ul class="nav nav-children">
                             <li class="{{ isActive('vehicles') }}">
-                                <a href="{{action('VehicleController@index')}}">
-                                    Vehicle Information
-                                </a>
+                                <a href="{{action('VehicleController@index')}}">Vehicle Information</a>
                             </li>
                             <li class="{{ isActive('vehicle/create') }}">
                                 <a href="{{action('VehicleController@create')}}">Add Vehicle</a>
@@ -74,6 +87,9 @@
                             </li>
                             <li class="{{ isActive('statuses') }}">
                                 <a href="{{action('StatusController@index')}}">Status</a>
+                            </li>
+                            <li class="{{ isActive('vehicleDailyReport') }}">
+                                <a href="{{action('VehicleController@report')}}">Vehicle Daily Report</a>
                             </li>
                         </ul>
                     </li>
@@ -108,7 +124,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['program*','dailyReport*','trip*','rotation*','dailyReport*','report*','receipt*']) }}">
+                    <li class="nav-parent {{ isActive(['program*','dailyReport*','trip*','rotation*','dailyIncomeReport*','report*','receipt*']) }}">
                         <a>
                             <i class="fa fa-ship" aria-hidden="true"></i>
                             <span>Programs</span>
@@ -130,7 +146,7 @@
                                 <a href="{{action('ProgramController@rotation')}}">Rotation</a>
                             </li>
 
-                            <li class="{{ isActive('program/dailyReport') }}">
+                            <li class="{{ isActive('program/dailyIncomeReport') }}">
                                 <a href="{{action('ProgramController@dailyIncomeReport')}}">Daily Income Report</a>
                             </li>
 
@@ -149,9 +165,26 @@
                             <span>Accounts</span>
                         </a>
                         <ul class="nav nav-children">
-
                             <li class="{{ isActive('due/create') }}">
                                 <a href="{{action('DueController@create')}}">Due Collection</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-parent {{ isActive(['expense/create*','expenseCategories*','expense/dail*']) }}">
+                        <a>
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                            <span>Expenses</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('expense/create') }}">
+                                <a href="{{action('ExpenseController@create')}}">Add Expense</a>
+                            </li>
+                            <li class="{{ isActive('expenseCategories') }}">
+                                <a href="{{action('ExpenseCategoryController@index')}}">Add Category</a>
+                            </li>
+                            <li class="{{ isActive('expense/dailyReport') }}">
+                                <a href="{{action('ExpenseController@index')}}">Daily Expense Report</a>
                             </li>
                         </ul>
                     </li>
@@ -186,7 +219,7 @@
 
                     <li class="nav-parent {{ isActive(['stock*']) }}">
                         <a>
-                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                            <i class="fa fa-stack-overflow" aria-hidden="true"></i>
                             <span>Stock</span>
                         </a>
                         <ul class="nav nav-children">
@@ -197,7 +230,7 @@
                     </li>
 
 
-                    <li class="nav-parent {{ isActive(['']) }}">
+                    <li class="nav-parent {{ isActive(['due*','productUsage*']) }}">
                         <a>
                             <i class="fa fa-wrench" aria-hidden="true"></i>
                             <span>Garage</span>
@@ -271,6 +304,9 @@
                             <li class="{{ isActive('invoice/create') }}">
                                 <a href="{{ action('InvoiceController@create') }}">Add Purchase</a>
                             </li>
+                            {{--<li class="{{ isActive('invoice/dailyReport') }}">--}}
+                                {{--<a href="{{action('InvoiceController@dailyReport')}}">Daily Expense Report</a>--}}
+                            {{--</li>--}}
                         </ul>
                     </li>
 
@@ -291,10 +327,8 @@
                             </li>
                         </ul>
                     </li>
-
                 </ul>
             </nav>
-
         </div>
     </div>
 
