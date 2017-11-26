@@ -8,15 +8,15 @@
 
 namespace App\Repositories;
 
-use App\User;
+use App\Employee;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class VehicleUserAssignRepository {
 
     use SoftDeletes;
 
-    public function users()
+    public function employees()
     {
-        return User::all()->pluck('name','id');
+        return Employee::all()->pluck('name','id');
     }
 }

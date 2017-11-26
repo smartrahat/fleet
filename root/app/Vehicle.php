@@ -15,7 +15,7 @@ class Vehicle extends Model
         'regCertStart','regCertEnd'];
 
     protected $fillable = [
-        'name', 'brand_id', 'type_id', 'owner_id',
+        'employee_id','name', 'brand_id', 'type_id', 'owner_id',
         'roadPermitStart','roadPermitEnd','taxTokenStart','taxTokenEnd',
         'insuranceStart', 'insuranceEnd','fitnessStart','fitnessEnd',
         'regCertStart','regCertEnd','vehicleNo','engineNo'
@@ -40,6 +40,13 @@ class Vehicle extends Model
     {
         return $this->belongsTo(Type::class);
     }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
+
 
     public function purchase()
     {

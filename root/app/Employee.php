@@ -24,4 +24,9 @@ class Employee extends Model
     {
         return $this->hasOne(Invoice::class);
     }
+
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class);
+    }
 }

@@ -5,6 +5,9 @@ $factory->define(App\Vehicle::class,function(Faker\Generator $faker){
     return [
         'company_id' => 1,
         'user_id' => 1,
+        'employee_id'=>function(){
+            return factory(App\Employee::class)->create()->id;
+        },
         'name' => $faker->userName,
         'brand_id' => function(){
             return factory(App\Brand::class)->create()->id;

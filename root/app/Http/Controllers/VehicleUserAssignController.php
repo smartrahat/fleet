@@ -30,7 +30,12 @@ class VehicleUserAssignController extends Controller
 
     public function store(Request $request)
     {
-        VehicleUserAssign::query()->create($request->all());
+        $ids = $request->vehicles;
+        foreach($ids as $id){
+            $vehicle = Vehicle::query()->findOrFail($id);
+            $vehicle->update(['employee_id' => $request->employee_id]);
+        }
+
         Session::flash('success','"'.$request->name.'" has been added!');
         return redirect('vehicleUserAssigns');
     }

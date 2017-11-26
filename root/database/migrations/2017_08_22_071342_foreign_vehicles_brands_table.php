@@ -19,6 +19,7 @@ class ForeignVehiclesBrandsTable extends Migration
             $table->foreign('type_id')->references('id')->on('types');
             $table->foreign('owner_id')->references('id')->on('owners');
             $table->foreign('status_id')->references('id')->on('statuses');
+            $table->foreign('employee_id')->references('id')->on('employees');
         });
     }
 
@@ -35,6 +36,7 @@ class ForeignVehiclesBrandsTable extends Migration
             $table->dropForeign(['owner_id']);
             $table->dropForeign(['type_id']);
             $table->dropForeign(['status_id']);
+            $table->dropForeign(['employee_id']);
         });
     }
 }

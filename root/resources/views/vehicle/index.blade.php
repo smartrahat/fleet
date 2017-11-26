@@ -67,7 +67,7 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>User Name</th>
                             <th>Description</th>
                             <th>Owner</th>
                             <th>Road Permit</th>
@@ -86,7 +86,7 @@
                         @foreach($vehicles as $vehicle)
                         <tr>
                             <td>{{ $vehicle->id }}</td>
-                            <td>{{ $vehicle->name }}</td>
+                            <td>{{ $vehicle->employee->name }}</td>
                             <td>
                                 {{ $vehicle->brand->name or '' }}
                                 {{ $vehicle->type->name or '' }}
