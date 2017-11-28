@@ -327,6 +327,20 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-parent {{ isActive(['companies*']) }}">
+                        <a>
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span>Company Management</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li class="{{ isActive('companies') }}">
+                                <a href="{{ action('CompanyController@index') }}">Companies</a>
+                            </li>
+                            <li class="{{ isActive('company/create')}}">
+                                <a href="{{ action('CompanyController@create') }}">Add Company</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>

@@ -15,6 +15,7 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
+//            $table->authorities();
             $table->string('name');
             $table->string('address');
             $table->integer('city_id')->unsigned();
@@ -25,6 +26,7 @@ class CreateCompaniesTable extends Migration
             $table->string('logo');
             $table->string('favicon');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

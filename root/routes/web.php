@@ -129,6 +129,12 @@ Route::patch('due/{id}/update','DueController@update');
 Route::delete('due/delete/{id}','DueController@destroy');
 
 /** Company Route */
+Route::get('companies', 'CompanyController@index');
+Route::get('company/create', 'CompanyController@create');
+Route::post('company/store', 'CompanyController@store');
+Route::get('company/edit/{id}','CompanyController@edit');
+Route::patch('company/{id}/update','CompanyController@update');
+Route::delete('company/delete/{id}','CompanyController@destroy');
 Route::get('company/show/{id}','CompanyController@show');
 
 /** User Routes */

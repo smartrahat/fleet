@@ -32,6 +32,7 @@
 
                     <div class="panel-body">
                         {{ Form::open(['action' => 'UserController@store','method'=>'post','class'=>'form-horizontal']) }}
+
                         <div class="form-group {{$errors->has('name')?'has-error':''}}">
                             <label class="col-md-3 control-label">Full Name:</label>
                             <div class="col-md-6">
@@ -69,7 +70,7 @@
                             </div>
                         </div>
                         <div class="form-group {{$errors->has('role_id')?'has-error':''}}">
-                            {{ Form::label('party_id', 'Role:',['class'=>'col-md-3 control-label']) }}
+                            {{ Form::label('role_id', 'Role:',['class'=>'col-md-3 control-label']) }}
                             <div class="col-md-6">
                                 {{ Form::select('role_id',$repository->roles(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Role','required']) }}
                                 @if($errors->has('role_id'))
