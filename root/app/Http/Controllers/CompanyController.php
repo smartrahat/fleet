@@ -82,10 +82,6 @@ class CompanyController extends Controller
             DB::table('users')
                 ->where('id', $id)
                 ->update(['company_id' => $request['company_id']]);
-
-//            $users = User::query()->findOrFail($id);
-//            $users->update(['company_id'=> $request['company_id']]);
-
         }
         Session::flash('success','Vehicle has been added');
         return redirect('companies');

@@ -6,6 +6,7 @@ use App\Repositories\VehicleUserAssignRepository;
 use App\Vehicle;
 use App\VehicleUserAssign;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 class VehicleUserAssignController extends Controller
@@ -18,8 +19,23 @@ class VehicleUserAssignController extends Controller
 
     public function index()
     {
-        $brands = VehicleUserAssign::all();
-        return view('vehicle_user_assign.index',compact('brands'));
+        $repository = $this->repository;
+        $vehicles = Vehicle::all();
+        if(Input::has('employee_id')){
+            $employees = Input::get('employee_id');
+            $vehicles = Vehicle::query()->where('employee_id',$employees)->get();
+
+        }else{
+            $vehicles = [];
+            $employees = null;
+        }
+
+//        dd($employees);
+
+
+
+
+        return view('vehicle_user_assign.index',compact('vehicles','vehicle','repository','employees'));
     }
 
     public function create(){
@@ -47,19 +63,8 @@ class VehicleUserAssignController extends Controller
         return view('vehicle_user_assign.edit',compact('brand','brands'));
     }
 
-    public function update($id, Request $request)
-    {
-        $brand = VehicleUserAssign::query()->findOrFail($id);
-        $brand->update($request->all());
-        Session::flash('success','"'.$brand->name.'" is updated!');
-        return redirect('vehicleUserAssigns');
-    }
-
     public function destroy($id)
     {
-        $brand = VehicleUserAssign::query()->findOrFail($id);
-        $brand->delete();
-        Session::flash('success','"'.$brand->name.'" has been deleted successfully!');
         return redirect('vehicleUserAssigns');
     }
 }

@@ -37,7 +37,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['vehicleUserAssigns*','assign/create*']) }}">
+                    <li class="nav-parent {{ isActive(['vehicleUserAssigns*','vehicleUserAssign/create*']) }}">
                         <a>
                             <i class="fa fa-drivers-license" aria-hidden="true"></i>
                             <span>Vehicle Assignation</span>
@@ -46,7 +46,7 @@
                             <li class="{{ isActive('vehicleUserAssigns') }}">
                                 <a href="{{action('VehicleUserAssignController@index')}}">List of vehicles</a>
                             </li>
-                            <li class="{{ isActive('assign/create') }}">
+                            <li class="{{ isActive('vehicleUserAssign/show') }}">
                                 <a href="{{action('VehicleUserAssignController@create')}}">Assign Vehicle</a>
                             </li>
                         </ul>
@@ -67,7 +67,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['vehicle*','brand*','type*','status*']) }}">
+                    <li class="nav-parent {{ isActive(['vehicles','vehicle/create','brand*','type*','status*']) }}">
                         <a>
                             <i class="fa fa-truck" aria-hidden="true"></i>
                             <span>Vehicle</span>

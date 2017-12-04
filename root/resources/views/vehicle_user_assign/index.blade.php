@@ -22,8 +22,8 @@
 
         <!-- Search Panel Start -->
         <div class="panel panel-body no-print">
-            {!! Form::open(['action'=>'VehicleController@index','method'=>'get','class'=>'form-inline']) !!}
-            <div class="form-group">
+            {!! Form::open(['action'=>'VehicleUserAssignController@index','method'=>'get','class'=>'form-inline']) !!}
+            <div class="form-group col-md-12">
                 {{--<div class="input-group input-daterange" data-plugin-datepicker>--}}
                     {{--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>--}}
                     {{--{!! Form::text('start',null,['class'=>'form-control','required']) !!}--}}
@@ -37,12 +37,12 @@
             <div class="form-group">
                 {{--{!! Form::select('customer',$repository->customers(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select Customer']) !!}--}}
             </div>
-            <div class="form-group">
-{{--                {!! Form::select('invoice',$repository->invoices(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select Invoice']) !!}--}}
+            <div class="form-group col-md-4">
+                {!! Form::select('employee_id',$repository->employees(),null,['class'=>'form-control populate','data-plugin-selectTwo'=>'','placeholder'=>'Select User Name']) !!}
             </div>
-            <div class="form-group">
-                {{ Form::text('q',null,['class'=>'form-control','placeholder'=>'What are you looking for?']) }}
-            </div>
+            {{--<div class="form-group">--}}
+                {{--{{ Form::text('q',null,['class'=>'form-control','placeholder'=>'What are you looking for?']) }}--}}
+            {{--</div>--}}
             <div class="form-group">
                 {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
                 <a href="javascript:window.print()" class="btn btn-success" role="button"><i class="fa fa-print"></i></a>
@@ -62,12 +62,11 @@
             </header>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <a href="{{ action('VehicleController@create') }}" role="button" class="btn btn-success">Add Vehicle</a><br /><br />
                     <table class="table table-bordered table-striped table-condensed mb-none">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>User Name</th>
                             <th>Description</th>
                             <th>Owner</th>
                             <th>Road Permit</th>
@@ -127,21 +126,12 @@
                                 <img src='{{asset("images/vehicles/") }}/{{ $vehicle->image != null ? $vehicle->image : 'demo.png' }}' height="100" >
                             </td>
                             <td>
-                                {{ Form::open(['action'=>['VehicleController@destroy',$vehicle->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
-                                <a href="{{ action('VehicleController@edit',$vehicle->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit" title="Edit"></i></a>
-                                {{ Form::submit('X',['class'=>'btn btn-danger']) }}
-                                <a href="{{ action('VehicleController@show',$vehicle->id) }}" role="button" class="btn btn-info"><i class="fa fa-info-circle" title="Information"></i></a>
                                 {{ Form::close() }}
                             </td>
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="no-print">
-                    <div class="col-md-12 text-center">
-                        {!! $vehicles->appends(Request::except('page'))->links() !!}
-                    </div>
                 </div>
             </div>
         </section>

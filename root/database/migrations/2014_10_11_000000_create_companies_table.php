@@ -23,7 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->integer('country_id')->unsigned();
             $table->string('phone');
             $table->string('email');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->string('favicon');
             $table->timestamps();
             $table->softDeletes();
