@@ -255,3 +255,36 @@ Route::post('vehicleUserAssign/store','VehicleUserAssignController@store');
 Route::get('vehicleUserAssign/edit/{id}','VehicleUserAssignController@edit');
 Route::patch('vehicleUserAssign/{id}/update','VehicleUserAssignController@update');
 Route::delete('vehicleUserAssign/delete/{id}','VehicleUserAssignController@destroy');
+
+
+/** Garage Entry routes */
+Route::get('garageEntries','GarageEntryController@index');
+Route::get('garageEntry/create','GarageEntryController@create');
+Route::post('garageEntry/store','GarageEntryController@store');
+Route::get('garageEntry/edit/{id}','GarageEntryController@edit');
+Route::patch('garageEntry/{id}/update','GarageEntryController@update');
+Route::delete('garageEntry/delete/{id}','GarageEntryController@destroy');
+
+/** Garage Exit routes */
+Route::get('garageExits','GarageExitController@index');
+Route::get('garageExit/create','GarageExitController@create');
+Route::post('garageExit/store','GarageExitController@store');
+Route::get('garageExit/edit/{id}','GarageExitController@edit');
+Route::patch('garageExit/{id}/update','GarageExitController@update');
+Route::delete('garageExit/delete/{id}','GarageExitController@destroy');
+
+/** Vehicle Problem Entry routes */
+Route::get('problems','ProblemController@index');
+Route::get('problem/create','ProblemController@create');
+Route::post('problem/store','ProblemController@store');
+Route::get('problem/edit/{id}','ProblemController@edit');
+Route::patch('problem/{id}/update','ProblemController@update');
+Route::delete('problem/delete/{id}','ProblemController@destroy');
+
+/** Vehicle Service routes */
+Route::get('services','ServiceController@index');
+Route::get('service/create','ServiceController@create');
+Route::post('service/store','ServiceController@store');
+Route::get('service/edit/{id}','ServiceController@edit');
+Route::patch('service/{id}/update','ServiceController@update');
+Route::delete('service/delete/{id}','ServiceController@destroy');

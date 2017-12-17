@@ -9,7 +9,8 @@ use App\Vehicle;
 class ProgramRepository {
 
     public function vehicles(){
-        return Vehicle::all()->pluck('vehicleNo','id');
+        //return Vehicle::all()->pluck('vehicleNo','id');
+        return Vehicle::query()->where('status_id',2)->pluck('vehicleNo','id');
     }
 
     public function drivers(){

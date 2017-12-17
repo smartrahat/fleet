@@ -154,9 +154,18 @@ class ProgramController extends Controller
                     'emp_container' => $request['emp_container'.$num],
                     'fuel' => $request['fuel'.$num]
                 ];
+
+                $vid = Vehicle::query()->findOrFail($request['vehicle_id'.$num]);
+                $vid->status_id = 3 ;
+                DB::table('vehicles')
+                    ->where('id', $vid->id)
+                    ->update(['status_id' => $vid->status_id]);
+//                dd($vid);
                 //dd($data);
                 Trip::query()->create($data);
             }
+
+
         }
     }
 

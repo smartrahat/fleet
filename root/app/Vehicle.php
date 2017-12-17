@@ -79,6 +79,10 @@ class Vehicle extends Model
         return $this->hasMany(Trip::class);
     }
 
+    public function problems(){
+        return $this->hasMany(Problem::class);
+    }
+
     public function getInsuranceStartAttribute($date)
     {
         return Carbon::parse($date)->format('Y-m-d');
