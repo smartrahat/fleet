@@ -2,9 +2,7 @@
 namespace App\Repositories;
 
 use App\Category;
-use App\Driver;
 use App\Employee;
-use App\Party;
 use App\Vehicle;
 
 class ProblemRepository {
@@ -16,7 +14,7 @@ class ProblemRepository {
 
     public function employees()
     {
-        return Employee::all()->where('designation_id',1)->pluck('name','id');
+        return Employee::all()->where('designation_id',5)->pluck('name','id');
     }
 
     public function categories()

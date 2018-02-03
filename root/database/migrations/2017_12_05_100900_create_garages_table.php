@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompaniesTable extends Migration
+class CreateGaragesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,12 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('garages', function (Blueprint $table) {
             $table->increments('id');
             $table->authorities();
             $table->string('name');
+            $table->string('mobile')->nullable();
             $table->string('address');
-            $table->integer('city_id')->unsigned();
-            $table->integer('state_id')->unsigned();
-            $table->integer('country_id')->unsigned();
-            $table->string('phone');
-            $table->string('email');
-            $table->string('logo')->nullable();
-            $table->string('favicon');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -37,6 +31,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('garages');
     }
 }

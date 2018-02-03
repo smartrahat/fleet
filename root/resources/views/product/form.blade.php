@@ -15,7 +15,7 @@
 <div class="form-group {{ $errors->has('category_id') ? ' has-error' : '' }}">
     {{ Form::label('category', 'Category:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('category_id',$repository->categories(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Categories']) }}
+        {{ Form::select('category_id',$repository->categories(),null,['class'=>'form-control populate','id'=>'category_id','data-plugin-selectTwo','placeholder'=>'Select Categories']) }}
         @if ($errors->has('category_id'))
             <span class="help-block"><strong>{{ $errors->first('category_id') }}</strong></span>
         @endif
@@ -25,12 +25,11 @@
 
 <!-- Parts  Starts -->
 <div class="form-group {{ $errors->has('parts_id') ? ' has-error' : '' }}">
-    {{ Form::label('parts', 'Parts:', array('class'=>'col-md-3 control-label')) }}
+    {{ Form::label('parts_id', 'Parts:', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">
-        {{ Form::select('parts_id',$repository->parts(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Part']) }}
-        @if ($errors->has('parts_id'))
-            <span class="help-block"><strong>{{ $errors->first('parts_id') }}</strong></span>
-        @endif
+        <select name="parts_id"  id="parts" class="populate form-control" data-plugin-selectTwo>
+            <option>Select Parts</option>
+        </select>
     </div>
 </div>
 <!--Parts ends -->
@@ -84,3 +83,38 @@
     </div>
 </div>
 <!-- ends-->
+
+
+
+@section('script')
+    {{--<script>--}}
+        {{--$('#category_id').on('change', function () {--}}
+            {{--var category = $('#category_id').val();--}}
+            {{--var csrf = '{{csrf_token()}}';--}}
+
+            {{--$.ajax({--}}
+                {{--url: "partsLoad",--}}
+                {{--data : {category:category, _token:csrf},--}}
+                {{--type : "post"--}}
+            {{--}).done(function(e){--}}
+                {{--alert(e);--}}
+            {{--});--}}
+        {{--});--}}
+    {{--</script>--}}
+
+    <script>
+    $('#category_id').on('change', function () {
+    var category = $('#category_id').val();
+    var csrf = '{{csrf_token()}}';
+
+        $.ajax({
+            url: "partsLoad",
+            data : {category:category, _token:csrf},
+            async: true,
+            type : "post"
+        }).done(function(e){
+            $("#parts").html(e);
+        });
+    });
+    </script>
+@endsection

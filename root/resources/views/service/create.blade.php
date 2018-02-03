@@ -5,7 +5,7 @@
 @section('content')
     <section role="main" class="content-body">
         <header class="page-header">
-            <h2>Garage Entry Form</h2>
+            <h2>Vehicle Service Form</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
@@ -28,12 +28,12 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title">Garage Entry form</h2>
+                        <h2 class="panel-title">Vehicle Service Form</h2>
                     </header>
 
                     <div class="panel-body">
-                        {{ Form::model($garageEntry = new \App\GarageEntry,['action' => 'GarageEntryController@store','method'=>'post']) }}
-                        @include('garage_entry.form',['submitButtonText'=>'Save'])
+                        {{ Form::model($service = new \App\Service,['action' => 'ServiceController@store','method'=>'post']) }}
+                        @include('service.form',['submitButtonText'=>'Save'])
                         {{ Form::close() }}
                     </div>
                 </section>

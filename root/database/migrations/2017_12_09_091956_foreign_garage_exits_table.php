@@ -15,6 +15,7 @@ class ForeignGarageExitsTable extends Migration
     {
         Schema::table('garage_exits', function (Blueprint $table) {
             $table->foreignAuthority();
+            $table->foreign('garage_id')->references('id')->on('garages');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
         });
     }
@@ -28,6 +29,7 @@ class ForeignGarageExitsTable extends Migration
     {
         Schema::table('garage_exits', function (Blueprint $table) {
             $table->dropForeignAuthority();
+            $table->dropForeign(['garage_id']);
             $table->dropForeign(['vehicle_id']);
         });
     }

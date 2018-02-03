@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title','Garage')
+@section('title','Serviced Vehicles')
 
 @section('content')
     <section role="main" class="content-body">
         <header class="page-header">
-            <h2>Garaged Vehicles</h2>
+            <h2>Serviced Vehicles</h2>
             <div class="right-wrapper pull-right">
                 <ol class="breadcrumbs">
                     <li>
@@ -58,7 +58,7 @@
                         <div class="panel-actions">
                             <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                         </div>
-                        <h2 class="panel-title">List of Garaged Vehicles</h2>
+                        <h2 class="panel-title">List of Serviced Vehicles</h2>
                     </header>
 
                     <div class="panel-body">
@@ -70,30 +70,51 @@
                                     <th>ID</th>
                                     <th>Date</th>
                                     <th>Vehicle No</th>
-                                    <th>Description</th>
+                                    <th>Solved Problem</th>
+                                    <th>Parts Name</th>
+                                    <th>Quantity</th>
+                                    <th>Employee Name</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($garageEntries as $garageEntry)
+                                @foreach($services as $service)
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td>{{ $garageEntry->date }}</td>
-                                        <td>{{ $garageEntry->vehicle->vehicleNo }}</td>
-                                        <td>{{ $garageEntry->description }}</td>
+                                        <td>{{ $service->date }}</td>
+                                        <td>{{ $service->vehicle->vehicleNo }}</td>
+                                        <td>{{ $service->problem->problem }}</td>
+                                        <td>
+                                            <ul>
+                                                @foreach($service->products as $parts)
+                                                    <li>{{ $parts->name}}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+
+                                        <td>
+                                            <ul>
+                                                @foreach($service->usedParts as $parts)
+                                                    <li>{{ $parts->quantity}}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+
+                                        <td>
+                                            <ul>
+                                                @foreach($service->usedParts as $parts)
+                                                    <li>{{ $parts->employee->name}}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
                                         <td class="text-center">
-                                            {{ Form::open(['action'=>['GarageEntryController@destroy',$garageEntry->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
-                                            <a href="{{ action('GarageEntryController@edit',$garageEntry->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                            {{ Form::open(['action'=>['ServiceController@destroy',$service->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
+                                            <a href="{{ action('ServiceController@edit',$service->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                             {{ Form::submit('X',['class'=>'btn btn-danger']) }}
                                             {{ Form::close() }}
                                         </td>
                                     </tr>
                                 @endforeach
-                                    {{--<tr>--}}
-                                        {{--<td colspan="4" class="text-right">Total Expense</td>--}}
-                                        {{--<td class="text-right">{{$total}}/-</td>--}}
-                                        {{--<td></td>--}}
-                                    {{--</tr>--}}
                                 </tbody>
                             </table>
                         </div>

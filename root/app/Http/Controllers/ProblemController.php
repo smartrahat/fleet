@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PartsUsed;
 use App\Problem;
 use App\Repositories\ProblemRepository;
 use App\Stock;
@@ -39,9 +40,7 @@ class ProblemController extends Controller
     {
         $query = DB::select(DB::Raw("SHOW TABLE STATUS LIKE 'problems'"));
         $query = $query[0]->Auto_increment;
-
         $this->trips($request->all(),$query);
-
         return redirect('problems');
     }
 
@@ -70,6 +69,7 @@ class ProblemController extends Controller
 
     public function trips($request,$query)
     {
+        $request['problem_status'] = 1;
         $keys = preg_grep('/^employee_id[0-9]/',array_keys($request));
 //        dd($keys);
         foreach($keys as $key){
@@ -84,6 +84,7 @@ class ProblemController extends Controller
                     'employee_id' => $request['employee_id'.$num],
                     'category_id' => $request['category_id'.$num],
                     'problem' => $request['problem'.$num],
+                    'problem_status' => $request['problem_status'.null],
                 ];
 //                dd($data);
                 Problem::query()->create($data);

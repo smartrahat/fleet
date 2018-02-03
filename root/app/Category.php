@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->belongsTo(Purchase::class);
     }
+
+    public function parts()
+    {
+        return $this->hasMany(Parts::class);
+    }
 }

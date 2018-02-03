@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGarageEntriesTable extends Migration
+class CreateUsedPartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateGarageEntriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('garage_entries', function (Blueprint $table) {
+        Schema::create('used_parts', function (Blueprint $table) {
             $table->increments('id');
             $table->authorities();
-            $table->date('date');
-            $table->integer('garage_id')->unsigned();
-            $table->integer('vehicle_id')->unsigned();
-            $table->string('description');
+            $table->integer('service_id')->unsigned();
+            $table->integer('employee_id')->unsigned();
+            $table->integer('product_id')->unsigned();
+            $table->integer('quantity');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +32,6 @@ class CreateGarageEntriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('garage_entry');
+        Schema::dropIfExists('used_parts');
     }
 }

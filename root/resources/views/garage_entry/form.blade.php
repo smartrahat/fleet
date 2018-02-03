@@ -14,6 +14,16 @@
     </div>
 </div>
 
+<div class="form-group {{$errors->has('garage_id')?'has-error':''}}">
+    {{ Form::label('garage_id', 'Garage :', array('class'=>'col-md-3 control-label')) }}
+    <div class="col-md-6">
+        {{ Form::select('garage_id',$repository->garages(),null,['class'=>'form-control populate','data-plugin-selectTwo','placeholder'=>'Select Vehicle Number']) }}
+        @if($errors->has('garage_id'))
+            <span class="help-block"><strong>{{$errors->first('garage_id')}}</strong></span>
+        @endif
+    </div>
+</div>
+
 <div class="form-group {{$errors->has('vehicle_id')?'has-error':''}}">
     {{ Form::label('vehicle_id', 'Vehicle No. :', array('class'=>'col-md-3 control-label')) }}
     <div class="col-md-6">

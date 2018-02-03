@@ -32,10 +32,13 @@
 <div class="form-group {{$errors->has('program_id')?'has-error':''}}">
     {{ Form::label('program_id', 'Program ID', ['class'=>'col-md-3 control-label']) }}
     <div class="col-md-6">
-        {{ Form::select('program_id',$repository->programs(),null,['class'=>'form-control populate','id' =>'program_id','data-plugin-selectTwo','placeholder'=>'Select Program']) }}
-        @if($errors->has('program_id'))
-            <span class="help-block"><strong>{{$errors->first('program_id')}}</strong></span>
-        @endif
+        <select  id="program" class="populate form-control" data-plugin-selectTwo>
+            <option>Select Program ID</option>
+        </select>
+        {{--{{ Form::select('program_id',$repository->programs(),null,['class'=>'form-control populate','id' =>'program_id','data-plugin-selectTwo','placeholder'=>'Select Program']) }}--}}
+        {{--@if($errors->has('program_id'))--}}
+            {{--<span class="help-block"><strong>{{$errors->first('program_id')}}</strong></span>--}}
+        {{--@endif--}}
     </div>
 </div>
 <!-- Program ID ends-->
@@ -103,3 +106,20 @@
 </div>
 <!-- ends-->
 
+@section('script')
+    <script>
+        $('#party_id').on('change', function () {
+            var party = $('#party_id').val();
+            var csrf = '{{csrf_token()}}';
+
+            $.ajax({
+                url: "dueSubmit",
+                data : {party:party, _token:csrf},
+                async: true,
+                type : "post"
+            }).done(function(e){
+                $("#program").html(e);
+            });
+        });
+    </script>
+@endsection

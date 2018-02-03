@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\GarageEntry;
 use App\Http\Requests\GarageEntryRequest;
+use App\Http\Requests\GarageRequest;
+use App\Problem;
 use App\Repositories\GarageEntryRepository;
 use App\Vehicle;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 class GarageEntryController extends Controller
@@ -18,11 +22,18 @@ class GarageEntryController extends Controller
         $this->repository = $repository;
     }
 
-    public function index()
+    public function index(GarageRequest $request)
     {
-        $garageEntries = GarageEntry::all();
+        $repository = $this->repository;
+        if(Input::has('garage_id')){
+            $garageEntries = GarageEntry::query()->where('garage_id',$request->garage_id)->get();
+        }else{
+            $garageEntries= [];
+        }
+        Problem::query()->sum('problem_status');
         $i = 1;
-        return view('garage_entry.index',compact('garageEntries','i'));
+        $x = 0;
+        return view('garage_entry.index',compact('garageEntries','repository','i','x'));
     }
 
     public function create()
@@ -75,4 +86,5 @@ class GarageEntryController extends Controller
         Session::flash('success','"'.$garageEntry->name.'" has been deleted successfully!');
         return redirect('garageEntries');
     }
+
 }

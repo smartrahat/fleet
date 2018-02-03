@@ -14,6 +14,7 @@ class ForeignCompaniesCountriesStatesCitiesTable extends Migration
     public function up()
     {
         Schema::table('companies', function (Blueprint $table) {
+            $table->foreignAuthority();
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('city_id')->references('id')->on('cities');
@@ -28,6 +29,7 @@ class ForeignCompaniesCountriesStatesCitiesTable extends Migration
     public function down()
     {
         Schema::table('companies', function (Blueprint $table) {
+            $table->dropForeignAuthority();
             $table->dropForeign(['country_id']);
             $table->dropForeign(['state_id']);
             $table->dropForeign(['city_id']);

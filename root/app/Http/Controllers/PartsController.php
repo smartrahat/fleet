@@ -35,9 +35,10 @@ class PartsController extends Controller
 
     public function edit($id)
     {
+        $repository = $this->repository;
         $parts = Parts::all();
         $part = Parts::query()->findOrFail($id);
-        return view('parts.edit',compact('part','parts'));
+        return view('parts.edit',compact('part','parts','repository'));
     }
 
     public function update($id, Request $request)

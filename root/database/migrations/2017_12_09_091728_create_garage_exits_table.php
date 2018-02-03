@@ -17,6 +17,7 @@ class CreateGarageExitsTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->date('date');
+            $table->integer('garage_id')->unsigned();
             $table->integer('vehicle_id')->unsigned();
             $table->string('description');
             $table->timestamps();

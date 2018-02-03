@@ -21,6 +21,7 @@ class CreateProblemsTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->string('problem');
+            $table->integer('problem_status')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

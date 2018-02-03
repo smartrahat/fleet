@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <label class="control-label" for="category_id1">Vehicle</label>
+                        <label class="control-label" for="category_id1">Category</label>
                         <div class="">
                             {!! Form::select('category_id1',$repository->categories(),null,['id'=>'category_id1','class'=>'form-control','required','placeholder'=>'Select a vehicle']) !!}
                         </div>

@@ -29,4 +29,10 @@ class Employee extends Model
     {
         return $this->hasMany(Vehicle::class);
     }
+
+    public function usedParts()
+    {
+        return $this->belongsTo(UsedPart::class);
+    }
+
 }

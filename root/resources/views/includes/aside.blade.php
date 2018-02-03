@@ -230,12 +230,15 @@
                     </li>
 
 
-                    <li class="nav-parent {{ isActive(['problem/create*','garageEntries*','garageEntry/create*','garageExit/create*','garageExit/create*','service/create*']) }}">
+                    <li class="nav-parent {{ isActive(['problem/create*','problems*','garageEntries*','garageEntry/create*','garageExit/create*','garageExit/create*','service/create*']) }}">
                         <a>
                             <i class="fa fa-wrench" aria-hidden="true"></i>
                             <span>Garage</span>
                         </a>
                         <ul class="nav nav-children">
+                            <li class="{{ isActive('garage/create') }}">
+                                <a href="{{action('GarageController@index')}}">Add Garage</a>
+                            </li>
                             <li class="{{ isActive('garageEntry/create') }}">
                                 <a href="{{action('GarageEntryController@create')}}">Entry Vehicle</a>
                             </li>
@@ -246,6 +249,10 @@
 
                             <li class="{{ isActive('problem/create') }}">
                                 <a href="{{action('ProblemController@create')}}">Vehicle Problem Entry</a>
+                            </li>
+
+                            <li class="{{ isActive('problems') }}">
+                                <a href="{{action('ProblemController@index')}}">Vehicle Problem list</a>
                             </li>
 
                             <li class="{{ isActive('service/create') }}">
@@ -352,7 +359,7 @@
                             <li class="{{ isActive('companies') }}">
                                 <a href="{{ action('CompanyController@index') }}">Companies</a>
                             </li>
-                            <li class="{{ isActive('company/create')}}">
+                            <lid class="{{ isActive('company/create')}}">
                                 <a href="{{ action('CompanyController@create') }}">Add Company</a>
                             </li>
                         </ul>

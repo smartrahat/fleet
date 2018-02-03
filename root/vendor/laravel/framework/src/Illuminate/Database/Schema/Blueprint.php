@@ -1136,7 +1136,7 @@ class Blueprint
      */
     public function authorities()
     {
-        $this->authority('company_id')->unsigned();
+        $this->authority('company_id')->unsigned()->nullable();
         $this->authority('user_id')->unsigned()->nullable();
     }
 

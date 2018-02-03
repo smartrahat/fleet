@@ -48,10 +48,12 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Date</th>
                                     <th>Vehicle Number</th>
                                     <th>Checked By</th>
                                     <th>Problem Category</th>
                                     <th>Description</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -59,10 +61,12 @@
                                 @foreach($problems as $problem)
                                     <tr>
                                         <td>{{ $problem->id }}</td>
+                                        <td>{{ $problem->date }}</td>
                                         <td>{{ $problem->vehicle->vehicleNo or ''}}</td>
                                         <td>{{ $problem->employee->name }}</td>
                                         <td>{{ $problem->category->name }}</td>
                                         <td>{{ $problem->problem }}</td>
+                                        <td>{{ $problem->problem_status ==1 ? 'Problem Not Solved':'Problem Solved' }}</td>
                                         <td>
                                             {{ Form::open(['action'=>['ProblemController@destroy',$problem->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                             <a href="{{ action('ProblemController@edit',$problem->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

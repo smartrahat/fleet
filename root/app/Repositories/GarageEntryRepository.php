@@ -8,6 +8,7 @@
 
 namespace App\Repositories;
 
+use App\Garage;
 use App\Vehicle;
 
 class GarageEntryRepository
@@ -15,5 +16,10 @@ class GarageEntryRepository
     public function vehicles()
     {
         return Vehicle::query()->where('status_id','!=',1)->pluck('vehicleNo','id');
+    }
+
+    public function garages()
+    {
+        return Garage::query()->pluck('name','id');
     }
 }

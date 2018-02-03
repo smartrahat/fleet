@@ -44,4 +44,10 @@ class Product extends Model
     {
         return $this->belongsTo(Purchase::class);
     }
+
+    public function usedParts()
+    {
+        return $this->hasMany(UsedPart::class);
+    }
+
 }

@@ -17,6 +17,6 @@ class SparePart extends Model
      */
     public function part()
     {
-        return $this->belongsTo(Part::class);
+        return $this->belongsTo(Parts::class);
     }
 }

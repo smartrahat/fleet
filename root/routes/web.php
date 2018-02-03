@@ -123,6 +123,7 @@ Route::delete('tripCost/delete/{id}','TripCostController@destroy');
 //Due Collection routes
 Route::get('dues', 'DueController@index');
 Route::get('due/create', 'DueController@create');
+Route::post('due/dueSubmit','DueController@dueSubmit');
 Route::post('due/store', 'DueController@store');
 Route::get('due/edit/{id}','DueController@edit');
 Route::patch('due/{id}/update','DueController@update');
@@ -212,7 +213,7 @@ Route::post('product/store','ProductController@store');
 Route::get('product/edit/{id}','ProductController@edit');
 Route::patch('product/{id}/update','ProductController@update');
 Route::delete('product/delete/{id}','ProductController@destroy');
-
+Route::post('product/partsLoad','ProductController@partsLoad');
 
 
 /** Stock routes */
@@ -259,6 +260,7 @@ Route::delete('vehicleUserAssign/delete/{id}','VehicleUserAssignController@destr
 
 /** Garage Entry routes */
 Route::get('garageEntries','GarageEntryController@index');
+Route::get('garageEntries/search','GarageEntryController@search');
 Route::get('garageEntry/create','GarageEntryController@create');
 Route::post('garageEntry/store','GarageEntryController@store');
 Route::get('garageEntry/edit/{id}','GarageEntryController@edit');
@@ -284,7 +286,16 @@ Route::delete('problem/delete/{id}','ProblemController@destroy');
 /** Vehicle Service routes */
 Route::get('services','ServiceController@index');
 Route::get('service/create','ServiceController@create');
+Route::post('service/problemSubmit','ServiceController@problemLoad');
+Route::post('service/partsSubmit','ServiceController@partsLoad');
 Route::post('service/store','ServiceController@store');
 Route::get('service/edit/{id}','ServiceController@edit');
 Route::patch('service/{id}/update','ServiceController@update');
 Route::delete('service/delete/{id}','ServiceController@destroy');
+
+//Garage routes
+Route::get('garages', 'GarageController@index');
+Route::post('garage/store', 'GarageController@store');
+Route::get('garage/edit/{id}','GarageController@edit');
+Route::patch('garage/{id}/update','GarageController@update');
+Route::delete('garage/delete/{id}','GarageController@destroy');

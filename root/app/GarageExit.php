@@ -9,7 +9,7 @@ class GarageExit extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['date','vehicle_id','employee_id','description'];
+    protected $fillable = ['date','garage_id','vehicle_id','employee_id','description'];
 
 
     /**
@@ -20,4 +20,9 @@ class GarageExit extends Model
     {
         return $this->belongsTo(Vehicle::class);
     }
+
+//    public function garage()
+//    {
+//        return $this->belongsTo(Garage::class);
+//    }
 }

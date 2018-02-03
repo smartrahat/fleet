@@ -484,7 +484,7 @@
             var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
 
             for(var i=1;i<num;i++){
-                var a = $("#product"+i+" input[id^='driver_adv']").val();
+                var a = $("#product"+i+" input[id^='driver_adv']").val();var a = $("#product"+i+" input[id^='driver_adv']").val();
                 var b = $("#product"+i+" input[id^='d_a_fix']").val();
                 var c =$("#product"+i+" input[id^='extra_adv']").val(parseInt(a)-parseInt(b));
             }

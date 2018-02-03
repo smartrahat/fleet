@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Due;
 use App\Income;
 use App\Http\Requests\DueRequest;
+use App\Program;
 use App\Repositories\DueRepository;
+use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpFoundation\Request;
 
 class DueController extends Controller
 {
@@ -30,7 +34,7 @@ class DueController extends Controller
 
     public function store(DueRequest $request)
     {
-        Income::create($request->all());
+        Due::create($request->all());
         return redirect('due_collections');
     }
 
@@ -58,4 +62,15 @@ class DueController extends Controller
         return redirect('due_collections');
     }
 
+    public function dueSubmit(Request $request)
+    {
+        $party = $request->get('party');
+        $programs = Program::query()->where('party_id',$party)->get();
+        $combo='<option>'.null.'<option>';
+        foreach($programs as $program){
+            $combo.= '<option value="'.$program->id.'">'.$program->serial.'</option>';
+        }
+        $combo.='';
+        return $combo;
+    }
 }

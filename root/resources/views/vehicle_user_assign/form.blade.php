@@ -30,10 +30,10 @@
                     <tr>
                         <td class="text-center">{{ Form::checkbox('vehicles[]', $vehicle->id, null, ['class' => 'field']) }}</td>
                         <td class="text-center">{{$vehicle->id}}</td>
-                        <td class="text-center">{{$vehicle->vehicleNo}}</td>
-                        <td class="text-center">{{$vehicle->employee->name}}</td>
-                        <td>{{$vehicle->owner->name}}</td>
-                        <td>{{$vehicle->status->name}}</td>
+                        <td class="text-center">{{$vehicle->vehicleNo or ''}}</td>
+                        <td class="text-center">{{$vehicle->employee->name or ''}}</td>
+                        <td>{{$vehicle->owner->name or ''}}</td>
+                        <td>{{$vehicle->status->name or ''}}</td>
                     </tr>
                 @endforeach
                 </tbody>

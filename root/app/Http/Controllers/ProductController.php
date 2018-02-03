@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Parts;
 use App\Product;
 use App\Repositories\ProductRepository;
 use App\Stock;
@@ -72,4 +73,18 @@ class ProductController extends Controller
         Session::flash('success','"'.$product->name.'" has been deleted!');
         return redirect('products');
     }
+
+
+        public function partsLoad(Request $request)
+    {
+        $category = $request->get('category');
+        $parts = Parts::query()->where('category_id',$category)->get();
+        $combo='<option>'.null.'<option>';
+        foreach($parts as $part){
+            $combo.= '<option value="'.$part->id.'">'.$part->name.'</option>';
+        }
+        $combo.='';
+        return $combo;
+    }
+
 }

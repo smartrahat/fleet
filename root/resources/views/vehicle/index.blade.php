@@ -118,10 +118,11 @@
                                 {{ $vehicle->chasesNo }}
                             </td>
                             <td>
-                                {{ $vehicle->mobile}}
+                                {{ $vehicle->status->name }}
+
                             </td>
                             <td>
-                                {{ $vehicle->status->name or '' }}
+                                {{ $vehicle->mobile}}
                             </td>
                             <td>
                                 <img src='{{asset("images/vehicles/") }}/{{ $vehicle->image != null ? $vehicle->image : 'demo.png' }}' height="100" >
