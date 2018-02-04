@@ -86,43 +86,43 @@
                         @foreach($vehicles as $vehicle)
                         <tr>
                             <td>{{ $vehicle->id }}</td>
-                            <td>{{ $vehicle->employee->name }}</td>
+                            <td>{{ $vehicle->employee->name or '' }}</td>
                             <td>
                                 {{ $vehicle->brand->name or '' }}
                                 {{ $vehicle->type->name or '' }}
                             </td>
                             <td>{{ $vehicle->Owner->name or '' }}</td>
                             <td>
-                                {{ $vehicle->roadPermitStart }}
-                                {{ $vehicle->roadPermitEnd }}
+                                {{ $vehicle->roadPermitStart or '' }}
+                                {{ $vehicle->roadPermitEnd or '' }}
                             </td>
                             <td>
-                                {{ $vehicle->taxTokenStart }}
-                                {{ $vehicle->taxTokenEnd }}
+                                {{ $vehicle->taxTokenStart or '' }}
+                                {{ $vehicle->taxTokenEnd or '' }}
                             </td>
                             <td>
-                                {{ $vehicle->insuranceStart }}
-                                {{ $vehicle->insuranceEnd }}
+                                {{ $vehicle->insuranceStart or '' }}
+                                {{ $vehicle->insuranceEnd or '' }}
                             </td>
                             <td>
-                                {{ $vehicle->fitnessStart }}
-                                {{ $vehicle->fitnessEnd }}
+                                {{ $vehicle->fitnessStart or '' }}
+                                {{ $vehicle->fitnessEnd or '' }}
                             </td>
                             <td>
-                                {{ $vehicle->regCertStart }}
-                                {{ $vehicle->regCertEnd }}
+                                {{ $vehicle->regCertStart or '' }}
+                                {{ $vehicle->regCertEnd or '' }}
                             </td>
                             <td>
-                                {{ $vehicle->vehicleNo }}
-                                {{ $vehicle->engineNo }}
-                                {{ $vehicle->chasesNo }}
+                                {{ $vehicle->vehicleNo or '' }}
+                                {{ $vehicle->engineNo or '' }}
+                                {{ $vehicle->chasesNo or '' }}
                             </td>
                             <td>
-                                {{ $vehicle->status->name }}
+                                {{ $vehicle->status->name or '' }}
 
                             </td>
                             <td>
-                                {{ $vehicle->mobile}}
+                                {{ $vehicle->mobile or ''}}
                             </td>
                             <td>
                                 <img src='{{asset("images/vehicles/") }}/{{ $vehicle->image != null ? $vehicle->image : 'demo.png' }}' height="100" >

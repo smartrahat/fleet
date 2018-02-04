@@ -36,7 +36,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    @can('admin')
                     <li class="nav-parent {{ isActive(['vehicleUserAssigns*','vehicleUserAssign/create*']) }}">
                         <a>
                             <i class="fa fa-drivers-license" aria-hidden="true"></i>
@@ -51,7 +51,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endcan
                     <li class="nav-parent {{ isActive(['drivers*','driver*']) }}">
                         <a>
                             <i class="fa fa-drivers-license" aria-hidden="true"></i>
@@ -350,6 +350,7 @@
                             </li>
                         </ul>
                     </li>
+                    @can('admin')
                     <li class="nav-parent {{ isActive(['companies*']) }}">
                         <a>
                             <i class="fa fa-users" aria-hidden="true"></i>
@@ -359,11 +360,12 @@
                             <li class="{{ isActive('companies') }}">
                                 <a href="{{ action('CompanyController@index') }}">Companies</a>
                             </li>
-                            <lid class="{{ isActive('company/create')}}">
+                            <li class="{{ isActive('company/create')}}">
                                 <a href="{{ action('CompanyController@create') }}">Add Company</a>
                             </li>
                         </ul>
                     </li>
+                    @endcan
                 </ul>
             </nav>
         </div>

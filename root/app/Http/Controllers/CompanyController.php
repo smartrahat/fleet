@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\City;
 use App\Company;
@@ -12,6 +13,7 @@ use App\State;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 
 class CompanyController extends Controller
@@ -29,6 +31,9 @@ class CompanyController extends Controller
 
     public function index()
     {
+//        if(Gate::denies('admin',Auth::user())){
+//            echo "<h1>Forbidden</h1>";
+//        }
         $companies = Company::all();
         return view('company.index',compact('companies'));
     }

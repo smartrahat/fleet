@@ -34,6 +34,7 @@ Route::patch('vehicle/{id}/update','VehicleController@update');
 Route::delete('vehicle/delete/{id}','VehicleController@destroy');
 Route::get('vehicle/show/{id}', 'VehicleController@show');
 Route::get('vehicleDailyReport', 'VehicleController@report');
+Route::post('vehicleStatusChange', 'VehicleController@changeStatus');
 
 //Brand routes
 Route::get('brands', 'BrandController@index');
