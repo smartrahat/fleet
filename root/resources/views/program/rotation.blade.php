@@ -57,18 +57,17 @@
                             <th>ID</th>
                             <th>Vehicle</th>
                             <th>Status</th>
-                            <th>Location</th>
-                            <th>Driver Adv. Fixed</th>
+                            <th>Driver</th>
                             <th>SR</th>
                             <th>Party</th>
-                            <th>Empty Container</th>
+                            <th>Trip Cancellation Reason</th>
                             <th>Vehicle Mobile</th>
                             <th>Loading Point</th>
                             <th>Unloading Point</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Advance</th>
-                            <th>Due</th>
+                            <th>Empty Container</th>
+                            <th>Driver Adv. Fixed</th>
+                            <th>Driver Advance</th>
+                            <th>Extra Amount</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -78,19 +77,19 @@
                                 <td>{{ $vehicle->vehicleNo }}</td>
                                 <td>{{ $vehicle->status->name or '' }}</td>
                                 @foreach($vehicle->trips as $trip)
+                                    {{--{{dd($trip)}}--}}
                                     @if($trip->program->date == $date)
-                                        <td>{{ $trip->program->unloading or '' }}</td>
-                                        <td class="text-right">{{ $trip->driver_adv or 0 }}/-</td>
+                                        <td>{{ $trip->driver->name or ''}}</td>
                                         <td>{{ $trip->program->employee->name or '' }}</td>
                                         <td>{{ $trip->program->party->name or '' }}</td>
-                                        <td>{{ $trip->program->emp_container or '' }}</td>
+                                        <td>{{ $trip->trip_cancel or '' }}</td>
                                         <td>{{ $vehicle->mobile or '' }}</td>
-                                        <td>{{ $trip->program->loading or '' }}</td>
-                                        <td>{{ $trip->program->unloading or '' }}</td>
-                                        <td>{{ $trip->program->product or '' }}</td>
-                                        <td class="text-right">{{ number_format($trip->program->rent) }}/-</td>
-                                        <td class="text-right">{{ number_format($trip->program->adv_rent) }}/-</td>
-                                        <td class="text-right">{{ number_format($trip->program->due_rent) }}/-</td>
+                                        <td>{{ $trip->loading or '' }}</td>
+                                        <td>{{ $trip->unloading or '' }}</td>
+                                        <td>{{ $trip->emp_container or '' }}</td>
+                                        <td class="text-right">{{ $trip->d_a_fix or 0 }}/-</td>
+                                        <td class="text-right">{{ $trip->driver_adv or 0 }}/-</td>
+                                        <td class="text-right">{{ $trip->extra_adv or 0 }}/-</td>
                                     @endif
                                 @endforeach
                                 {{--|| $vehicle->trips->where('date',$date)->count() == 0--}}

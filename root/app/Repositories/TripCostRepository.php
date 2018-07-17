@@ -1,12 +1,15 @@
 <?php
 namespace App\Repositories;
 
+use App\Driver;
 use App\Program;
+use App\TripCost;
+use App\Vehicle;
 
-class TripRepository {
+class TripCostRepository {
 
-    public function programs($id){
-//        dd($id);
+    public function programs(){
         return Program::all()->pluck('serial','id');
     }
+
 }

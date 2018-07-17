@@ -99,8 +99,16 @@ class VehicleController extends Controller
         return view('vehicle.show',compact('vehicle','vehicle'));
     }
 
-    public function report()
+    public function report(VehiclesRequest $request)
     {
-        $vehicle = Vehicle::all();
+        $vehicles = Vehicle::all()->where('employee_id',1);
+//        dd($vehicles);
+//
+//        foreach($vehicles as $vehicle)
+//        {
+//            $request['status_id'] = 4;
+//            $vehicle->update($request->only(['status_id']));
+//        }
+//        This part is for changing the status of vehicle into garaged
     }
 }

@@ -31,9 +31,10 @@ $factory->define(App\Vehicle::class,function(Faker\Generator $faker){
         'vehicleNo' => $faker->randomNumber(5),
         'engineNo' => $faker->randomDigit,
         'chasesNo' => $faker->randomDigit,
-        'status_id' => function(){
-            return factory(App\Status::class)->create()->id;
-        },
+//        'status_id' => function(){
+//            return factory(App\Status::class)->create()->id;
+//        },
+        'status_id'=> $faker->numberBetween(1,3),
         'image' => $faker->asciify(null),
         'mobile' => $faker->phoneNumber
     ];

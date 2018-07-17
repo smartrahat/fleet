@@ -2,6 +2,15 @@
 
 @section('title','Program List')
 
+@section('style')
+<style>
+    .eye{
+        height: 33px;
+    }
+
+</style>
+@stop
+
 @section('content')
     <section role="main" class="content-body">
 
@@ -47,22 +56,32 @@
                         </thead>
                         <tbody>
                         @foreach($programs as $program)
-                        <tr>
-                            <td>{{ $i++ }}</td>
-                            <td>{{ $program->date->format('Y-m-d') }}</td>
-                            <td>{{ $program->serial }}</td>
-                            <td>{{ $program->party->name or '' }}</td>
-                            <td>{{ $program->employee->name or '' }}</td>
-                            <td class="text-right">{{ number_format($program->adv_rent,2) }}/-</td>
-                            <td class="text-right">{{ number_format($program->due_rent,2) }}/-</td>
-                            <td class="text-right">{{ number_format($program->rent,2) }}/-</td>
-                            <td>
-                                {{ Form::open(['action'=>['ProgramController@destroy',$program->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
-                                <a href="{{ action('ProgramController@edit',$program->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                                {{ Form::submit('X',['class'=>'btn btn-danger']) }}
-                                {{ Form::close() }}
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $program->date->format('Y-m-d') }}</td>
+                                <td>{{ $program->serial }}</td>
+                                <td>{{ $program->party->name or '' }}</td>
+                                <td>{{ $program->employee->name or '' }}</td>
+                                <td class="text-right">{{ number_format($program->adv_rent,2) }}/-</td>
+                                <td class="text-right">{{ number_format($program->due_rent,2) }}/-</td>
+                                <td class="text-right">{{ number_format($program->rent,2) }}/-</td>
+                                <td>
+                                    {{ Form::open(['action'=>['ProgramController@destroy',$program->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
+                                    <a href="{{ action('ProgramController@edit',$program->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                    {{ Form::submit('X',['class'=>'btn btn-danger']) }}
+                                    {{--<a href="{{ action('ProgramController@edit',$program->id) }}" role="button" class="btn btn-success"><i class="fa fa-power-off" id="tripCancel"></i></a>--}}
+
+                                    {{--Bootstrap modal start--}}
+                                    {{ Form::button('', ['class' => 'btn btn-primary fa fa-eye eye', 'data-toggle'=>'modal', 'data-target'=>'#exampleModal','id'=>'showTrip'.$program->id,'onclick'=>'showTrip('.$program->id.')']) }}
+                                    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            @include('program.showTrip')
+                                        </div>
+                                    </div>
+                                    {{ Form::close() }}
+
+                                </td>
+                            </tr>
                         @endforeach
                         <tr>
                             <td colspan="5" class="text-right"><b>Total</b></td>
@@ -77,13 +96,25 @@
             </div>
         </section>
     </section>
-@endsection
+@stop
 
-@section('script')
+@push('script')
     <script>
         function confirmDelete(){
             var x = confirm('Are you sure you want to delete this record?');
             return !!x;
         }
     </script>
-@stop
+    <script>
+        function showTrip(id){
+            var csrf = '{{csrf_token()}}';
+            $.ajax({
+                url: "showTrips",
+                data: {id:id, _token:csrf},
+                type : "get"
+            }).done(function(e){
+                $('.modal-dialog').html(e).hide().fadeIn(500);
+            })
+        }
+    </script>
+@endpush

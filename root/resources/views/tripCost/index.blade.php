@@ -24,9 +24,11 @@
                     <section class="panel">
                         <header class="panel-heading">
                             <div class="panel-actions">
+                                <a href="javascript:window.print()"><i class="fa fa-print"></i></a>
                                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                             </div>
-                            <h2 class="panel-title">List of Trips</h2>
+                            <h2 class="panel-title">Trip Cost Report</h2>
+
                         </header>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -35,7 +37,9 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Program ID</th>
+                                        <th>Program Serial</th>
+                                        <th>Driver</th>
+                                        <th>Vehicle</th>
                                         <th>Fuel Cost</th>
                                         <th>Driver Allow<br>ance</th>
                                         <th>Helper Allow<br>ance</th>
@@ -49,6 +53,8 @@
                                         <th>Port Gate Charge</th>
                                         <th>Other Expenses</th>
                                         <th>Total</th>
+                                        <th>Driver Advance</th>
+                                        <th>Driver Balance</th>
                                         <th>Action</th>
                                              </tr>
                                         </thead>
@@ -57,6 +63,9 @@
                                 <tr>
                                     <td>{{$tripCost->id}}</td>
                                     <td>{{$tripCost->program->serial}}</td>
+                                    <td>{{$tripCost->driver->name}}</td>
+                                    <td>{{$tripCost->vehicle->vehicleNo}}</td>
+
                                     <td class="text-right">{{number_format($tripCost->fuel_cost)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->driver_allow)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->helper_allow)}}/-</td>
@@ -70,6 +79,16 @@
                                     <td class="text-right">{{number_format($tripCost->port_gate)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->other)}}/-</td>
                                     <td class="text-right">{{number_format($tripCost->total)}}/-</td>
+                                    <td>
+                                        @foreach($tripCost->program->trips->where('program_id',$tripCost->program->id)->where('driver_id',$tripCost->driver->id)->where('vehicle_id',$tripCost->vehicle->id) as $trip)
+                                            {{$trip->d_a_fix+$trip->extra_adv}}
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach($tripCost->program->trips->where('program_id',$tripCost->program->id)->where('driver_id',$tripCost->driver->id)->where('vehicle_id',$tripCost->vehicle->id) as $trip)
+                                            {{$trip->d_a_fix+$trip->extra_adv-$tripCost->total}}
+                                        @endforeach
+                                    </td>
                                     <td>
                                         {{ Form::open(['action'=>['TripCostController@destroy',$tripCost->id],'method'=>'delete','onsubmit'=>'return confirmDelete()']) }}
                                         <a href="{{ action('TripCostController@edit',$tripCost->id) }}" role="button" class="btn btn-warning"><i class="fa fa-edit"></i></a>

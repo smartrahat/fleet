@@ -12,6 +12,7 @@
         @yield('content')
     </div>
 </section>
+@stack('script')
 @yield('script')
 @include('includes.scripts')
 </body>

@@ -124,7 +124,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['program*','dailyReport*','trip*','rotation*','dailyIncomeReport*','report*','receipt*']) }}">
+                    <li class="nav-parent {{ isActive(['program*','dailyReport*','trip*','rotation*','dailyIncomeReport*','report*','receipt*','dateWiseTripReport*']) }}">
                         <a>
                             <i class="fa fa-ship" aria-hidden="true"></i>
                             <span>Programs</span>
@@ -147,9 +147,24 @@
                             </li>
 
                             <li class="{{ isActive('program/dailyIncomeReport') }}">
-                                <a href="{{action('ProgramController@dailyIncomeReport')}}">Daily Income Report</a>
+                                <a href="{{action('ProgramController@dailyIncomeReport')}}">Datewise Report</a>
                             </li>
 
+                            <li class="{{ isActive('program/trips') }}">
+                                <a href="{{action('ProgramController@dateWiseTripReport')}}">Date wise Trip Report</a>
+                            </li>
+
+                            {{--<li class="{{ isActive('program/vehicleWiseReport') }}">--}}
+                                {{--<a href="{{action('ProgramController@vehicleWiseReport')}}">Vehicle wise Report</a>--}}
+                            {{--</li>--}}
+
+                            {{--<li class="{{ isActive('program/partyWiseReport') }}">--}}
+                                {{--<a href="{{action('ProgramController@partyWiseReport')}}">Party wise Report</a>--}}
+                            {{--</li>--}}
+
+                            {{--<li class="{{ isActive('program/driverWiseReport') }}">--}}
+                                {{--<a href="{{action('ProgramController@driverWiseReport')}}">Driver wise Report</a>--}}
+                            {{--</li>--}}
                             {{--<li class="{{ isActive('program/report') }}">--}}
                             {{--<a href="{{action('ProgramController@programReport')}}">Report</a>--}}
                             {{--</li>--}}
@@ -165,6 +180,9 @@
                             <span>Accounts</span>
                         </a>
                         <ul class="nav nav-children">
+                            <li class="{{ isActive('accounts') }}">
+                                <a href="{{action('AccountController@index')}}">Incomes & Expenses</a>
+                            </li>
                             <li class="{{ isActive('due/create') }}">
                                 <a href="{{action('DueController@create')}}">Due Collection</a>
                             </li>
@@ -265,41 +283,41 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent">
-                        <a>
-                            <i class="fa fa-th-list" aria-hidden="true"></i>
-                            <span>Inventory</span>
-                        </a>
-                        <ul class="nav nav-children">
-                            <li>
-                                <a href="">
-                                    Add Product
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Category
-                                </a>
+                    {{--<li class="nav-parent">--}}
+                        {{--<a>--}}
+                            {{--<i class="fa fa-th-list" aria-hidden="true"></i>--}}
+                            {{--<span>Inventory</span>--}}
+                        {{--</a>--}}
+                        {{--<ul class="nav nav-children">--}}
+                            {{--<li>--}}
+                                {{--<a href="">--}}
+                                    {{--Add Product--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<a href="">--}}
+                                    {{--Category--}}
+                                {{--</a>--}}
 
-                            </li>
-                            <li>
-                                <a>
-                                    Sub Category
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    Brands
-                                </a>
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<a>--}}
+                                    {{--Sub Category--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<a>--}}
+                                    {{--Brands--}}
+                                {{--</a>--}}
 
-                            </li>
-                            <li>
-                                <a>
-                                    Size
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<a>--}}
+                                    {{--Size--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
                     <li class="nav-parent {{ isActive(['suppliers*','supplier/create*']) }}">
                         <a>
                             <i class="fa fa-briefcase" aria-hidden="true"></i>
@@ -315,7 +333,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-parent {{ isActive(['invoice*','addPurchase*']) }}">
+                    <li class="nav-parent {{ isActive(['invoice*','addPurchase*','*productwise']) }}">
                         <a>
                             <i class="fa fa-balance-scale" aria-hidden="true"></i>
                             <span>Purchase</span>
@@ -327,12 +345,15 @@
                             <li class="{{ isActive('invoice/create') }}">
                                 <a href="{{ action('InvoiceController@create') }}">Add Purchase</a>
                             </li>
-                            {{--<li class="{{ isActive('invoice/dailyReport') }}">--}}
-                                {{--<a href="{{action('InvoiceController@dailyReport')}}">Daily Expense Report</a>--}}
-                            {{--</li>--}}
+                            <li class="{{ isActive('invoice/purchaseRecord') }}">
+                                <a href="{{action('InvoiceController@purchaseRecord')}}">Daily Purchase Report</a>
+                            </li>
+                            <li class="{{ isActive('invoice/productwisePurchaseRecord') }}">
+                                <a href="{{action('InvoiceController@purchaseHistory')}}">Productwise Purchase Record</a>
+                            </li>
                         </ul>
                     </li>
-
+                    @can('admin')
                     <li class="nav-parent {{ isActive(['user*']) }}">
                         <a>
                             <i class="fa fa-users" aria-hidden="true"></i>
@@ -350,7 +371,7 @@
                             </li>
                         </ul>
                     </li>
-                    @can('admin')
+
                     <li class="nav-parent {{ isActive(['companies*']) }}">
                         <a>
                             <i class="fa fa-users" aria-hidden="true"></i>

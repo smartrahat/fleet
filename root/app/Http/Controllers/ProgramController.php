@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Employee;
 use App\Http\Requests\ProgramRequest;
 use App\Income;
 use App\Program;
@@ -10,6 +9,7 @@ use App\Repositories\ProgramRepository;
 use App\Trip;
 use App\Vehicle;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\TripCost;
@@ -41,7 +41,10 @@ class ProgramController extends Controller
         $paid = Program::query()->sum('adv_rent');
         $due = Program::query()->sum('due_rent');
         $i=1;
-        return view('program.index',compact('programs','i','total','paid','due','repository'));
+
+        $trips = Trip::all();
+
+        return view('program.index',compact('programs','i','total','paid','due','repository','trips'));
     }
 
     public function store(ProgramRequest $request)
@@ -152,33 +155,79 @@ class ProgramController extends Controller
                     'unloading' => $request['unloading'.$num],
                     'product' => $request['product'.$num],
                     'emp_container' => $request['emp_container'.$num],
-                    'fuel' => $request['fuel'.$num]
+                    'fuel' => $request['fuel'.$num],
+                    'trip_status' => 1
                 ];
 
                 $vid = Vehicle::query()->findOrFail($request['vehicle_id'.$num]);
-                $vid->status_id = 3 ;
+                $vid->status_id = 3;
                 DB::table('vehicles')
                     ->where('id', $vid->id)
                     ->update(['status_id' => $vid->status_id]);
 //                dd($vid);
-                //dd($data);
+//                dd($data);
+
                 Trip::query()->create($data);
             }
-
-
         }
     }
 
     public function dailyIncomeReport()
     {
-        $date = Input::has('date') ? Carbon::parse(Input::get('date')) : Carbon::now();
-        $incomes = Income::query()->where('date',$date)->get();
+        $fromDate = Input::has('from') ? Carbon::parse(Input::get('from')) : Carbon::now();
+        $toDate = Input::has('to') ? Carbon::parse(Input::get('to')) : Carbon::now();
+        $incomes = Income::query()->whereBetween('date',[$fromDate,$toDate])->get();
         $i = 1;
-        return view('program.dailyIncomeReport',compact('i','incomes','date'));
+        $total = Income::query()->whereBetween('date',[$fromDate,$toDate])->sum('rent');
+        $paid = Income::query()->whereBetween('date',[$fromDate,$toDate])->sum('paid');
+        $due_rent = Income::query()->whereBetween('date',[$fromDate,$toDate])->sum('due_rent');
+
+        return view('program.dailyIncomeReport',compact('i','incomes','fromDate','toDate','total','paid','due_rent'));
     }
 
     public function show($id){
-        $programs = Program::query()->findOrFail($id);
-        return view('program.show',compact('programs'));
+        $trips = Trip::query()->where('program_id',$id)->get();
+        $date = $trips->first()->program->date;
+        return view('program.show',compact('trips','date'));
+    }
+
+    public function showTrip(Request $request)
+    {
+        $id = $request->get('id');
+//        $program = Program::query()->findOrFail($id);
+//        dd($programs);
+//        $trips = $programs->trips()->get();
+        $trips = Trip::all()->where('program_id',$id)->where('trip_status',1);
+
+        $num = 1;
+        return view('program.showTrip',compact('trips','program','num'));
+    }
+
+    public function programTrips(Request $request)
+    {
+        $programs = $request->get('vehicle');
+        $trips = Trip::query()->where('program_id',$programs->id)->get();
+        $combo='<option>'.null.'<option>';
+        foreach($trips as $trip){
+            $combo.= '<option value="'.$problem->id.'">'.$problem->problem.'</option>';
+        }
+        $combo.='';
+        return $combo;
+    }
+
+    public function dateWiseTripReport()
+    {
+        $fromDate = Input::has('from') ? Carbon::parse(Input::get('from')) : Carbon::now();
+        $toDate = Input::has('to') ? Carbon::parse(Input::get('to')) : Carbon::now();
+        $programs = Program::query()->whereBetween('date',[$fromDate,$toDate])->get();
+
+        $total = Program::query()->whereBetween('date',[$fromDate,$toDate])->sum('rent');
+        $paid = Program::query()->whereBetween('date',[$fromDate,$toDate])->sum('adv_rent');
+        $due = Program::query()->whereBetween('date',[$fromDate,$toDate])->sum('due_rent');
+
+
+//        $trips = Trip::query()->where()->get();
+        $i = 1;
+        return view('program.dateWiseTripReport',compact('programs','fromDate','trips','toDate','i','total','paid','due'))  ;
     }
 }

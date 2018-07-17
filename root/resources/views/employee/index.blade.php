@@ -54,15 +54,15 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{$employee->name}}</td>
-                                            <td>{{$employee->f_name}}</td>
-                                            <td>{{$employee->m_name}}</td>
-                                            <td>{{$employee->pre_address}}</td>
-                                            <td>{{$employee->perm_address}}</td>
-                                            <td>{{$employee->nid}}</td>
-                                            <td>{{ $employee->designation->name }}</td>
-                                            <td>{{$employee->mobile}}</td>
-                                            <td>{{$employee->join_date}}</td>
-                                            <td>{{$employee->app_person}}</td>
+                                            <td>{{$employee->f_name or ''}}</td>
+                                            <td>{{$employee->m_name or ''}}</td>
+                                            <td>{{$employee->pre_address or ''}}</td>
+                                            <td>{{$employee->perm_address or ''}}</td>
+                                            <td>{{$employee->nid or ''}}</td>
+                                            <td>{{ $employee->designation->name  or ''}}</td>
+                                            <td>{{$employee->mobile or ''}}</td>
+                                            <td>{{$employee->join_date or ''}}</td>
+                                            <td>{{$employee->app_person or ''}}</td>
                                             <td>
                                                 <img src='{{asset("images/employees/") }}/{{ $employee->image != null ? $employee->image : 'dummy.jpg' }}' height="75" >
                                             </td>

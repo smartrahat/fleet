@@ -16,6 +16,8 @@ class ForeignTripCostsTable extends Migration
         Schema::table('trip_costs', function (Blueprint $table) {
             $table->foreignAuthority();
             $table->foreign('program_id')->references('id')->on('programs');
+            $table->foreign('driver_id')->references('id')->on('drivers');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
         });
     }
 
@@ -29,6 +31,8 @@ class ForeignTripCostsTable extends Migration
         Schema::table('trip_costs', function (Blueprint $table) {
             $table->dropForeignAuthority();
             $table->dropForeign(['program_id']);
+            $table->dropForeign(['driver_id']);
+            $table->dropForeign(['vehicle_id']);
         });
     }
 }

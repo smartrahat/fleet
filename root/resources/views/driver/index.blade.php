@@ -50,13 +50,13 @@
                                     @foreach($drivers as $driver)
                                         <tr>
                                             <td>{{$driver->id}}</td>
-                                            <td>{{$driver->name}}</td>
-                                            <td>{{$driver->f_name}}<br>{{$driver->m_name}}</td>
-                                            <td>{{$driver->perm_address}}</td>
-                                            <td>{{$driver->nid}}</td>
-                                            <td>{{$driver->d_licence}}</td>
-                                            <td>{{$driver->mobile}}</td>
-                                            <td>{{$driver->ref_name}}<br>{{$driver->app_person}}</td>
+                                            <td>{{$driver->name or ''}}</td>
+                                            <td>{{$driver->f_name or ''}}<br>{{$driver->m_name or ''}}</td>
+                                            <td>{{$driver->perm_address or ''}}</td>
+                                            <td>{{$driver->nid or ''}}</td>
+                                            <td>{{$driver->d_licence or ''}}</td>
+                                            <td>{{$driver->mobile or ''}}</td>
+                                            <td>{{$driver->ref_name or ''}}<br>{{$driver->app_person or ''}}</td>
                                             <td>
                                                 <img src='{{asset("images/drivers/") }}/{{ $driver->image != null ? $driver->image : 'dummy.jpg' }}' height="100" >
                                             </td>

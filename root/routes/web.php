@@ -104,6 +104,9 @@ Route::get('program/receipt','ProgramController@driverReceipt');
 Route::get('program/dailyReport','ProgramController@dailyReport');
 Route::get('program/dailyIncomeReport','ProgramController@dailyIncomeReport');
 Route::get('program/show/{id}','ProgramController@show');
+Route::get('showTrips','ProgramController@showTrip');
+Route::get('program/trips','ProgramController@dateWiseTripReport');
+
 
 //Trip routes
 Route::get('trips', 'TripController@index');
@@ -112,6 +115,8 @@ Route::post('trip/store', 'TripController@store');
 Route::get('trip/edit/{id}','TripController@edit');
 Route::patch('trip/{id}/update','TripController@update');
 Route::delete('trip/delete/{id}','TripController@destroy');
+Route::get('trip/cancelTrip/{id}','TripController@cancelTrip');
+Route::post('trip/{id}/tripCancellation','TripController@tripCancel');
 
 //Trip Cost routes
 Route::get('tripCosts', 'TripCostController@index');
@@ -120,6 +125,8 @@ Route::post('tripCost/store', 'TripCostController@store');
 Route::get('tripCost/edit/{id}','TripCostController@edit');
 Route::patch('tripCost/{id}/update','TripCostController@update');
 Route::delete('tripCost/delete/{id}','TripCostController@destroy');
+Route::post('tripCost/driverTripCost','TripCostController@driverTripCost');
+Route::post('tripCost/vehicleTripCost','TripCostController@vehicleTripCost');
 
 //Due Collection routes
 Route::get('dues', 'DueController@index');
@@ -190,6 +197,8 @@ Route::post('invoice/store', 'InvoiceController@store');
 Route::get('invoice/edit/{id}','InvoiceController@edit');
 Route::patch('invoice/{id}/update','InvoiceController@update');
 Route::delete('invoice/delete/{id}','InvoiceController@destroy');
+Route::delete('invoice/purchaseRecord','InvoiceController@purchaseRecord');
+Route::get('invoice/productwisePurchaseRecord','InvoiceController@purchaseHistory');
 
 
 /**Purchase Controller*/
@@ -284,15 +293,16 @@ Route::get('problem/edit/{id}','ProblemController@edit');
 Route::patch('problem/{id}/update','ProblemController@update');
 Route::delete('problem/delete/{id}','ProblemController@destroy');
 
+
 /** Vehicle Service routes */
 Route::get('services','ServiceController@index');
 Route::get('service/create','ServiceController@create');
-Route::post('service/problemSubmit','ServiceController@problemLoad');
 Route::post('service/partsSubmit','ServiceController@partsLoad');
 Route::post('service/store','ServiceController@store');
 Route::get('service/edit/{id}','ServiceController@edit');
 Route::patch('service/{id}/update','ServiceController@update');
 Route::delete('service/delete/{id}','ServiceController@destroy');
+Route::post('service/problemSubmit','ServiceController@problemLoad');
 
 //Garage routes
 Route::get('garages', 'GarageController@index');
@@ -300,3 +310,13 @@ Route::post('garage/store', 'GarageController@store');
 Route::get('garage/edit/{id}','GarageController@edit');
 Route::patch('garage/{id}/update','GarageController@update');
 Route::delete('garage/delete/{id}','GarageController@destroy');
+
+
+
+//Accounts routes
+Route::get('accounts', 'AccountController@index');
+Route::get('account/create', 'AccountController@create');
+Route::post('account/store', 'AccountController@store');
+Route::get('account/edit/{id}','AccountController@edit');
+Route::patch('account/{id}/update','AccountController@update');
+Route::delete('account/delete/{id}','AccountController@destroy');

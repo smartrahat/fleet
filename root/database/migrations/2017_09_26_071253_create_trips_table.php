@@ -27,6 +27,8 @@ class CreateTripsTable extends Migration
             $table->string('fuel')->nullable();
             $table->integer('d_a_fix')->nullable();
             $table->integer('extra_adv')->nullable();
+            $table->string('trip_cancel')->nullable();
+            $table->integer('trip_status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,6 +17,9 @@ class CreateTripCostTable extends Migration
             $table->increments('id');
             $table->authorities();
             $table->integer('program_id')->unsigned();
+            $table->integer('driver_id')->unsigned();
+            $table->integer('vehicle_id')->unsigned();
+            $table->date('date');
             $table->string('fuel_cost');
             $table->string('driver_allow');
             $table->string('helper_allow');

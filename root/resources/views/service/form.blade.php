@@ -197,11 +197,6 @@
             });
         },1000)
     </script>
-
-
-
-
-
     <script>
         $('#vehicle_id').on('change', function () {
             var vehicle = $('#vehicle_id').val();

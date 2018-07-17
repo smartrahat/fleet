@@ -60,28 +60,28 @@
 
                                 <td>{{$tripCost->id }}</td>
                                 <td>{{$tripCost->program->date}}</td>
-                                <td>{{$tripCost->program->vehicle->vehicleNo}}</td>
-                                <td>{{$tripCost->program->driver->name}}</td>
-                                <td>{{$tripCost->program->trip->loading}}</td>
-                                <td>{{$tripCost->program->trip->unloading}}</td>
-                                <td>{{$tripCost->program->trip->emp_container}}</td>
-                                <td>{{$tripCost->program->trip->product}}</td>
-                                <td class="text-right">{{$tripCost->program->trip->fuel}}<br>
-                                    {{number_format($tripCost->fuel_cost)}}/-</td>
-                                <td class="text-right">{{number_format($tripCost->program->tripCost->container)}}/-<br>{{number_format($tripCost->labour) }}/-</td>
-                                <td class="text-right">{{number_format($tripCost->driver_allow) }}/-<br>
-                                    {{number_format($tripCost->helper_allow) }}/-</td>
-                                <td class="text-right">{{number_format($tripCost->toll) }}/-<br>
-                                    {{number_format($tripCost->bridge)}}/-<br>
-                                    {{number_format($tripCost->scale)}}/-<br></td>
-                                <td class="text-right">{{number_format($tripCost->wheel) }}/-</td>
-                                <td class="text-right">{{number_format($tripCost->donation) }}/-<br>
-                                    {{number_format($tripCost->port_gate) }}/-</td>
-                                <td class="text-right">{{number_format($tripCost->other) }}/-</td>
+                                <td>{{$tripCost->program->vehicle->vehicleNo or ''}}</td>
+                                <td>{{$tripCost->program->driver->name or ''}}</td>
+                                <td>{{$tripCost->program->trip->loading or ''}}</td>
+                                <td>{{$tripCost->program->trip->unloading or ''}}</td>
+                                <td>{{$tripCost->program->trip->emp_container or ''}}</td>
+                                <td>{{$tripCost->program->trip->product or ''}}</td>
+                                <td class="text-right">{{$tripCost->program->trip->fuel or ''}}<br>
+                                    {{number_format($tripCost->fuel_cost) or ''}}/-</td>
+                                <td class="text-right">{{number_format($tripCost->program->tripCost->container) or ''}}/-<br>{{number_format($tripCost->labour) or '' }}/-</td>
+                                <td class="text-right">{{number_format($tripCost->driver_allow) or '' }}/-<br>
+                                    {{number_format($tripCost->helper_allow) or '' }}/-</td>
+                                <td class="text-right">{{number_format($tripCost->toll) or '' }}/-<br>
+                                    {{number_format($tripCost->bridge) or '')}}/-<br>
+                                    {{number_format($tripCost->scale) or '')}}/-<br></td>
+                                <td class="text-right">{{number_format($tripCost->wheel) or '' }}/-</td>
+                                <td class="text-right">{{number_format($tripCost->donation) or '' }}/-<br>
+                                    {{number_format($tripCost->port_gate) or '' }}/-</td>
+                                <td class="text-right">{{number_format($tripCost->other) or '' }}/-</td>
                                 <td class="text-right">{{number_format($tripCost->total) }}/-</td>
-                                <td class="text-right">{{number_format($tripCost->program->trip->driver_adv)}}/-</td>
-                                <td class="text-right">{{number_format($tripCost->program->trip->extra_adv)}}/-</td>
-                                <td class="text-right">{{number_format($tripCost->program->trip->driver_adv+$tripCost->total-$tripCost->program->trip->extra_adv)}}/-</td>
+{{--                                <td class="text-right">{{number_format($tripCost->program->trip->driver_adv) or ''}}/-</td>--}}
+                                {{--<td class="text-right">{{number_format($tripCost->program->trip->extra_adv) or ''}}/-</td>--}}
+                                {{--<td class="text-right">{{number_format($tripCost->program->trip->driver_adv+$tripCost->total-$tripCost->program->trip->extra_adv)  or ''}}/-</td>--}}
                             </tr>
                         @endforeach
                         </tbody>

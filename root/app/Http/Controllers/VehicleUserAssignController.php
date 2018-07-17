@@ -32,9 +32,6 @@ class VehicleUserAssignController extends Controller
 
 //        dd($employees);
 
-
-
-
         return view('vehicle_user_assign.index',compact('vehicles','vehicle','repository','employees'));
     }
 

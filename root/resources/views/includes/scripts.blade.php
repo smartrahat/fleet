@@ -34,7 +34,7 @@
 <script src="{{asset('assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js')}}"></script>
 <script src="{{asset('assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js')}}"></script>
 <script src="{{ asset('assets/vendor/select2/select2.js') }}"></script>
-<script src="{{ asset('assets/vendor/select2/select2.js') }}"</script>
+<script src="{{ asset('assets/vendor/select2/select2.js') }}"></script>
 <script src="{{ asset('assets/vendor/jquery-maskedinput/jquery.maskedinput.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>

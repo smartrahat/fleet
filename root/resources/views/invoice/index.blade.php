@@ -23,7 +23,7 @@
         <div class="panel panel-body no-print">
             {!! Form::open(['action'=>'InvoiceController@index','method'=>'get','class'=>'form-inline']) !!}
             <div class="form-group {{$errors->has('date')?'has-error':''}}">
-                <label class="control-label">Program Date: </label>
+                <label class="control-label">Purchase Date: </label>
                 <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-calendar"></i>

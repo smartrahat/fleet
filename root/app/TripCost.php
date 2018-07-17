@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TripCost extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['program_id','fuel_cost','driver_allow',
+    protected $fillable = ['program_id','vehicle_id','driver_id','date','fuel_cost','driver_allow',
         'helper_allow','labour','toll','bridge','scale','wheel','donation','container','port_gate','other','total'];
 
     /**
@@ -18,5 +18,15 @@ class TripCost extends Model
     public function program()
     {
         return $this->belongsTo(Program::class);
+    }
+
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class);
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo(Driver::class);
     }
 }

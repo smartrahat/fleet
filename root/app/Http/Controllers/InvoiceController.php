@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\InvoiceRequest;
 
 use App\Invoice;
+use App\Product;
 use App\Purchase;
 use App\Repositories\InvoiceRepository;
 use App\Stock;
@@ -140,6 +141,38 @@ class InvoiceController extends Controller
                 $stock->update(['quantity'=>$data]);
             }
         }
+    }
+
+    public function purchaseRecord(){
+        $repository = $this->repository;
+        $products = Product::all();
+        if(Input::has('product_id')){
+            $employees = Input::get('product_id');
+            $record = Purchase::query()->where('product_id',$products)->get()->take(5);
+
+        }else{
+            $products = [];
+            $employees = null;
+        }
+
+//        dd($employees);
+
+        return view('vehicle_user_assign.index',compact('products','vehicle','repository','employees'));
+    }
+
+    public function purchaseHistory(){
+        $repository = $this->repository;
+        $pid = Input::has('product_id');
+        if($pid){
+            $pid = Input::get('product_id');
+            $purchases = Purchase::query()->where('product_id',$pid)->get()->sortByDesc('id')->take(5);
+//            dd($purchases->date);
+        }else{
+            $purchases = Purchase::all();
+        }
+//        dd($purchases);
+        $num=1;
+        return view('invoice.purchaseHistory',compact('num','repository','purchases','pid'));
     }
 
 }
