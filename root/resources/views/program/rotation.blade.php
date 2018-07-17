@@ -104,6 +104,7 @@
     </section>
 @endsection
 
+
 @section('script')
     <script>
         function confirmDelete(){
