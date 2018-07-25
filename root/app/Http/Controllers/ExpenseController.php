@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Expense;
 use App\Http\Requests\ExpenseRequest;
 use App\Repositories\ExpenseRepository;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 class ExpenseController extends Controller
@@ -17,9 +19,24 @@ class ExpenseController extends Controller
 
     public function index()
     {
-        $expenses = Expense::all();
-        $total = Expense::query()->sum('amount');
-        return view('expense.index',compact('expenses','total'));
+//        $expenses = Expense::all();
+//        $total = Expense::query()->sum('amount');
+//        return view('expense.index',compact('expenses','total'));
+
+
+        $fromDate = Input::has('from') ? Carbon::parse(Input::get('from')) : Carbon::now();
+        $toDate = Input::has('to') ? Carbon::parse(Input::get('to')) : Carbon::now();
+        $expenses = Expense::query()->whereBetween('date',[$fromDate,$toDate])->get();
+
+        $total = Expense::query()->whereBetween('date',[$fromDate,$toDate])->sum('amount');
+//        $paid = Expense::query()->whereBetween('date',[$fromDate,$toDate])->sum('adv_rent');
+//        $due = Expense::query()->whereBetween('date',[$fromDate,$toDate])->sum('due_rent');
+
+
+//        $trips = Trip::query()->where()->get();
+        $i = 1;
+        return view('expense.index',compact('expenses','fromDate','toDate','i','total'))  ;
+
     }
 
     public function create()
@@ -56,5 +73,21 @@ class ExpenseController extends Controller
         $expense->delete();
         Session::flash('success','"'.$expense->name.'" has been deleted successfully!');
         return redirect('expenses');
+    }
+
+    public function expenseReport(){
+        $fromDate = Input::has('from') ? Carbon::parse(Input::get('from')) : Carbon::now();
+        $toDate = Input::has('to') ? Carbon::parse(Input::get('to')) : Carbon::now();
+        $expenses = Expense::query()->whereBetween('date',[$fromDate,$toDate])->get();
+
+//        $total = Expense::query()->whereBetween('date',[$fromDate,$toDate])->sum('rent');
+//        $paid = Expense::query()->whereBetween('date',[$fromDate,$toDate])->sum('adv_rent');
+//        $due = Expense::query()->whereBetween('date',[$fromDate,$toDate])->sum('due_rent');
+
+
+//        $trips = Trip::query()->where()->get();
+        $i = 1;
+        return view('expense.dateWiseTripReport',compact('expenses','fromDate','trips','toDate','i','total','paid','due'))  ;
+
     }
 }

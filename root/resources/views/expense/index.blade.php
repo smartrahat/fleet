@@ -35,18 +35,25 @@
 
                     <!-- Search Panel -->
                     <div class="panel panel-body no-print">
-                        {!! Form::open(['action'=>'ProgramController@dailyIncomeReport','method'=>'get','class'=>'form-inline']) !!}
-                        <div class="form-group {{$errors->has('date')?'has-error':''}}">
-                            <label class="control-label">Program Date: </label>
-                            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </span>
-                                {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"','placeholder'=>'YYYY-MM-DD' )) }}
+                        {!! Form::open(['action'=>'ExpenseController@index','method'=>'get','class'=>'form-inline']) !!}
+                        <div class="form-group {{$errors->has('from','to')? 'has-error':''}}">
+                            <div class="col-md-12">
+                                <div class="input-daterange input-group" data-plugin-datepicker data-date-format='yyyy-mm-dd' data-date-format='yyyy-mm-dd'>
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                                    {{ Form::text('from', null, array('class' => 'form-control')) }}
+                                    <span class="input-group-addon">to</span>
+                                    {{ Form::text('to', null, array('class' => 'form-control')) }}
+                                </div>
+                                @if($errors->has('from'))
+                                    <span class="help-block"><strong>{{$errors->first('from')}}</strong></span><br>
+                                @endif
+                                @if($errors->has('to'))
+                                    <span class="help-block"><strong>{{$errors->first('to')}}</strong></span>
+                                @endif
+
                             </div>
-                            @if($errors->has('date'))
-                                <span class="help-block"><strong>{{$errors->first('date')}}</strong></span>
-                            @endif
                         </div>
                         {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
                         <a href="javascript:window.print()" class="btn btn-success" role="button"><i class="fa fa-print"></i></a>
