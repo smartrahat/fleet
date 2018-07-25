@@ -116,11 +116,11 @@ class ProgramController extends Controller
         return view('program.driverReceipt',compact('tripCosts','repository'));
     }
 
-    public function rotation()
+    public function rotation(Request $request)
     {
         $date = Input::has('date') ? Carbon::parse(Input::get('date')) : Carbon::now();
         $repository = $this->repository;
-        $vehicles = Vehicle::all();
+        $vehicles = Vehicle::all()->where('status_id','<',4)->sortByDesc('status_id');
         return view('program.rotation',compact('vehicles','repository','date'));
     }
 

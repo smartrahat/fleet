@@ -23,21 +23,29 @@
         <!-- Search Panel -->
         <div class="panel panel-body no-print">
             {!! Form::open(['action'=>'ProgramController@rotation','method'=>'get','class'=>'form-inline']) !!}
-            <div class="form-group {{$errors->has('date')?'has-error':''}}">
-                <label class="control-label">Program Date: </label>
-                    <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </span>
-                        {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"','placeholder'=>'YYYY-MM-DD' )) }}
-                    </div>
-                    @if($errors->has('date'))
-                        <span class="help-block"><strong>{{$errors->first('date')}}</strong></span>
+            <div class="form-group {{$errors->has('date')?'has-error':''}} col-md-12">
+                <label class="control-label">Date: </label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                    {{ Form::text('date', null, array('class' => 'form-control','data-plugin-datepicker data-date-format="yyyy-mm-dd"','placeholder'=>'YYYY-MM-DD' )) }}
+                </div>
+                @if($errors->has('date'))
+                     <span class="help-block"><strong>{{$errors->first('date')}}</strong></span>
+                @endif
+                {{ Form::label('employee_id', 'Employee ', ['class'=>'col-md-1 control-label','style'=>'font-weight:600']) }}
+                <div class=" col-md-4">
+                    {{ Form::select('employee_id',$repository->employees(),null,['class'=>'form-control populate','id' =>'employee_id','data-plugin-selectTwo','placeholder'=>'Select Employee']) }}
+                    @if($errors->has('employee_id'))
+                        <span class="help-block"><strong>{{$errors->first('employee_id')}}</strong></span>
                     @endif
                 </div>
                 {!! Form::submit('GO',['class'=>'btn btn-success']) !!}
                 <a href="javascript:window.print()" class="btn btn-success" role="button"><i class="fa fa-print"></i></a>
-            {!! Form::close() !!}
+                {!! Form::close() !!}
+            </div>
+
         </div>
         <!-- /Search Panel -->
 
@@ -93,7 +101,6 @@
                                     @endif
                                 @endforeach
                                 {{--|| $vehicle->trips->where('date',$date)->count() == 0--}}
-
                             </tr>
                         @endforeach
                         </tbody>
@@ -112,4 +119,5 @@
             return !!x;
         }
     </script>
+
 @stop
